@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Windows;
 
 namespace TCPNetwork.Client
 {
@@ -45,15 +46,20 @@ namespace TCPNetwork.Client
         
         private bool            isRunning     = false;          // 서버가 동작하는지
 
+        private OnClientExit    onClientExit  = null;           // 클라이언트를 종료시켜줄 콜백
+
         public bool IsRunning { get => isRunning; }
 
         public delegate void OnButtonDown(object sender, EventArgs e);
+        public delegate void OnClientExit(string text);
 
-        public void Initialize(string userName, string serverIP, int serverPort, ITextDraw draw)
+        public void Initialize(string userName, string serverIP, int serverPort, ITextDraw draw, 
+            OnClientExit exitFunc)
         {
             this.userName   = userName;
             this.serverPort = serverPort;
             this.serverIP   = serverIP;
+            onClientExit    = exitFunc;
             textDraw        = draw;
             isRunning       = false;
 
@@ -107,42 +113,51 @@ namespace TCPNetwork.Client
 
         private void MessageHandling()
         {
-            while (true)
+            try
             {
-                // 예외 처리
-                if (clientSocket.Connected == false)
-                    break;
-
-                // 소켓에서 스트림을 얻어와
-                stream = clientSocket.GetStream();
-
-                // 메시지 Read
-                int         bufferSize  = clientSocket.ReceiveBufferSize;
-                byte[]      buffer      = new byte[bufferSize];
-                int         bytes       = stream.Read(buffer, 0, buffer.Length);
-
-                string message = Encoding.Unicode.GetString(buffer, 0, bytes);
-
-                // 명령어 해석 구문
-                if (message[0] == '/')
+                while (true)
                 {
-                    string[] result = message.Split(new char[] { '/' });
+                    // 예외 처리
+                    if (clientSocket.Connected == false)
+                        break;
 
-                    MessageCommandType commandType = CommandPaser.Parse(result[1]);
+                    // 소켓에서 스트림을 얻어와
+                    stream = clientSocket.GetStream();
 
-                    switch (commandType)
+                    // 메시지 Read
+                    int bufferSize  = clientSocket.ReceiveBufferSize;
+                    byte[] buffer   = new byte[bufferSize];
+                    int bytes       = stream.Read(buffer, 0, buffer.Length);
+
+                    string message = Encoding.Unicode.GetString(buffer, 0, bytes);
+
+                    // 명령어 해석 구문
+                    if (message[0] == '/')
                     {
-                        case MessageCommandType.Leave:
-                            return;
-                        case MessageCommandType.None:
-                            break;
+                        string[] result = message.Split(new char[] { '/' });
+
+                        MessageCommandType commandType = CommandPaser.Parse(result[1]);
+
+                        switch (commandType)
+                        {
+                            case MessageCommandType.Leave:
+                                onClientExit("서버에서 종료 요청을 받았습니다.");
+                                break;
+                            case MessageCommandType.None:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        // 출력
+                        DrawText(message);
                     }
                 }
-                else
-                {
-                    // 출력
-                    DrawText(message);
-                }
+            }
+            catch (System.IO.IOException)
+            {
+                ShowMessageBox("서버와의 연결이 끊겼습니다.", "Disconnected");
+                onClientExit("서버와의 연결이 끊겼습니다.");
             }
         }
 
@@ -153,7 +168,13 @@ namespace TCPNetwork.Client
                 textDraw.DrawText(text);
             }
         }
-
+        public void ClearText()
+        {
+            if (textDraw != null)
+            {
+                textDraw.ClearText();
+            }
+        }
 
         public void ShowMessageBox(string text, string caption)
         {

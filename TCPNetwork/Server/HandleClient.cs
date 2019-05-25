@@ -138,7 +138,7 @@ namespace TCPNetwork.Server
 
                         if (result == false)
                         {
-                            OnReceived?.Invoke("System", "지정된 방을 찾을 수 없습니다.", false);
+                            OnMessageSended?.Invoke("지정된 방을 찾을 수 없습니다.", client);
                         }
                     }
                     break;
@@ -148,9 +148,9 @@ namespace TCPNetwork.Server
                         NetworkRoom room = NetworkServerManager.Instance.CreateNetworkRoom(splitResult[2]);
 
                         if (room != null)
-                            OnReceived?.Invoke("System", string.Format("{0} 방을 생성했습니다.", splitResult[2]), false);
+                            OnMessageSended?.Invoke("[System] 방을 생성했습니다.", client);
                         else
-                            OnReceived?.Invoke("System", "방 생성에 실패했습니다.", false);
+                            OnMessageSended?.Invoke("[System] 방 생성에 실패했습니다.", client);
                     }
                     break;
 

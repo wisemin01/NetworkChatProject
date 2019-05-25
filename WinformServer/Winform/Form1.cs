@@ -14,26 +14,11 @@ using TCPNetwork.Server;
 
 namespace TCPNetwork
 {
-    public partial class ServerGUIForm : Form, ITextDraw, INetworkDebugger
+    public partial class ServerGUIForm : Form, ITextDraw, INetworkOutput
     {
         public ServerGUIForm()
         {
             InitializeComponent();
-        }
-
-        public void DrawText(string text)
-        {
-            if (textBox1.InvokeRequired)
-            {
-                textBox1.BeginInvoke(new MethodInvoker(delegate
-                {
-                    textBox1.AppendText(text + Environment.NewLine);
-                }));
-            }
-            else
-            {
-                textBox1.AppendText(text + Environment.NewLine);
-            }
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -60,7 +45,7 @@ namespace TCPNetwork
                     int port = int.Parse(textBox2.Text);
 
                     NetworkServerManager.Instance.Initialize(port, this);
-                    NetworkServerManager.Instance.SetNetworkDebugger(this);
+                    NetworkServerManager.Instance.SetNetworkOutput(this);
                     NetworkServerManager.Instance.StartServer();
 
                     button1.Enabled = false;
@@ -136,10 +121,40 @@ namespace TCPNetwork
 
         void ITextDraw.DrawText(string text)
         {
-            throw new NotImplementedException();
+            if (textBox1.InvokeRequired)
+            {
+                textBox1.BeginInvoke(new MethodInvoker(delegate
+                  {
+                      textBox1.AppendText(text + Environment.NewLine);
+                  }));
+            }
+            else
+            {
+                textBox1.AppendText(text + Environment.NewLine);
+            }
         }
 
         void ITextDraw.ShowMessageBox(string text, string caption)
+        {
+            MessageBox.Show(text, caption);
+        }
+
+        void ITextDraw.DrawColorText(string text, int r, int g, int b, int a)
+        {
+            if (textBox1.InvokeRequired)
+            {
+                textBox1.BeginInvoke(new MethodInvoker(delegate
+                {
+                    textBox1.AppendText(text + Environment.NewLine);
+                }));
+            }
+            else
+            {
+                textBox1.AppendText(text + Environment.NewLine);
+            }
+        }
+
+        void ITextDraw.ClearText()
         {
             throw new NotImplementedException();
         }

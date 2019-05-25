@@ -40,7 +40,7 @@ namespace TCPNetwork.Server
         private Dictionary<string, NetworkRoom> networkRooms = null; // 네트워크 룸 컨테이너
 
         private ITextDraw           textDraw            = null; // 출력하기 위한 인터페이스
-        private INetworkDebugger    networkDebugger     = null; // 출력하기 위한 인터페이스
+        private INetworkOutput      networkOutput       = null; // 출력하기 위한 인터페이스
       
         public void Initialize(int serverPort, ITextDraw draw)
         {
@@ -65,9 +65,9 @@ namespace TCPNetwork.Server
             serverThread.Start();
         }
 
-        public void SetNetworkDebugger(INetworkDebugger networkDebugger)
+        public void SetNetworkOutput(INetworkOutput networkDebugger)
         {
-            this.networkDebugger = networkDebugger;
+            this.networkOutput = networkDebugger;
         }
 
         private void ServerLoop()
@@ -80,6 +80,10 @@ namespace TCPNetwork.Server
             // 서버 시작
             tcpServer.Start();
             DrawText("[System] Server is started");
+
+            if (networkOutput != null)
+                networkOutput.AddRoomToListBox("Lobby");
+
 
             while (true)
             {
@@ -126,6 +130,14 @@ namespace TCPNetwork.Server
             if (textDraw != null)
             {
                 textDraw.DrawText(text);
+            }
+        }
+
+        public void ClearText()
+        {
+            if(textDraw != null)
+            {
+                textDraw.ClearText();
             }
         }
 
@@ -193,8 +205,8 @@ namespace TCPNetwork.Server
 
             networkRooms.Add(roomName, newRoom);
 
-            if (networkDebugger != null)
-                networkDebugger.AddRoomToListBox(roomName);
+            if (networkOutput != null)
+                networkOutput.AddRoomToListBox(roomName);
 
             return newRoom;
         }
@@ -208,8 +220,8 @@ namespace TCPNetwork.Server
 
                 networkRooms.Remove(roomName);
 
-                if (networkDebugger != null)
-                    networkDebugger.RemoveRoomToListBox(roomName);
+                if (networkOutput != null)
+                    networkOutput.RemoveRoomToListBox(roomName);
 
                 return true;
             }

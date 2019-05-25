@@ -13,6 +13,8 @@ namespace TCPNetwork
     public interface ITextDraw
     {
         void DrawText(string text);
+        void DrawColorText(string text, int r, int g, int b, int a);
+        void ClearText();
         void ShowMessageBox(string text, string caption);
     }
 }

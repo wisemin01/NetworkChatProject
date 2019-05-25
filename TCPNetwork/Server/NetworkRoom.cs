@@ -100,6 +100,7 @@ namespace TCPNetwork.Server
                 DrawText(string.Format("[{0}]{1}", roomName, log));
             else
                 DrawText(log);
+
             SendMessageToClients(log);
         }
 

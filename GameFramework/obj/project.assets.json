@@ -1,0 +1,516 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.7.2": {
+      "SharpDX/4.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/SharpDX.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.dll": {}
+        }
+      },
+      "SharpDX.D3DCompiler/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.D3DCompiler.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.D3DCompiler.dll": {}
+        }
+      },
+      "SharpDX.Desktop/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "frameworkAssemblies": [
+          "System.Windows.Forms"
+        ],
+        "compile": {
+          "lib/net45/SharpDX.Desktop.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.Desktop.dll": {}
+        }
+      },
+      "SharpDX.Direct3D9/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.Direct3D9.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.Direct3D9.dll": {}
+        }
+      },
+      "SharpDX.DXGI/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.DXGI.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.DXGI.dll": {}
+        }
+      },
+      "SharpDX.Mathematics/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.Mathematics.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.Mathematics.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win": {
+      "SharpDX/4.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/SharpDX.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.dll": {}
+        }
+      },
+      "SharpDX.D3DCompiler/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.D3DCompiler.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.D3DCompiler.dll": {}
+        }
+      },
+      "SharpDX.Desktop/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "frameworkAssemblies": [
+          "System.Windows.Forms"
+        ],
+        "compile": {
+          "lib/net45/SharpDX.Desktop.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.Desktop.dll": {}
+        }
+      },
+      "SharpDX.Direct3D9/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.Direct3D9.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.Direct3D9.dll": {}
+        }
+      },
+      "SharpDX.DXGI/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.DXGI.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.DXGI.dll": {}
+        }
+      },
+      "SharpDX.Mathematics/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.Mathematics.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.Mathematics.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win-x64": {
+      "SharpDX/4.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/SharpDX.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.dll": {}
+        }
+      },
+      "SharpDX.D3DCompiler/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.D3DCompiler.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.D3DCompiler.dll": {}
+        }
+      },
+      "SharpDX.Desktop/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "frameworkAssemblies": [
+          "System.Windows.Forms"
+        ],
+        "compile": {
+          "lib/net45/SharpDX.Desktop.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.Desktop.dll": {}
+        }
+      },
+      "SharpDX.Direct3D9/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.Direct3D9.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.Direct3D9.dll": {}
+        }
+      },
+      "SharpDX.DXGI/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.DXGI.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.DXGI.dll": {}
+        }
+      },
+      "SharpDX.Mathematics/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.Mathematics.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.Mathematics.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win-x86": {
+      "SharpDX/4.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/SharpDX.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.dll": {}
+        }
+      },
+      "SharpDX.D3DCompiler/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.D3DCompiler.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.D3DCompiler.dll": {}
+        }
+      },
+      "SharpDX.Desktop/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "frameworkAssemblies": [
+          "System.Windows.Forms"
+        ],
+        "compile": {
+          "lib/net45/SharpDX.Desktop.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.Desktop.dll": {}
+        }
+      },
+      "SharpDX.Direct3D9/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.Direct3D9.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.Direct3D9.dll": {}
+        }
+      },
+      "SharpDX.DXGI/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.DXGI.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.DXGI.dll": {}
+        }
+      },
+      "SharpDX.Mathematics/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.Mathematics.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.Mathematics.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SharpDX/4.2.0": {
+      "sha512": "3pv0LFMvfK/dv1qISJnn8xBeeT6R/FRvr0EV4KI2DGsL84Qlv6P7isWqxGyU0LCwlSVCJN3jgHJ4Bl0KI2PJww==",
+      "type": "package",
+      "path": "sharpdx/4.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/.xml",
+        "lib/net40/SharpDX.dll",
+        "lib/net40/SharpDX.pdb",
+        "lib/net45/.xml",
+        "lib/net45/SharpDX.dll",
+        "lib/net45/SharpDX.pdb",
+        "lib/netstandard1.1/.xml",
+        "lib/netstandard1.1/SharpDX.dll",
+        "lib/netstandard1.1/SharpDX.pdb",
+        "lib/uap10.0/.xml",
+        "lib/uap10.0/SharpDX.dll",
+        "lib/uap10.0/SharpDX.pdb",
+        "lib/uap10.0/SharpDX.pri",
+        "sharpdx.4.2.0.nupkg.sha512",
+        "sharpdx.nuspec"
+      ]
+    },
+    "SharpDX.D3DCompiler/4.2.0": {
+      "sha512": "Rnsd6Ilp127xbXqhTit8WKFQUrXwWxqVGpglyWDNkIBCk0tWXNQEjrJpsl0KAObzyZaa33+EXAikLVt5fnd3GA==",
+      "type": "package",
+      "path": "sharpdx.d3dcompiler/4.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/SharpDX.D3DCompiler.dll",
+        "lib/net40/SharpDX.D3DCompiler.pdb",
+        "lib/net40/SharpDX.D3DCompiler.xml",
+        "lib/net45/SharpDX.D3DCompiler.dll",
+        "lib/net45/SharpDX.D3DCompiler.pdb",
+        "lib/net45/SharpDX.D3DCompiler.xml",
+        "lib/netstandard1.1/SharpDX.D3DCompiler.dll",
+        "lib/netstandard1.1/SharpDX.D3DCompiler.pdb",
+        "lib/netstandard1.1/SharpDX.D3DCompiler.xml",
+        "lib/uap10.0/SharpDX.D3DCompiler.dll",
+        "lib/uap10.0/SharpDX.D3DCompiler.pdb",
+        "lib/uap10.0/SharpDX.D3DCompiler.pri",
+        "lib/uap10.0/SharpDX.D3DCompiler.xml",
+        "sharpdx.d3dcompiler.4.2.0.nupkg.sha512",
+        "sharpdx.d3dcompiler.nuspec"
+      ]
+    },
+    "SharpDX.Desktop/4.2.0": {
+      "sha512": "nkxmSzxiPIg2Moz+8tlNo9b4A+fnUvRte9jBTqqmRUnwItNeAeRPU2fNZERfhsN4GPq2VvAskJLZNAxGpzKBPA==",
+      "type": "package",
+      "path": "sharpdx.desktop/4.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/SharpDX.Desktop.dll",
+        "lib/net40/SharpDX.Desktop.pdb",
+        "lib/net40/SharpDX.Desktop.xml",
+        "lib/net45/SharpDX.Desktop.dll",
+        "lib/net45/SharpDX.Desktop.pdb",
+        "lib/net45/SharpDX.Desktop.xml",
+        "sharpdx.desktop.4.2.0.nupkg.sha512",
+        "sharpdx.desktop.nuspec"
+      ]
+    },
+    "SharpDX.Direct3D9/4.2.0": {
+      "sha512": "1KgqXvPj/j5hLYxfcOQoJdHskamu7EWg60n9LBAYhun7dR+sKS0ZDNb7NuKwFP1bM0HZqvokjXQIf3oA2NpdqA==",
+      "type": "package",
+      "path": "sharpdx.direct3d9/4.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/SharpDX.Direct3D9.dll",
+        "lib/net40/SharpDX.Direct3D9.pdb",
+        "lib/net40/SharpDX.Direct3D9.xml",
+        "lib/net45/SharpDX.Direct3D9.dll",
+        "lib/net45/SharpDX.Direct3D9.pdb",
+        "lib/net45/SharpDX.Direct3D9.xml",
+        "lib/netstandard1.3/SharpDX.Direct3D9.dll",
+        "lib/netstandard1.3/SharpDX.Direct3D9.pdb",
+        "lib/netstandard1.3/SharpDX.Direct3D9.xml",
+        "sharpdx.direct3d9.4.2.0.nupkg.sha512",
+        "sharpdx.direct3d9.nuspec"
+      ]
+    },
+    "SharpDX.DXGI/4.2.0": {
+      "sha512": "UjKqkgWc8U+SP+j3LBzFP6OB6Ntapjih7Xo+g1rLcsGbIb5KwewBrBChaUu7sil8rWoeVU/k0EJd3SMN4VqNZw==",
+      "type": "package",
+      "path": "sharpdx.dxgi/4.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/SharpDX.DXGI.dll",
+        "lib/net40/SharpDX.DXGI.pdb",
+        "lib/net40/SharpDX.DXGI.xml",
+        "lib/net45/SharpDX.DXGI.dll",
+        "lib/net45/SharpDX.DXGI.pdb",
+        "lib/net45/SharpDX.DXGI.xml",
+        "lib/netstandard1.1/SharpDX.DXGI.dll",
+        "lib/netstandard1.1/SharpDX.DXGI.pdb",
+        "lib/netstandard1.1/SharpDX.DXGI.xml",
+        "lib/uap10.0/SharpDX.DXGI.dll",
+        "lib/uap10.0/SharpDX.DXGI.pdb",
+        "lib/uap10.0/SharpDX.DXGI.pri",
+        "lib/uap10.0/SharpDX.DXGI.xml",
+        "sharpdx.dxgi.4.2.0.nupkg.sha512",
+        "sharpdx.dxgi.nuspec"
+      ]
+    },
+    "SharpDX.Mathematics/4.2.0": {
+      "sha512": "R2pcKLgdsP9p5WyTjHmGOZ0ka0zASAZYc6P4L6rSvjYhf6klGYbent7MiVwbkwkt9dD44p5brjy5IwAnVONWGw==",
+      "type": "package",
+      "path": "sharpdx.mathematics/4.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/SharpDX.Mathematics.dll",
+        "lib/net40/SharpDX.Mathematics.pdb",
+        "lib/net40/SharpDX.Mathematics.xml",
+        "lib/net45/SharpDX.Mathematics.dll",
+        "lib/net45/SharpDX.Mathematics.pdb",
+        "lib/net45/SharpDX.Mathematics.xml",
+        "lib/netstandard1.1/SharpDX.Mathematics.dll",
+        "lib/netstandard1.1/SharpDX.Mathematics.pdb",
+        "lib/netstandard1.1/SharpDX.Mathematics.xml",
+        "lib/uap10.0/SharpDX.Mathematics.dll",
+        "lib/uap10.0/SharpDX.Mathematics.pdb",
+        "lib/uap10.0/SharpDX.Mathematics.pri",
+        "lib/uap10.0/SharpDX.Mathematics.xml",
+        "sharpdx.mathematics.4.2.0.nupkg.sha512",
+        "sharpdx.mathematics.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.7.2": [
+      "SharpDX >= 4.2.0",
+      "SharpDX.D3DCompiler >= 4.2.0",
+      "SharpDX.DXGI >= 4.2.0",
+      "SharpDX.Desktop >= 4.2.0",
+      "SharpDX.Direct3D9 >= 4.2.0",
+      "SharpDX.Mathematics >= 4.2.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\SM MO\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Programing project\\[ 회사 과제 ]\\Chat Program\\GameFramework\\GameFramework.csproj",
+      "projectName": "GameFramework",
+      "projectPath": "D:\\Programing project\\[ 회사 과제 ]\\Chat Program\\GameFramework\\GameFramework.csproj",
+      "packagesPath": "C:\\Users\\SM MO\\.nuget\\packages\\",
+      "outputPath": "D:\\Programing project\\[ 회사 과제 ]\\Chat Program\\GameFramework\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "configFilePaths": [
+        "C:\\Users\\SM MO\\AppData\\Roaming\\NuGet\\NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net472"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net472": {
+          "projectReferences": {}
+        }
+      }
+    },
+    "frameworks": {
+      "net472": {
+        "dependencies": {
+          "SharpDX": {
+            "target": "Package",
+            "version": "[4.2.0, )"
+          },
+          "SharpDX.D3DCompiler": {
+            "target": "Package",
+            "version": "[4.2.0, )"
+          },
+          "SharpDX.DXGI": {
+            "target": "Package",
+            "version": "[4.2.0, )"
+          },
+          "SharpDX.Desktop": {
+            "target": "Package",
+            "version": "[4.2.0, )"
+          },
+          "SharpDX.Direct3D9": {
+            "target": "Package",
+            "version": "[4.2.0, )"
+          },
+          "SharpDX.Mathematics": {
+            "target": "Package",
+            "version": "[4.2.0, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

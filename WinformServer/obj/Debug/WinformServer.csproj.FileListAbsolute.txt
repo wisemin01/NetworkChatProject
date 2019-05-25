@@ -1,0 +1,14 @@
+D:\Programing project\[ 회사 과제 ]\Chat Program\Debug2\MyChatServer.exe.config
+D:\Programing project\[ 회사 과제 ]\Chat Program\Debug2\MyChatServer.exe
+D:\Programing project\[ 회사 과제 ]\Chat Program\Debug2\MyChatServer.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\WinformServer\obj\Debug\TCPNetwork.ServerGUIForm.resources
+D:\Programing project\[ 회사 과제 ]\Chat Program\WinformServer\obj\Debug\MyChatServer.Properties.Resources.resources
+D:\Programing project\[ 회사 과제 ]\Chat Program\WinformServer\obj\Debug\WinformServer.csproj.GenerateResource.cache
+D:\Programing project\[ 회사 과제 ]\Chat Program\WinformServer\obj\Debug\WinformServer.csproj.CoreCompileInputs.cache
+D:\Programing project\[ 회사 과제 ]\Chat Program\WinformServer\obj\Debug\WinformServer.csproj.CopyComplete
+D:\Programing project\[ 회사 과제 ]\Chat Program\WinformServer\obj\Debug\MyChatServer.exe
+D:\Programing project\[ 회사 과제 ]\Chat Program\WinformServer\obj\Debug\MyChatServer.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\Debug\MyChatServer.exe.config
+D:\Programing project\[ 회사 과제 ]\Chat Program\Debug\MyChatServer.exe
+D:\Programing project\[ 회사 과제 ]\Chat Program\Debug\MyChatServer.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\WinformServer\obj\Debug\WinformServer.csprojAssemblyReference.cache

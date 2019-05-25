@@ -51,7 +51,15 @@ namespace TCPNetwork
 
             try
             {
-                NetworkClientManager.Instance.Initialize(userName, ipAdress, int.Parse(serverPort), this);
+                NetworkClientManager.Instance.Initialize(
+                    userName,
+                    ipAdress,
+                    int.Parse(serverPort),
+                    this,
+                    delegate (string text){
+                        MessageBox.Show(text, "Exit");
+                        Application.Exit();
+                    });
 
                 if (NetworkClientManager.Instance.ConnectToServer())
                 {
@@ -124,6 +132,24 @@ namespace TCPNetwork
         void ITextDraw.ShowMessageBox(string text, string caption)
         {
             MessageBox.Show(text, caption);
+        }
+
+        void ITextDraw.DrawColorText(string text, int r, int g, int b, int a)
+        {
+            if (textBox1.InvokeRequired)
+            {
+                textBox1.BeginInvoke(new MethodInvoker(delegate
+                {
+                    textBox1.AppendText(text + Environment.NewLine);
+                }));
+            }
+            else
+                textBox1.AppendText(text + Environment.NewLine);
+        }
+
+        void ITextDraw.ClearText()
+        {
+            throw new NotImplementedException();
         }
     }
 }
