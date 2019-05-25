@@ -1,0 +1,23 @@
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatServer\bin\Debug\MyChatServer.exe.config
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatServer\bin\Debug\MyChatServer.exe
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatServer\bin\Debug\MyChatServer.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatServer\obj\Debug\MyChatServer.csprojAssemblyReference.cache
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatServer\obj\Debug\MyChatServer.Properties.Resources.resources
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatServer\obj\Debug\MyChatServer.csproj.GenerateResource.cache
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatServer\obj\Debug\MyChatServer.csproj.CoreCompileInputs.cache
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatServer\obj\Debug\MyChatServer.exe
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatServer\obj\Debug\MyChatServer.pdb
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatServer\bin\Debug\MyChatServer.exe.config
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatServer\bin\Debug\MyChatServer.exe
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatServer\bin\Debug\MyChatServer.pdb
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatServer\obj\Debug\MyChatServer.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatServer\obj\Debug\MyChatServer.Form1.resources
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatServer\obj\Debug\MyChatServer.Properties.Resources.resources
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatServer\obj\Debug\MyChatServer.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatServer\obj\Debug\MyChatServer.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatServer\obj\Debug\MyChatServer.exe
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatServer\obj\Debug\MyChatServer.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatServer\bin\Debug\TCPNetwork.dll
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatServer\bin\Debug\TCPNetwork.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatServer\obj\Debug\MyChatServer.csproj.CopyComplete
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatServer\obj\Debug\TCPNetwork.ServerGUIForm.resources

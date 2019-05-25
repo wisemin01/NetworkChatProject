@@ -1,0 +1,60 @@
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\MyChatClient.exe.config
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\MyChatClient.exe
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\MyChatClient.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\obj\Debug\MyChatClient.csprojAssemblyReference.cache
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\obj\Debug\MyChatClient.Properties.Resources.resources
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\obj\Debug\MyChatClient.csproj.GenerateResource.cache
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\obj\Debug\MyChatClient.csproj.CoreCompileInputs.cache
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\obj\Debug\MyChatClient.exe
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\obj\Debug\MyChatClient.pdb
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\MyChatClient.exe.config
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\MyChatClient.exe
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\MyChatClient.pdb
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.D3DCompiler.dll
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.Desktop.dll
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.Direct3D11.dll
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.dll
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.DXGI.dll
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.pdb
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.D3DCompiler.pdb
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.D3DCompiler.xml
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.Desktop.pdb
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.Desktop.xml
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.Direct3D11.pdb
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.Direct3D11.xml
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.DXGI.pdb
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.DXGI.xml
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\obj\Debug\MyChatClient.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\obj\Debug\MyChatClient.Form1.resources
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\obj\Debug\MyChatClient.Properties.Resources.resources
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\obj\Debug\MyChatClient.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\obj\Debug\MyChatClient.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\obj\Debug\MyChatClient.csproj.CopyComplete
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\obj\Debug\MyChatClient.exe
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\obj\Debug\MyChatClient.pdb
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.Direct2D1.dll
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.Direct2D1.pdb
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.Direct2D1.xml
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.Direct3D9.dll
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.Direct3D9.pdb
+C:\Users\Admin\Desktop\Projects\ChatProgram\Chat Program\MyChatClient\bin\Debug\SharpDX.Direct3D9.xml
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\GameFramework.dll
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\SharpDX.D3DCompiler.dll
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\SharpDX.Desktop.dll
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\SharpDX.Direct3D9.dll
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\SharpDX.dll
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\SharpDX.DXGI.dll
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\TCPNetwork.dll
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\GameFramework.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\TCPNetwork.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\SharpDX.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\SharpDX.D3DCompiler.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\SharpDX.D3DCompiler.xml
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\SharpDX.Desktop.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\SharpDX.Desktop.xml
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\SharpDX.Direct3D9.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\SharpDX.Direct3D9.xml
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\SharpDX.DXGI.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\bin\Debug\SharpDX.DXGI.xml
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\obj\Debug\MyChatClient.csproj.CopyComplete
+D:\Programing project\[ 회사 과제 ]\Chat Program\MyChatClient\obj\Debug\TCPNetwork.ClientGUIForm.resources

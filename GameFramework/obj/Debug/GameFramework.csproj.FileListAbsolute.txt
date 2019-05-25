@@ -1,0 +1,16 @@
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\bin\Debug\GameFramework.dll
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\bin\Debug\GameFramework.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\bin\Debug\SharpDX.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\bin\Debug\SharpDX.D3DCompiler.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\bin\Debug\SharpDX.D3DCompiler.xml
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\bin\Debug\SharpDX.Desktop.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\bin\Debug\SharpDX.Desktop.xml
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\bin\Debug\SharpDX.Direct3D9.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\bin\Debug\SharpDX.Direct3D9.xml
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\bin\Debug\SharpDX.DXGI.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\bin\Debug\SharpDX.DXGI.xml
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\obj\Debug\GameFramework.csprojAssemblyReference.cache
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\obj\Debug\GameFramework.csproj.CoreCompileInputs.cache
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\obj\Debug\GameFramework.csproj.CopyComplete
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\obj\Debug\GameFramework.dll
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\obj\Debug\GameFramework.pdb
