@@ -44,6 +44,8 @@ namespace TCPNetwork.Server
             handleClient.StartClientHandling(client, this);
         }
 
+        // 스레드 분기는 이전의 방에서 했기 때문에
+        // 리스트에 추가 후 콜백만 재설정
         public void AddFromOtherRoom(HandleClient handleClient, string userName)
         {
             clientList.Add(handleClient.Client, userName);

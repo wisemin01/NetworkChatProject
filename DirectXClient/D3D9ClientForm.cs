@@ -11,6 +11,8 @@ namespace DirectXClient
         {
             Direct3D9Manager.Instance.CreateRenderForm("My DirectX Client", 1280, 720);
 
+            Direct3D9Manager.Instance.CreateTexture("Texture1", "./Resource/Texture.png");
+
             SceneManager.Instance.AddScene<ChatScene>("Lobby");
             SceneManager.Instance.ChangeScene("Lobby");
         }
