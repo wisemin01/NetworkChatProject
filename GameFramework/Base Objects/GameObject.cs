@@ -8,6 +8,10 @@ namespace GameFramework
 {
     public abstract class GameObject
     {
+        private bool isLive = true;
+
+        public bool IsLive { get => isLive; }
+
         public GameObject()
         {
         }
@@ -16,5 +20,13 @@ namespace GameFramework
         public abstract void FrameUpdate();
         public abstract void FrameRender();
         public abstract void Release();
+
+        public void Destroy(GameObject target)
+        {
+            if (target != null)
+            {
+                target.isLive = false;
+            }
+        }
     }
 }

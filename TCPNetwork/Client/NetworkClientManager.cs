@@ -38,11 +38,12 @@ namespace TCPNetwork.Client
         // Member
         private TcpClient       clientSocket  = null;           // 클라이언트 소켓
         private NetworkStream   stream        = default;        // 메시지 입출력 스트림
-
+        
         private string          message       = string.Empty;   // 메시지
         private string          userName      = string.Empty;   // 유저 이름
         private string          serverIP      = string.Empty;   // 서버 IP
-        
+        private string          roomName      = string.Empty;   // 속해있는 방 이름
+
         private int             serverPort    = 0;              // 서버 포트
 
         private OnClientExit    onClientExit  = null;           // 클라이언트를 종료시켜줄 콜백
@@ -60,7 +61,7 @@ namespace TCPNetwork.Client
             this.serverPort = serverPort;
             this.serverIP   = serverIP;
             onClientExit    = exitFunc;
-            IsConnection       = false;
+            IsConnection    = false;
 
             clientSocket    = new TcpClient();
         }
@@ -152,6 +153,9 @@ namespace TCPNetwork.Client
                         {
                             case MessageCommandType.Leave:
                                 onClientExit("서버에서 종료 요청을 받았습니다.");
+                                break;
+                            case MessageCommandType.ChangeRoom:
+                                roomName = result[2];
                                 break;
                             case MessageCommandType.None:
                                 break;

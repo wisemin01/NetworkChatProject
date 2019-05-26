@@ -9,20 +9,20 @@ namespace GameFramework.Manager
     using D3D9      = SharpDX.Direct3D9;
     using BGRAColor = SharpDX.Mathematics.Interop.RawColorBGRA;
     
-    public partial class Direct3D9Manager
+    public partial class D3D9Manager
     {
         public delegate void UpdateCallback();
         public delegate void RenderCallback();
 
         // Singleton
-        private static Direct3D9Manager instance = null;
+        private static D3D9Manager instance = null;
 
-        public static Direct3D9Manager Instance
+        public static D3D9Manager Instance
         {
             get
             {
                 if (instance == null)
-                    instance = new Direct3D9Manager();
+                    instance = new D3D9Manager();
 
                 return instance;
             }
@@ -57,7 +57,7 @@ namespace GameFramework.Manager
         }
     }
 
-    public partial class Direct3D9Manager
+    public partial class D3D9Manager
     {
         public void  CreateDirect3D9(string title, int width, int height)
         {
@@ -84,7 +84,6 @@ namespace GameFramework.Manager
 
         public void  Exit()
         {
-            
         }
 
         private void OnFrame()

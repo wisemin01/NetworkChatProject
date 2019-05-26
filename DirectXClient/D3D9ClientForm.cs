@@ -5,11 +5,18 @@ using TCPNetwork.Client;
 
 namespace DirectXClient
 {
+    public class ClientWindow
+    {
+        public const int Width = 1280;
+        public const int Height = 720;
+    }
+
     class D3D9ClientForm : IDisposable
     {
         public void Initialize()
         {
-            Direct3D9Manager.Instance.CreateDirect3D9("My DirectX Client", 1280, 720);
+            D3D9Manager.Instance.CreateDirect3D9("My DirectX Client",
+                ClientWindow.Width, ClientWindow.Height);
           
             SceneManager.Instance.AddScene<LoginScene>("Login");
             SceneManager.Instance.AddScene<ChatScene> ("Lobby");
@@ -20,7 +27,7 @@ namespace DirectXClient
 
         public void Run()
         {
-            Direct3D9Manager.Instance.Run(Update, Render);
+            D3D9Manager.Instance.Run(Update, Render);
         }
 
         void Update()

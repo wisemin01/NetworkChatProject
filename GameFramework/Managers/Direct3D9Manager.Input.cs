@@ -8,7 +8,7 @@ using SharpDX;
 
 namespace GameFramework.Manager
 {
-    public partial class Direct3D9Manager
+    public partial class D3D9Manager
     {
         public event EventHandler OnMouseClickEvent;
 

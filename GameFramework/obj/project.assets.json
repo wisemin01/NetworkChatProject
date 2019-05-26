@@ -481,7 +481,7 @@
       ]
     },
     "SharpDX.DirectInput/4.2.0": {
-      "sha512": "YjXi4ZnCEa5hH8BGJ8Gb88DDqDzI1Rv9/nD3e334eNR28DIsuI1xOmQRqA91MiO+l+GXImScKktDiGvdtY3sAw==",
+      "sha512": "is6Lm9zULyeTbUaLXktF+MwzmUYE8jofhA+6qgR1HBIyRJ/c2rZbeG1VvvGf4w6ktfq/q3AvUWTNzwgdU/+XOg==",
       "type": "package",
       "path": "sharpdx.directinput/4.2.0",
       "files": [
@@ -501,7 +501,7 @@
       ]
     },
     "SharpDX.DirectSound/4.2.0": {
-      "sha512": "blb1w5ZIeuPXShjBx865XUztsJhiOQquj+Iew7aiXWOjX+t4yHZiDsubAc4TeOApVf3/ZdrI+8NJr9uNOgu23A==",
+      "sha512": "22g98QNyZry94Hef+7LF6BSfuyuvWp0eg1a4VrJeMGdXDsdF+GqMqHzDPYGpZFGuaDKF5y8w+broyZ+26l57pw==",
       "type": "package",
       "path": "sharpdx.directsound/4.2.0",
       "files": [
@@ -545,7 +545,7 @@
       ]
     },
     "SharpDX.Mathematics/4.2.0": {
-      "sha512": "+eTiX5NFnO2+SRQQVVPxRm3KUCA307z2aAVGLs6vbcRmCXerTVhK9MIpMecZOUbCB32SWBl9QMGbigFWe9/xMA==",
+      "sha512": "R2pcKLgdsP9p5WyTjHmGOZ0ka0zASAZYc6P4L6rSvjYhf6klGYbent7MiVwbkwkt9dD44p5brjy5IwAnVONWGw==",
       "type": "package",
       "path": "sharpdx.mathematics/4.2.0",
       "files": [
@@ -582,27 +582,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\SM MO\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Projects\\NetworkChatProject\\GameFramework\\GameFramework.csproj",
+      "projectUniqueName": "D:\\Programing project\\[ 회사 과제 ]\\Chat Program\\GameFramework\\GameFramework.csproj",
       "projectName": "GameFramework",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\Projects\\NetworkChatProject\\GameFramework\\GameFramework.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\Projects\\NetworkChatProject\\GameFramework\\obj\\",
+      "projectPath": "D:\\Programing project\\[ 회사 과제 ]\\Chat Program\\GameFramework\\GameFramework.csproj",
+      "packagesPath": "C:\\Users\\SM MO\\.nuget\\packages\\",
+      "outputPath": "D:\\Programing project\\[ 회사 과제 ]\\Chat Program\\GameFramework\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\SM MO\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net472"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

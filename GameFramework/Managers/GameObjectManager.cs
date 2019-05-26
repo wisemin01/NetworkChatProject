@@ -19,11 +19,11 @@ namespace GameFramework.Manager
         }
 
         // Member
-        List<GameObject> gameObjectList = new List<GameObject>();
+        LinkedList<GameObject> gameObjectList = new LinkedList<GameObject>();
 
         public T AddObject<T>(T gameObject) where T : GameObject
         {
-            gameObjectList.Add(gameObject);
+            gameObjectList.AddLast(gameObject);
             gameObject.Initialize();
 
             return gameObject;
@@ -31,10 +31,27 @@ namespace GameFramework.Manager
 
         public void UpdateObjects()
         {
-            foreach (GameObject gameObject in gameObjectList)
+            for (LinkedListNode<GameObject> Iter = gameObjectList.First; Iter != null;)
             {
-                gameObject.FrameUpdate();
+                if (Iter.Value.IsLive == false)
+                {
+                    LinkedListNode<GameObject> next = Iter.Next;
+                    gameObjectList.Remove(Iter);
+                    Iter = next;
+                }
+                else
+                {
+                    Iter.Value.FrameUpdate();
+                    Iter = Iter.Next;
+                }
             }
+            //foreach (GameObject gameObject in gameObjectList)
+            //{
+            //    if (gameObject.IsLive == false)
+            //        gameObjectList.Remove(gameObject);
+
+            //    gameObject.FrameUpdate();
+            //}
         }
 
         public void RenderObjects()

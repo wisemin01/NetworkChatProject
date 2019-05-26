@@ -122,7 +122,7 @@ namespace TCPNetwork.Server
                     byte[] buffer = null;
 
                     buffer = Encoding.Unicode.GetBytes(message);
-
+                    
                     // 해당 클라이언트에 버퍼 전송
                     stream.Write(buffer, 0, buffer.Length);
                     stream.Flush();

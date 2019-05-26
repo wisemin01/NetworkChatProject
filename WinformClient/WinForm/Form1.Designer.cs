@@ -147,17 +147,17 @@
             this.textBox9.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox9.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox9.Location = new System.Drawing.Point(22, 93);
+            this.textBox9.Location = new System.Drawing.Point(16, 93);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(166, 18);
             this.textBox9.TabIndex = 10;
             this.textBox9.TextChanged += new System.EventHandler(this.TextBox9_TextChanged);
             // 
-            // Form1
+            // ClientGUIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(285, 425);
+            this.ClientSize = new System.Drawing.Size(295, 425);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
@@ -169,7 +169,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.Connect);
             this.Controls.Add(this.textBox1);
-            this.Name = "Form1";
+            this.Name = "ClientGUIForm";
             this.Text = "My Chat Client";
             this.ResumeLayout(false);
             this.PerformLayout();

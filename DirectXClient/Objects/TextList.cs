@@ -78,7 +78,7 @@ namespace DirectXClient
                     }
                     else
                     {
-                        Direct3D9Manager.Instance.DrawFont(fontName,
+                        D3D9Manager.Instance.DrawFont(fontName,
                             new Vector3(xIndex, yIndex, 0), Iter.Item1,
                             Iter.Item2);
                         yIndex += TextDepth;
@@ -103,7 +103,7 @@ namespace DirectXClient
 
         public void ShowMessageBox(string text, string caption)
         {
-            MessageBox.Show(text, caption);
+            System.Windows.Forms.MessageBox.Show(text, caption);
         }
 
     }

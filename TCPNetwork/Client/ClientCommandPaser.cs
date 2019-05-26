@@ -9,7 +9,8 @@ namespace TCPNetwork.Client
     public enum MessageCommandType
     {
         None,
-        Leave
+        Leave,
+        ChangeRoom
     }
 
     class CommandPaser
@@ -20,6 +21,8 @@ namespace TCPNetwork.Client
             {
                 case "Leave":
                     return MessageCommandType.Leave;
+                case "ChangeRoom":
+                    return MessageCommandType.ChangeRoom;
                 default:
                     return MessageCommandType.None;
             }

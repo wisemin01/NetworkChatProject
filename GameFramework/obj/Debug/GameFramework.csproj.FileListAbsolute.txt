@@ -26,3 +26,5 @@ C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameF
 C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameFramework.pdb
 C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameFramework.Properties.Resources.resources
 C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameFramework.csproj.GenerateResource.cache
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\obj\Debug\GameFramework.Properties.Resources.resources
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\obj\Debug\GameFramework.csproj.GenerateResource.cache

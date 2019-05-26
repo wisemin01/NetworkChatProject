@@ -17,10 +17,11 @@ namespace DirectXClient
     {
         public event EventHandler OnButtonClick;
 
-        public GameTexture  ButtonTexture    { get; set; } = null;
-        public Vector3      Position         { get; set; } = default;
-        public Vector3      Scale            { get; set; } = default;
-        public RectCollider rectCollider     { get; set; } = null;
+        public GameTexture  ButtonTexture     { get; set; } = null;
+        public Vector3      Position          { get; set; } = default;
+        public Vector3      Scale             { get; set; } = default;
+        public RectCollider rectCollider      { get; set; } = null;
+        public bool         IsMouseOverResize { get; set; } = true;
         
         private readonly Vector3 MouseOverSize      = new Vector3(1.1f, 1.1f, 1.1f);
         private readonly Vector3 MouseNoneOverSize  = new Vector3(1.0f, 1.0f, 1.0f);
@@ -33,7 +34,7 @@ namespace DirectXClient
 
         public override void Initialize()
         {
-            Direct3D9Manager.Instance.OnMouseClickEvent += OnClick;
+            D3D9Manager.Instance.OnMouseClickEvent += OnClick;
 
             if (rectCollider == null)
             {
@@ -48,15 +49,18 @@ namespace DirectXClient
         {
             bool isMouseInside = rectCollider.IsMouseOver(Position, ButtonTexture);
 
-            if (isMouseInside)
-                Scale = Vector3.Lerp(Scale, MouseOverSize, 0.15f);
-            else
-                Scale = Vector3.Lerp(Scale, MouseNoneOverSize, 0.15f);
+            if (IsMouseOverResize)
+            {
+                if (isMouseInside)
+                    Scale = Vector3.Lerp(Scale, MouseOverSize, 0.15f);
+                else
+                    Scale = Vector3.Lerp(Scale, MouseNoneOverSize, 0.15f);
+            }
         }
 
         public override void FrameRender()
         {
-            Direct3D9Manager.Instance.DrawTexture(ButtonTexture, Position, Scale, 0);
+            D3D9Manager.Instance.DrawTexture(ButtonTexture, Position, Scale, 0);
         }
 
         public override void Release()

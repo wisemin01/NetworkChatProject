@@ -65,12 +65,10 @@ namespace TCPNetwork
                 {
                     Connect.Enabled = false;
                 }
-
             }
             catch (FormatException)
             {
                 MessageBox.Show("입력 형식이 맞지 않습니다.", "Error");
-
             }
             catch (OverflowException)
             {

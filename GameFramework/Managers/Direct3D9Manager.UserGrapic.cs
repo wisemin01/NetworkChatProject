@@ -8,30 +8,36 @@ using GameFramework.Structure;
 namespace GameFramework.Manager
 {
     using D3D9 = SharpDX.Direct3D9;
-    public partial class Direct3D9Manager
+    public partial class D3D9Manager
     {
-        private Dictionary<string, D3D9.Font> fonts    = new Dictionary<string, D3D9.Font>();
-        private Dictionary<string, GameTexture>   textures = new Dictionary<string, GameTexture>();
-
+        private Dictionary<string, D3D9.Font>   fonts       = new Dictionary<string, D3D9.Font>();
+        private Dictionary<string, GameTexture> textures    = new Dictionary<string, GameTexture>();
+        
         public void CreateFont(string key, string faceName, int size, bool isItalic)
         {
-            D3D9.Font d3dFont = new D3D9.Font(d3d9Device,
-            size,
-            0,
-            D3D9.FontWeight.Normal,
-            0,
-            isItalic,
-            D3D9.FontCharacterSet.Hangul,
-            D3D9.FontPrecision.Default,
-            D3D9.FontQuality.Default,
-            D3D9.FontPitchAndFamily.Default,
-            faceName);
+            if (fonts.ContainsKey(key) == false)
+            {
+                D3D9.Font d3dFont = new D3D9.Font(d3d9Device,
+                size,
+                0,
+                D3D9.FontWeight.Normal,
+                0,
+                isItalic,
+                D3D9.FontCharacterSet.Hangul,
+                D3D9.FontPrecision.Default,
+                D3D9.FontQuality.Default,
+                D3D9.FontPitchAndFamily.Default,
+                faceName);
 
-            fonts.Add(key, d3dFont);
+                fonts.Add(key, d3dFont);
+            }
         }
 
-        public void CreateTexture(string key, string path)
+        public GameTexture CreateTexture(string key, string path)
         {
+            if (textures.ContainsKey(key))
+                return textures[key];
+
             try
             {
                 D3D9.ImageInformation info = new D3D9.ImageInformation();
@@ -42,10 +48,12 @@ namespace GameFramework.Manager
                 GameTexture texture = new GameTexture(d3d9Texture, info);
 
                 textures.Add(key, texture);
+                return texture;
             }
             catch (SharpDXException)
             {
                 MessageBox.Show($"이미지 로딩에 실패했습니다. \n {path} 경로를 다시 확인해주세요.", "Texture Load Failed");
+                return null;
             }
         }
 
@@ -62,14 +70,33 @@ namespace GameFramework.Manager
                 }
                 catch (SharpDXException)
                 {
-                    
+
                 }
             }
         }
 
-        public void DrawTexture(GameTexture texture, Vector3 position, Vector3 scale, float rot = 0.0f)
+        public void DrawFont_NotSetTransform(string fontKey, Vector3 position, string text, Color color)
         {
-            if (texture.Texture != null)
+            try
+            {
+                D3D9.Font d3dFont = fonts[fontKey];
+
+                if (d3dFont != null)
+                {
+                    d3dFont.DrawText(d3d9Sprite, text, (int)position.X, (int)position.Y, color);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+        }
+
+        public void DrawTexture(GameTexture texture,
+            Vector3 position, Vector3 scale, float rot = 0.0f)
+        {
+            if (texture != null && texture.Texture != null)
             {
                 Matrix mat = Matrix.Scaling(scale) * Matrix.RotationZ(rot) * Matrix.Translation(position);
 
@@ -83,6 +110,41 @@ namespace GameFramework.Manager
                     );
             }
         }
+
+        public void DrawTextureWithCenter(GameTexture texture,
+            Vector3 position, Vector3 scale, Vector3 center, float rot = 0.0f)
+        {
+            if (texture != null && texture.Texture != null)
+            {
+                Matrix mat = Matrix.Scaling(scale) * Matrix.RotationZ(rot) * Matrix.Translation(position);
+
+                d3d9Sprite.Transform = mat;
+                d3d9Sprite.Draw(
+                    textureRef: texture.Texture,
+                    centerRef: center,
+                    color: new Color(255, 255, 255, 255)
+                    );
+            }
+        }
+
+        public void DrawTextureWithColor(GameTexture texture,
+        Vector3 position, Vector3 scale, Color color, float rot = 0.0f)
+        {
+            if (texture != null && texture.Texture != null)
+            {
+                Matrix mat = Matrix.Scaling(scale) * Matrix.RotationZ(rot) * Matrix.Translation(position);
+
+                Vector3 center = new Vector3(texture.HalfWidth, texture.HalfHeight, 0);
+
+                d3d9Sprite.Transform = mat;
+                d3d9Sprite.Draw(
+                    textureRef: texture.Texture,
+                    centerRef: center,
+                    color: color
+                    );
+            }
+        }
+
 
         public void FontDispose()
         {

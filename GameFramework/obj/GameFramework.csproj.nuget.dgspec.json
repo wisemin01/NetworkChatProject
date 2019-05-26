@@ -52,6 +52,14 @@
               "target": "Package",
               "version": "[4.2.0, )"
             },
+            "SharpDX.DirectInput": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "SharpDX.DirectSound": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
             "SharpDX.Mathematics": {
               "target": "Package",
               "version": "[4.2.0, )"
