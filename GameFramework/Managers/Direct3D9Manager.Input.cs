@@ -4,20 +4,22 @@ using System.Text;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using SharpDX.DirectInput;
+using SharpDX;
 
 namespace GameFramework.Manager
 {
     public partial class Direct3D9Manager
     {
-        private DirectInput     directInput;
-        private Keyboard        keyboard;
-        private Mouse           mouse;
+        public event EventHandler OnMouseClickEvent;
 
-        private MouseState      currentMouseState;
-        private KeyboardState   currentKeyboardState;
+        private DirectInput directInput;
+        private Keyboard    keyboard;
+        private Mouse       mouse;
 
-        private MouseState      prevMouseState;
-        private KeyboardState   prevKeyboardState;
+        private MouseState  mouseState;
+
+        private KeyboardState currentKeyboardState;
+        private KeyboardState prevKeyboardState;
 
         public void InitializeDirectInput()
         {
@@ -28,15 +30,21 @@ namespace GameFramework.Manager
 
             keyboard.Acquire();
             mouse.Acquire();
+
+            mainForm.Click += OnMouseClick;
+        }
+
+        public void OnMouseClick(object sender, EventArgs e)
+        {
+            OnMouseClickEvent?.Invoke(sender, e);
         }
 
         public void KeyUpdate()
         {
-            prevKeyboardState = currentKeyboardState;
-            prevMouseState = currentMouseState;
+            prevKeyboardState       = currentKeyboardState;
+            currentKeyboardState    = keyboard.GetCurrentState();
 
-            currentKeyboardState = keyboard.GetCurrentState();
-            currentMouseState = mouse.GetCurrentState();
+            mouseState              = mouse.GetCurrentState();
         }
 
         public bool IsKeyDown(Key key)
@@ -76,6 +84,16 @@ namespace GameFramework.Manager
                 return true;
             }
             return false;
+        }
+
+        public Vector2 MousePosition
+        {
+            get
+            {
+                System.Drawing.Point point = Control.MousePosition;
+                point = mainForm.PointToClient(point);
+                return new Vector2(point.X, point.Y);
+            }
         }
     }
 }

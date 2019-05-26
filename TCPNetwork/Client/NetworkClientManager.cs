@@ -103,6 +103,10 @@ namespace TCPNetwork.Client
 
         public void SendMessageToServer(string message)
         {
+            if (string.IsNullOrWhiteSpace(message))
+            {
+                return;
+            }
             if (IsConnection)
             {
                 NetworkStream stream = clientSocket.GetStream();
@@ -133,8 +137,12 @@ namespace TCPNetwork.Client
 
                     string message = Encoding.Unicode.GetString(buffer, 0, bytes);
 
+                    if (string.IsNullOrEmpty(message))
+                    {
+
+                    }
                     // 명령어 해석 구문
-                    if (message[0] == '/')
+                    else if (message[0] == '/')
                     {
                         string[] result = message.Split(new char[] { '/' });
 

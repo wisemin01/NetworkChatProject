@@ -24,3 +24,5 @@ C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameF
 C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameFramework.csproj.CopyComplete
 C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameFramework.dll
 C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameFramework.pdb
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameFramework.Properties.Resources.resources
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameFramework.csproj.GenerateResource.cache

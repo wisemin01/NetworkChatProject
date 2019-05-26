@@ -19,7 +19,10 @@ namespace GameFramework
     class RenderMsgForm : RenderForm
     {
         public event EventHandler<Message> OnMessage;
-        
+
+        public event EventHandler OnMouseLeftClick;
+        public event EventHandler OnMouseRightClick;
+
         public RenderMsgForm()
         {
         }
@@ -27,6 +30,7 @@ namespace GameFramework
         public RenderMsgForm(string text) : base(text)
         {
         }
+        
 
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         protected override void WndProc(ref Message m)

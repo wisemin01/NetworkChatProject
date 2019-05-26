@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using GameFramework;
 using GameFramework.Manager;
 using TCPNetwork.Client;
+using SharpDX;
+using System.Windows.Forms;
 
 namespace DirectXClient
 {
@@ -14,12 +16,22 @@ namespace DirectXClient
     {
         public override void Initialize()
         {
+            Direct3D9Manager.Instance.CreateTexture("LoginButton", "./Resource/LoginButton.png");
+
             Direct3D9Manager.Instance.CreateFont("InputField", "메이플스토리 Bold", 35, false);
 
             var textInput = GameObjectManager.Instance.AddObject(new TextInput("InputField")
             {
-                Position = new SharpDX.Vector3(300, 300, 0)
+                Position = new Vector3(300, 300, 0)
             });
+
+            var loginButton = GameObjectManager.Instance.AddObject(new Button() {
+                ButtonTexture   = Direct3D9Manager.Instance.FindTexture("LoginButton"),
+                Position        = new Vector3(700, 300, 0),
+                Scale           = new Vector3(1.0f, 1.0f, 1.0f)
+            });
+            
+            loginButton.OnButtonClick += textInput.EnterText;
 
             textInput.OnEnter += delegate (object sender, string userName) {
                 NetworkClientManager.Instance.Initialize(userName, "127.0.0.1", 9199,

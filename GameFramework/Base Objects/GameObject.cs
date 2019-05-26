@@ -8,6 +8,10 @@ namespace GameFramework
 {
     public abstract class GameObject
     {
+        public GameObject()
+        {
+        }
+
         public abstract void Initialize();
         public abstract void FrameUpdate();
         public abstract void FrameRender();

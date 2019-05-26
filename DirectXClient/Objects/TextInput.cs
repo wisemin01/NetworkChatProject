@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using GameFramework;
 using GameFramework.Manager;
+using GameFramework.Structure;
 using SharpDX;
 
 namespace DirectXClient
@@ -18,26 +19,54 @@ namespace DirectXClient
         public Vector3  Position    { get; set; }   = new Vector3(0, 0, 0);
         public string   FontKey     { get; set; }   = string.Empty;
         public bool     IsSelected  { get; private set; } = true;
+        public int      MaxLength   { get; set; }   = 15;
+        public RectCollider rectCollider { get; set; } = null;
 
         public event EventHandler<string> OnEnter;
 
         public TextInput(string fontKey)
         {
             FontKey = fontKey;
+
+            Direct3D9Manager.Instance.OnMouseClickEvent += OnMouseClick;
         }
 
-        public override void FrameRender()
+        private void OnMouseClick(object sender, EventArgs e)
         {
-            Direct3D9Manager.Instance.DrawFont(FontKey, Position, inputString.ToString(), Color.White);
+            if (rectCollider.IsMouseOver(Position))
+            {
+                IsSelected = true;
+            }
+            else
+                IsSelected = false;
+        }
+
+        public void EnterText(object sender, EventArgs e)
+        {
+            OnEnter?.Invoke(this, inputString.ToString());
+            inputString.Clear();
+        }
+
+        public override void Initialize()
+        {
+            Direct3D9Manager.Instance.AddMessageHandler(MsgProc);
+
+            if (rectCollider == null)
+            {
+                rectCollider = new RectCollider()
+                {
+                    Range = new Rectangle(0, 0, 50, 50 * MaxLength)
+                };
+            }
         }
 
         public override void FrameUpdate()
         {
         }
 
-        public override void Initialize()
+        public override void FrameRender()
         {
-            Direct3D9Manager.Instance.AddMessageHandler(MsgProc);
+            Direct3D9Manager.Instance.DrawFont(FontKey, Position, inputString.ToString(), Color.White);
         }
 
         public override void Release()
@@ -62,8 +91,7 @@ namespace DirectXClient
         {
             if(ch == (char)13)
             {
-                OnEnter?.Invoke(this, inputString.ToString());
-                inputString.Clear();
+                EnterText(this, EventArgs.Empty);
                 return;
             }
 
@@ -72,8 +100,10 @@ namespace DirectXClient
                 if (inputString.Length > 0)
                     inputString.Remove(inputString.Length - 1, 1);
             }
-            else
+            else if (inputString.Length <= MaxLength)
+            {
                 inputString.Append(ch);
+            }
         }
     }
 }
