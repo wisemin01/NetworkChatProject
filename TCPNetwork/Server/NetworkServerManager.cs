@@ -9,15 +9,14 @@ using System.Threading;
 
 namespace TCPNetwork.Server
 {
-    // Server Version Class
-
     /*
      * 채팅 프로그램의 서버를 담당하는 클래스
      * Initialize후 StartServer를 이용해 서버 시작
      */
-    public class NetworkServerManager
+    public partial class NetworkServerManager
     {
         // Singleton
+
         private static NetworkServerManager instance = null;
 
         public static NetworkServerManager Instance
@@ -31,7 +30,25 @@ namespace TCPNetwork.Server
             }
         }
 
+        public ITextDraw textDraw = null;
+        public ITextDraw TextDraw
+        {
+            get => textDraw;
+            set {
+                textDraw = value;
+
+                networkLobby.TextDraw = value;
+
+                foreach (var Room in networkRooms)
+                {
+                    Room.Value.TextDraw = value;
+                }
+            }
+        }
+        public INetworkOutput   NetworkOutput   { get; set; } = null;
+
         // Member
+
         private TcpListener         tcpServer           = null; // 서버
         private TcpClient           clientAcceptSocket  = null; // 접속받기 위한 소켓
 
@@ -39,10 +56,10 @@ namespace TCPNetwork.Server
 
         private Dictionary<string, NetworkRoom> networkRooms = null; // 네트워크 룸 컨테이너
 
-        private ITextDraw           textDraw            = null; // 출력하기 위한 인터페이스
-        private INetworkOutput      networkOutput       = null; // 출력하기 위한 인터페이스
-      
-        public void Initialize(int serverPort, ITextDraw draw)
+        /*
+         * 초기화
+         */
+        public void Initialize(int serverPort)
         {
             if (serverPort < 0 || serverPort > 65535)
                 throw new OverflowException("The port number is out of range");
@@ -50,11 +67,13 @@ namespace TCPNetwork.Server
             tcpServer           = new TcpListener(IPAddress.Any, serverPort);
             networkRooms        = new Dictionary<string, NetworkRoom>();
             clientAcceptSocket  = default;
-            textDraw            = draw;
 
-            networkLobby        = new NetworkRoom("Lobby", textDraw);
+            networkLobby        = new NetworkRoom("Lobby", TextDraw);
         }
 
+        /*
+         * 서버 시작
+         */
         public void StartServer()
         {
             // 접속자를 받기 위한 스레드 생성
@@ -65,11 +84,9 @@ namespace TCPNetwork.Server
             serverThread.Start();
         }
 
-        public void SetNetworkOutput(INetworkOutput networkDebugger)
-        {
-            this.networkOutput = networkDebugger;
-        }
-
+        /*
+         * 메인 서버 루프입니다
+         */
         private void ServerLoop()
         {
             if (tcpServer == null)
@@ -81,8 +98,8 @@ namespace TCPNetwork.Server
             tcpServer.Start();
             DrawText("[System] Server is started");
 
-            if (networkOutput != null)
-                networkOutput.AddRoomToListBox("Lobby");
+            if (NetworkOutput != null)
+                NetworkOutput.AddRoomToListBox("Lobby");
 
 
             while (true)
@@ -121,49 +138,9 @@ namespace TCPNetwork.Server
             tcpServer.Stop();
         }
 
-        /* 
-         * ITextDraw 인터페이스를 구현한 객체로
-         * 텍스트 출력
+        /*
+         * 유저를 다른 방으로 이동
          */
-        public void DrawText(string text)
-        {
-            if (textDraw != null)
-            {
-                textDraw.DrawText(text);
-            }
-        }
-
-        public void ClearText()
-        {
-            if(textDraw != null)
-            {
-                textDraw.ClearText();
-            }
-        }
-
-        public void ShowMessageBox(string text, string caption)
-        {
-            if (textDraw != null)
-            {
-                textDraw.ShowMessageBox(text, caption);
-            }
-        }
-
-        public NetworkRoom FindNetworkRoom(string roomName)
-        {
-            if (roomName == "Lobby")
-                return networkLobby;
-            else
-            {
-                NetworkRoom ret;
-
-                if (networkRooms.TryGetValue(roomName, out ret))
-                    return ret;
-
-                else return null;
-            }
-        }
-
         public bool MoveToOtherRoom(HandleClient handleClient, NetworkRoom otherRoom)
         {
             if (otherRoom == null || handleClient == null)
@@ -179,21 +156,27 @@ namespace TCPNetwork.Server
             return true;
         }
 
-        // 사용자 이름과 메시지를 결합한 기본 메시지 구조를 리턴
-        public static string GetDefaultMessageFormat(string userName, string message)
+        /*
+         * 네트워크 룸을 찾아 반환
+         */
+        public NetworkRoom FindNetworkRoom(string roomName)
         {
-            StringBuilder finalMessage = new StringBuilder();
+            if (roomName == "Lobby")
+                return networkLobby;
+            else
+            {
+                NetworkRoom ret;
 
-            finalMessage.
-                Append("[").
-                Append(userName).
-                Append("] : ").
-                Append(message);
+                if (networkRooms.TryGetValue(roomName, out ret))
+                    return ret;
 
-            return finalMessage.ToString();
+                else return null;
+            }
         }
 
-        // 네트워크 룸 생성
+        /*
+         * 네트워크 룸 생성
+         */
         public NetworkRoom CreateNetworkRoom(string roomName)
         {
             if (networkRooms.ContainsKey(roomName))
@@ -201,17 +184,19 @@ namespace TCPNetwork.Server
                 return null;
             }
 
-            NetworkRoom newRoom = new NetworkRoom(roomName, textDraw);
+            NetworkRoom newRoom = new NetworkRoom(roomName, TextDraw);
 
             networkRooms.Add(roomName, newRoom);
 
-            if (networkOutput != null)
-                networkOutput.AddRoomToListBox(roomName);
+            if (NetworkOutput != null)
+                NetworkOutput.AddRoomToListBox(roomName);
 
             return newRoom;
         }
 
-        // 네트워크 룸 파괴
+        /*
+         * 네트워크 룸 파괴
+         */
         public bool DestroyNetworkRoom(string roomName)
         {
             if (networkRooms.ContainsKey(roomName))
@@ -220,8 +205,8 @@ namespace TCPNetwork.Server
 
                 networkRooms.Remove(roomName);
 
-                if (networkOutput != null)
-                    networkOutput.RemoveRoomToListBox(roomName);
+                if (NetworkOutput != null)
+                    NetworkOutput.RemoveRoomToListBox(roomName);
 
                 return true;
             }
@@ -229,8 +214,10 @@ namespace TCPNetwork.Server
             return false;
         }
 
-        // 모든 방을 순회하며 해당 유저를 찾습니다.
-        // 비용 큼
+        /* 
+         * 모든 방을 순회하며 해당 유저를 찾습니다.
+         * 비용 큼
+         */
         public TcpClient FindUserClient(string userName)
         {
             foreach (var Iter in networkLobby.ClientList)
@@ -253,6 +240,9 @@ namespace TCPNetwork.Server
             return null;
         }
 
+        /*
+         * 해당 방의 유저들을 반환
+         */
         public List<Tuple<TcpClient, string>> GetUserClientList(string roomName)
         {
             if (roomName == null)

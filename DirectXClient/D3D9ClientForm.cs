@@ -9,12 +9,13 @@ namespace DirectXClient
     {
         public void Initialize()
         {
-            Direct3D9Manager.Instance.CreateRenderForm("My DirectX Client", 1280, 720);
+            Direct3D9Manager.Instance.CreateDirect3D9("My DirectX Client", 1280, 720);
+          
+            SceneManager.Instance.AddScene<LoginScene>("Login");
+            SceneManager.Instance.AddScene<ChatScene> ("Lobby");
+            SceneManager.Instance.AddScene<ChatScene> ("Room");
 
-            Direct3D9Manager.Instance.CreateTexture("Texture1", "./Resource/Texture.png");
-
-            SceneManager.Instance.AddScene<ChatScene>("Lobby");
-            SceneManager.Instance.ChangeScene("Lobby");
+            SceneManager.Instance.ChangeScene("Login");
         }
 
         public void Run()

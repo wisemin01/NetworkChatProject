@@ -11,26 +11,24 @@ namespace TCPNetwork.Server
     public class NetworkRoom
     {
         private ITextDraw   textDraw    = null;         // 그래픽 출력 인터페이스
-        private string      roomName    = string.Empty; // 방 이름
 
-        private Dictionary<TcpClient, string> clientList = null; // 클라이언트 리스트
-
-        public Dictionary<TcpClient, string> ClientList { get => clientList; }
-        public string RoomName { get => roomName; }
+        public Dictionary<TcpClient, string>    ClientList { get; } = null;
+        public string                           RoomName   { get; } = string.Empty;
+        public ITextDraw TextDraw { get => textDraw; set => textDraw = value; }
 
         public NetworkRoom(string roomName, ITextDraw draw)
         {
-            this.roomName   = roomName;
+            this.RoomName   = roomName;
             textDraw        = draw;
-            clientList      = new Dictionary<TcpClient, string>();
+            ClientList      = new Dictionary<TcpClient, string>();
         }
 
         public void Add(TcpClient client, string userName)
         {
-            clientList.Add(client, userName);
+            ClientList.Add(client, userName);
 
-            DrawText(string.Format("[System] {0} join the room ({1})", userName, roomName));
-            SendMessageToClients(string.Format("{0} 님이 {1}에 입장하셨습니다.", userName, roomName));
+            DrawText(string.Format("[System] {0} join the room ({1})", userName, RoomName));
+            SendMessageToClients(string.Format("{0} 님이 {1}에 입장하셨습니다.", userName, RoomName));
 
             // 해당 클라이언트와의 통신을 담당하는 객체 생성
             HandleClient handleClient = new HandleClient
@@ -48,18 +46,18 @@ namespace TCPNetwork.Server
         // 리스트에 추가 후 콜백만 재설정
         public void AddFromOtherRoom(HandleClient handleClient, string userName)
         {
-            clientList.Add(handleClient.Client, userName);
+            ClientList.Add(handleClient.Client, userName);
 
             handleClient.OnDisconnected = OnDisconnected;
             handleClient.OnReceived     = OnReceived;
 
-            DrawText(string.Format("[System] {0} join the room ({1})", userName, roomName));
-            SendMessageToClients(string.Format("{0} 님이 {1} 방에 입장하셨습니다.", userName, roomName));
+            DrawText(string.Format("[System] {0} join the room ({1})", userName, RoomName));
+            SendMessageToClients(string.Format("{0} 님이 {1} 방에 입장하셨습니다.", userName, RoomName));
         }
 
         public string Remove(TcpClient client)
         {
-            string userName = clientList[client].ToString();
+            string userName = ClientList[client].ToString();
 
             OnDisconnected(client);
 
@@ -68,11 +66,11 @@ namespace TCPNetwork.Server
 
         public void RoomClear()
         {
-            foreach (var Iter in clientList)
+            foreach (var Iter in ClientList)
             {
-                DrawText(string.Format("[System] {0} left the room ({1})", Iter.Value, roomName));
-                SendMessageToClients(string.Format("{0} 님이 {1} 방에서 퇴장하셨습니다.", Iter.Value, roomName));
-                clientList.Remove(Iter.Key);
+                DrawText(string.Format("[System] {0} left the room ({1})", Iter.Value, RoomName));
+                SendMessageToClients(string.Format("{0} 님이 {1} 방에서 퇴장하셨습니다.", Iter.Value, RoomName));
+                ClientList.Remove(Iter.Key);
             }
         }
 
@@ -80,14 +78,14 @@ namespace TCPNetwork.Server
         private void OnDisconnected(TcpClient clientSocket)
         {
             // 컨테이너에서 검색해
-            if (clientList.ContainsKey(clientSocket))
+            if (ClientList.ContainsKey(clientSocket))
             {
-                string userName = clientList[clientSocket].ToString();
+                string userName = ClientList[clientSocket].ToString();
 
                 // 로그 출력 후 컨테이너에서 제거
-                DrawText(string.Format("[System] {0} left the room ({1})", userName, roomName));
-                SendMessageToClients(string.Format("{0} 님이 {1} 방에서 퇴장하셨습니다.", userName, roomName));
-                clientList.Remove(clientSocket);
+                DrawText(string.Format("[System] {0} left the room ({1})", userName, RoomName));
+                SendMessageToClients(string.Format("{0} 님이 {1} 방에서 퇴장하셨습니다.", userName, RoomName));
+                ClientList.Remove(clientSocket);
             }
         }
 
@@ -99,7 +97,7 @@ namespace TCPNetwork.Server
             string log = NetworkServerManager.GetDefaultMessageFormat(userName, message);
 
             if (roomNameFlag)
-                DrawText(string.Format("[{0}]{1}", roomName, log));
+                DrawText($"[{RoomName}]{log}");
             else
                 DrawText(log);
 
@@ -113,7 +111,7 @@ namespace TCPNetwork.Server
              * 컨테이너에 저장된 클라이언트를 순회하며
              * 각 클라이언트에 메시지 전송
             */
-            foreach (var pair in clientList)
+            foreach (var pair in ClientList)
             {
                 TcpClient client = pair.Key as TcpClient;
 

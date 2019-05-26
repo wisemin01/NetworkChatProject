@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -41,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client\NetworkClientManager.UserInterface.cs" />
     <Compile Include="Interface\INetworkOutput.cs" />
     <Compile Include="Interface\ITextDraw.cs" />
     <Compile Include="Client\ClientCommandPaser.cs" />
@@ -48,6 +51,7 @@
     <Compile Include="Server\HandleClient.cs" />
     <Compile Include="Server\NetworkServerManager.cs" />
     <Compile Include="Server\NetworkRoom.cs" />
+    <Compile Include="Server\NetworkServerManager.UserInterface.cs" />
     <Compile Include="Server\ServerCommandPaser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

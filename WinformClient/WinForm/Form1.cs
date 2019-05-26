@@ -55,11 +55,11 @@ namespace TCPNetwork
                     userName,
                     ipAdress,
                     int.Parse(serverPort),
-                    this,
                     delegate (string text){
                         MessageBox.Show(text, "Exit");
                         Application.Exit();
                     });
+                NetworkClientManager.Instance.TextDraw = this;
 
                 if (NetworkClientManager.Instance.ConnectToServer())
                 {
@@ -87,7 +87,7 @@ namespace TCPNetwork
             if (string.IsNullOrWhiteSpace(textBox3.Text))
                 return;
 
-            if (NetworkClientManager.Instance.IsRunning == false)
+            if (NetworkClientManager.Instance.IsConnection == false)
             {
                 MessageBox.Show("서버에 먼저 접속 후 전송을 시도하세요", "Send Error");
                 return;

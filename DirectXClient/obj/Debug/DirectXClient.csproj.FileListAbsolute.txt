@@ -6,3 +6,11 @@ D:\Programing project\[ 회사 과제 ]\Chat Program\DirectXClient\obj\Debug\Dir
 D:\Programing project\[ 회사 과제 ]\Chat Program\DirectXClient\obj\Debug\DirectXClient.exe
 D:\Programing project\[ 회사 과제 ]\Chat Program\DirectXClient\obj\Debug\DirectXClient.pdb
 D:\Programing project\[ 회사 과제 ]\Chat Program\DirectXClient\obj\Debug\DirectXClient.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\Debug\DirectXClient.exe.config
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\Debug\DirectXClient.exe
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\Debug\DirectXClient.pdb
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\DirectXClient\obj\Debug\DirectXClient.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\DirectXClient\obj\Debug\DirectXClient.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\DirectXClient\obj\Debug\DirectXClient.csproj.CopyComplete
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\DirectXClient\obj\Debug\DirectXClient.exe
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\DirectXClient\obj\Debug\DirectXClient.pdb

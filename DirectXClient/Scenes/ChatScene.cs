@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GameFramework;
 using GameFramework.Manager;
 using SharpDX;
 using TCPNetwork.Client;
+using SharpDX.DirectInput;
 
 namespace DirectXClient
 {
@@ -16,22 +13,32 @@ namespace DirectXClient
 
         public override void Initialize()
         {
-            Direct3D9Manager.Instance.CreateFont("Font1", "Fixedsys", 50, false);
+            Direct3D9Manager.Instance.CreateFont("ChatListFont", "메이플스토리 Light", 25, false);
+            
+            var TextList
+                = GameObjectManager.Instance.AddObject(new TextList(25,
+                new Vector3(15, Direct3D9Manager.Instance.WindowHeight - 200, 0),
+                "ChatListFont"));
 
-            var TextList = GameObjectManager.Instance.AddObject(
-                new TextList(50,
-                new Vector3(
-                    0,
-                    Direct3D9Manager.Instance.WindowHeight - 60,
-                    0
-                    ),
-                "Font1"));
+            if (NetworkClientManager.Instance.IsConnection == false)
+            {
+                NetworkClientManager.Instance.TextDraw = TextList;
+                bool serverConnectSuccess = NetworkClientManager.Instance.ConnectToServer();
 
-            NetworkClientManager.Instance.Initialize(
-                "DirectXClient User", "127.0.0.1", 9199, TextList,
-                delegate (string text) { Direct3D9Manager.Instance.Exit(); });
-            NetworkClientManager.Instance.ConnectToServer();
+                if (serverConnectSuccess == false)
+                {
+                    return;
+                }
+            }
+
+            var TextInput = GameObjectManager.Instance.AddObject(new TextInput("ChatListFont")
+            {
+                Position = new Vector3(15, Direct3D9Manager.Instance.WindowHeight - 100, 0)
+            });
+
+            TextInput.OnEnter += delegate (object sender, string s) { NetworkClientManager.Instance.SendMessageToServer(s); };
         }
+
         public override void FrameRender()
         {
             GameObjectManager.Instance.RenderObjects();
@@ -39,12 +46,19 @@ namespace DirectXClient
 
         public override void FrameUpdate()
         {
+            if (NetworkClientManager.Instance.IsConnection == false)
+            {
+                SceneManager.Instance.ChangeScene("Login");
+            }
+
             GameObjectManager.Instance.UpdateObjects();
         }
 
         public override void Release()
         {
             GameObjectManager.Instance.ReleaseObjects();
+            Direct3D9Manager.Instance.FontDispose();
+            Direct3D9Manager.Instance.TextureDispose();
         }
     }
 }

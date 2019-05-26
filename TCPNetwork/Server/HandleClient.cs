@@ -14,38 +14,22 @@ namespace TCPNetwork.Server
 
     public class HandleClient
     {
-        public delegate void MessageDisplayHandler(string userName, string message, bool flag);
-        public delegate void MessageDispatcher(string message, TcpClient client);
-        public delegate void DisconnectedHandler(TcpClient client);
+        public delegate void MessageDisplayHandler  (string userName, string message, bool flag);
+        public delegate void MessageDispatcher      (string message, TcpClient client);
+        public delegate void DisconnectedHandler    (TcpClient client);
 
-        private MessageDisplayHandler onReceived = null;
-        private DisconnectedHandler onDisconnected = null;
-        private MessageDispatcher onSendMessage = null;
+        public TcpClient    Client      { get; private set; }         = null;
+        public NetworkRoom  NetworkRoom { get; set; }                 = null;
 
-        private NetworkRoom networkRoom = null;
-        private TcpClient client = null;
-
-        public TcpClient Client { get => client; }
-        public NetworkRoom NetworkRoom { get => networkRoom; set => networkRoom = value; }
-
-        public MessageDisplayHandler OnReceived
-        {
-            get => onReceived; set => onReceived = value;
-        }
-        public DisconnectedHandler OnDisconnected
-        {
-            get => onDisconnected; set => onDisconnected = value;
-        }
-        public MessageDispatcher OnMessageSended
-        {
-            get => onSendMessage; set => onSendMessage = value;
-        }
+        public MessageDisplayHandler    OnReceived      { get; set; } = null;
+        public DisconnectedHandler      OnDisconnected  { get; set; } = null;
+        public MessageDispatcher        OnMessageSended { get; set; } = null;
 
         public void StartClientHandling(TcpClient client, NetworkRoom room)
         {
             // 맴버 초기화
-            this.client = client;
-            networkRoom = room;
+            this.Client = client;
+            NetworkRoom = room;
 
             // 스레드 생성
             Thread thread = new Thread(ClientLoop)
@@ -67,10 +51,10 @@ namespace TCPNetwork.Server
 
                 while (true)
                 {
-                    if (client.Connected == false)
+                    if (Client.Connected == false)
                         break;
 
-                    stream = client.GetStream();
+                    stream = Client.GetStream();
 
                     // 메시지를 읽어온다
                     bytes   = stream.Read(buffer, 0, buffer.Length);
@@ -91,17 +75,17 @@ namespace TCPNetwork.Server
                     else
                     {
                         // OnReceived 함수에 전달
-                        OnReceived?.Invoke(networkRoom.ClientList[client].ToString(), message, true);
+                        OnReceived?.Invoke(NetworkRoom.ClientList[Client].ToString(), message, true);
                     }
                 }
             }
             // 예외 발생시 해당 소켓과 스레드 Close
             catch (SocketException)
             {
-                if (client != null)
+                if (Client != null)
                 {
-                    OnDisconnected?.Invoke(client);
-                    client.Close();
+                    OnDisconnected?.Invoke(Client);
+                    Client.Close();
                     stream.Close();
                 }
             }
@@ -111,10 +95,10 @@ namespace TCPNetwork.Server
             }
             catch (Exception)
             {
-                if (client != null)
+                if (Client != null)
                 {
-                    OnDisconnected?.Invoke(client);
-                    client.Close();
+                    OnDisconnected?.Invoke(Client);
+                    Client.Close();
                     stream.Close();
                 }
             }
@@ -127,7 +111,7 @@ namespace TCPNetwork.Server
             {
                 case MessageCommandType.Leave:
                     {
-                        OnMessageSended?.Invoke("/Leave", client);
+                        OnMessageSended?.Invoke("/Leave", Client);
                     }
                     break;
 
@@ -138,7 +122,7 @@ namespace TCPNetwork.Server
 
                         if (result == false)
                         {
-                            OnMessageSended?.Invoke("지정된 방을 찾을 수 없습니다.", client);
+                            OnMessageSended?.Invoke("지정된 방을 찾을 수 없습니다.", Client);
                         }
                     }
                     break;
@@ -148,9 +132,11 @@ namespace TCPNetwork.Server
                         NetworkRoom room = NetworkServerManager.Instance.CreateNetworkRoom(splitResult[2]);
 
                         if (room != null)
-                            OnMessageSended?.Invoke("[System] 방을 생성했습니다.", client);
+                            OnMessageSended?.Invoke("[System] : 방을 생성했습니다.", Client);
                         else
-                            OnMessageSended?.Invoke("[System] 방 생성에 실패했습니다.", client);
+                            OnMessageSended?.Invoke("[System] : 방 생성에 실패했습니다.", Client);
+
+                        OnReceived("System", $"{splitResult[2]} 방이 생성되었습니다.", false);
                     }
                     break;
 
@@ -158,7 +144,7 @@ namespace TCPNetwork.Server
                     {
                         NetworkRoom room = NetworkServerManager.Instance.FindNetworkRoom(splitResult[2]);
 
-                        if (networkRoom.RoomName == splitResult[2])
+                        if (NetworkRoom.RoomName == splitResult[2])
                         {
                             OnReceived?.Invoke("System", "자신이 속한 방은 파괴할 수 없습니다.", false);
                             break;
@@ -185,15 +171,15 @@ namespace TCPNetwork.Server
                             OnMessageSended?.Invoke(
                                string.Format("To [{0}]: {1}",
                                splitResult[2], splitResult[3]
-                               ), client);
+                               ), Client);
                             OnMessageSended?.Invoke(
                                 string.Format("[{0}][{1}] <귓속말> : {2}",
-                                networkRoom.RoomName, networkRoom.ClientList[client].ToString(), splitResult[3]
+                                NetworkRoom.RoomName, NetworkRoom.ClientList[Client].ToString(), splitResult[3]
                                 ), targetUser);
                         }
                         else
                         {
-                            OnMessageSended?.Invoke("귓속말을 전할 상대를 찾지 못했습니다.", client);
+                            OnMessageSended?.Invoke("귓속말을 전할 상대를 찾지 못했습니다.", Client);
                         }
                     }
                     break;

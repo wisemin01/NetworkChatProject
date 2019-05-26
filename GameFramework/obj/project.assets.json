@@ -50,6 +50,30 @@
           "lib/net45/SharpDX.Direct3D9.dll": {}
         }
       },
+      "SharpDX.DirectInput/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.DirectInput.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.DirectInput.dll": {}
+        }
+      },
+      "SharpDX.DirectSound/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.DirectSound.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.DirectSound.dll": {}
+        }
+      },
       "SharpDX.DXGI/4.2.0": {
         "type": "package",
         "dependencies": {
@@ -122,6 +146,30 @@
         },
         "runtime": {
           "lib/net45/SharpDX.Direct3D9.dll": {}
+        }
+      },
+      "SharpDX.DirectInput/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.DirectInput.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.DirectInput.dll": {}
+        }
+      },
+      "SharpDX.DirectSound/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.DirectSound.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.DirectSound.dll": {}
         }
       },
       "SharpDX.DXGI/4.2.0": {
@@ -198,6 +246,30 @@
           "lib/net45/SharpDX.Direct3D9.dll": {}
         }
       },
+      "SharpDX.DirectInput/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.DirectInput.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.DirectInput.dll": {}
+        }
+      },
+      "SharpDX.DirectSound/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.DirectSound.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.DirectSound.dll": {}
+        }
+      },
       "SharpDX.DXGI/4.2.0": {
         "type": "package",
         "dependencies": {
@@ -270,6 +342,30 @@
         },
         "runtime": {
           "lib/net45/SharpDX.Direct3D9.dll": {}
+        }
+      },
+      "SharpDX.DirectInput/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.DirectInput.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.DirectInput.dll": {}
+        }
+      },
+      "SharpDX.DirectSound/4.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SharpDX": "4.2.0"
+        },
+        "compile": {
+          "lib/net45/SharpDX.DirectSound.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SharpDX.DirectSound.dll": {}
         }
       },
       "SharpDX.DXGI/4.2.0": {
@@ -384,6 +480,46 @@
         "sharpdx.direct3d9.nuspec"
       ]
     },
+    "SharpDX.DirectInput/4.2.0": {
+      "sha512": "YjXi4ZnCEa5hH8BGJ8Gb88DDqDzI1Rv9/nD3e334eNR28DIsuI1xOmQRqA91MiO+l+GXImScKktDiGvdtY3sAw==",
+      "type": "package",
+      "path": "sharpdx.directinput/4.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/SharpDX.DirectInput.dll",
+        "lib/net40/SharpDX.DirectInput.pdb",
+        "lib/net40/SharpDX.DirectInput.xml",
+        "lib/net45/SharpDX.DirectInput.dll",
+        "lib/net45/SharpDX.DirectInput.pdb",
+        "lib/net45/SharpDX.DirectInput.xml",
+        "lib/netstandard1.3/SharpDX.DirectInput.dll",
+        "lib/netstandard1.3/SharpDX.DirectInput.pdb",
+        "lib/netstandard1.3/SharpDX.DirectInput.xml",
+        "sharpdx.directinput.4.2.0.nupkg.sha512",
+        "sharpdx.directinput.nuspec"
+      ]
+    },
+    "SharpDX.DirectSound/4.2.0": {
+      "sha512": "blb1w5ZIeuPXShjBx865XUztsJhiOQquj+Iew7aiXWOjX+t4yHZiDsubAc4TeOApVf3/ZdrI+8NJr9uNOgu23A==",
+      "type": "package",
+      "path": "sharpdx.directsound/4.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/SharpDX.DirectSound.dll",
+        "lib/net40/SharpDX.DirectSound.pdb",
+        "lib/net40/SharpDX.DirectSound.xml",
+        "lib/net45/SharpDX.DirectSound.dll",
+        "lib/net45/SharpDX.DirectSound.pdb",
+        "lib/net45/SharpDX.DirectSound.xml",
+        "lib/netstandard1.3/SharpDX.DirectSound.dll",
+        "lib/netstandard1.3/SharpDX.DirectSound.pdb",
+        "lib/netstandard1.3/SharpDX.DirectSound.xml",
+        "sharpdx.directsound.4.2.0.nupkg.sha512",
+        "sharpdx.directsound.nuspec"
+      ]
+    },
     "SharpDX.DXGI/4.2.0": {
       "sha512": "UjKqkgWc8U+SP+j3LBzFP6OB6Ntapjih7Xo+g1rLcsGbIb5KwewBrBChaUu7sil8rWoeVU/k0EJd3SMN4VqNZw==",
       "type": "package",
@@ -409,7 +545,7 @@
       ]
     },
     "SharpDX.Mathematics/4.2.0": {
-      "sha512": "R2pcKLgdsP9p5WyTjHmGOZ0ka0zASAZYc6P4L6rSvjYhf6klGYbent7MiVwbkwkt9dD44p5brjy5IwAnVONWGw==",
+      "sha512": "+eTiX5NFnO2+SRQQVVPxRm3KUCA307z2aAVGLs6vbcRmCXerTVhK9MIpMecZOUbCB32SWBl9QMGbigFWe9/xMA==",
       "type": "package",
       "path": "sharpdx.mathematics/4.2.0",
       "files": [
@@ -440,29 +576,33 @@
       "SharpDX.DXGI >= 4.2.0",
       "SharpDX.Desktop >= 4.2.0",
       "SharpDX.Direct3D9 >= 4.2.0",
+      "SharpDX.DirectInput >= 4.2.0",
+      "SharpDX.DirectSound >= 4.2.0",
       "SharpDX.Mathematics >= 4.2.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SM MO\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programing project\\[ 회사 과제 ]\\Chat Program\\GameFramework\\GameFramework.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Projects\\NetworkChatProject\\GameFramework\\GameFramework.csproj",
       "projectName": "GameFramework",
-      "projectPath": "D:\\Programing project\\[ 회사 과제 ]\\Chat Program\\GameFramework\\GameFramework.csproj",
-      "packagesPath": "C:\\Users\\SM MO\\.nuget\\packages\\",
-      "outputPath": "D:\\Programing project\\[ 회사 과제 ]\\Chat Program\\GameFramework\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\Projects\\NetworkChatProject\\GameFramework\\GameFramework.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\Projects\\NetworkChatProject\\GameFramework\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\SM MO\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net472"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -491,6 +631,14 @@
             "version": "[4.2.0, )"
           },
           "SharpDX.Direct3D9": {
+            "target": "Package",
+            "version": "[4.2.0, )"
+          },
+          "SharpDX.DirectInput": {
+            "target": "Package",
+            "version": "[4.2.0, )"
+          },
+          "SharpDX.DirectSound": {
             "target": "Package",
             "version": "[4.2.0, )"
           },

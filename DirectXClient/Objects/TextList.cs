@@ -5,31 +5,29 @@ using GameFramework;
 using GameFramework.Manager;
 using SharpDX;
 using System;
+using SharpDX.DirectInput;
 
 namespace DirectXClient
 {
-    class TextList : GameObject, ITextDraw
+    public class TextList : GameObject, ITextDraw
     {
         private readonly object listLock = new object();
+        private readonly string fontName = string.Empty;
 
-        private int fontSize = 50;
-        private Vector3 position = new Vector3(0, 0, 0);
-        private string fontName = string.Empty;
-
-        public Vector3 Position { get => position; set => position = value; }
+        public Vector3 Position { get; set; } = new Vector3(0, 0, 0);
 
         List<Tuple<string, Color>> list = new List<Tuple<string, Color>>();
 
-        public int FontSize { get => fontSize; set => fontSize = value; }
+        public int TextDepth { get; set; } = 50;
 
-        public TextList(int fontSize, Vector3 position, string fontName)
+        public TextList(int textDepth, Vector3 position, string fontName)
         {
-            this.fontSize = fontSize;
-            this.position = position;
-            this.fontName = fontName;
+            this.TextDepth  = textDepth;
+            this.Position   = position;
+            this.fontName   = fontName;
         }
 
-        void ITextDraw.DrawColorText(string text, int r, int g, int b, int a)
+        public void DrawColorText(string text, int r, int g, int b, int a)
         {
             lock (listLock)
             {
@@ -37,7 +35,7 @@ namespace DirectXClient
             }
         }
 
-        void ITextDraw.DrawText(string text)
+        public void DrawText(string text)
         {
             lock (listLock)
             {
@@ -45,7 +43,7 @@ namespace DirectXClient
             }
         }
 
-        void ITextDraw.ClearText()
+        public void ClearText()
         {
             lock (listLock)
             {
@@ -60,7 +58,7 @@ namespace DirectXClient
 
         public override void FrameRender()
         {
-            if (FontSize < 0)
+            if (TextDepth < 0)
                 return;
 
             lock (listLock)
@@ -68,14 +66,14 @@ namespace DirectXClient
                 if (list.Count == 0)
                     return;
 
-                int yIndex = (int)position.Y - list.Count * FontSize;
-                int xIndex = (int)position.X;
+                int yIndex = (int)Position.Y - list.Count * TextDepth;
+                int xIndex = (int)Position.X;
 
                 foreach (var Iter in list)
                 {
                     if (yIndex < 0)
                     {
-                        yIndex += FontSize;
+                        yIndex += TextDepth;
                         continue;
                     }
                     else
@@ -83,7 +81,7 @@ namespace DirectXClient
                         Direct3D9Manager.Instance.DrawFont(fontName,
                             new Vector3(xIndex, yIndex, 0), Iter.Item1,
                             Iter.Item2);
-                        yIndex += FontSize;
+                        yIndex += TextDepth;
                     }
                 }
             }
@@ -91,7 +89,7 @@ namespace DirectXClient
 
         public override void FrameUpdate()
         {
-
+            
         }
 
         public override void Initialize()

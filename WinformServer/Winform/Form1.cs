@@ -21,21 +21,6 @@ namespace TCPNetwork
             InitializeComponent();
         }
 
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Button1_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBox3.Text) == false)
@@ -44,8 +29,9 @@ namespace TCPNetwork
                 {
                     int port = int.Parse(textBox2.Text);
 
-                    NetworkServerManager.Instance.Initialize(port, this);
-                    NetworkServerManager.Instance.SetNetworkOutput(this);
+                    NetworkServerManager.Instance.Initialize(port);
+                    NetworkServerManager.Instance.TextDraw      = this;
+                    NetworkServerManager.Instance.NetworkOutput = this;
                     NetworkServerManager.Instance.StartServer();
 
                     button1.Enabled = false;
@@ -113,12 +99,7 @@ namespace TCPNetwork
                 listBox1.Items.Remove(roomName);
             }
         }
-
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         void ITextDraw.DrawText(string text)
         {
             if (textBox1.InvokeRequired)

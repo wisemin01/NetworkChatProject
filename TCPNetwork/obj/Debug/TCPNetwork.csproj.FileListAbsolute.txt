@@ -4,3 +4,9 @@ D:\Programing project\[ 회사 과제 ]\Chat Program\TCPNetwork\obj\Debug\TCPNet
 D:\Programing project\[ 회사 과제 ]\Chat Program\TCPNetwork\obj\Debug\TCPNetwork.csproj.CoreCompileInputs.cache
 D:\Programing project\[ 회사 과제 ]\Chat Program\TCPNetwork\obj\Debug\TCPNetwork.dll
 D:\Programing project\[ 회사 과제 ]\Chat Program\TCPNetwork\obj\Debug\TCPNetwork.pdb
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\Debug\TCPNetwork.dll
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\Debug\TCPNetwork.pdb
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\TCPNetwork\obj\Debug\TCPNetwork.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\TCPNetwork\obj\Debug\TCPNetwork.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\TCPNetwork\obj\Debug\TCPNetwork.dll
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\TCPNetwork\obj\Debug\TCPNetwork.pdb

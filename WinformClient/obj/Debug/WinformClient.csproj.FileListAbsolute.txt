@@ -22,3 +22,14 @@ D:\Programing project\[ 회사 과제 ]\Chat Program\WinformClient\SharpDX.pdb
 D:\Programing project\[ 회사 과제 ]\Chat Program\Debug\MyChatClient.exe.config
 D:\Programing project\[ 회사 과제 ]\Chat Program\Debug\MyChatClient.exe
 D:\Programing project\[ 회사 과제 ]\Chat Program\Debug\MyChatClient.pdb
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\Debug\MyChatClient.exe.config
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\Debug\MyChatClient.exe
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\Debug\MyChatClient.pdb
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\WinformClient\obj\Debug\WinformClient.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\WinformClient\obj\Debug\TCPNetwork.ClientGUIForm.resources
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\WinformClient\obj\Debug\MyChatClient.Properties.Resources.resources
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\WinformClient\obj\Debug\WinformClient.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\WinformClient\obj\Debug\WinformClient.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\WinformClient\obj\Debug\WinformClient.csproj.CopyComplete
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\WinformClient\obj\Debug\MyChatClient.exe
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\WinformClient\obj\Debug\MyChatClient.pdb

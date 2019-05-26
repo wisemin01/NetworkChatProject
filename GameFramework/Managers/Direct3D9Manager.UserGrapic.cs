@@ -1,12 +1,9 @@
 ﻿using SharpDX;
 using SharpDX.Direct3D9;
-using System;
 using System.Collections.Generic;
 
 namespace GameFramework.Manager
 {
-    using BGRAColor = SharpDX.Mathematics.Interop.RawColorBGRA;
-
     public partial class Direct3D9Manager
     {
         private Dictionary<string, Font>    fonts    = new Dictionary<string, Font>();
@@ -31,9 +28,19 @@ namespace GameFramework.Manager
 
         public void CreateTexture(string key, string path)
         {
-            Texture texture = Texture.FromFile(d3d9Device, path);
+            try
+            {
+                ImageInformation info = new ImageInformation();
 
-            textures.Add(key, texture);
+                Texture texture = Texture.FromFile(d3d9Device, "./Image/d.png", D3DX.DefaultNonPowerOf2, D3DX.DefaultNonPowerOf2, 0,
+                    Usage.None, Format.Unknown, Pool.Managed, Filter.None, Filter.None, 0, out info);
+
+                textures.Add(key, texture);
+            }
+            catch (SharpDXException)
+            {
+
+            }
         }
 
         public void DrawFont(string fontKey, Vector3 position, string text, Color color)
@@ -65,7 +72,7 @@ namespace GameFramework.Manager
             }
         }
 
-        private void FontDispose()
+        public void FontDispose()
         {
             foreach (var Iter in fonts)
             {
@@ -74,7 +81,7 @@ namespace GameFramework.Manager
             fonts.Clear();
         }
 
-        private void TextureDispose()
+        public void TextureDispose()
         {
             foreach (var Iter in textures)
             {
