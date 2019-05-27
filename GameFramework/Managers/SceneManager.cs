@@ -23,10 +23,13 @@ namespace GameFramework.Manager
         }
 
         // Member
-        private Dictionary<string, Scene> scenes = new Dictionary<string, Scene>();
+        private readonly Dictionary<string, Scene> scenes
+            = new Dictionary<string, Scene>();
 
         Scene nowScene  = null;
         Scene nextScene = null;
+
+        public event EventHandler<string> OnChangeSceneEvent;
 
         public void AddScene<T>(string key) where T : Scene, new()
         {
@@ -44,6 +47,7 @@ namespace GameFramework.Manager
         {
             Scene scene = scenes[key];
             nextScene   = scene ?? throw new Exception("해당 Scene이 존재하지 않습니다.");
+            OnChangeSceneEvent.Invoke(this, key);
         }
 
         public void FrameUpdate()
@@ -53,6 +57,7 @@ namespace GameFramework.Manager
                 if (nowScene != null)
                 {
                     nowScene.Release();
+                    GameObjectManager.Instance.ReleaseObjects();
                 }
 
                 nextScene.Initialize();
@@ -64,6 +69,7 @@ namespace GameFramework.Manager
             if (nowScene != null)
             {
                 nowScene.FrameUpdate();
+                GameObjectManager.Instance.UpdateObjects();
             }
         }
 
@@ -72,6 +78,7 @@ namespace GameFramework.Manager
             if (nowScene != null)
             {
                 nowScene.FrameRender();
+                GameObjectManager.Instance.RenderObjects();
             }
         }
 
@@ -80,9 +87,11 @@ namespace GameFramework.Manager
             if (nowScene != null)
             {
                 nowScene.Release();
+                GameObjectManager.Instance.ReleaseObjects();
             }
 
             scenes.Clear();
+            OnChangeSceneEvent = null;
         }
     }
 }

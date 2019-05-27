@@ -1,6 +1,5 @@
 D:\Programing project\[ 회사 과제 ]\Chat Program\Debug\TCPNetwork.dll
 D:\Programing project\[ 회사 과제 ]\Chat Program\Debug\TCPNetwork.pdb
-D:\Programing project\[ 회사 과제 ]\Chat Program\TCPNetwork\obj\Debug\TCPNetwork.csprojAssemblyReference.cache
 D:\Programing project\[ 회사 과제 ]\Chat Program\TCPNetwork\obj\Debug\TCPNetwork.csproj.CoreCompileInputs.cache
 D:\Programing project\[ 회사 과제 ]\Chat Program\TCPNetwork\obj\Debug\TCPNetwork.dll
 D:\Programing project\[ 회사 과제 ]\Chat Program\TCPNetwork\obj\Debug\TCPNetwork.pdb

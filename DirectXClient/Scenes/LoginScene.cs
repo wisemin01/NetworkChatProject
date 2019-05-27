@@ -41,10 +41,13 @@ namespace DirectXClient
 
             loginButton.OnButtonClick += textInput.EnterText;
 
-            //textInput.OnEnter += delegate { MessageBox.Show("asdasdas", "Error"); };
-
             textInput.OnEnter += delegate (object sender, string userName)
             {
+                if (string.IsNullOrWhiteSpace(userName)) {
+                    MessageBox.Show("이름에는 공백 문자가\n포함될 수 없습니다.", "알림");
+                    return;
+                }
+
                 NetworkClientManager.Instance.Initialize(userName, "127.0.0.1", 9199,
                     delegate (string exitComment) { D3D9Manager.Instance.Exit(); });
                 SceneManager.Instance.ChangeScene("Lobby");
@@ -53,17 +56,14 @@ namespace DirectXClient
 
         public override void FrameUpdate()
         {
-            GameObjectManager.Instance.UpdateObjects();
         }
 
         public override void FrameRender()
         {
-            GameObjectManager.Instance.RenderObjects();
         }
 
         public override void Release()
         {
-            GameObjectManager.Instance.ReleaseObjects();
             D3D9Manager.Instance.FontDispose();
             D3D9Manager.Instance.TextureDispose();
         }

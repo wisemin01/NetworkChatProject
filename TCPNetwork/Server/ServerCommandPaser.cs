@@ -13,7 +13,8 @@ namespace TCPNetwork.Server
         MoveToOtherRoom,
         CreateRoom,
         DestroyRoom,
-        Whisper
+        Whisper,
+        ReturnRoomList
     }
 
     class CommandPaser
@@ -38,6 +39,10 @@ namespace TCPNetwork.Server
                     return MessageCommandType.Whisper;
                 case "r":
                     return MessageCommandType.Whisper;
+                case "ReturnRoomList":
+                    return MessageCommandType.ReturnRoomList;
+                case "GetRoomList":
+                    return MessageCommandType.ReturnRoomList;
                 default:
                     return MessageCommandType.None;
             }

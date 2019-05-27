@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows;
+using System.Collections.Generic;
 
 namespace TCPNetwork.Client
 {
@@ -35,6 +36,8 @@ namespace TCPNetwork.Client
         public delegate void OnButtonDown(object sender, EventArgs e);
         public delegate void OnClientExit(string text);
 
+        public event EventHandler<string> OnChangeRoomEvent;
+
         // Member
         private TcpClient       clientSocket  = null;           // 클라이언트 소켓
         private NetworkStream   stream        = default;        // 메시지 입출력 스트림
@@ -43,6 +46,8 @@ namespace TCPNetwork.Client
         private string          userName      = string.Empty;   // 유저 이름
         private string          serverIP      = string.Empty;   // 서버 IP
         private string          roomName      = string.Empty;   // 속해있는 방 이름
+
+        List<string>            networkRoomTitles = new List<string>();
 
         private int             serverPort    = 0;              // 서버 포트
 
@@ -110,11 +115,14 @@ namespace TCPNetwork.Client
             }
             if (IsConnection)
             {
-                NetworkStream stream = clientSocket.GetStream();
-                byte[] buffer = Encoding.Unicode.GetBytes(message + "$");
+                if (clientSocket.Connected)
+                {
+                    NetworkStream stream = clientSocket.GetStream();
+                    byte[] buffer = Encoding.Unicode.GetBytes(message + "$");
 
-                stream.Write(buffer, 0, buffer.Length);
-                stream.Flush();
+                    stream.Write(buffer, 0, buffer.Length);
+                    stream.Flush();
+                }
             }
         }
 
@@ -126,7 +134,10 @@ namespace TCPNetwork.Client
                 {
                     // 예외 처리
                     if (clientSocket.Connected == false)
+                    {
+                        IsConnection = false;
                         break;
+                    }
 
                     // 소켓에서 스트림을 얻어와
                     stream = clientSocket.GetStream();
@@ -136,36 +147,11 @@ namespace TCPNetwork.Client
                     byte[] buffer   = new byte[bufferSize];
                     int bytes       = stream.Read(buffer, 0, buffer.Length);
 
-                    string message = Encoding.Unicode.GetString(buffer, 0, bytes);
+                    string message  = Encoding.Unicode.GetString(buffer, 0, bytes);
 
-                    if (string.IsNullOrEmpty(message))
-                    {
+                    string[] messageArray = message.Split(new char[] { '$' });
 
-                    }
-                    // 명령어 해석 구문
-                    else if (message[0] == '/')
-                    {
-                        string[] result = message.Split(new char[] { '/' });
-
-                        MessageCommandType commandType = CommandPaser.Parse(result[1]);
-
-                        switch (commandType)
-                        {
-                            case MessageCommandType.Leave:
-                                onClientExit("서버에서 종료 요청을 받았습니다.");
-                                break;
-                            case MessageCommandType.ChangeRoom:
-                                roomName = result[2];
-                                break;
-                            case MessageCommandType.None:
-                                break;
-                        }
-                    }
-                    else
-                    {
-                        // 출력
-                        DrawText(message);
-                    }
+                    OnMessage(messageArray, 0);
                 }
 
                 IsConnection = false;
@@ -176,6 +162,65 @@ namespace TCPNetwork.Client
                 onClientExit("서버와의 연결이 끊겼습니다.");
 
                 IsConnection = false;
+            }
+        }
+
+        public List<string> GetNetworkRooms()
+        {
+            return networkRoomTitles;
+        }
+
+        private void OnMessage(string[] messageArray, int nowIndex = 0)
+        {
+            if (messageArray.Length == 0)
+                return;
+
+            if (nowIndex >= messageArray.Length)
+                return;
+
+            OnMessage(messageArray, nowIndex + 1);
+
+            string message = messageArray[nowIndex];
+
+            if (string.IsNullOrEmpty(message))
+            {
+
+            }
+            // 명령어 해석 구문
+            else if (message[0] == '/')
+            {
+                string[] result = message.Split(new char[] { '/' });
+
+                MessageCommandType commandType = CommandPaser.Parse(result[1]);
+
+                switch (commandType)
+                {
+                    case MessageCommandType.Leave:
+                        onClientExit("서버에서 종료 요청을 받았습니다.");
+                        break;
+
+                    case MessageCommandType.ChangeRoom:
+                        roomName = result[2];
+                        OnChangeRoomEvent?.Invoke(this, result[2]);
+                        break;
+
+                    case MessageCommandType.ReturnRoomList:
+                        networkRoomTitles.Clear();
+
+                        for (int i = 2; i < result.Length; i++)
+                        {
+                            networkRoomTitles.Add(result[i]);
+                        }
+                        break;
+
+                    case MessageCommandType.None:
+                        break;
+                }
+            }
+            else
+            {
+                // 출력
+                DrawText(message);
             }
         }
     }

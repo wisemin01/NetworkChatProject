@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace GameFramework.Manager
 {
@@ -45,22 +46,22 @@ namespace GameFramework.Manager
                     Iter = Iter.Next;
                 }
             }
-            //foreach (GameObject gameObject in gameObjectList)
-            //{
-            //    if (gameObject.IsLive == false)
-            //        gameObjectList.Remove(gameObject);
-
-            //    gameObject.FrameUpdate();
-            //}
         }
 
         public void RenderObjects()
         {
-            foreach (GameObject gameObject in gameObjectList)
+            try
             {
-                gameObject.FrameRender();
+                foreach (GameObject gameObject in gameObjectList)
+                {
+                    gameObject.FrameRender();
+                }
             }
-        }
+            catch (Exception)
+            {
+
+            }
+        } 
 
         public void ReleaseObjects()
         {
@@ -68,6 +69,7 @@ namespace GameFramework.Manager
             {
                 gameObject.Release();
             }
+
             gameObjectList.Clear();
         }
     }

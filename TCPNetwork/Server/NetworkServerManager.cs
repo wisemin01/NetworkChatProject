@@ -262,5 +262,17 @@ namespace TCPNetwork.Server
 
             return list;
         }
+
+        public List<NetworkRoom> GetNetworkRooms()
+        {
+            List<NetworkRoom> rooms = new List<NetworkRoom>();
+
+            foreach (var Iter in networkRooms)
+            {
+                rooms.Add(Iter.Value);
+            }
+
+            return rooms;
+        }
     }
 }

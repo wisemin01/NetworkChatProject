@@ -5,7 +5,6 @@ D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\bin\Debug\Sha
 D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\bin\Debug\SharpDX.Desktop.pdb
 D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\bin\Debug\SharpDX.Direct3D9.pdb
 D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\bin\Debug\SharpDX.DXGI.pdb
-D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\obj\Debug\GameFramework.csprojAssemblyReference.cache
 D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\obj\Debug\GameFramework.csproj.CoreCompileInputs.cache
 D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\obj\Debug\GameFramework.csproj.CopyComplete
 D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\obj\Debug\GameFramework.dll

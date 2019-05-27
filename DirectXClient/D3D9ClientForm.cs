@@ -19,8 +19,8 @@ namespace DirectXClient
                 ClientWindow.Width, ClientWindow.Height);
           
             SceneManager.Instance.AddScene<LoginScene>("Login");
-            SceneManager.Instance.AddScene<ChatScene> ("Lobby");
-            SceneManager.Instance.AddScene<ChatScene> ("Room");
+            SceneManager.Instance.AddScene<LobbyScene>("Lobby");
+            SceneManager.Instance.AddScene<ChatScene> ("Chat");
 
             SceneManager.Instance.ChangeScene("Login");
         }

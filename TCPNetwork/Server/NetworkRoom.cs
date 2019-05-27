@@ -119,9 +119,7 @@ namespace TCPNetwork.Server
                 if (client.Connected == true)
                 {
                     NetworkStream stream = client.GetStream();
-                    byte[] buffer = null;
-
-                    buffer = Encoding.Unicode.GetBytes(message);
+                    byte[] buffer = Encoding.Unicode.GetBytes(message + "$");
                     
                     // 해당 클라이언트에 버퍼 전송
                     stream.Write(buffer, 0, buffer.Length);
@@ -136,9 +134,7 @@ namespace TCPNetwork.Server
             if (client.Connected == true)
             {
                 NetworkStream stream = client.GetStream();
-                byte[] buffer = null;
-
-                buffer = Encoding.Unicode.GetBytes(message);
+                byte[] buffer = Encoding.Unicode.GetBytes(message + "$");
 
                 // 해당 클라이언트에 버퍼 전송
                 stream.Write(buffer, 0, buffer.Length);
@@ -153,6 +149,5 @@ namespace TCPNetwork.Server
                 textDraw.DrawText(text);
             }
         }
-
     }
 }

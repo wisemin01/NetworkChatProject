@@ -3,6 +3,7 @@ using SharpDX.Direct3D9;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using SharpDX;
 
 namespace GameFramework.Manager
 {
@@ -44,7 +45,7 @@ namespace GameFramework.Manager
             get => d3d9Device;
         }
 
-        public BGRAColor BackBufferColor { get; set; } = new BGRAColor(178, 103, 32, 255);
+        public Color BackBufferColor { get; set; } = new Color(32, 103, 178, 255);
 
         public int WindowWidth
         {
@@ -80,10 +81,13 @@ namespace GameFramework.Manager
             d3d9Sprite = new Sprite(d3d9Device);
 
             InitializeDirectInput();
+
+            SceneManager.Instance.OnChangeSceneEvent += OnChangeScene;
         }
 
-        public void  Exit()
+        public void Exit()
         {
+
         }
 
         private void OnFrame()
@@ -110,7 +114,7 @@ namespace GameFramework.Manager
             }
         }
 
-        public void  Run(UpdateCallback updateCallback, RenderCallback renderCallback)
+        public void Run(UpdateCallback updateCallback, RenderCallback renderCallback)
         {
             OnUpdate = updateCallback;
             OnRender = renderCallback;
@@ -120,6 +124,8 @@ namespace GameFramework.Manager
 
         public void  Release()
         {
+            SceneManager.Instance.OnChangeSceneEvent -= OnChangeScene;
+
             TextureDispose();
             FontDispose();
 
@@ -137,6 +143,11 @@ namespace GameFramework.Manager
         public void  RemoveMessageHandler(EventHandler<Message> eventHandler)
         {
             mainForm.OnMessage -= eventHandler;
+        }
+
+        public void OnChangeScene(object sender, string sceneKey)
+        {
+            OnMouseClickEvent = null;
         }
     }
 }

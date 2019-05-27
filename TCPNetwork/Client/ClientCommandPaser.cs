@@ -10,7 +10,8 @@ namespace TCPNetwork.Client
     {
         None,
         Leave,
-        ChangeRoom
+        ChangeRoom,
+        ReturnRoomList
     }
 
     class CommandPaser
@@ -23,6 +24,8 @@ namespace TCPNetwork.Client
                     return MessageCommandType.Leave;
                 case "ChangeRoom":
                     return MessageCommandType.ChangeRoom;
+                case "ReturnRoomList":
+                    return MessageCommandType.ReturnRoomList;
                 default:
                     return MessageCommandType.None;
             }

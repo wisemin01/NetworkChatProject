@@ -20,15 +20,14 @@ namespace GameFramework
     {
         public event EventHandler<Message> OnMessage;
 
-        public event EventHandler OnMouseLeftClick;
-        public event EventHandler OnMouseRightClick;
-
         public RenderMsgForm()
         {
+
         }
 
         public RenderMsgForm(string text) : base(text)
         {
+
         }
         
 

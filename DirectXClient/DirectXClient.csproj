@@ -63,12 +63,16 @@
     <Compile Include="D3D9ClientForm.cs" />
     <Compile Include="Objects\Button.cs" />
     <Compile Include="Objects\MessageBox.cs" />
+    <Compile Include="Objects\NetworkRoomListViewer.cs" />
+    <Compile Include="Objects\NetworkRoomTitle.cs" />
+    <Compile Include="Objects\StateObserver.cs" />
     <Compile Include="Objects\TextInputField.cs" />
     <Compile Include="Objects\TextList.cs" />
     <Compile Include="Objects\TextureObject.cs" />
     <Compile Include="Scenes\ChatScene.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scenes\LobbyScene.cs" />
     <Compile Include="Scenes\LoginScene.cs" />
   </ItemGroup>
   <ItemGroup>

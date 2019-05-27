@@ -47,6 +47,10 @@ namespace DirectXClient
         public void EnterText(object sender, EventArgs e)
         {
             OnEnter?.Invoke(this, inputString.ToString());
+        }
+
+        public void Clear()
+        {
             inputString.Clear();
         }
 
@@ -95,6 +99,7 @@ namespace DirectXClient
         public override void Release()
         {
             D3D9Manager.Instance.RemoveMessageHandler(MsgProc);
+            OnEnter = null;
         }
 
         private void MsgProc(object sender, Message m)

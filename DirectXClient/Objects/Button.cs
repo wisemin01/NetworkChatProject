@@ -26,7 +26,6 @@ namespace DirectXClient
         private readonly Vector3 MouseOverSize      = new Vector3(1.1f, 1.1f, 1.1f);
         private readonly Vector3 MouseNoneOverSize  = new Vector3(1.0f, 1.0f, 1.0f);
 
-
         public Button()
         {
 
@@ -65,7 +64,8 @@ namespace DirectXClient
 
         public override void Release()
         {
-
+            D3D9Manager.Instance.OnMouseClickEvent -= OnClick;
+            OnButtonClick = null;
         }
         
         public void OnClick(object sender, EventArgs e)

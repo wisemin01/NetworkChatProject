@@ -22,12 +22,8 @@ namespace DirectXClient
                 25, new Vector3(30, D3D9Manager.Instance.WindowHeight - 160, 0),
                 "ChatListFont"));
 
-            if (NetworkClientManager.Instance.IsConnection == false)
-            {
-                NetworkClientManager.Instance.TextDraw = TextList;
-                NetworkClientManager.Instance.ConnectToServer();
-            }
-            
+            NetworkClientManager.Instance.TextDraw = TextList;
+
             var TextInput = GameObjectManager.Instance.AddObject(new TextInputField("ChatInputFont")
             {
                 Position        = new Vector3(404, D3D9Manager.Instance.WindowHeight - 120, 0),
@@ -37,12 +33,17 @@ namespace DirectXClient
                 StringOffset    = new Vector3(16, 3, 0)
             });
 
-            TextInput.OnEnter += delegate (object sender, string s) { NetworkClientManager.Instance.SendMessageToServer(s); };
+            TextInput.OnEnter += delegate (object sender, string s) {
+                NetworkClientManager.Instance.SendMessageToServer(s);
+                TextInputField input = sender as TextInputField;
+                input.Clear();
+            };
+
+            GameObjectManager.Instance.AddObject(new StateObserver());
         }
 
         public override void FrameRender()
         {
-            GameObjectManager.Instance.RenderObjects();
         }
 
         public override void FrameUpdate()
@@ -51,13 +52,10 @@ namespace DirectXClient
             {
                 SceneManager.Instance.ChangeScene("Login");
             }
-
-            GameObjectManager.Instance.UpdateObjects();
         }
 
         public override void Release()
         {
-            GameObjectManager.Instance.ReleaseObjects();
             D3D9Manager.Instance.FontDispose();
             D3D9Manager.Instance.TextureDispose();
         }

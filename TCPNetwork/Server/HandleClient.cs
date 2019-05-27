@@ -124,6 +124,10 @@ namespace TCPNetwork.Server
                         {
                             OnMessageSended?.Invoke("지정된 방을 찾을 수 없습니다.", Client);
                         }
+                        else
+                        {
+                            OnMessageSended?.Invoke($"/ChangeRoom/{splitResult[2]}", Client);
+                        }
                     }
                     break;
 
@@ -132,17 +136,23 @@ namespace TCPNetwork.Server
                         NetworkRoom room = NetworkServerManager.Instance.CreateNetworkRoom(splitResult[2]);
 
                         if (room != null)
+                        {
                             OnMessageSended?.Invoke("[System] : 방을 생성했습니다.", Client);
-                        else
+                            OnReceived("System", $"{splitResult[2]} 방이 생성되었습니다.", false);
+                        }
+                        else {
                             OnMessageSended?.Invoke("[System] : 방 생성에 실패했습니다.", Client);
+                        }
 
-                        OnReceived("System", $"{splitResult[2]} 방이 생성되었습니다.", false);
                     }
                     break;
 
                 case MessageCommandType.DestroyRoom:
                     {
                         NetworkRoom room = NetworkServerManager.Instance.FindNetworkRoom(splitResult[2]);
+
+                        if (room == null)
+                            break;
 
                         if (NetworkRoom.RoomName == splitResult[2])
                         {
@@ -183,7 +193,19 @@ namespace TCPNetwork.Server
                         }
                     }
                     break;
+                case MessageCommandType.ReturnRoomList:
+                    {
+                        StringBuilder stringBuilder = new StringBuilder(64);
+                        stringBuilder.Append("/ReturnRoomList");
 
+                        foreach (var Iter in NetworkServerManager.Instance.GetNetworkRooms())
+                        {
+                            stringBuilder.Append('/' + Iter.RoomName);
+                        }
+
+                        OnMessageSended?.Invoke(stringBuilder.ToString(), Client);
+                    }
+                    break;
             }
         }
     }
