@@ -34,6 +34,17 @@ namespace DirectXClient
             {
                 SceneManager.Instance.ChangeScene("Lobby");
             }
+            else
+            {
+                if (TCPNetwork.Client.NetworkClientManager.Instance.IsConnection)
+                {
+                    SceneManager.Instance.ChangeScene("Chat");
+                }
+                else
+                {
+                    SceneManager.Instance.ChangeScene("Login");
+                }
+            }
         }
     }
 }

@@ -60,6 +60,8 @@ namespace DirectXClient
                 input.Clear();
             };
             textInput.OnEnter += delegate { roomList.RefreshList(0); };
+
+            GameObjectManager.Instance.AddObject(new StateObserver());
         }
 
         public override void FrameUpdate()

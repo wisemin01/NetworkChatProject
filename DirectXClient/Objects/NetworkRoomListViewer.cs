@@ -102,7 +102,6 @@ namespace DirectXClient
                 roomJoinButton.OnButtonClick += delegate (object sender, EventArgs e)
                 {
                     NetworkClientManager.Instance.SendMessageToServer($"/Join/{roomTitle.RoomTitle}");
-                    SceneManager.Instance.ChangeScene("Chat");
                 };
 
                 roomDeleteButton.OnButtonClick += delegate
