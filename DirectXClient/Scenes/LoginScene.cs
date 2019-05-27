@@ -20,15 +20,15 @@ namespace DirectXClient
             D3D9Manager.Instance.CreateTexture("LoginButton", "./Resource/LoginButton.png");
             D3D9Manager.Instance.CreateTexture("NameInput", "./Resource/NameInput.png");
 
-            D3D9Manager.Instance.CreateFont("InputField", "메이플스토리 Bold", 35, false);
+            D3D9Manager.Instance.CreateFont("InputField", "메이플스토리 Light", 35, false);
 
             var textInput = GameObjectManager.Instance.AddObject(new TextInputField("InputField")
             {
                 Position        = new Vector3(ClientWindow.Width / 2, 300, 0),
                 FieldTexture    = D3D9Manager.Instance.FindTexture("NameInput"),
-                MaxLength       = 20,
+                MaxLength       = 15,
                 StringColor     = new Color(127, 127, 127),
-                StringOffset    = new Vector3(10, 3, 0)
+                StringOffset    = new Vector3(30, 6, 0)
             });
 
             var loginButton = GameObjectManager.Instance.AddObject(new Button()

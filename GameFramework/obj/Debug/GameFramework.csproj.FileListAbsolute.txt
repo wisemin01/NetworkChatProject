@@ -16,14 +16,13 @@ D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\bin\Debug\Sha
 D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\bin\Debug\SharpDX.DXGI.dll
 D:\Programing project\[ 회사 과제 ]\Chat Program\Debug\GameFramework.dll
 D:\Programing project\[ 회사 과제 ]\Chat Program\Debug\GameFramework.pdb
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\obj\Debug\GameFramework.Properties.Resources.resources
+D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\obj\Debug\GameFramework.csproj.GenerateResource.cache
 C:\Users\Admin\Desktop\Projects\NetworkChatProject\Debug\GameFramework.dll
 C:\Users\Admin\Desktop\Projects\NetworkChatProject\Debug\GameFramework.pdb
-C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameFramework.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameFramework.Properties.Resources.resources
+C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameFramework.csproj.GenerateResource.cache
 C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameFramework.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameFramework.csproj.CopyComplete
 C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameFramework.dll
 C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameFramework.pdb
-C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameFramework.Properties.Resources.resources
-C:\Users\Admin\Desktop\Projects\NetworkChatProject\GameFramework\obj\Debug\GameFramework.csproj.GenerateResource.cache
-D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\obj\Debug\GameFramework.Properties.Resources.resources
-D:\Programing project\[ 회사 과제 ]\Chat Program\GameFramework\obj\Debug\GameFramework.csproj.GenerateResource.cache

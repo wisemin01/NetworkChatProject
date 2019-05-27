@@ -10,7 +10,8 @@ namespace GameFramework.Manager
 {
     public partial class D3D9Manager
     {
-        public event EventHandler OnMouseClickEvent;
+        public event EventHandler<ClickChecker> OnMouseClickEvent;
+        public event EventHandler<ClickChecker> OnMouseClickToMessageBoxEvent;
 
         private DirectInput directInput;
         private Keyboard    keyboard;
@@ -36,7 +37,12 @@ namespace GameFramework.Manager
 
         public void OnMouseClick(object sender, EventArgs e)
         {
-            OnMouseClickEvent?.Invoke(sender, e);
+            ClickChecker clickChecker = new ClickChecker();
+
+            if (!GameObjectManager.Instance.IsMessageBoxPopup)
+                OnMouseClickEvent?.Invoke(sender, clickChecker);
+            else
+                OnMouseClickToMessageBoxEvent?.Invoke(sender, clickChecker);
         }
 
         public void KeyUpdate()

@@ -22,7 +22,8 @@ namespace DirectXClient
         public Vector3      Scale             { get; set; } = default;
         public RectCollider rectCollider      { get; set; } = null;
         public bool         IsMouseOverResize { get; set; } = true;
-        
+        public bool     IsAllowDuplicateClick { get; set; } = false;
+
         private readonly Vector3 MouseOverSize      = new Vector3(1.1f, 1.1f, 1.1f);
         private readonly Vector3 MouseNoneOverSize  = new Vector3(1.0f, 1.0f, 1.0f);
 
@@ -46,14 +47,21 @@ namespace DirectXClient
 
         public override void FrameUpdate()
         {
-            bool isMouseInside = rectCollider.IsMouseOver(Position, ButtonTexture);
-
-            if (IsMouseOverResize)
+            try
             {
-                if (isMouseInside)
-                    Scale = Vector3.Lerp(Scale, MouseOverSize, 0.15f);
-                else
-                    Scale = Vector3.Lerp(Scale, MouseNoneOverSize, 0.15f);
+                bool isMouseInside = rectCollider.IsMouseOver(Position, ButtonTexture);
+
+                if (IsMouseOverResize)
+                {
+                    if (isMouseInside)
+                        Scale = Vector3.Lerp(Scale, MouseOverSize, 0.15f);
+                    else
+                        Scale = Vector3.Lerp(Scale, MouseNoneOverSize, 0.15f);
+                }
+            }
+            catch (NullReferenceException)
+            {
+
             }
         }
 
@@ -68,10 +76,17 @@ namespace DirectXClient
             OnButtonClick = null;
         }
         
-        public void OnClick(object sender, EventArgs e)
+        public void OnClick(object sender, ClickChecker checker)
         {
+            if (checker.IsEndCheck == true)
+            {
+                if (IsAllowDuplicateClick == false)
+                    return;
+            }
+
             if (rectCollider.IsMouseOver(Position, ButtonTexture))
             {
+                checker.IsEndCheck = true;
                 OnButtonClick?.Invoke(this, EventArgs.Empty);
             }
         }

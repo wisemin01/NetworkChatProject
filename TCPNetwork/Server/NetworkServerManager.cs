@@ -265,14 +265,14 @@ namespace TCPNetwork.Server
 
         public List<NetworkRoom> GetNetworkRooms()
         {
-            List<NetworkRoom> rooms = new List<NetworkRoom>();
+            return networkRooms.Values.ToList();
+        }
 
-            foreach (var Iter in networkRooms)
-            {
-                rooms.Add(Iter.Value);
-            }
-
-            return rooms;
+        public List<string> GetNetworkRoomKeys()
+        {
+            List<string> list = networkRooms.Keys.ToList();
+            list.Sort();
+            return list;
         }
     }
 }

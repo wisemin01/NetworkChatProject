@@ -30,7 +30,7 @@ namespace DirectXClient
                 FieldTexture = D3D9Manager.Instance.FindTexture("RoomNameInput"),
                 MaxLength = 10,
                 StringColor = new Color(127, 127, 127),
-                StringOffset = new Vector3(25, 3, 0)
+                StringOffset = new Vector3(25, 8, 0)
             });
 
             Button loginButton = GameObjectManager.Instance.AddObject(new Button()
@@ -56,8 +56,10 @@ namespace DirectXClient
                 }
 
                 NetworkClientManager.Instance.SendMessageToServer($"/CreateRoom/{s}");
+                NetworkClientManager.Instance.TextDraw = new LobbyInterface();
                 TextInputField input = sender as TextInputField;
                 input.Clear();
+                NetworkClientManager.Instance.SendMessageToServer("/GetRoomList");
             };
             textInput.OnEnter += delegate { roomList.RefreshList(0); };
 

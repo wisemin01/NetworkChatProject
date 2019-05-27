@@ -21,6 +21,7 @@ namespace GameFramework.Manager
 
         // Member
         LinkedList<GameObject> gameObjectList = new LinkedList<GameObject>();
+        Stack<GameObject> messageBoxStack = new Stack<GameObject>();
 
         public T AddObject<T>(T gameObject) where T : GameObject
         {
@@ -29,9 +30,30 @@ namespace GameFramework.Manager
 
             return gameObject;
         }
+        public void AddMessageBox(GameObject messageBox)
+        {
+            messageBoxStack.Push(messageBox);
+            messageBox.Initialize();
+        }
+
+        public bool IsMessageBoxPopup {
+            get {
+                return (messageBoxStack.Count != 0);
+            }
+        }
 
         public void UpdateObjects()
         {
+            if (messageBoxStack.Count != 0)
+            {
+                if (messageBoxStack.Peek().IsLive == false)
+                    messageBoxStack.Pop();
+                else
+                    messageBoxStack.Peek().FrameUpdate();
+
+                return;
+            }
+
             for (LinkedListNode<GameObject> Iter = gameObjectList.First; Iter != null;)
             {
                 if (Iter.Value.IsLive == false)
@@ -56,6 +78,11 @@ namespace GameFramework.Manager
                 {
                     gameObject.FrameRender();
                 }
+
+                foreach (GameObject messageBox in messageBoxStack)
+                {
+                    messageBox.FrameRender();
+                }
             }
             catch (Exception)
             {
@@ -69,8 +96,13 @@ namespace GameFramework.Manager
             {
                 gameObject.Release();
             }
+            foreach (GameObject messageBox in messageBoxStack)
+            {
+                messageBox.Release();
+            }
 
             gameObjectList.Clear();
+            messageBoxStack.Clear();
         }
     }
 }

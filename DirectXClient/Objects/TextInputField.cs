@@ -34,7 +34,7 @@ namespace DirectXClient
             D3D9Manager.Instance.OnMouseClickEvent += OnMouseClick;
         }
 
-        private void OnMouseClick(object sender, EventArgs e)
+        private void OnMouseClick(object sender, ClickChecker checker)
         {
             if (Range.IsMouseOver(Position, FieldTexture))
             {

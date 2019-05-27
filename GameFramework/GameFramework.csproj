@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base Objects\GameObject.cs" />
+    <Compile Include="ClickChecker.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Managers\Direct3D9Manager.cs" />
     <Compile Include="Managers\Direct3D9Manager.Input.cs" />

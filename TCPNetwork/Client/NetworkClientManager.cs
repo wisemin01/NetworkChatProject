@@ -36,7 +36,8 @@ namespace TCPNetwork.Client
         public delegate void OnButtonDown(object sender, EventArgs e);
         public delegate void OnClientExit(string text);
 
-        public event EventHandler<string> OnChangeRoomEvent;
+        public event EventHandler<string>       OnChangeRoomEvent;
+        public event EventHandler<List<string>> OnUpdateRoomListEvent;
 
         // Member
         private TcpClient       clientSocket  = null;           // 클라이언트 소켓
@@ -204,6 +205,10 @@ namespace TCPNetwork.Client
                         OnChangeRoomEvent?.Invoke(this, result[2]);
                         break;
 
+                    case MessageCommandType.ShowMessageBox:
+                        ShowMessageBox(result[2], result[3]);
+                        break;
+
                     case MessageCommandType.ReturnRoomList:
                         networkRoomTitles.Clear();
 
@@ -211,6 +216,8 @@ namespace TCPNetwork.Client
                         {
                             networkRoomTitles.Add(result[i]);
                         }
+                        OnUpdateRoomListEvent?.Invoke(this, networkRoomTitles);
+
                         break;
 
                     case MessageCommandType.None:

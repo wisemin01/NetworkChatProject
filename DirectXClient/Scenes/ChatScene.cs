@@ -15,6 +15,7 @@ namespace DirectXClient
         public override void Initialize()
         {
             D3D9Manager.Instance.CreateTexture("ChatInput", "./Resource/ChatInput.png");
+            D3D9Manager.Instance.CreateTexture("ToLobbyButton", "./Resource/ToLobby.png");
             D3D9Manager.Instance.CreateFont("ChatListFont", "메이플스토리 Light", 25, false);
             D3D9Manager.Instance.CreateFont("ChatInputFont", "메이플스토리 Light", 35, false);
             
@@ -37,6 +38,19 @@ namespace DirectXClient
                 NetworkClientManager.Instance.SendMessageToServer(s);
                 TextInputField input = sender as TextInputField;
                 input.Clear();
+            };
+
+            Button toLobbyButton = GameObjectManager.Instance.AddObject(new Button()
+            {
+                ButtonTexture = D3D9Manager.Instance.FindTexture("ToLobbyButton"),
+                Position = new Vector3(1000, D3D9Manager.Instance.WindowHeight - 120, 0),
+                Scale = new Vector3(1.0f, 1.0f, 1.0f),
+                IsMouseOverResize = true
+            });
+
+            toLobbyButton.OnButtonClick += delegate
+            {
+                NetworkClientManager.Instance.SendMessageToServer("/Join/Lobby");
             };
 
             GameObjectManager.Instance.AddObject(new StateObserver());

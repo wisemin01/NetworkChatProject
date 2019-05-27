@@ -38,7 +38,7 @@ namespace DirectXClient
         {
             D3D9Manager.Instance.DrawTexture(TitleTexture, Position, new Vector3(1, 1, 1));
             D3D9Manager.Instance.DrawFont_NotSetTransform(
-                "RoomTitle", new Vector3(-50, -15, 0), RoomTitle, new Color(127, 127, 127, 255));
+                "RoomTitle", new Vector3(-80, -17, 0), RoomTitle, new Color(127, 127, 127, 255));
         }
 
         public override void Release()

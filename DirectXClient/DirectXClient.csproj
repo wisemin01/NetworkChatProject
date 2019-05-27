@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="D3D9ClientForm.cs" />
     <Compile Include="Objects\Button.cs" />
+    <Compile Include="Objects\LobbyInterface.cs" />
     <Compile Include="Objects\MessageBox.cs" />
     <Compile Include="Objects\NetworkRoomListViewer.cs" />
     <Compile Include="Objects\NetworkRoomTitle.cs" />

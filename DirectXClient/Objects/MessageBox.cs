@@ -44,20 +44,23 @@ namespace DirectXClient
             quitButtonTex = D3D9Manager.Instance.CreateTexture(
                 "MessageBoxQuitButton", "./Resource/MessageBoxQuitButton.png");
 
-            quitButton = GameObjectManager.Instance.AddObject(new Button()
+            quitButton = new Button()
             {
                 ButtonTexture       = quitButtonTex,
                 IsMouseOverResize   = true,
                 Position            = Position + new Vector3(0, 70, 0),
-                Scale               = new Vector3(1, 1, 1)
-            });
+                Scale               = new Vector3(1, 1, 1),
+                IsAllowDuplicateClick = true
+            };
+            quitButton.Initialize();
 
+            D3D9Manager.Instance.OnMouseClickToMessageBoxEvent += quitButton.OnClick;
             quitButton.OnButtonClick += OnQuitButtonClick;
         }
 
         public override void FrameUpdate()
         {
-
+            quitButton.FrameUpdate();
         }
 
         public override void FrameRender()
@@ -65,10 +68,14 @@ namespace DirectXClient
             D3D9Manager.Instance.DrawTexture(messageBoxTex, Position, new Vector3(1, 1, 1));
             D3D9Manager.Instance.DrawFont_NotSetTransform(FontKey, new Vector3(-170, -95, 0), Caption, StringColor);
             D3D9Manager.Instance.DrawFont_NotSetTransform(FontKey, new Vector3(-170, -50, 0), Text, StringColor);
+
+            quitButton.FrameRender();
         }
 
         public override void Release()
         {
+            D3D9Manager.Instance.OnMouseClickToMessageBoxEvent -= quitButton.OnClick;
+            quitButton.Release();
         }
 
         public void OnQuitButtonClick(object sender, EventArgs e)
@@ -79,7 +86,7 @@ namespace DirectXClient
 
         public static void Show(string text, string caption)
         {
-            GameObjectManager.Instance.AddObject(new MessageBox(text, caption)
+            GameObjectManager.Instance.AddMessageBox(new MessageBox(text, caption)
             {
                 FontKey     = "Default",
                 Position    = new Vector3(ClientWindow.Width / 2, ClientWindow.Height / 2, 0),

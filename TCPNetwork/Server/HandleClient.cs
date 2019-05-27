@@ -106,7 +106,6 @@ namespace TCPNetwork.Server
 
         private void CommandSwitch(MessageCommandType type, string[] splitResult)
         {
-
             switch (type)
             {
                 case MessageCommandType.Leave:
@@ -117,6 +116,9 @@ namespace TCPNetwork.Server
 
                 case MessageCommandType.MoveToOtherRoom:
                     {
+                        if (splitResult[2] == NetworkRoom.RoomName)
+                            break;
+
                         bool result = NetworkServerManager.Instance.MoveToOtherRoom(this,
                             NetworkServerManager.Instance.FindNetworkRoom(splitResult[2]));
 
@@ -156,26 +158,34 @@ namespace TCPNetwork.Server
 
                         if (NetworkRoom.RoomName == splitResult[2])
                         {
-                            OnReceived?.Invoke("System", "자신이 속한 방은 파괴할 수 없습니다.", false);
+                            OnMessageSended?.Invoke("[System] : 자신이 속한 방은 파괴할 수 없습니다.", Client);
                             break;
                         }
 
                         if (room.ClientList.Count != 0)
                         {
-                            OnReceived?.Invoke("System", "플레이어가 접속 중인 방은 파괴할 수 없습니다.", false);
+                            OnMessageSended?.Invoke("[System] : 플레이어가 접속 중인 방은 파괴할 수 없습니다.", Client);
                             break;
                         }
 
                         bool result = NetworkServerManager.Instance.DestroyNetworkRoom(splitResult[2]);
 
-                        OnReceived?.Invoke("System", string.Format("{0} 방을 {1}", splitResult[2],
-                            result ? "파괴했습니다." : "파괴하지 못했습니다."), false);
+                        string log = $"[System] : {splitResult[2]} 방을 {(result ? "파괴했습니다." : "파괴하지 못했습니다.")}";
+
+                        OnMessageSended?.Invoke(log, Client);
+                        NetworkServerManager.Instance.DrawText($"[System] : {splitResult[2]} 방이 파괴되었습니다.");
                     }
                     break;
 
                 case MessageCommandType.Whisper:
                     {
                         TcpClient targetUser = NetworkServerManager.Instance.FindUserClient(splitResult[2]);
+
+                        if (targetUser == Client)
+                        {
+                            OnMessageSended?.Invoke("자기 자신에게는 귓속말을 보낼 수 없습니다.", Client);
+                            break;
+                        }
                         if (targetUser != null)
                         {
                             OnMessageSended?.Invoke(
@@ -197,10 +207,10 @@ namespace TCPNetwork.Server
                     {
                         StringBuilder stringBuilder = new StringBuilder(64);
                         stringBuilder.Append("/ReturnRoomList");
-
-                        foreach (var Iter in NetworkServerManager.Instance.GetNetworkRooms())
+                        
+                        foreach (var Iter in NetworkServerManager.Instance.GetNetworkRoomKeys())
                         {
-                            stringBuilder.Append('/' + Iter.RoomName);
+                            stringBuilder.Append('/' + Iter);
                         }
 
                         OnMessageSended?.Invoke(stringBuilder.ToString(), Client);
