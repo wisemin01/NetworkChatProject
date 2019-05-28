@@ -1,0 +1,16 @@
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\bin\Release\MyChatServer.exe.config
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\bin\Release\MyChatServer.exe
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\bin\Release\MyChatServer.pdb
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\bin\Release\TCPNetwork.dll
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\bin\Release\TCPNetwork.pdb
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\obj\Release\WinformServer.csprojAssemblyReference.cache
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\obj\Release\TCPNetwork.ServerGUIForm.resources
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\obj\Release\MyChatServer.Properties.Resources.resources
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\obj\Release\WinformServer.csproj.GenerateResource.cache
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\obj\Release\WinformServer.csproj.CoreCompileInputs.cache
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\obj\Release\WinformServer.csproj.CopyComplete
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\obj\Release\MyChatServer.exe
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\obj\Release\MyChatServer.pdb
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Release\MyChatServer.exe.config
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Release\MyChatServer.exe
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Release\MyChatServer.pdb

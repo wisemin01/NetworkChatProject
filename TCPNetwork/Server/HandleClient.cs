@@ -52,7 +52,12 @@ namespace TCPNetwork.Server
                 while (true)
                 {
                     if (Client.Connected == false)
+                    {
+                        OnDisconnected?.Invoke(Client);
+                        Client.Close();
+                        stream.Close();
                         break;
+                    }
 
                     stream = Client.GetStream();
 

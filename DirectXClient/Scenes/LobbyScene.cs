@@ -19,11 +19,6 @@ namespace DirectXClient
 
             D3D9Manager.Instance.CreateFont("ChatInputFont", "메이플스토리 Light", 35, false);
 
-            if (NetworkClientManager.Instance.IsConnection == false)
-            {
-                _ = NetworkClientManager.Instance.ConnectToServer();
-            }
-
             TextInputField textInput = GameObjectManager.Instance.AddObject(new TextInputField("ChatInputFont")
             {
                 Position = new Vector3(275, 50, 0),
@@ -57,6 +52,7 @@ namespace DirectXClient
 
                 NetworkClientManager.Instance.SendMessageToServer($"/CreateRoom/{s}");
                 NetworkClientManager.Instance.TextDraw = new LobbyInterface();
+
                 TextInputField input = sender as TextInputField;
                 input.Clear();
                 NetworkClientManager.Instance.SendMessageToServer("/GetRoomList");

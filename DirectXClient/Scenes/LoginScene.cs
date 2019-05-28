@@ -50,12 +50,19 @@ namespace DirectXClient
 
                 NetworkClientManager.Instance.Initialize(userName, "127.0.0.1", 9199,
                     delegate (string exitComment) { D3D9Manager.Instance.Exit(); });
-                SceneManager.Instance.ChangeScene("Lobby");
+                NetworkClientManager.Instance.ConnectToServer();
+
+                TextInputField input = sender as TextInputField;
+                input.Clear();
             };
         }
 
         public override void FrameUpdate()
         {
+            if (NetworkClientManager.Instance.IsConnection)
+            {
+                SceneManager.Instance.ChangeScene("Lobby");
+            }
         }
 
         public override void FrameRender()

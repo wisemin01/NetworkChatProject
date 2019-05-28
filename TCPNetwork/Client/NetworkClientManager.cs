@@ -150,6 +150,8 @@ namespace TCPNetwork.Client
 
                     string message  = Encoding.Unicode.GetString(buffer, 0, bytes);
 
+                    Console.WriteLine(message);
+
                     string[] messageArray = message.Split(new char[] { '$' });
 
                     OnMessage(messageArray, 0);

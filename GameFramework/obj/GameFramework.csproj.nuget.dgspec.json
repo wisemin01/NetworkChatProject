@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programing project\\[ 회사 과제 ]\\Chat Program\\GameFramework\\GameFramework.csproj": {}
+    "D:\\Programing project\\[ 회사 과제 ]\\NetworkChatProject\\GameFramework\\GameFramework.csproj": {}
   },
   "projects": {
-    "D:\\Programing project\\[ 회사 과제 ]\\Chat Program\\GameFramework\\GameFramework.csproj": {
+    "D:\\Programing project\\[ 회사 과제 ]\\NetworkChatProject\\GameFramework\\GameFramework.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programing project\\[ 회사 과제 ]\\Chat Program\\GameFramework\\GameFramework.csproj",
+        "projectUniqueName": "D:\\Programing project\\[ 회사 과제 ]\\NetworkChatProject\\GameFramework\\GameFramework.csproj",
         "projectName": "GameFramework",
-        "projectPath": "D:\\Programing project\\[ 회사 과제 ]\\Chat Program\\GameFramework\\GameFramework.csproj",
+        "projectPath": "D:\\Programing project\\[ 회사 과제 ]\\NetworkChatProject\\GameFramework\\GameFramework.csproj",
         "packagesPath": "C:\\Users\\SM MO\\.nuget\\packages\\",
-        "outputPath": "D:\\Programing project\\[ 회사 과제 ]\\Chat Program\\GameFramework\\obj\\",
+        "outputPath": "D:\\Programing project\\[ 회사 과제 ]\\NetworkChatProject\\GameFramework\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [

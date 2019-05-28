@@ -9,3 +9,10 @@ C:\Users\Admin\Desktop\Projects\NetworkChatProject\TCPNetwork\obj\Debug\TCPNetwo
 C:\Users\Admin\Desktop\Projects\NetworkChatProject\TCPNetwork\obj\Debug\TCPNetwork.dll
 C:\Users\Admin\Desktop\Projects\NetworkChatProject\TCPNetwork\obj\Debug\TCPNetwork.pdb
 C:\Users\Admin\Desktop\Projects\NetworkChatProject\TCPNetwork\obj\Debug\TCPNetwork.csprojAssemblyReference.cache
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Debug\TCPNetwork.dll
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Debug\TCPNetwork.pdb
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\TCPNetwork\obj\Debug\TCPNetwork.csprojAssemblyReference.cache
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\TCPNetwork\obj\Debug\TCPNetwork.csproj.CoreCompileInputs.cache
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\TCPNetwork\obj\Debug\TCPNetwork.csproj.CopyComplete
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\TCPNetwork\obj\Debug\TCPNetwork.dll
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\TCPNetwork\obj\Debug\TCPNetwork.pdb
