@@ -10,8 +10,6 @@ namespace DirectXClient
 {
     class NetworkRoomListViewer : GameObject
     {
-        private readonly object lockObject = new object();
-
         List<Tuple<NetworkRoomTitle, Button, Button>> networkRoomList;
 
         GameTexture PageBar { get; set; } = null;
@@ -106,69 +104,66 @@ namespace DirectXClient
 
         public void RefreshList(int index, List<string> list)
         {
-            lock (lockObject)
+            LastIndex = index;
+
+            foreach (Tuple<NetworkRoomTitle, Button, Button> Iter in networkRoomList)
             {
-                LastIndex = index;
+                Destroy(Iter.Item1);
+                Destroy(Iter.Item2);
+                Destroy(Iter.Item3);
+            }
+            networkRoomList.Clear();
 
-                foreach (Tuple<NetworkRoomTitle, Button, Button> Iter in networkRoomList)
-                {
-                    Destroy(Iter.Item1); Iter.Item1.Release();
-                    Destroy(Iter.Item2); Iter.Item2.Release();
-                    Destroy(Iter.Item3); Iter.Item3.Release();
-                }
-                networkRoomList.Clear();
+            for (int i = index * listHeight; i < index * listHeight + listHeight; i++)
+            {
+                if (i >= list.Count)
+                    break;
 
-                for (int i = index * listHeight; i < index * listHeight + listHeight; i++)
-                {
-                    if (i >= list.Count)
-                        break;
+                string roomName = list[i];
 
-                    string roomName = list[i];
-
-                    NetworkRoomTitle roomTitle = GameObjectManager.Instance
-                        .AddObject(new NetworkRoomTitle(roomName)
-                        {
-                            Position = new Vector3(240, 120 + (i - index * listHeight) * 70, 0) + Position
-                        });
-
-                    Button roomJoinButton = GameObjectManager.Instance
-                        .AddObject(new Button()
-                        {
-                            ButtonTexture = D3D9Manager.Instance.FindTexture("JoinButton"),
-                            IsMouseOverResize = true,
-                            Position = new Vector3(530, 120 + (i - index * listHeight) * 70, 0) + Position,
-                            Scale = new Vector3(1, 1, 1)
-                        });
-
-                    Button roomDeleteButton = GameObjectManager.Instance
-                       .AddObject(new Button()
-                       {
-                           ButtonTexture = D3D9Manager.Instance.FindTexture("DeleteButton"),
-                           IsMouseOverResize = true,
-                           Position = new Vector3(697, 120 + (i - index * listHeight) * 70, 0) + Position,
-                           Scale = new Vector3(1, 1, 1)
-                       });
-
-                    roomJoinButton.OnButtonClick += delegate (object sender, EventArgs e)
+                NetworkRoomTitle roomTitle = GameObjectManager.Instance
+                    .AddObject(new NetworkRoomTitle(roomName)
                     {
-                        NetworkClientManager.Instance.SendMessageToServer($"/Join/{roomTitle.RoomTitle}");
-                    };
+                        Position = new Vector3(240, 120 + (i - index * listHeight) * 70, 0) + Position
+                    });
 
-                    roomDeleteButton.OnButtonClick += delegate
+                Button roomJoinButton = GameObjectManager.Instance
+                    .AddObject(new Button()
                     {
-                        NetworkClientManager.Instance.SendMessageToServer($"/DestroyRoom/{roomTitle.RoomTitle}");
-                        NetworkClientManager.Instance.SendMessageToServer("/GetRoomList");
-                    };
+                        ButtonTexture = D3D9Manager.Instance.FindTexture("JoinButton"),
+                        IsMouseOverResize = true,
+                        Position = new Vector3(530, 120 + (i - index * listHeight) * 70, 0) + Position,
+                        Scale = new Vector3(1, 1, 1)
+                    });
 
-                    networkRoomList.Add(new Tuple<NetworkRoomTitle, Button, Button>(
-                        roomTitle, roomJoinButton, roomDeleteButton));
-                }
+                Button roomDeleteButton = GameObjectManager.Instance
+                   .AddObject(new Button()
+                   {
+                       ButtonTexture = D3D9Manager.Instance.FindTexture("DeleteButton"),
+                       IsMouseOverResize = true,
+                       Position = new Vector3(697, 120 + (i - index * listHeight) * 70, 0) + Position,
+                       Scale = new Vector3(1, 1, 1)
+                   });
+
+                roomJoinButton.OnButtonClick += delegate (object sender, EventArgs e)
+                {
+                    NetworkClientManager.Instance.SendMessageToServer($"/Join/{roomTitle.RoomTitle}");
+                };
+
+                roomDeleteButton.OnButtonClick += delegate
+                {
+                    NetworkClientManager.Instance.SendMessageToServer($"/DestroyRoom/{roomTitle.RoomTitle}");
+                    NetworkClientManager.Instance.SendMessageToServer("/GetRoomList");
+                };
+
+                networkRoomList.Add(new Tuple<NetworkRoomTitle, Button, Button>(
+                    roomTitle, roomJoinButton, roomDeleteButton));
             }
         }
 
         public bool HasList(int index)
         {
-            if (NetworkClientManager.Instance.GetRoomListCount() > index * listHeight)
+            if (NetworkClientManager.Instance.RoomListCount > index * listHeight)
                 return true;
             else
                 return false;

@@ -67,7 +67,7 @@ namespace TCPNetwork.Server
                     {
                         string[] result = message.Split(new char[] { '/' });
 
-                        MessageCommandType commandType = CommandPaser.Parse(result[1]);
+                        MessageCommandType commandType = CommandParser.Parse(result[1]);
 
                         if (commandType != MessageCommandType.None)
                         {
@@ -83,7 +83,7 @@ namespace TCPNetwork.Server
             }
             catch (Exception)
             {
-
+                
             }
             finally
             {

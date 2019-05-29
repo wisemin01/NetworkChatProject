@@ -52,7 +52,11 @@ namespace DirectXClient
                         Scale = Vector3.Lerp(Scale, MouseNoneOverSize, 0.15f);
                 }
             }
-            catch (NullReferenceException)
+            // catch (NullReferenceException)
+            // {
+            // 
+            // }
+            finally
             {
 
             }

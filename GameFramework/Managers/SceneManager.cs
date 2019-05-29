@@ -23,6 +23,8 @@ namespace GameFramework.Manager
         private readonly Dictionary<string, Scene> scenes
             = new Dictionary<string, Scene>();
 
+        private readonly object locker = new object();
+
         Scene nowScene = null;
         Scene nextScene = null;
 
@@ -30,14 +32,17 @@ namespace GameFramework.Manager
 
         public void AddScene<T>(string key) where T : Scene, new()
         {
-            if (scenes.ContainsKey(key))
+            lock (locker)
             {
-                throw new Exception("이미 해당 키를 가진 Scene이 존재합니다.");
+                if (scenes.ContainsKey(key))
+                {
+                    throw new Exception("이미 해당 키를 가진 Scene이 존재합니다.");
+                }
+
+                T newScene = new T();
+
+                scenes.Add(key, newScene);
             }
-
-            T newScene = new T();
-
-            scenes.Add(key, newScene);
         }
 
         public void ChangeScene(string key)
@@ -81,14 +86,17 @@ namespace GameFramework.Manager
 
         public void Release()
         {
-            if (nowScene != null)
+            lock (locker)
             {
-                nowScene.Release();
-                GameObjectManager.Instance.ReleaseObjects();
-            }
+                if (nowScene != null)
+                {
+                    nowScene.Release();
+                    GameObjectManager.Instance.ReleaseObjects();
+                }
 
-            scenes.Clear();
-            OnChangeSceneEvent = null;
+                scenes.Clear();
+                OnChangeSceneEvent = null;
+            }
         }
     }
 }

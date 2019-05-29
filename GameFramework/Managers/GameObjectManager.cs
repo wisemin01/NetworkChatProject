@@ -23,17 +23,25 @@ namespace GameFramework.Manager
         LinkedList<GameObject> gameObjectList = new LinkedList<GameObject>();
         Stack<GameObject> messageBoxStack = new Stack<GameObject>();
 
+        private readonly object locker = new object();
+
         public T AddObject<T>(T gameObject) where T : GameObject
         {
-            gameObjectList.AddLast(gameObject);
-            gameObject.Initialize();
+            lock (locker)
+            {
+                gameObjectList.AddLast(gameObject);
+                gameObject.Initialize();
 
-            return gameObject;
+                return gameObject;
+            }
         }
         public void AddMessageBox(GameObject messageBox)
         {
-            messageBoxStack.Push(messageBox);
-            messageBox.Initialize();
+            lock (locker)
+            {
+                messageBoxStack.Push(messageBox);
+                messageBox.Initialize();
+            }
         }
 
         public bool IsMessageBoxPopup
@@ -94,17 +102,20 @@ namespace GameFramework.Manager
 
         public void ReleaseObjects()
         {
-            foreach (GameObject gameObject in gameObjectList)
+            lock (locker)
             {
-                gameObject.Release();
-            }
-            foreach (GameObject messageBox in messageBoxStack)
-            {
-                messageBox.Release();
-            }
+                foreach (GameObject gameObject in gameObjectList)
+                {
+                    gameObject.Release();
+                }
+                foreach (GameObject messageBox in messageBoxStack)
+                {
+                    messageBox.Release();
+                }
 
-            gameObjectList.Clear();
-            messageBoxStack.Clear();
+                gameObjectList.Clear();
+                messageBoxStack.Clear();
+            }
         }
     }
 }

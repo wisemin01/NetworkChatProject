@@ -31,11 +31,6 @@ namespace DirectXClient
                 IsMouseOverResize = true
             });
 
-            NetworkRoomListViewer roomList = GameObjectManager.Instance.AddObject(new NetworkRoomListViewer()
-            {
-                Position = new Vector3(-5, 80, 0)
-            });
-
             loginButton.OnButtonClick += textInput.EnterText;
             textInput.OnEnter += delegate (object sender, string s)
             {
@@ -52,6 +47,11 @@ namespace DirectXClient
                 input.Clear();
                 NetworkClientManager.Instance.SendMessageToServer("/GetRoomList");
             };
+
+            NetworkRoomListViewer roomList = GameObjectManager.Instance.AddObject(new NetworkRoomListViewer()
+            {
+                Position = new Vector3(-5, 80, 0)
+            });
 
             GameObjectManager.Instance.AddObject(new StateObserver());
         }

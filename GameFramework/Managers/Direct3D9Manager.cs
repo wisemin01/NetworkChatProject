@@ -36,6 +36,8 @@ namespace GameFramework.Manager
         private UpdateCallback OnUpdate;
         private RenderCallback OnRender;
 
+        private readonly object locker = new object();
+
         // Propertie
 
         public Device D3D9Device
@@ -85,7 +87,7 @@ namespace GameFramework.Manager
 
         public void Exit()
         {
-
+            Release();
         }
 
         private void OnFrame()

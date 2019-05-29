@@ -15,45 +15,51 @@ namespace GameFramework.Manager
 
         public void CreateFont(string key, string faceName, int size, bool isItalic)
         {
-            if (fonts.ContainsKey(key) == false)
+            lock (locker)
             {
-                D3D9.Font d3dFont = new D3D9.Font(d3d9Device,
-                size,
-                0,
-                D3D9.FontWeight.Normal,
-                0,
-                isItalic,
-                D3D9.FontCharacterSet.Hangul,
-                D3D9.FontPrecision.Default,
-                D3D9.FontQuality.Default,
-                D3D9.FontPitchAndFamily.Default,
-                faceName);
+                if (fonts.ContainsKey(key) == false)
+                {
+                    D3D9.Font d3dFont = new D3D9.Font(d3d9Device,
+                    size,
+                    0,
+                    D3D9.FontWeight.Normal,
+                    0,
+                    isItalic,
+                    D3D9.FontCharacterSet.Hangul,
+                    D3D9.FontPrecision.Default,
+                    D3D9.FontQuality.Default,
+                    D3D9.FontPitchAndFamily.Default,
+                    faceName);
 
-                fonts.Add(key, d3dFont);
+                    fonts.Add(key, d3dFont);
+                }
             }
         }
 
         public GameTexture CreateTexture(string key, string path)
         {
-            if (textures.ContainsKey(key))
-                return textures[key];
-
-            try
+            lock (locker)
             {
-                D3D9.ImageInformation info = new D3D9.ImageInformation();
+                if (textures.ContainsKey(key))
+                    return textures[key];
 
-                D3D9.Texture d3d9Texture = D3D9.Texture.FromFile(d3d9Device, path, D3D9.D3DX.DefaultNonPowerOf2, D3D9.D3DX.DefaultNonPowerOf2, 0,
-                    D3D9.Usage.None, D3D9.Format.Unknown, D3D9.Pool.Managed, D3D9.Filter.None, D3D9.Filter.None, 0, out info);
+                try
+                {
+                    D3D9.ImageInformation info = new D3D9.ImageInformation();
 
-                GameTexture texture = new GameTexture(d3d9Texture, info);
+                    D3D9.Texture d3d9Texture = D3D9.Texture.FromFile(d3d9Device, path, D3D9.D3DX.DefaultNonPowerOf2, D3D9.D3DX.DefaultNonPowerOf2, 0,
+                        D3D9.Usage.None, D3D9.Format.Unknown, D3D9.Pool.Managed, D3D9.Filter.None, D3D9.Filter.None, 0, out info);
 
-                textures.Add(key, texture);
-                return texture;
-            }
-            catch (SharpDXException)
-            {
-                MessageBox.Show($"이미지 로딩에 실패했습니다. \n {path} 경로를 다시 확인해주세요.", "Texture Load Failed");
-                return null;
+                    GameTexture texture = new GameTexture(d3d9Texture, info);
+
+                    textures.Add(key, texture);
+                    return texture;
+                }
+                catch (SharpDXException)
+                {
+                    MessageBox.Show($"이미지 로딩에 실패했습니다. \n {path} 경로를 다시 확인해주세요.", "Texture Load Failed");
+                    return null;
+                }
             }
         }
 
@@ -148,20 +154,26 @@ namespace GameFramework.Manager
 
         public void FontDispose()
         {
-            foreach (KeyValuePair<string, D3D9.Font> Iter in fonts)
+            lock (locker)
             {
-                Iter.Value.Dispose();
+                foreach (KeyValuePair<string, D3D9.Font> Iter in fonts)
+                {
+                    Iter.Value.Dispose();
+                }
+                fonts.Clear();
             }
-            fonts.Clear();
         }
 
         public void TextureDispose()
         {
-            foreach (KeyValuePair<string, GameTexture> Iter in textures)
+            lock (locker)
             {
-                Iter.Value.Dispose();
+                foreach (KeyValuePair<string, GameTexture> Iter in textures)
+                {
+                    Iter.Value.Dispose();
+                }
+                textures.Clear();
             }
-            textures.Clear();
         }
 
         public GameTexture FindTexture(string key)
@@ -174,7 +186,6 @@ namespace GameFramework.Manager
             {
                 return null;
             }
-
         }
     }
 }

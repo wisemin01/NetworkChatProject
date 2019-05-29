@@ -68,6 +68,7 @@ namespace TCPNetwork.Server
                 throw new OverflowException("The port number is out of range");
 
             tcpServer = new TcpListener(IPAddress.Any, serverPort);
+     
             networkRooms = new Dictionary<string, NetworkRoom>();
             clientAcceptSocket = default;
 
@@ -134,6 +135,10 @@ namespace TCPNetwork.Server
                 catch (Exception)
                 {
                     break;
+                }
+                finally
+                {
+
                 }
             }
 

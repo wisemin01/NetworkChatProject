@@ -11,7 +11,7 @@
         ReturnRoomList
     }
 
-    class CommandPaser
+    class CommandParser
     {
         static public MessageCommandType Parse(string message)
         {

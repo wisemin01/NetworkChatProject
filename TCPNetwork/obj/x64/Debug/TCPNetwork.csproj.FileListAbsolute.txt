@@ -1,0 +1,10 @@
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\TCPNetwork\bin\x64\Debug\TCPNetwork.dll
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\TCPNetwork\bin\x64\Debug\TCPNetwork.pdb
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\TCPNetwork\bin\x64\Debug\SharpDX.dll
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\TCPNetwork\bin\x64\Debug\SharpDX.pdb
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\TCPNetwork\obj\x64\Debug\TCPNetwork.csproj.CoreCompileInputs.cache
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\TCPNetwork\obj\x64\Debug\TCPNetwork.csproj.CopyComplete
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\TCPNetwork\obj\x64\Debug\TCPNetwork.dll
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\TCPNetwork\obj\x64\Debug\TCPNetwork.pdb
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Debug\TCPNetwork.dll
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Debug\TCPNetwork.pdb

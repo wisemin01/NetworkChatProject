@@ -84,6 +84,10 @@ namespace TCPNetwork.Client
                     "포트, IP 주소를 다시 확인해보세요.", "Connection Failed");
                 return false;
             }
+            finally
+            {
+
+            }
 
             IsConnection = true;
 
@@ -163,15 +167,16 @@ namespace TCPNetwork.Client
                 ShowMessageBox("서버와의 연결이 끊겼습니다.", "Disconnected");
                 onClientExit("서버와의 연결이 끊겼습니다.");
                 Console.WriteLine("서버와의 연결 끊어짐");
-
+            
                 IsConnection = false;
+            }
+            finally
+            {
+
             }
         }
 
-        public int GetRoomListCount()
-        {
-            return networkRoomTitles.Count;
-        }
+        public int RoomListCount { get { return networkRoomTitles.Count; } }
 
         private void OnMessage(string message)
         {
@@ -184,7 +189,7 @@ namespace TCPNetwork.Client
             {
                 string[] result = message.Split(new char[] { '/' });
 
-                MessageCommandType commandType = CommandPaser.Parse(result[1]);
+                MessageCommandType commandType = CommandParser.Parse(result[1]);
 
                 switch (commandType)
                 {
@@ -208,6 +213,7 @@ namespace TCPNetwork.Client
                         {
                             networkRoomTitles.Add(result[i]);
                         }
+
                         OnUpdateRoomListEvent?.Invoke(this, networkRoomTitles);
 
                         break;
