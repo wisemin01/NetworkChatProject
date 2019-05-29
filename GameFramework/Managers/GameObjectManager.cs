@@ -36,8 +36,10 @@ namespace GameFramework.Manager
             messageBox.Initialize();
         }
 
-        public bool IsMessageBoxPopup {
-            get {
+        public bool IsMessageBoxPopup
+        {
+            get
+            {
                 return (messageBoxStack.Count != 0);
             }
         }
@@ -88,7 +90,7 @@ namespace GameFramework.Manager
             {
 
             }
-        } 
+        }
 
         public void ReleaseObjects()
         {

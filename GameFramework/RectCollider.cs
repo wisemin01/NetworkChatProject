@@ -1,11 +1,5 @@
-﻿using GameFramework.Structure;
+﻿using GameFramework.Manager;
 using SharpDX;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GameFramework.Manager;
 
 namespace GameFramework.Structure
 {

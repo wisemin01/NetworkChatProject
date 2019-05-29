@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
+﻿using SharpDX;
 using SharpDX.DirectInput;
-using SharpDX;
+using System;
+using System.Windows.Forms;
 
 namespace GameFramework.Manager
 {
@@ -14,10 +11,10 @@ namespace GameFramework.Manager
         public event EventHandler<ClickChecker> OnMouseClickToMessageBoxEvent;
 
         private DirectInput directInput;
-        private Keyboard    keyboard;
-        private Mouse       mouse;
+        private Keyboard keyboard;
+        private Mouse mouse;
 
-        private MouseState  mouseState;
+        private MouseState mouseState;
 
         private KeyboardState currentKeyboardState;
         private KeyboardState prevKeyboardState;
@@ -26,8 +23,8 @@ namespace GameFramework.Manager
         {
             directInput = new DirectInput();
 
-            keyboard    = new Keyboard(directInput);
-            mouse       = new Mouse(directInput);
+            keyboard = new Keyboard(directInput);
+            mouse = new Mouse(directInput);
 
             keyboard.Acquire();
             mouse.Acquire();
@@ -47,10 +44,10 @@ namespace GameFramework.Manager
 
         public void KeyUpdate()
         {
-            prevKeyboardState       = currentKeyboardState;
-            currentKeyboardState    = keyboard.GetCurrentState();
+            prevKeyboardState = currentKeyboardState;
+            currentKeyboardState = keyboard.GetCurrentState();
 
-            mouseState              = mouse.GetCurrentState();
+            mouseState = mouse.GetCurrentState();
         }
 
         public bool IsKeyDown(Key key)

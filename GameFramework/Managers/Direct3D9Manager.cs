@@ -1,15 +1,13 @@
-﻿using SharpDX.Windows;
+﻿using SharpDX;
 using SharpDX.Direct3D9;
+using SharpDX.Windows;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using SharpDX;
 
 namespace GameFramework.Manager
 {
-    using D3D9      = SharpDX.Direct3D9;
-    using BGRAColor = SharpDX.Mathematics.Interop.RawColorBGRA;
-    
+    using D3D9 = SharpDX.Direct3D9;
+
     public partial class D3D9Manager
     {
         public delegate void UpdateCallback();
@@ -60,11 +58,11 @@ namespace GameFramework.Manager
 
     public partial class D3D9Manager
     {
-        public void  CreateDirect3D9(string title, int width, int height)
+        public void CreateDirect3D9(string title, int width, int height)
         {
             mainForm = new RenderMsgForm(title)
             {
-                ClientSize        = new System.Drawing.Size(width, height),
+                ClientSize = new System.Drawing.Size(width, height),
                 AllowUserResizing = false
             };
 
@@ -122,7 +120,7 @@ namespace GameFramework.Manager
             RenderLoop.Run(mainForm, OnFrame);
         }
 
-        public void  Release()
+        public void Release()
         {
             SceneManager.Instance.OnChangeSceneEvent -= OnChangeScene;
 
@@ -135,12 +133,12 @@ namespace GameFramework.Manager
             mainForm.Dispose();
         }
 
-        public void  AddMessageHandler(EventHandler<Message> eventHandler)
+        public void AddMessageHandler(EventHandler<Message> eventHandler)
         {
             mainForm.OnMessage += eventHandler;
         }
 
-        public void  RemoveMessageHandler(EventHandler<Message> eventHandler)
+        public void RemoveMessageHandler(EventHandler<Message> eventHandler)
         {
             mainForm.OnMessage -= eventHandler;
         }

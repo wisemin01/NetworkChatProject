@@ -1,8 +1,8 @@
-﻿using SharpDX;
+﻿using GameFramework.Structure;
+using SharpDX;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using GameFramework.Structure;
 
 
 namespace GameFramework.Manager
@@ -10,9 +10,9 @@ namespace GameFramework.Manager
     using D3D9 = SharpDX.Direct3D9;
     public partial class D3D9Manager
     {
-        private Dictionary<string, D3D9.Font>   fonts       = new Dictionary<string, D3D9.Font>();
-        private Dictionary<string, GameTexture> textures    = new Dictionary<string, GameTexture>();
-        
+        private Dictionary<string, D3D9.Font> fonts = new Dictionary<string, D3D9.Font>();
+        private Dictionary<string, GameTexture> textures = new Dictionary<string, GameTexture>();
+
         public void CreateFont(string key, string faceName, int size, bool isItalic)
         {
             if (fonts.ContainsKey(key) == false)
@@ -104,9 +104,9 @@ namespace GameFramework.Manager
 
                 d3d9Sprite.Transform = mat;
                 d3d9Sprite.Draw(
-                    textureRef:  texture.Texture,
-                    centerRef:   center,
-                    color:       new Color(255, 255, 255, 255)
+                    textureRef: texture.Texture,
+                    centerRef: center,
+                    color: new Color(255, 255, 255, 255)
                     );
             }
         }
@@ -148,7 +148,7 @@ namespace GameFramework.Manager
 
         public void FontDispose()
         {
-            foreach (var Iter in fonts)
+            foreach (KeyValuePair<string, D3D9.Font> Iter in fonts)
             {
                 Iter.Value.Dispose();
             }
@@ -157,7 +157,7 @@ namespace GameFramework.Manager
 
         public void TextureDispose()
         {
-            foreach (var Iter in textures)
+            foreach (KeyValuePair<string, GameTexture> Iter in textures)
             {
                 Iter.Value.Dispose();
             }

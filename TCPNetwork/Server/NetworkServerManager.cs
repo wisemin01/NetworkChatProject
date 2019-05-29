@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Linq;
 using System.Text;
 using System.Threading;
 
@@ -34,25 +34,28 @@ namespace TCPNetwork.Server
         public ITextDraw TextDraw
         {
             get => textDraw;
-            set {
+            set
+            {
+
                 textDraw = value;
 
                 networkLobby.TextDraw = value;
 
-                foreach (var Room in networkRooms)
+                foreach (KeyValuePair<string, NetworkRoom> Room in networkRooms)
                 {
                     Room.Value.TextDraw = value;
                 }
+
             }
         }
-        public INetworkOutput   NetworkOutput   { get; set; } = null;
+        public INetworkOutput NetworkOutput { get; set; } = null;
 
         // Member
 
-        private TcpListener         tcpServer           = null; // 서버
-        private TcpClient           clientAcceptSocket  = null; // 접속받기 위한 소켓
+        private TcpListener tcpServer = null; // 서버
+        private TcpClient clientAcceptSocket = null; // 접속받기 위한 소켓
 
-        private NetworkRoom         networkLobby        = null; // 처음 사용자가 접속할 방 (로비)
+        private NetworkRoom networkLobby = null; // 처음 사용자가 접속할 방 (로비)
 
         private Dictionary<string, NetworkRoom> networkRooms = null; // 네트워크 룸 컨테이너
 
@@ -64,11 +67,11 @@ namespace TCPNetwork.Server
             if (serverPort < 0 || serverPort > 65535)
                 throw new OverflowException("The port number is out of range");
 
-            tcpServer           = new TcpListener(IPAddress.Any, serverPort);
-            networkRooms        = new Dictionary<string, NetworkRoom>();
-            clientAcceptSocket  = default;
+            tcpServer = new TcpListener(IPAddress.Any, serverPort);
+            networkRooms = new Dictionary<string, NetworkRoom>();
+            clientAcceptSocket = default;
 
-            networkLobby        = new NetworkRoom("Lobby", TextDraw);
+            networkLobby = new NetworkRoom("Lobby", TextDraw);
         }
 
         /*
@@ -113,13 +116,13 @@ namespace TCPNetwork.Server
                     clientAcceptSocket = tcpServer.AcceptTcpClient();
 
                     // 소켓 스트림에서 버퍼를 읽어와
-                    NetworkStream   stream  = clientAcceptSocket.GetStream();
-                    byte[]          buffer  = new byte[bufferSize];
-                    int             bytes   = stream.Read(buffer, 0, buffer.Length);
-                    
+                    NetworkStream stream = clientAcceptSocket.GetStream();
+                    byte[] buffer = new byte[bufferSize];
+                    int bytes = stream.Read(buffer, 0, buffer.Length);
+
                     // 유저 이름으로 저장
                     string userName = Encoding.Unicode.GetString(buffer, 0, bytes);
-                    userName        = userName.Substring(0, userName.IndexOf("$"));
+                    userName = userName.Substring(0, userName.IndexOf("$"));
 
                     // 로비에 추가
                     networkLobby.Add(clientAcceptSocket, userName);
@@ -161,6 +164,7 @@ namespace TCPNetwork.Server
          */
         public NetworkRoom FindNetworkRoom(string roomName)
         {
+
             if (roomName == "Lobby")
                 return networkLobby;
             else
@@ -172,6 +176,7 @@ namespace TCPNetwork.Server
 
                 else return null;
             }
+
         }
 
         /*
@@ -179,6 +184,7 @@ namespace TCPNetwork.Server
          */
         public NetworkRoom CreateNetworkRoom(string roomName)
         {
+
             if (networkRooms.ContainsKey(roomName))
             {
                 return null;
@@ -192,6 +198,7 @@ namespace TCPNetwork.Server
                 NetworkOutput.AddRoomToListBox(roomName);
 
             return newRoom;
+
         }
 
         /*
@@ -212,6 +219,7 @@ namespace TCPNetwork.Server
             }
 
             return false;
+
         }
 
         /* 
@@ -220,15 +228,16 @@ namespace TCPNetwork.Server
          */
         public TcpClient FindUserClient(string userName)
         {
-            foreach (var Iter in networkLobby.ClientList)
+
+            foreach (KeyValuePair<TcpClient, string> Iter in networkLobby.ClientList)
             {
                 if (Iter.Value == userName)
                     return Iter.Key;
             }
 
-            foreach (var Iter in networkRooms)
+            foreach (KeyValuePair<string, NetworkRoom> Iter in networkRooms)
             {
-                foreach (var Iter2 in Iter.Value.ClientList)
+                foreach (KeyValuePair<TcpClient, string> Iter2 in Iter.Value.ClientList)
                 {
                     if (Iter2.Value == userName)
                     {
@@ -238,6 +247,7 @@ namespace TCPNetwork.Server
             }
 
             return null;
+
         }
 
         /*
@@ -245,6 +255,7 @@ namespace TCPNetwork.Server
          */
         public List<Tuple<TcpClient, string>> GetUserClientList(string roomName)
         {
+
             if (roomName == null)
                 return null;
 
@@ -255,17 +266,20 @@ namespace TCPNetwork.Server
             if (networkRoom == null)
                 return null;
 
-            foreach (var Iter in networkRoom.ClientList)
+            foreach (KeyValuePair<TcpClient, string> Iter in networkRoom.ClientList)
             {
                 list.Add(new Tuple<TcpClient, string>(Iter.Key, Iter.Value));
             }
 
             return list;
+
         }
 
         public List<NetworkRoom> GetNetworkRooms()
         {
+
             return networkRooms.Values.ToList();
+
         }
 
         public List<string> GetNetworkRoomKeys()
@@ -274,5 +288,6 @@ namespace TCPNetwork.Server
             list.Sort();
             return list;
         }
+
     }
 }

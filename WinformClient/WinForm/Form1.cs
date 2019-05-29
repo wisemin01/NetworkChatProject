@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TCPNetwork;
 using TCPNetwork.Client;
 
 namespace TCPNetwork
@@ -27,9 +19,9 @@ namespace TCPNetwork
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            string serverPort   = textBox2.Text;
-            string ipAdress     = textBox4.Text;
-            string userName     = textBox5.Text;
+            string serverPort = textBox2.Text;
+            string ipAdress = textBox4.Text;
+            string userName = textBox5.Text;
 
             if (string.IsNullOrWhiteSpace(userName))
             {
@@ -55,7 +47,8 @@ namespace TCPNetwork
                     userName,
                     ipAdress,
                     int.Parse(serverPort),
-                    delegate (string text){
+                    delegate (string text)
+                    {
                         MessageBox.Show(text, "Exit");
                         Application.Exit();
                     });

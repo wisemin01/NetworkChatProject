@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SharpDX;
 
 namespace GameFramework.Structure
 {
@@ -25,10 +20,10 @@ namespace GameFramework.Structure
             Texture.Dispose();
         }
 
-        public int Width        { get => Info.Width; }
-        public int Height       { get => Info.Height; }
+        public int Width { get => Info.Width; }
+        public int Height { get => Info.Height; }
 
-        public int HalfWidth    { get => Info.Width / 2; }
-        public int HalfHeight   { get => Info.Height / 2; }
+        public int HalfWidth { get => Info.Width / 2; }
+        public int HalfHeight { get => Info.Height / 2; }
     }
 }

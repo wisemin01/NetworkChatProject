@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Windows.Forms;
-using TCPNetwork;
-using GameFramework;
+﻿using GameFramework;
 using GameFramework.Manager;
 using SharpDX;
 using System;
-using SharpDX.DirectInput;
+using System.Collections.Generic;
+using TCPNetwork;
 
 namespace DirectXClient
 {
@@ -22,9 +20,9 @@ namespace DirectXClient
 
         public TextList(int textDepth, Vector3 position, string fontName)
         {
-            this.TextDepth  = textDepth;
-            this.Position   = position;
-            this.fontName   = fontName;
+            this.TextDepth = textDepth;
+            this.Position = position;
+            this.fontName = fontName;
         }
 
         public void DrawColorText(string text, int r, int g, int b, int a)
@@ -69,7 +67,7 @@ namespace DirectXClient
                 int yIndex = (int)Position.Y - list.Count * TextDepth;
                 int xIndex = (int)Position.X;
 
-                foreach (var Iter in list)
+                foreach (Tuple<string, Color> Iter in list)
                 {
                     if (yIndex < 0)
                     {
@@ -89,7 +87,7 @@ namespace DirectXClient
 
         public override void FrameUpdate()
         {
-            
+
         }
 
         public override void Initialize()

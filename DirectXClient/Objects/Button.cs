@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using GameFramework;
+﻿using GameFramework;
 using GameFramework.Manager;
-using SharpDX;
-using SharpDX.Direct3D9;
-using SharpDX.DirectInput;
 using GameFramework.Structure;
+using SharpDX;
+using System;
 
 namespace DirectXClient
 {
@@ -17,15 +10,15 @@ namespace DirectXClient
     {
         public event EventHandler OnButtonClick;
 
-        public GameTexture  ButtonTexture     { get; set; } = null;
-        public Vector3      Position          { get; set; } = default;
-        public Vector3      Scale             { get; set; } = default;
-        public RectCollider rectCollider      { get; set; } = null;
-        public bool         IsMouseOverResize { get; set; } = true;
-        public bool     IsAllowDuplicateClick { get; set; } = false;
+        public GameTexture ButtonTexture { get; set; } = null;
+        public Vector3 Position { get; set; } = default;
+        public Vector3 Scale { get; set; } = default;
+        public RectCollider rectCollider { get; set; } = null;
+        public bool IsMouseOverResize { get; set; } = true;
+        public bool IsAllowDuplicateClick { get; set; } = false;
 
-        private readonly Vector3 MouseOverSize      = new Vector3(1.1f, 1.1f, 1.1f);
-        private readonly Vector3 MouseNoneOverSize  = new Vector3(1.0f, 1.0f, 1.0f);
+        private readonly Vector3 MouseOverSize = new Vector3(1.1f, 1.1f, 1.1f);
+        private readonly Vector3 MouseNoneOverSize = new Vector3(1.0f, 1.0f, 1.0f);
 
         public Button()
         {
@@ -75,7 +68,7 @@ namespace DirectXClient
             D3D9Manager.Instance.OnMouseClickEvent -= OnClick;
             OnButtonClick = null;
         }
-        
+
         public void OnClick(object sender, ClickChecker checker)
         {
             if (checker.IsEndCheck == true)

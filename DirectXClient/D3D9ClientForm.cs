@@ -1,7 +1,5 @@
-﻿using System;
-using GameFramework.Manager;
-using SharpDX;
-using TCPNetwork.Client;
+﻿using GameFramework.Manager;
+using System;
 
 namespace DirectXClient
 {
@@ -17,10 +15,10 @@ namespace DirectXClient
         {
             D3D9Manager.Instance.CreateDirect3D9("My DirectX Client",
                 ClientWindow.Width, ClientWindow.Height);
-          
+
             SceneManager.Instance.AddScene<LoginScene>("Login");
             SceneManager.Instance.AddScene<LobbyScene>("Lobby");
-            SceneManager.Instance.AddScene<ChatScene> ("Chat");
+            SceneManager.Instance.AddScene<ChatScene>("Chat");
 
             SceneManager.Instance.ChangeScene("Login");
         }

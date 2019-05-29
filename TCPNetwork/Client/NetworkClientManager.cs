@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections;
-using System.Net;
+using System.Collections.Generic;
+using System.IO;
 using System.Net.Sockets;
-using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Windows;
-using System.Collections.Generic;
 
 namespace TCPNetwork.Client
 {
@@ -36,26 +33,26 @@ namespace TCPNetwork.Client
         public delegate void OnButtonDown(object sender, EventArgs e);
         public delegate void OnClientExit(string text);
 
-        public event EventHandler<string>       OnChangeRoomEvent;
+        public event EventHandler<string> OnChangeRoomEvent;
         public event EventHandler<List<string>> OnUpdateRoomListEvent;
 
         // Member
-        private TcpClient       clientSocket  = null;           // 클라이언트 소켓
-        private NetworkStream   stream        = default;        // 메시지 입출력 스트림
-        
-        private string          message       = string.Empty;   // 메시지
-        private string          userName      = string.Empty;   // 유저 이름
-        private string          serverIP      = string.Empty;   // 서버 IP
-        private string          roomName      = string.Empty;   // 속해있는 방 이름
+        private TcpClient clientSocket = null;           // 클라이언트 소켓
+        private NetworkStream stream = default;        // 메시지 입출력 스트림
 
-        List<string>            networkRoomTitles = new List<string>();
+        private string message = string.Empty;   // 메시지
+        private string userName = string.Empty;   // 유저 이름
+        private string serverIP = string.Empty;   // 서버 IP
+        private string roomName = string.Empty;   // 속해있는 방 이름
 
-        private int             serverPort    = 0;              // 서버 포트
+        List<string> networkRoomTitles = new List<string>();
 
-        private OnClientExit    onClientExit  = null;           // 클라이언트를 종료시켜줄 콜백
+        private int serverPort = 0;              // 서버 포트
 
-        public bool         IsConnection    { get; private set; }   = false;
-        public ITextDraw    TextDraw        { get; set; }           = null;
+        private OnClientExit onClientExit = null;           // 클라이언트를 종료시켜줄 콜백
+
+        public bool IsConnection { get; private set; } = false;
+        public ITextDraw TextDraw { get; set; } = null;
 
         public void Initialize(
             string userName,
@@ -63,15 +60,15 @@ namespace TCPNetwork.Client
             int serverPort,
             OnClientExit exitFunc)
         {
-            this.userName   = userName;
+            this.userName = userName;
             this.serverPort = serverPort;
-            this.serverIP   = serverIP;
-            onClientExit    = exitFunc;
-            IsConnection    = false;
+            this.serverIP = serverIP;
+            onClientExit = exitFunc;
+            IsConnection = false;
 
-            clientSocket    = new TcpClient();
+            clientSocket = new TcpClient();
         }
-        
+
         public bool ConnectToServer()
         {
             // 서버 연결 시도
@@ -110,6 +107,7 @@ namespace TCPNetwork.Client
 
         public void SendMessageToServer(string message)
         {
+            Console.WriteLine("SEND >> " + message);
             if (string.IsNullOrWhiteSpace(message))
             {
                 return;
@@ -136,58 +134,50 @@ namespace TCPNetwork.Client
                     // 예외 처리
                     if (clientSocket.Connected == false)
                     {
-                        IsConnection = false;
-                        break;
+                        throw new IOException();
                     }
 
                     // 소켓에서 스트림을 얻어와
                     stream = clientSocket.GetStream();
 
                     // 메시지 Read
-                    int bufferSize  = clientSocket.ReceiveBufferSize;
-                    byte[] buffer   = new byte[bufferSize];
-                    int bytes       = stream.Read(buffer, 0, buffer.Length);
+                    int bufferSize = clientSocket.ReceiveBufferSize;
+                    byte[] buffer = new byte[bufferSize];
+                    int bytes = stream.Read(buffer, 0, buffer.Length);
 
-                    string message  = Encoding.Unicode.GetString(buffer, 0, bytes);
+                    string message = Encoding.Unicode.GetString(buffer, 0, bytes);
 
-                    Console.WriteLine(message);
+                    Console.WriteLine("READ << " + message);
 
                     string[] messageArray = message.Split(new char[] { '$' });
 
-                    OnMessage(messageArray, 0);
+                    for (int i = messageArray.Length - 1; i >= 0; i--)
+                    {
+                        OnMessage(messageArray[i]);
+                    }
                 }
 
-                IsConnection = false;
             }
-            catch (System.IO.IOException)
+            catch (Exception)
             {
                 ShowMessageBox("서버와의 연결이 끊겼습니다.", "Disconnected");
                 onClientExit("서버와의 연결이 끊겼습니다.");
+                Console.WriteLine("서버와의 연결 끊어짐");
 
                 IsConnection = false;
             }
         }
 
-        public List<string> GetNetworkRooms()
+        public int GetRoomListCount()
         {
-            return networkRoomTitles;
+            return networkRoomTitles.Count;
         }
 
-        private void OnMessage(string[] messageArray, int nowIndex = 0)
+        private void OnMessage(string message)
         {
-            if (messageArray.Length == 0)
-                return;
-
-            if (nowIndex >= messageArray.Length)
-                return;
-
-            OnMessage(messageArray, nowIndex + 1);
-
-            string message = messageArray[nowIndex];
-
             if (string.IsNullOrEmpty(message))
             {
-
+                return;
             }
             // 명령어 해석 구문
             else if (message[0] == '/')

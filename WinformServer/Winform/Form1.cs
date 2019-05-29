@@ -1,15 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using TCPNetwork;
 using TCPNetwork.Server;
 
 namespace TCPNetwork
@@ -30,7 +22,7 @@ namespace TCPNetwork
                     int port = int.Parse(textBox2.Text);
 
                     NetworkServerManager.Instance.Initialize(port);
-                    NetworkServerManager.Instance.TextDraw      = this;
+                    NetworkServerManager.Instance.TextDraw = this;
                     NetworkServerManager.Instance.NetworkOutput = this;
                     NetworkServerManager.Instance.StartServer();
 
@@ -57,14 +49,14 @@ namespace TCPNetwork
         {
             listBox2.Items.Clear();
 
-            List<Tuple<TcpClient, string>> list 
+            List<Tuple<TcpClient, string>> list
                 = NetworkServerManager.Instance.GetUserClientList(
                     listBox1.SelectedItem as string);
 
             if (list == null)
                 return;
 
-            foreach (var Iter in list)
+            foreach (Tuple<TcpClient, string> Iter in list)
             {
                 listBox2.Items.Add(Iter.Item2);
             }
@@ -99,7 +91,7 @@ namespace TCPNetwork
                 listBox1.Items.Remove(roomName);
             }
         }
-        
+
         void ITextDraw.DrawText(string text)
         {
             if (textBox1.InvokeRequired)

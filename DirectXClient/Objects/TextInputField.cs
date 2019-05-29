@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Input;
-using GameFramework;
+﻿using GameFramework;
 using GameFramework.Manager;
 using GameFramework.Structure;
 using SharpDX;
+using System;
+using System.Text;
+using System.Windows.Forms;
 
 namespace DirectXClient
 {
@@ -16,14 +12,14 @@ namespace DirectXClient
     {
         readonly StringBuilder inputString = new StringBuilder();
 
-        public Vector3      Position        { get; set; }       = new Vector3(0, 0, 0);
-        public Vector3      StringOffset    { get; set; }       = new Vector3(0, 0, 0);
-        public string       FontKey         { get; set; }       = string.Empty;
-        public bool         IsSelected      { get; private set; } = true;
-        public int          MaxLength       { get; set; }       = 15;
-        public Color        StringColor     { get; set; }       = Color.White;
-        public RectCollider Range           { get; set; }       = null;
-        public GameTexture  FieldTexture    { get; set; }       = null;
+        public Vector3 Position { get; set; } = new Vector3(0, 0, 0);
+        public Vector3 StringOffset { get; set; } = new Vector3(0, 0, 0);
+        public string FontKey { get; set; } = string.Empty;
+        public bool IsSelected { get; private set; } = true;
+        public int MaxLength { get; set; } = 15;
+        public Color StringColor { get; set; } = Color.White;
+        public RectCollider Range { get; set; } = null;
+        public GameTexture FieldTexture { get; set; } = null;
 
         public event EventHandler<string> OnEnter;
 
@@ -80,7 +76,7 @@ namespace DirectXClient
             int alpha = IsSelected ? 255 : 180;
 
             Vector3 fontDrawPosition = Position;
-            Color   textColor        = StringColor;
+            Color textColor = StringColor;
 
             textColor.A = (byte)alpha;
 
@@ -117,7 +113,7 @@ namespace DirectXClient
 
         private void AddChar(char ch)
         {
-            if(ch == (char)13)
+            if (ch == (char)13)
             {
                 EnterText(this, EventArgs.Empty);
                 return;

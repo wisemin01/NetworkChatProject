@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GameFramework;
+﻿using GameFramework;
 using GameFramework.Manager;
-using TCPNetwork.Client;
-using SharpDX;
 using GameFramework.Structure;
+using SharpDX;
+using System;
+using System.Collections.Generic;
+using TCPNetwork.Client;
 
 namespace DirectXClient
 {
@@ -43,13 +40,14 @@ namespace DirectXClient
             Button refreshButton = GameObjectManager.Instance
                    .AddObject(new Button()
                    {
-                       ButtonTexture        = D3D9Manager.Instance.FindTexture("RefreshButton"),
-                       IsMouseOverResize    = true,
-                       Position             = new Vector3(139, 50, 0) + Position,
-                       Scale                = new Vector3(1, 1, 1)
+                       ButtonTexture = D3D9Manager.Instance.FindTexture("RefreshButton"),
+                       IsMouseOverResize = true,
+                       Position = new Vector3(139, 50, 0) + Position,
+                       Scale = new Vector3(1, 1, 1)
                    });
 
-            refreshButton.OnButtonClick += delegate {
+            refreshButton.OnButtonClick += delegate
+            {
                 LastIndex = 0;
                 NetworkClientManager.Instance.SendMessageToServer("/GetRoomList");
             };
@@ -63,7 +61,8 @@ namespace DirectXClient
                        Scale = new Vector3(1, 1, 1)
                    });
 
-            prevButton.OnButtonClick += delegate {
+            prevButton.OnButtonClick += delegate
+            {
                 if (LastIndex > 0)
                     LastIndex--;
                 NetworkClientManager.Instance.SendMessageToServer("/GetRoomList");
@@ -78,7 +77,8 @@ namespace DirectXClient
                        Scale = new Vector3(1, 1, 1)
                    });
 
-            nextButton.OnButtonClick += delegate {
+            nextButton.OnButtonClick += delegate
+            {
                 if (HasList(LastIndex + 1))
                     LastIndex++;
                 NetworkClientManager.Instance.SendMessageToServer("/GetRoomList");
@@ -104,21 +104,19 @@ namespace DirectXClient
             NetworkClientManager.Instance.OnUpdateRoomListEvent -= OnUpdateRoomList;
         }
 
-        public void RefreshList(int index = 0)
+        public void RefreshList(int index, List<string> list)
         {
             lock (lockObject)
             {
                 LastIndex = index;
 
-                foreach (var Iter in networkRoomList)
+                foreach (Tuple<NetworkRoomTitle, Button, Button> Iter in networkRoomList)
                 {
                     Destroy(Iter.Item1); Iter.Item1.Release();
                     Destroy(Iter.Item2); Iter.Item2.Release();
                     Destroy(Iter.Item3); Iter.Item3.Release();
                 }
                 networkRoomList.Clear();
-
-                List<string> list = NetworkClientManager.Instance.GetNetworkRooms();
 
                 for (int i = index * listHeight; i < index * listHeight + listHeight; i++)
                 {
@@ -170,9 +168,7 @@ namespace DirectXClient
 
         public bool HasList(int index)
         {
-            List<string> list = NetworkClientManager.Instance.GetNetworkRooms();
-
-            if (list.Count > index * listHeight)
+            if (NetworkClientManager.Instance.GetRoomListCount() > index * listHeight)
                 return true;
             else
                 return false;
@@ -180,7 +176,7 @@ namespace DirectXClient
 
         public void OnUpdateRoomList(object sender, List<string> roomList)
         {
-            RefreshList(LastIndex);
+            RefreshList(LastIndex, roomList);
         }
     }
 }

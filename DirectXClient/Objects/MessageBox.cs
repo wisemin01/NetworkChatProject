@@ -3,10 +3,6 @@ using GameFramework.Manager;
 using GameFramework.Structure;
 using SharpDX;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DirectXClient
 {
@@ -17,8 +13,8 @@ namespace DirectXClient
 
         private Button quitButton;
 
-        private string Text     = string.Empty;
-        private string Caption  = string.Empty;
+        private string Text = string.Empty;
+        private string Caption = string.Empty;
 
         public Vector3 Position { get; set; } = default;
         public string FontKey { get; set; } = string.Empty;
@@ -46,10 +42,10 @@ namespace DirectXClient
 
             quitButton = new Button()
             {
-                ButtonTexture       = quitButtonTex,
-                IsMouseOverResize   = true,
-                Position            = Position + new Vector3(0, 70, 0),
-                Scale               = new Vector3(1, 1, 1),
+                ButtonTexture = quitButtonTex,
+                IsMouseOverResize = true,
+                Position = Position + new Vector3(0, 70, 0),
+                Scale = new Vector3(1, 1, 1),
                 IsAllowDuplicateClick = true
             };
             quitButton.Initialize();
@@ -60,7 +56,10 @@ namespace DirectXClient
 
         public override void FrameUpdate()
         {
-            quitButton.FrameUpdate();
+            if (quitButton != null)
+            {
+                quitButton.FrameUpdate();
+            }
         }
 
         public override void FrameRender()
@@ -69,27 +68,36 @@ namespace DirectXClient
             D3D9Manager.Instance.DrawFont_NotSetTransform(FontKey, new Vector3(-170, -95, 0), Caption, StringColor);
             D3D9Manager.Instance.DrawFont_NotSetTransform(FontKey, new Vector3(-170, -50, 0), Text, StringColor);
 
-            quitButton.FrameRender();
+            if (quitButton != null)
+            {
+                quitButton.FrameRender();
+            }
         }
 
         public override void Release()
         {
             D3D9Manager.Instance.OnMouseClickToMessageBoxEvent -= quitButton.OnClick;
-            quitButton.Release();
+            if (quitButton != null)
+            {
+                quitButton.Release();
+            }
         }
 
         public void OnQuitButtonClick(object sender, EventArgs e)
         {
             Destroy(this);
-            Destroy(quitButton);
+            if (quitButton != null)
+            {
+                Destroy(quitButton);
+            }
         }
 
         public static void Show(string text, string caption)
         {
             GameObjectManager.Instance.AddMessageBox(new MessageBox(text, caption)
             {
-                FontKey     = "Default",
-                Position    = new Vector3(ClientWindow.Width / 2, ClientWindow.Height / 2, 0),
+                FontKey = "Default",
+                Position = new Vector3(ClientWindow.Width / 2, ClientWindow.Height / 2, 0),
                 StringColor = new Color(125, 125, 125)
             });
         }

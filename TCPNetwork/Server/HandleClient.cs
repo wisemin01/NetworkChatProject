@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Net.Sockets;
+using System.Text;
 using System.Threading;
 
 namespace TCPNetwork.Server
@@ -14,21 +12,21 @@ namespace TCPNetwork.Server
 
     public class HandleClient
     {
-        public delegate void MessageDisplayHandler  (string userName, string message, bool flag);
-        public delegate void MessageDispatcher      (string message, TcpClient client);
-        public delegate void DisconnectedHandler    (TcpClient client);
+        public delegate void MessageDisplayHandler(string userName, string message, bool flag);
+        public delegate void MessageDispatcher(string message, TcpClient client);
+        public delegate void DisconnectedHandler(TcpClient client);
 
-        public TcpClient    Client      { get; private set; }         = null;
-        public NetworkRoom  NetworkRoom { get; set; }                 = null;
+        public TcpClient Client { get; private set; } = null;
+        public NetworkRoom NetworkRoom { get; set; } = null;
 
-        public MessageDisplayHandler    OnReceived      { get; set; } = null;
-        public DisconnectedHandler      OnDisconnected  { get; set; } = null;
-        public MessageDispatcher        OnMessageSended { get; set; } = null;
+        public MessageDisplayHandler OnReceived { get; set; } = null;
+        public DisconnectedHandler OnDisconnected { get; set; } = null;
+        public MessageDispatcher OnMessageSended { get; set; } = null;
 
         public void StartClientHandling(TcpClient client, NetworkRoom room)
         {
             // 맴버 초기화
-            this.Client = client;
+            Client = client;
             NetworkRoom = room;
 
             // 스레드 생성
@@ -53,18 +51,17 @@ namespace TCPNetwork.Server
                 {
                     if (Client.Connected == false)
                     {
-                        OnDisconnected?.Invoke(Client);
-                        Client.Close();
-                        stream.Close();
-                        break;
+                        throw new Exception();
                     }
 
                     stream = Client.GetStream();
 
                     // 메시지를 읽어온다
-                    bytes   = stream.Read(buffer, 0, buffer.Length);
+                    bytes = stream.Read(buffer, 0, buffer.Length);
                     message = Encoding.Unicode.GetString(buffer, 0, bytes);
                     message = message.Substring(0, message.IndexOf("$"));
+
+                    Console.WriteLine("READ << " + message);
 
                     if (message[0] == '/')
                     {
@@ -84,21 +81,11 @@ namespace TCPNetwork.Server
                     }
                 }
             }
-            // 예외 발생시 해당 소켓과 스레드 Close
-            catch (SocketException)
-            {
-                if (Client != null)
-                {
-                    OnDisconnected?.Invoke(Client);
-                    Client.Close();
-                    stream.Close();
-                }
-            }
-            catch (ArgumentOutOfRangeException argumentException)
-            {
-                NetworkServerManager.Instance.ShowMessageBox(argumentException.Message, "Error");
-            }
             catch (Exception)
+            {
+
+            }
+            finally
             {
                 if (Client != null)
                 {
@@ -147,7 +134,8 @@ namespace TCPNetwork.Server
                             OnMessageSended?.Invoke("[System] : 방을 생성했습니다.", Client);
                             OnReceived("System", $"{splitResult[2]} 방이 생성되었습니다.", false);
                         }
-                        else {
+                        else
+                        {
                             OnMessageSended?.Invoke("[System] : 방 생성에 실패했습니다.", Client);
                         }
 
@@ -212,8 +200,8 @@ namespace TCPNetwork.Server
                     {
                         StringBuilder stringBuilder = new StringBuilder(64);
                         stringBuilder.Append("/ReturnRoomList");
-                        
-                        foreach (var Iter in NetworkServerManager.Instance.GetNetworkRoomKeys())
+
+                        foreach (string Iter in NetworkServerManager.Instance.GetNetworkRoomKeys())
                         {
                             stringBuilder.Append('/' + Iter);
                         }

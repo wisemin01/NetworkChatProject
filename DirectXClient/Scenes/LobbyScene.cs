@@ -1,11 +1,6 @@
 ﻿using GameFramework;
 using GameFramework.Manager;
 using SharpDX;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TCPNetwork.Client;
 
 namespace DirectXClient
@@ -36,7 +31,7 @@ namespace DirectXClient
                 IsMouseOverResize = true
             });
 
-            var roomList = GameObjectManager.Instance.AddObject(new NetworkRoomListViewer()
+            NetworkRoomListViewer roomList = GameObjectManager.Instance.AddObject(new NetworkRoomListViewer()
             {
                 Position = new Vector3(-5, 80, 0)
             });
@@ -57,7 +52,6 @@ namespace DirectXClient
                 input.Clear();
                 NetworkClientManager.Instance.SendMessageToServer("/GetRoomList");
             };
-            textInput.OnEnter += delegate { roomList.RefreshList(0); };
 
             GameObjectManager.Instance.AddObject(new StateObserver());
         }

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SharpDX.Windows;
-using SharpDX.Direct3D9;
+﻿using SharpDX.Windows;
+using System;
 using System.Security.Permissions;
 using System.Windows.Forms;
 
@@ -29,7 +24,7 @@ namespace GameFramework
         {
 
         }
-        
+
 
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         protected override void WndProc(ref Message m)

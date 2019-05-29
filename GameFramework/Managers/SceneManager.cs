@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GameFramework.Manager
 {
@@ -26,7 +23,7 @@ namespace GameFramework.Manager
         private readonly Dictionary<string, Scene> scenes
             = new Dictionary<string, Scene>();
 
-        Scene nowScene  = null;
+        Scene nowScene = null;
         Scene nextScene = null;
 
         public event EventHandler<string> OnChangeSceneEvent;
@@ -46,7 +43,7 @@ namespace GameFramework.Manager
         public void ChangeScene(string key)
         {
             Scene scene = scenes[key];
-            nextScene   = scene ?? throw new Exception("해당 Scene이 존재하지 않습니다.");
+            nextScene = scene ?? throw new Exception("해당 Scene이 존재하지 않습니다.");
             OnChangeSceneEvent.Invoke(this, key);
         }
 
@@ -62,8 +59,8 @@ namespace GameFramework.Manager
 
                 nextScene.Initialize();
 
-                nowScene    = nextScene;
-                nextScene   = null;
+                nowScene = nextScene;
+                nextScene = null;
             }
 
             if (nowScene != null)

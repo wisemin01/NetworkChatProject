@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TCPNetwork
+﻿namespace TCPNetwork
 {
     /*
      * 텍스트를 출력할 수 있는 객체의
