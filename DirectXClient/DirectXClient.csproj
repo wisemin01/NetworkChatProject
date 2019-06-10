@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DED08780-B667-4D83-A5A7-1703263E365C}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>DirectXClient</RootNamespace>
     <AssemblyName>DirectXClient</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -88,7 +88,7 @@
     <Compile Include="Objects\MessageBox.cs" />
     <Compile Include="Objects\NetworkRoomListViewer.cs" />
     <Compile Include="Objects\NetworkRoomTitle.cs" />
-    <Compile Include="Objects\StateObserver.cs" />
+    <Compile Include="Objects\SceneObserver.cs" />
     <Compile Include="Objects\TextInputField.cs" />
     <Compile Include="Objects\TextList.cs" />
     <Compile Include="Objects\TextureObject.cs" />

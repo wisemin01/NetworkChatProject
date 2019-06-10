@@ -53,7 +53,7 @@ namespace DirectXClient
                 Position = new Vector3(-5, 80, 0)
             });
 
-            GameObjectManager.Instance.AddObject(new StateObserver());
+            GameObjectManager.Instance.AddObject(new SceneObserver());
         }
 
         public override void FrameUpdate()

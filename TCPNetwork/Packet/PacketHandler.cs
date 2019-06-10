@@ -37,7 +37,7 @@ namespace TCPNetwork.Packet.Chatting
             byte[] message = new byte[size];
 
             Buffer.BlockCopy(buffer, sizeof(int) * 2, message, 0, size);
-
+            
             switch (type)
             {
                 case MessageType.Chatting:

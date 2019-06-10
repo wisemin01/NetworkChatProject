@@ -47,9 +47,12 @@ namespace GameFramework.Manager
 
         public void ChangeScene(string key)
         {
-            Scene scene = scenes[key];
-            nextScene = scene ?? throw new Exception("해당 Scene이 존재하지 않습니다.");
-            OnChangeSceneEvent.Invoke(this, key);
+            lock (locker)
+            {
+                Scene scene = scenes[key];
+                nextScene = scene ?? throw new Exception("해당 Scene이 존재하지 않습니다.");
+                OnChangeSceneEvent.Invoke(this, key);
+            }
         }
 
         public void FrameUpdate()

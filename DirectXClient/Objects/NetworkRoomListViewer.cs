@@ -18,6 +18,7 @@ namespace DirectXClient
 
         private int LastIndex = 0;
         public Vector3 Position { get; set; } = default;
+        public bool IsShouldRefresh { get; set; } = false;
 
         public override void Initialize()
         {
@@ -87,6 +88,11 @@ namespace DirectXClient
 
         public override void FrameUpdate()
         {
+            if (IsShouldRefresh)
+            {
+                RefreshList(LastIndex, NetworkClientManager.Instance.RoomList);
+                IsShouldRefresh = false;
+            }
         }
 
         public override void FrameRender()
@@ -171,7 +177,7 @@ namespace DirectXClient
 
         public void OnUpdateRoomList(object sender, List<string> roomList)
         {
-            RefreshList(LastIndex, roomList);
+            IsShouldRefresh = true;
         }
     }
 }

@@ -113,18 +113,20 @@ namespace DirectXClient
 
         private void AddChar(char ch)
         {
-            if (ch == (char)13)
+            if (ch == (char)KeyType.Enter)
             {
                 EnterText(this, EventArgs.Empty);
                 return;
             }
 
-            if (ch == (char)8)
+            if (ch == (char)KeyType.Back)
             {
                 if (inputString.Length > 0)
                     inputString.Remove(inputString.Length - 1, 1);
+                return;
             }
-            else if (inputString.Length <= MaxLength)
+
+            if (inputString.Length <= MaxLength)
             {
                 inputString.Append(ch);
             }

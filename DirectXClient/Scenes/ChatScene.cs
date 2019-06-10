@@ -51,7 +51,7 @@ namespace DirectXClient
                 NetworkClientManager.Instance.JoinRoomRequest("Lobby");
             };
 
-            GameObjectManager.Instance.AddObject(new StateObserver());
+            GameObjectManager.Instance.AddObject(new SceneObserver());
         }
 
         public override void FrameRender()

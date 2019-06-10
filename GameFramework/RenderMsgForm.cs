@@ -8,9 +8,17 @@ namespace GameFramework
     public class MsgType
     {
         public const int Wm_Char = 0x0102;
-
     }
 
+    public class KeyType
+    {
+        public const int Enter = 13;
+        public const int Back = 8;
+    }
+}
+
+namespace GameFramework
+{
     class RenderMsgForm : RenderForm
     {
         public event EventHandler<Message> OnMessage;

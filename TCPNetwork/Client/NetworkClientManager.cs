@@ -59,6 +59,8 @@ namespace TCPNetwork.Client
         public int RoomListCount { get { return networkRoomTitles.Count; } }
         public ITextDraw TextDraw { get; set; } = null;
 
+        public List<string> RoomList { get => networkRoomTitles; }
+
         public void Initialize(
             string userName,
             string serverIP,
@@ -253,7 +255,7 @@ namespace TCPNetwork.Client
         public void OnMoveToOtherRoom(MoveToOtherRoomPacket packet)
         {
             roomName = packet.RoomName;
-            OnChangeRoomEvent?.Invoke(this, packet.RoomName);
+            OnChangeRoomEvent?.Invoke(this, roomName);
         }
 
         public void OnWhisper(WhisperPacket packet)

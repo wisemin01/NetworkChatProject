@@ -86,6 +86,7 @@ namespace DirectXClient
         public void OnQuitButtonClick(object sender, EventArgs e)
         {
             Destroy(this);
+
             if (quitButton != null)
             {
                 Destroy(quitButton);

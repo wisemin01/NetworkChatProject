@@ -3,14 +3,23 @@ using GameFramework.Manager;
 
 namespace DirectXClient
 {
-    class StateObserver : GameObject
+    class SceneObserver : GameObject
     {
+        public bool IsShouldChangeScene { get; set; } = false;
+
+        public string LatestSceneName { get; private set; } = string.Empty;
+
         public override void FrameRender()
         {
         }
 
         public override void FrameUpdate()
         {
+            if (IsShouldChangeScene)
+            {
+                SceneManager.Instance.ChangeScene(LatestSceneName);
+                IsShouldChangeScene = false;
+            }
         }
 
         public override void Initialize()
@@ -27,19 +36,21 @@ namespace DirectXClient
         {
             if (text == "Lobby")
             {
-                SceneManager.Instance.ChangeScene("Lobby");
+                LatestSceneName = "Lobby";
             }
             else
             {
                 if (TCPNetwork.Client.NetworkClientManager.Instance.IsConnection)
                 {
-                    SceneManager.Instance.ChangeScene("Chat");
+                    LatestSceneName = "Chat";
                 }
                 else
                 {
-                    SceneManager.Instance.ChangeScene("Login");
+                    LatestSceneName = "Login";
                 }
             }
+
+            IsShouldChangeScene = true;
         }
     }
 }
