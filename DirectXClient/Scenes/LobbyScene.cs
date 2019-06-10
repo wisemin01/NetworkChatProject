@@ -40,12 +40,12 @@ namespace DirectXClient
                     return;
                 }
 
-                NetworkClientManager.Instance.SendMessageToServer($"/CreateRoom/{s}");
+                NetworkClientManager.Instance.CreateRoomRequest(s);
                 NetworkClientManager.Instance.TextDraw = new LobbyInterface();
 
                 TextInputField input = sender as TextInputField;
                 input.Clear();
-                NetworkClientManager.Instance.SendMessageToServer("/GetRoomList");
+                NetworkClientManager.Instance.RoomListUpdateRequest();
             };
 
             NetworkRoomListViewer roomList = GameObjectManager.Instance.AddObject(new NetworkRoomListViewer()

@@ -6,6 +6,8 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
+using TCPNetwork.Packet.Chatting;
+using TCPNetwork.Interface.Packet;
 
 namespace TCPNetwork.Server
 {
@@ -13,7 +15,7 @@ namespace TCPNetwork.Server
      * 채팅 프로그램의 서버를 담당하는 클래스
      * Initialize후 StartServer를 이용해 서버 시작
      */
-    public partial class NetworkServerManager
+    public partial class NetworkServerManager : IPacketHandleCallback
     {
         // Singleton
 
@@ -50,6 +52,10 @@ namespace TCPNetwork.Server
         }
         public INetworkOutput NetworkOutput { get; set; } = null;
 
+        public int RoomCount { get { return networkRooms.Count; } }
+
+        private PacketHandler loginHandler = null;
+
         // Member
 
         private TcpListener tcpServer = null; // 서버
@@ -68,11 +74,12 @@ namespace TCPNetwork.Server
                 throw new OverflowException("The port number is out of range");
 
             tcpServer = new TcpListener(IPAddress.Any, serverPort);
-     
+            
             networkRooms = new Dictionary<string, NetworkRoom>();
             clientAcceptSocket = default;
 
             networkLobby = new NetworkRoom("Lobby", TextDraw);
+            loginHandler = new PacketHandler() { FunctionHandler = this };
         }
 
         /*
@@ -105,7 +112,6 @@ namespace TCPNetwork.Server
             if (NetworkOutput != null)
                 NetworkOutput.AddRoomToListBox("Lobby");
 
-
             while (true)
             {
                 try
@@ -118,15 +124,11 @@ namespace TCPNetwork.Server
 
                     // 소켓 스트림에서 버퍼를 읽어와
                     NetworkStream stream = clientAcceptSocket.GetStream();
+                    
                     byte[] buffer = new byte[bufferSize];
                     int bytes = stream.Read(buffer, 0, buffer.Length);
 
-                    // 유저 이름으로 저장
-                    string userName = Encoding.Unicode.GetString(buffer, 0, bytes);
-                    userName = userName.Substring(0, userName.IndexOf("$"));
-
-                    // 로비에 추가
-                    networkLobby.Add(clientAcceptSocket, userName);
+                    loginHandler.Receive(buffer);
                 }
                 catch (SocketException)
                 {

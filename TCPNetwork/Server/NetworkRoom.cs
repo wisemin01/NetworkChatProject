@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
 
+using TCPNetwork.Packet.Chatting;
+
 namespace TCPNetwork.Server
 {
     public class NetworkRoom
@@ -13,18 +15,19 @@ namespace TCPNetwork.Server
 
         public NetworkRoom(string roomName, ITextDraw draw)
         {
-            this.RoomName = roomName;
-            TextDraw = draw;
-            ClientList = new Dictionary<TcpClient, string>();
+            RoomName        = roomName;
+            TextDraw        = draw;
+
+            ClientList      = new Dictionary<TcpClient, string>();
+            
         }
 
         public void Add(TcpClient client, string userName)
         {
             ClientList.Add(client, userName);
 
-
-            DrawText(string.Format("[System] {0} join the room ({1})", userName, RoomName));
-            SendMessageToClients(string.Format("{0} 님이 {1}에 입장하셨습니다.", userName, RoomName));
+            DrawText($"[System] {userName} join the room ({RoomName})");
+            SendMessageToClients($"{userName} 님이 {RoomName} 방에 입장하셨습니다.");
 
             // 해당 클라이언트와의 통신을 담당하는 객체 생성
             HandleClient handleClient = new HandleClient
@@ -42,20 +45,17 @@ namespace TCPNetwork.Server
         // 리스트에 추가 후 콜백만 재설정
         public void AddFromOtherRoom(HandleClient handleClient, string userName)
         {
-
             ClientList.Add(handleClient.Client, userName);
-
 
             handleClient.OnDisconnected = OnDisconnected;
             handleClient.OnReceived = OnReceived;
 
-            DrawText(string.Format("[System] {0} join the room ({1})", userName, RoomName));
-            SendMessageToClients(string.Format("{0} 님이 {1} 방에 입장하셨습니다.", userName, RoomName));
+            DrawText($"[System] {userName} join the room ({RoomName})");
+            SendMessageToClients($"{userName} 님이 {RoomName} 방에 입장하셨습니다.");
         }
 
         public string Remove(TcpClient client)
         {
-
             if (ClientList.ContainsKey(client))
             {
                 string userName = ClientList[client].ToString();
@@ -70,27 +70,23 @@ namespace TCPNetwork.Server
 
         public void RoomClear()
         {
-
             foreach (KeyValuePair<TcpClient, string> Iter in ClientList)
             {
-                DrawText(string.Format("[System] {0} left the room ({1})", Iter.Value, RoomName));
-                SendMessageToClients(string.Format("{0} 님이 {1} 방에서 퇴장하셨습니다.", Iter.Value, RoomName));
+                DrawText($"[System] {Iter.Value} left the room ({RoomName})");
+                SendMessageToClients($"{Iter.Value} 님이 {RoomName} 방에서 퇴장하셨습니다.");
                 ClientList.Remove(Iter.Key);
             }
-
         }
 
         // 연결이 해제되었을때 호출되는 함수
         private void OnDisconnected(TcpClient clientSocket)
         {
-
             string userName = ClientList[clientSocket].ToString();
 
             // 로그 출력 후 컨테이너에서 제거
-            DrawText(string.Format("[System] {0} left the room ({1})", userName, RoomName));
-            SendMessageToClients(string.Format("{0} 님이 {1} 방에서 퇴장하셨습니다.", userName, RoomName));
+            DrawText($"[System] {userName} left the room ({RoomName})");
+            SendMessageToClients($"{userName} 님이 {RoomName} 방에서 퇴장하셨습니다.");
             ClientList.Remove(clientSocket);
-
         }
 
         /*
@@ -108,45 +104,40 @@ namespace TCPNetwork.Server
             SendMessageToClients(log);
         }
 
-
         private void SendMessageToClients(string message)
         {
-
             /* 
              * 컨테이너에 저장된 클라이언트를 순회하며
              * 각 클라이언트에 메시지 전송
             */
-            foreach (KeyValuePair<TcpClient, string> pair in ClientList)
+            foreach (var pair in ClientList)
             {
                 TcpClient client = pair.Key as TcpClient;
 
                 // 클라이언트 접속 상태 확인
                 if (client.Connected == true)
                 {
-                    NetworkStream stream = client.GetStream();
-                    byte[] buffer = Encoding.Unicode.GetBytes(message + "$");
-                    Console.WriteLine("SEND >> " + message);
-
-                    // 해당 클라이언트에 버퍼 전송
-                    stream.Write(buffer, 0, buffer.Length);
-                    stream.Flush();
+                    PacketHandler.Send(MessageType.Chatting,
+                        new ChattingPacket()
+                        {
+                            Name = string.Empty,
+                            Text = message
+                        }, client);
                 }
             }
-
         }
 
         // 대상 클라이언트에게 메시지 전송
-        private void SendMessageToClient(string message, TcpClient client)
+        private void SendMessageToClient(string sender, string message, TcpClient client)
         {
             if (client.Connected == true)
             {
-                NetworkStream stream = client.GetStream();
-                byte[] buffer = Encoding.Unicode.GetBytes(message + "$");
-                Console.WriteLine("SEND >> " + message);
-
-                // 해당 클라이언트에 버퍼 전송
-                stream.Write(buffer, 0, buffer.Length);
-                stream.Flush();
+                PacketHandler.Send(MessageType.Chatting,
+                        new ChattingPacket()
+                        {
+                            Name = sender,
+                            Text = message
+                        }, client);
             }
         }
 

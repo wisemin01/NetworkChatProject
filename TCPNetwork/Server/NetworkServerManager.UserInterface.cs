@@ -1,8 +1,10 @@
 ﻿using System.Text;
+using TCPNetwork.Interface.Packet;
+using TCPNetwork.Packet.Chatting;
 
 namespace TCPNetwork.Server
 {
-    public partial class NetworkServerManager
+    public partial class NetworkServerManager : IPacketHandleCallback
     {
         /* 
          * ITextDraw 인터페이스를 구현한 객체로
@@ -46,5 +48,42 @@ namespace TCPNetwork.Server
             return finalMessage.ToString();
         }
 
+        public void OnChatting(ChattingPacket packet)
+        {
+        }
+
+        public void OnCreateRoom(CreateRoomPacket packet)
+        {
+        }
+
+        public void OnDestroyRoom(DestroyRoomPacket packet)
+        {
+        }
+
+        public void OnRoomCount(RoomCountPacket packet)
+        {
+        }
+
+        public void OnRoomList(RoomListPacket packet)
+        {
+        }
+
+        public void OnLeave(LeavePacket packet)
+        {
+        }
+
+        public void OnMoveToOtherRoom(MoveToOtherRoomPacket packet)
+        {
+        }
+
+        public void OnWhisper(WhisperPacket packet)
+        {
+        }
+
+        public void OnLogin(LoginPacket packet)
+        {
+            // 로비에 추가
+            networkLobby.Add(clientAcceptSocket, packet.Name);
+        }
     }
 }

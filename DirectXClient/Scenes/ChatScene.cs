@@ -48,7 +48,7 @@ namespace DirectXClient
 
             toLobbyButton.OnButtonClick += delegate
             {
-                NetworkClientManager.Instance.SendMessageToServer("/Join/Lobby");
+                NetworkClientManager.Instance.JoinRoomRequest("Lobby");
             };
 
             GameObjectManager.Instance.AddObject(new StateObserver());

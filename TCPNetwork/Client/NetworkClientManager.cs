@@ -4,6 +4,8 @@ using System.IO;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using TCPNetwork.Interface.Packet;
+using TCPNetwork.Packet.Chatting;
 
 namespace TCPNetwork.Client
 {
@@ -14,7 +16,7 @@ namespace TCPNetwork.Client
      * Initialize후 ConnectToServer 를 이용해 서버와 연결
      */
 
-    public partial class NetworkClientManager
+    public partial class NetworkClientManager : IPacketHandleCallback
     {
         // Singleton
         private static NetworkClientManager instance = null;
@@ -47,11 +49,14 @@ namespace TCPNetwork.Client
 
         List<string> networkRoomTitles = new List<string>();
 
+        PacketHandler packetHandler;
+
         private int serverPort = 0;              // 서버 포트
 
         private OnClientExit onClientExit = null;           // 클라이언트를 종료시켜줄 콜백
 
         public bool IsConnection { get; private set; } = false;
+        public int RoomListCount { get { return networkRoomTitles.Count; } }
         public ITextDraw TextDraw { get; set; } = null;
 
         public void Initialize(
@@ -67,6 +72,10 @@ namespace TCPNetwork.Client
             IsConnection = false;
 
             clientSocket = new TcpClient();
+            packetHandler = new PacketHandler()
+            {
+                FunctionHandler = this
+            };
         }
 
         public bool ConnectToServer()
@@ -95,9 +104,7 @@ namespace TCPNetwork.Client
             DrawText(message);
 
             // 서버에 유저 이름 전송
-            byte[] buffer = Encoding.Unicode.GetBytes(userName + "$");
-            stream.Write(buffer, 0, buffer.Length);
-            stream.Flush();
+            PacketHandler.Send(MessageType.Login, new LoginPacket() { Name = userName }, clientSocket);
 
             // 메시지 처리 루프 비동기 실행
             Thread messageThread = new Thread(MessageHandling)
@@ -111,22 +118,63 @@ namespace TCPNetwork.Client
 
         public void SendMessageToServer(string message)
         {
-            Console.WriteLine("SEND >> " + message);
             if (string.IsNullOrWhiteSpace(message))
-            {
                 return;
-            }
-            if (IsConnection)
-            {
-                if (clientSocket.Connected)
-                {
-                    NetworkStream stream = clientSocket.GetStream();
-                    byte[] buffer = Encoding.Unicode.GetBytes(message + "$");
 
-                    stream.Write(buffer, 0, buffer.Length);
-                    stream.Flush();
-                }
-            }
+            PacketHandler.Send(MessageType.Chatting,
+                new ChattingPacket()
+                {
+                    Name = userName,
+                    Text = message
+                },
+                clientSocket);
+        }
+
+        public void RoomListUpdateRequest()
+        {
+            PacketHandler.Send(MessageType.GetRoomList, new RoomListPacket(), clientSocket);
+        }
+
+        public void CreateRoomRequest(string roomName)
+        {
+            PacketHandler.Send(MessageType.CreateRoom,
+                new CreateRoomPacket()
+                {
+                    RoomName = roomName
+                },
+            clientSocket);
+        }
+
+        public void DestroyRoomRequest(string roomName)
+        {
+            PacketHandler.Send(MessageType.DestroyRoom,
+                new DestroyRoomPacket()
+                {
+                    RoomName = roomName
+                },
+            clientSocket);
+        }
+
+        public void JoinRoomRequest(string roomName)
+        {
+            PacketHandler.Send(MessageType.MoveToOtherRoom,
+                   new MoveToOtherRoomPacket()
+                   {
+                       RoomName = roomName
+                   },
+               clientSocket);
+        }
+
+        public void WhisperRequest(string targetUserName, string text)
+        {
+            PacketHandler.Send(MessageType.Whisper,
+                   new WhisperPacket()
+                   {
+                       Sender = userName,
+                       Listener = targetUserName,
+                       Text = text
+                   },
+               clientSocket);
         }
 
         private void MessageHandling()
@@ -141,7 +189,7 @@ namespace TCPNetwork.Client
                         throw new IOException();
                     }
 
-                    // 소켓에서 스트림을 얻어와
+                    // 소켓에서 스트림을 얻어와서
                     stream = clientSocket.GetStream();
 
                     // 메시지 Read
@@ -149,84 +197,73 @@ namespace TCPNetwork.Client
                     byte[] buffer = new byte[bufferSize];
                     int bytes = stream.Read(buffer, 0, buffer.Length);
 
-                    string message = Encoding.Unicode.GetString(buffer, 0, bytes);
-
-                    Console.WriteLine("READ << " + message);
-
-                    string[] messageArray = message.Split(new char[] { '$' });
-
-                    for (int i = messageArray.Length - 1; i >= 0; i--)
-                    {
-                        OnMessage(messageArray[i]);
-                    }
+                    packetHandler.Receive(buffer);
                 }
 
             }
             catch (Exception)
             {
-                ShowMessageBox("서버와의 연결이 끊겼습니다.", "Disconnected");
-                onClientExit("서버와의 연결이 끊겼습니다.");
-                Console.WriteLine("서버와의 연결 끊어짐");
-            
-                IsConnection = false;
             }
             finally
             {
+                ShowMessageBox("서버와의 연결이 끊겼습니다.", "Disconnected");
+                onClientExit("서버와의 연결이 끊겼습니다.");
 
+                IsConnection = false;
             }
         }
 
-        public int RoomListCount { get { return networkRoomTitles.Count; } }
-
-        private void OnMessage(string message)
+        public void OnChatting(ChattingPacket packet)
         {
-            if (string.IsNullOrEmpty(message))
+            DrawText(packet.Text);
+        }
+
+        public void OnCreateRoom(CreateRoomPacket packet)
+        {
+            return;
+        }
+
+        public void OnDestroyRoom(DestroyRoomPacket packet)
+        {
+            return;
+        }
+
+        public void OnRoomCount(RoomCountPacket packet)
+        {
+            return;
+        }
+
+        public void OnRoomList(RoomListPacket packet)
+        {
+            networkRoomTitles.Clear();
+
+            foreach (var Iter in packet.RoomNames)
             {
-                return;
+                networkRoomTitles.Add(Iter);
             }
-            // 명령어 해석 구문
-            else if (message[0] == '/')
-            {
-                string[] result = message.Split(new char[] { '/' });
 
-                MessageCommandType commandType = CommandParser.Parse(result[1]);
+            OnUpdateRoomListEvent?.Invoke(this, networkRoomTitles);
+        }
 
-                switch (commandType)
-                {
-                    case MessageCommandType.Leave:
-                        onClientExit("서버에서 종료 요청을 받았습니다.");
-                        break;
+        public void OnLeave(LeavePacket packet)
+        {
+            onClientExit("서버에서 종료 요청을 받았습니다.");
+        }
 
-                    case MessageCommandType.ChangeRoom:
-                        roomName = result[2];
-                        OnChangeRoomEvent?.Invoke(this, result[2]);
-                        break;
+        public void OnMoveToOtherRoom(MoveToOtherRoomPacket packet)
+        {
+            roomName = packet.RoomName;
+            OnChangeRoomEvent?.Invoke(this, packet.RoomName);
+        }
 
-                    case MessageCommandType.ShowMessageBox:
-                        ShowMessageBox(result[2], result[3]);
-                        break;
+        public void OnWhisper(WhisperPacket packet)
+        {
+            return;
+        }
 
-                    case MessageCommandType.ReturnRoomList:
-                        networkRoomTitles.Clear();
-
-                        for (int i = 2; i < result.Length; i++)
-                        {
-                            networkRoomTitles.Add(result[i]);
-                        }
-
-                        OnUpdateRoomListEvent?.Invoke(this, networkRoomTitles);
-
-                        break;
-
-                    case MessageCommandType.None:
-                        break;
-                }
-            }
-            else
-            {
-                // 출력
-                DrawText(message);
-            }
+        public void OnLogin(LoginPacket packet)
+        {
+            throw new NotImplementedException();
         }
     }
 }

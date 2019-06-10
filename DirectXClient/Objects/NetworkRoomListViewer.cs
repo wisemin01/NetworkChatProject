@@ -47,7 +47,7 @@ namespace DirectXClient
             refreshButton.OnButtonClick += delegate
             {
                 LastIndex = 0;
-                NetworkClientManager.Instance.SendMessageToServer("/GetRoomList");
+                NetworkClientManager.Instance.RoomListUpdateRequest();
             };
 
             Button prevButton = GameObjectManager.Instance
@@ -63,7 +63,7 @@ namespace DirectXClient
             {
                 if (LastIndex > 0)
                     LastIndex--;
-                NetworkClientManager.Instance.SendMessageToServer("/GetRoomList");
+                NetworkClientManager.Instance.RoomListUpdateRequest();
             };
 
             Button nextButton = GameObjectManager.Instance
@@ -79,10 +79,10 @@ namespace DirectXClient
             {
                 if (HasList(LastIndex + 1))
                     LastIndex++;
-                NetworkClientManager.Instance.SendMessageToServer("/GetRoomList");
+                NetworkClientManager.Instance.RoomListUpdateRequest();
             };
 
-            NetworkClientManager.Instance.SendMessageToServer("/GetRoomList");
+            NetworkClientManager.Instance.RoomListUpdateRequest();
         }
 
         public override void FrameUpdate()
@@ -147,13 +147,13 @@ namespace DirectXClient
 
                 roomJoinButton.OnButtonClick += delegate (object sender, EventArgs e)
                 {
-                    NetworkClientManager.Instance.SendMessageToServer($"/Join/{roomTitle.RoomTitle}");
+                    NetworkClientManager.Instance.JoinRoomRequest(roomTitle.RoomTitle);
                 };
 
                 roomDeleteButton.OnButtonClick += delegate
                 {
-                    NetworkClientManager.Instance.SendMessageToServer($"/DestroyRoom/{roomTitle.RoomTitle}");
-                    NetworkClientManager.Instance.SendMessageToServer("/GetRoomList");
+                    NetworkClientManager.Instance.DestroyRoomRequest(roomTitle.RoomTitle);
+                    NetworkClientManager.Instance.RoomListUpdateRequest();
                 };
 
                 networkRoomList.Add(new Tuple<NetworkRoomTitle, Button, Button>(

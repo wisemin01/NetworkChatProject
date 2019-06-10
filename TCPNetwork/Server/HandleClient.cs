@@ -3,6 +3,9 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
+using TCPNetwork.Packet.Chatting;
+using TCPNetwork.Interface.Packet;
+
 namespace TCPNetwork.Server
 {
     /*
@@ -10,10 +13,10 @@ namespace TCPNetwork.Server
      * 해당 클라이언트를 담당해 통신하는 클래스
      */
 
-    public class HandleClient
+    public class HandleClient : IPacketHandleCallback
     {
         public delegate void MessageDisplayHandler(string userName, string message, bool flag);
-        public delegate void MessageDispatcher(string message, TcpClient client);
+        public delegate void MessageDispatcher(string userName, string message, TcpClient client);
         public delegate void DisconnectedHandler(TcpClient client);
 
         public TcpClient Client { get; private set; } = null;
@@ -23,11 +26,19 @@ namespace TCPNetwork.Server
         public DisconnectedHandler OnDisconnected { get; set; } = null;
         public MessageDispatcher OnMessageSended { get; set; } = null;
 
+        private PacketHandler packetHandler = null;
+
         public void StartClientHandling(TcpClient client, NetworkRoom room)
         {
             // 맴버 초기화
             Client = client;
             NetworkRoom = room;
+
+            // 패킷 핸들러 초기화
+            packetHandler = new PacketHandler
+            {
+                FunctionHandler = this
+            };
 
             // 스레드 생성
             Thread thread = new Thread(ClientLoop)
@@ -58,32 +69,12 @@ namespace TCPNetwork.Server
 
                     // 메시지를 읽어온다
                     bytes = stream.Read(buffer, 0, buffer.Length);
-                    message = Encoding.Unicode.GetString(buffer, 0, bytes);
-                    message = message.Substring(0, message.IndexOf("$"));
-
-                    Console.WriteLine("READ << " + message);
-
-                    if (message[0] == '/')
-                    {
-                        string[] result = message.Split(new char[] { '/' });
-
-                        MessageCommandType commandType = CommandParser.Parse(result[1]);
-
-                        if (commandType != MessageCommandType.None)
-                        {
-                            CommandSwitch(commandType, result);
-                        }
-                    }
-                    else
-                    {
-                        // OnReceived 함수에 전달
-                        OnReceived?.Invoke(NetworkRoom.ClientList[Client].ToString(), message, true);
-                    }
+                    packetHandler.Receive(buffer);
                 }
             }
             catch (Exception)
             {
-                
+
             }
             finally
             {
@@ -96,120 +87,130 @@ namespace TCPNetwork.Server
             }
         }
 
-        private void CommandSwitch(MessageCommandType type, string[] splitResult)
+        public void OnChatting(ChattingPacket packet)
         {
-            switch (type)
+            OnReceived(packet.Name, packet.Text, true);
+        }
+        public void OnCreateRoom(CreateRoomPacket packet)
+        {
+            NetworkRoom room = NetworkServerManager.Instance.CreateNetworkRoom(packet.RoomName);
+
+            if (room != null)
             {
-                case MessageCommandType.Leave:
-                    {
-                        OnMessageSended?.Invoke("/Leave", Client);
-                    }
-                    break;
-
-                case MessageCommandType.MoveToOtherRoom:
-                    {
-                        if (splitResult[2] == NetworkRoom.RoomName)
-                            break;
-
-                        bool result = NetworkServerManager.Instance.MoveToOtherRoom(this,
-                            NetworkServerManager.Instance.FindNetworkRoom(splitResult[2]));
-
-                        if (result == false)
-                        {
-                            OnMessageSended?.Invoke("지정된 방을 찾을 수 없습니다.", Client);
-                        }
-                        else
-                        {
-                            OnMessageSended?.Invoke($"/ChangeRoom/{splitResult[2]}", Client);
-                        }
-                    }
-                    break;
-
-                case MessageCommandType.CreateRoom:
-                    {
-                        NetworkRoom room = NetworkServerManager.Instance.CreateNetworkRoom(splitResult[2]);
-
-                        if (room != null)
-                        {
-                            OnMessageSended?.Invoke("[System] : 방을 생성했습니다.", Client);
-                            OnReceived("System", $"{splitResult[2]} 방이 생성되었습니다.", false);
-                        }
-                        else
-                        {
-                            OnMessageSended?.Invoke("[System] : 방 생성에 실패했습니다.", Client);
-                        }
-
-                    }
-                    break;
-
-                case MessageCommandType.DestroyRoom:
-                    {
-                        NetworkRoom room = NetworkServerManager.Instance.FindNetworkRoom(splitResult[2]);
-
-                        if (room == null)
-                            break;
-
-                        if (NetworkRoom.RoomName == splitResult[2])
-                        {
-                            OnMessageSended?.Invoke("[System] : 자신이 속한 방은 파괴할 수 없습니다.", Client);
-                            break;
-                        }
-
-                        if (room.ClientList.Count != 0)
-                        {
-                            OnMessageSended?.Invoke("[System] : 플레이어가 접속 중인 방은 파괴할 수 없습니다.", Client);
-                            break;
-                        }
-
-                        bool result = NetworkServerManager.Instance.DestroyNetworkRoom(splitResult[2]);
-
-                        string log = $"[System] : {splitResult[2]} 방을 {(result ? "파괴했습니다." : "파괴하지 못했습니다.")}";
-
-                        OnMessageSended?.Invoke(log, Client);
-                        NetworkServerManager.Instance.DrawText($"[System] : {splitResult[2]} 방이 파괴되었습니다.");
-                    }
-                    break;
-
-                case MessageCommandType.Whisper:
-                    {
-                        TcpClient targetUser = NetworkServerManager.Instance.FindUserClient(splitResult[2]);
-
-                        if (targetUser == Client)
-                        {
-                            OnMessageSended?.Invoke("자기 자신에게는 귓속말을 보낼 수 없습니다.", Client);
-                            break;
-                        }
-                        if (targetUser != null)
-                        {
-                            OnMessageSended?.Invoke(
-                               string.Format("To [{0}]: {1}",
-                               splitResult[2], splitResult[3]
-                               ), Client);
-                            OnMessageSended?.Invoke(
-                                string.Format("[{0}][{1}] <귓속말> : {2}",
-                                NetworkRoom.RoomName, NetworkRoom.ClientList[Client].ToString(), splitResult[3]
-                                ), targetUser);
-                        }
-                        else
-                        {
-                            OnMessageSended?.Invoke("귓속말을 전할 상대를 찾지 못했습니다.", Client);
-                        }
-                    }
-                    break;
-                case MessageCommandType.ReturnRoomList:
-                    {
-                        StringBuilder stringBuilder = new StringBuilder(64);
-                        stringBuilder.Append("/ReturnRoomList");
-
-                        foreach (string Iter in NetworkServerManager.Instance.GetNetworkRoomKeys())
-                        {
-                            stringBuilder.Append('/' + Iter);
-                        }
-
-                        OnMessageSended?.Invoke(stringBuilder.ToString(), Client);
-                    }
-                    break;
+                OnReceived("System", $"{packet.RoomName} 방이 생성되었습니다.", false);
             }
+        }
+        public void OnDestroyRoom(DestroyRoomPacket packet)
+        {
+            NetworkRoom room = NetworkServerManager.Instance.FindNetworkRoom(packet.RoomName);
+
+            if (room == null)
+                return;
+
+            if (NetworkRoom.RoomName == packet.RoomName)
+                return;
+
+            if (room.ClientList.Count != 0)
+                return;
+
+            bool result = NetworkServerManager.Instance.DestroyNetworkRoom(packet.RoomName);
+
+            OnReceived("System", $"{packet.RoomName} 방이 파괴되었습니다.", false);
+        }
+        public void OnRoomCount(RoomCountPacket packet)
+        {
+            PacketHandler.Send(MessageType.GetRoomCount, new RoomCountPacket()
+            {
+                Count = NetworkServerManager.Instance.RoomCount
+            }, Client);
+        }
+        public void OnRoomList(RoomListPacket packet)
+        {
+            RoomListPacket receive = new RoomListPacket();
+
+            foreach (var Iter in NetworkServerManager.Instance.GetNetworkRoomKeys())
+            {
+                receive.RoomNames.Add(Iter);
+            }
+
+            PacketHandler.Send(MessageType.GetRoomList, receive, Client);
+        }
+        public void OnLeave(LeavePacket packet)
+        {
+            PacketHandler.Send(MessageType.Leave, new LeavePacket() { Text = string.Empty }, Client);
+        }
+        public void OnMoveToOtherRoom(MoveToOtherRoomPacket packet)
+        {
+            if (packet.RoomName == NetworkRoom.RoomName)
+                return;
+
+            bool result = NetworkServerManager.Instance.MoveToOtherRoom(this,
+                NetworkServerManager.Instance.FindNetworkRoom(packet.RoomName));
+
+            if (result == false)
+            {
+                PacketHandler.Send(MessageType.Chatting,
+                    new ChattingPacket()
+                    {
+                        Name = "System",
+                        Text = "지정된 방을 찾을 수 없습니다."
+                    },
+                Client);
+            }
+            else
+            {
+                PacketHandler.Send(MessageType.MoveToOtherRoom,
+                    new MoveToOtherRoomPacket()
+                    {
+                        Name = "System",
+                        RoomName = packet.RoomName
+                    },
+                Client);
+            }
+        }
+        public void OnWhisper(WhisperPacket packet)
+        {
+            if (packet.Sender == packet.Listener)
+            {
+                PacketHandler.Send(MessageType.Chatting, new ChattingPacket() {
+                    Name = "System",
+                    Text = "자기 자신에게는 귓속말을 보낼 수 없습니다."
+                }, Client);
+                return;
+            }
+
+            TcpClient targetUser = NetworkServerManager.Instance.FindUserClient(packet.Listener);
+
+            if (targetUser == null)
+            {
+                PacketHandler.Send(MessageType.Chatting,
+                    new ChattingPacket()
+                    {
+                        Name = "System",
+                        Text = "상대를 찾지 못했습니다."
+                    }, Client);
+                return;
+            }
+
+            PacketHandler.Send(MessageType.Chatting,
+                new ChattingPacket()
+                {
+                    Name = "System",
+                    Text = $"To[{packet.Listener}]: {packet.Text}"
+                },
+                Client);
+
+            PacketHandler.Send(MessageType.Chatting,
+               new ChattingPacket()
+               {
+                   Name = packet.Sender,
+                   Text = $" >> [귓속말] : {packet.Text}"
+               },
+               targetUser);
+        }
+        public void OnLogin(LoginPacket packet)
+        {
+            return;
         }
     }
 }

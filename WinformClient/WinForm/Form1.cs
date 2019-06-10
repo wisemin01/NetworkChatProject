@@ -84,7 +84,15 @@ namespace TCPNetwork
                 return;
             }
 
-            NetworkClientManager.Instance.SendMessageToServer(textBox3.Text);
+            if (MyChatClient.WinForm.CommandParser.Parse(textBox3.Text))
+            {
+                ;
+            }
+            else
+            {
+                NetworkClientManager.Instance.SendMessageToServer(textBox3.Text);
+            }
+
             textBox3.Text = string.Empty;
         }
 
