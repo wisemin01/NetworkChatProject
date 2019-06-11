@@ -26,8 +26,6 @@ namespace DirectXClient
         public TextInputField(string fontKey)
         {
             FontKey = fontKey;
-
-            D3D9Manager.Instance.OnMouseClickEvent += OnMouseClick;
         }
 
         private void OnMouseClick(object sender, ClickChecker checker)
@@ -53,6 +51,7 @@ namespace DirectXClient
         public override void Initialize()
         {
             D3D9Manager.Instance.AddMessageHandler(MsgProc);
+            D3D9Manager.Instance.OnMouseClickEvent += OnMouseClick;
 
             if (Range == null)
             {
@@ -94,6 +93,7 @@ namespace DirectXClient
 
         public override void Release()
         {
+            D3D9Manager.Instance.OnMouseClickEvent -= OnMouseClick;
             D3D9Manager.Instance.RemoveMessageHandler(MsgProc);
             OnEnter = null;
         }

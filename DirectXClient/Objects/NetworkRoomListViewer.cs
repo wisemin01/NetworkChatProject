@@ -115,8 +115,8 @@ namespace DirectXClient
             foreach (Tuple<NetworkRoomTitle, Button, Button> Iter in networkRoomList)
             {
                 Destroy(Iter.Item1);
-                Destroy(Iter.Item2);
-                Destroy(Iter.Item3);
+                Destroy(Iter.Item2); Iter.Item2.EventDisconnect();
+                Destroy(Iter.Item3); Iter.Item3.EventDisconnect();
             }
             networkRoomList.Clear();
 

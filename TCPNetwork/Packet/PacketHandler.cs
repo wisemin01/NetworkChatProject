@@ -37,43 +37,84 @@ namespace TCPNetwork.Packet.Chatting
             byte[] message = new byte[size];
 
             Buffer.BlockCopy(buffer, sizeof(int) * 2, message, 0, size);
-            
+
             switch (type)
             {
                 case MessageType.Chatting:
-                    FunctionHandler.OnChatting(ChattingPacket.Parser.ParseFrom(message));
+                    {
+                        ChattingPacket packet = ChattingPacket.Parser.ParseFrom(message);
+                        FunctionHandler.OnChatting(packet);
+                        // Console.WriteLine($"ChattingPacket : {packet.Name} {packet.Text}");
+                    }
                     break;
 
                 case MessageType.CreateRoom:
-                    FunctionHandler.OnCreateRoom(CreateRoomPacket.Parser.ParseFrom(message));
+                    {
+                        CreateRoomPacket packet = CreateRoomPacket.Parser.ParseFrom(message);
+                        FunctionHandler.OnCreateRoom(packet);
+                        // Console.WriteLine($"CreateRoomPacket : {packet.RoomName}");
+                    }
                     break;
 
                 case MessageType.DestroyRoom:
-                    FunctionHandler.OnDestroyRoom(DestroyRoomPacket.Parser.ParseFrom(message));
+                    {
+                        DestroyRoomPacket packet = DestroyRoomPacket.Parser.ParseFrom(message);
+                        FunctionHandler.OnDestroyRoom(packet);
+                        // Console.WriteLine($"DestroyRoomPacket : {packet.RoomName}");
+                    }
                     break;
 
                 case MessageType.GetRoomCount:
-                    FunctionHandler.OnRoomCount(RoomCountPacket.Parser.ParseFrom(message));
+                    {
+                        RoomCountPacket packet = RoomCountPacket.Parser.ParseFrom(message);
+                        FunctionHandler.OnRoomCount(packet);
+                        // Console.WriteLine($"RoomCountPacket : {packet.Count}");
+                    }
                     break;
 
                 case MessageType.GetRoomList:
-                    FunctionHandler.OnRoomList(RoomListPacket.Parser.ParseFrom(message));
+                    {
+                        RoomListPacket packet = RoomListPacket.Parser.ParseFrom(message);
+                        FunctionHandler.OnRoomList(packet);
+                        // Console.Write($"RoomListPacket : ");
+                        // foreach (var Iter in packet.RoomNames)
+                        // {
+                        //     Console.Write($" {Iter}");
+                        // }
+                        // Console.WriteLine("");
+                    }
                     break;
 
                 case MessageType.Leave:
-                    FunctionHandler.OnLeave(LeavePacket.Parser.ParseFrom(message));
+                    {
+                        LeavePacket packet = LeavePacket.Parser.ParseFrom(message);
+                        FunctionHandler.OnLeave(packet);
+                        // Console.WriteLine($"LeavePacket : {packet.Text}");
+                    }
                     break;
 
                 case MessageType.MoveToOtherRoom:
-                    FunctionHandler.OnMoveToOtherRoom(MoveToOtherRoomPacket.Parser.ParseFrom(message));
+                    {
+                        MoveToOtherRoomPacket packet = MoveToOtherRoomPacket.Parser.ParseFrom(message);
+                        FunctionHandler.OnMoveToOtherRoom(packet);
+                        // Console.WriteLine($"MoveToOtherRoomPacket : {packet.Name} {packet.RoomName}");
+                    }
                     break;
 
                 case MessageType.Whisper:
-                    FunctionHandler.OnWhisper(WhisperPacket.Parser.ParseFrom(message));
+                    {
+                        WhisperPacket packet = WhisperPacket.Parser.ParseFrom(message);
+                        FunctionHandler.OnWhisper(packet);
+                        // Console.WriteLine($"WhisperPacket : {packet.Sender} {packet.Listener} {packet.Text}");
+                    }
                     break;
 
                 case MessageType.Login:
-                    FunctionHandler.OnLogin(LoginPacket.Parser.ParseFrom(message));
+                    {
+                        LoginPacket packet = LoginPacket.Parser.ParseFrom(message);
+                        FunctionHandler.OnLogin(packet);
+                        // Console.WriteLine($"LoginPacket : {packet.Name}");
+                    }
                     break;
             }
 

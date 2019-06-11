@@ -171,14 +171,11 @@ namespace TCPNetwork.Server
          */
         public NetworkRoom FindNetworkRoom(string roomName)
         {
-
             if (roomName == "Lobby")
                 return networkLobby;
             else
             {
-                NetworkRoom ret;
-
-                if (networkRooms.TryGetValue(roomName, out ret))
+                if (networkRooms.TryGetValue(roomName, out NetworkRoom ret))
                     return ret;
 
                 else return null;

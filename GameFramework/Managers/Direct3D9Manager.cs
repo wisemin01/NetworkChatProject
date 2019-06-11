@@ -124,6 +124,8 @@ namespace GameFramework.Manager
 
         public void Release()
         {
+            mainForm.Close();
+
             SceneManager.Instance.OnChangeSceneEvent -= OnChangeScene;
 
             TextureDispose();
@@ -148,6 +150,7 @@ namespace GameFramework.Manager
         public void OnChangeScene(object sender, string sceneKey)
         {
             OnMouseClickEvent = null;
+            OnMouseClickToMessageBoxEvent = null;
         }
     }
 }

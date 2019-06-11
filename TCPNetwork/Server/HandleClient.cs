@@ -50,13 +50,9 @@ namespace TCPNetwork.Server
 
         private void ClientLoop()
         {
-            NetworkStream stream = null;
-
             try
             {
                 byte[] buffer = new byte[1024];
-                string message = string.Empty;
-                int bytes = 0;
 
                 while (true)
                 {
@@ -65,11 +61,14 @@ namespace TCPNetwork.Server
                         throw new Exception();
                     }
 
-                    stream = Client.GetStream();
+                    NetworkStream stream = Client.GetStream();
 
                     // 메시지를 읽어온다
-                    bytes = stream.Read(buffer, 0, buffer.Length);
-                    packetHandler.Receive(buffer);
+                    if (stream.CanRead)
+                    {
+                        stream.Read(buffer, 0, buffer.Length);
+                        packetHandler.Receive(buffer);
+                    }
                 }
             }
             catch (Exception)
@@ -82,7 +81,6 @@ namespace TCPNetwork.Server
                 {
                     OnDisconnected?.Invoke(Client);
                     Client.Close();
-                    stream.Close();
                 }
             }
         }
@@ -166,6 +164,8 @@ namespace TCPNetwork.Server
                         RoomName = packet.RoomName
                     },
                 Client);
+
+                OnReceived("System", $"{packet.Name} 님이 {packet.RoomName} 방에 입장하셨습니다.", false);
             }
         }
         public void OnWhisper(WhisperPacket packet)

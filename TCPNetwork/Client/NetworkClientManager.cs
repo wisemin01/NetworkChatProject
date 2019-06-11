@@ -162,6 +162,7 @@ namespace TCPNetwork.Client
             PacketHandler.Send(MessageType.MoveToOtherRoom,
                    new MoveToOtherRoomPacket()
                    {
+                       Name = userName,
                        RoomName = roomName
                    },
                clientSocket);

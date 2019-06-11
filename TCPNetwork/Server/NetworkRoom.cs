@@ -51,7 +51,6 @@ namespace TCPNetwork.Server
             handleClient.OnReceived = OnReceived;
 
             DrawText($"[System] {userName} join the room ({RoomName})");
-            SendMessageToClients($"{userName} 님이 {RoomName} 방에 입장하셨습니다.");
         }
 
         public string Remove(TcpClient client)
@@ -85,8 +84,8 @@ namespace TCPNetwork.Server
 
             // 로그 출력 후 컨테이너에서 제거
             DrawText($"[System] {userName} left the room ({RoomName})");
-            SendMessageToClients($"{userName} 님이 {RoomName} 방에서 퇴장하셨습니다.");
             ClientList.Remove(clientSocket);
+            SendMessageToClients($"{userName} 님이 {RoomName} 방에서 퇴장하셨습니다.");
         }
 
         /*

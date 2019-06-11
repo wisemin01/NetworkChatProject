@@ -52,10 +52,6 @@ namespace DirectXClient
                         Scale = Vector3.Lerp(Scale, MouseNoneOverSize, 0.15f);
                 }
             }
-            // catch (NullReferenceException)
-            // {
-            // 
-            // }
             finally
             {
 
@@ -69,8 +65,13 @@ namespace DirectXClient
 
         public override void Release()
         {
-            D3D9Manager.Instance.OnMouseClickEvent -= OnClick;
+            EventDisconnect();
+        }
+
+        public void EventDisconnect()
+        {
             OnButtonClick = null;
+            D3D9Manager.Instance.OnMouseClickEvent -= OnClick;
         }
 
         public void OnClick(object sender, ClickChecker checker)
