@@ -70,6 +70,7 @@ namespace GameFramework.Manager
                 {
                     LinkedListNode<GameObject> next = Iter.Next;
                     gameObjectList.Remove(Iter);
+                    Iter.Value.Release();
                     Iter = next;
                 }
                 else
