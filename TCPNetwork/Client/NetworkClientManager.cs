@@ -36,7 +36,7 @@ namespace TCPNetwork.Client
         public delegate void OnClientExit(string text);
 
         public event EventHandler<string> OnChangeRoomEvent;
-        public event EventHandler<List<string>> OnUpdateRoomListEvent;
+        public event EventHandler OnUpdateRoomListEvent;
 
         // Member
         private TcpClient clientSocket = null;           // 클라이언트 소켓
@@ -245,7 +245,7 @@ namespace TCPNetwork.Client
                 networkRoomTitles.Add(Iter);
             }
 
-            OnUpdateRoomListEvent?.Invoke(this, networkRoomTitles);
+            OnUpdateRoomListEvent?.Invoke(this, EventArgs.Empty);
         }
 
         public void OnLeave(LeavePacket packet)

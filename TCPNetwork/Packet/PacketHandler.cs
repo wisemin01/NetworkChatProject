@@ -14,14 +14,16 @@ namespace TCPNetwork.Packet.Chatting
         {
             byte[] message = packet.ToByteArray();
 
-            byte[] message_info = BitConverter.GetBytes((int)type);
             byte[] message_size = BitConverter.GetBytes(message.Length);
+            byte[] message_info = BitConverter.GetBytes((int)type);
+            byte[] message_process_type = BitConverter.GetBytes(0x00000008);
 
-            byte[] buffer = new byte[message.Length + sizeof(int) * 2];
+            byte[] buffer = new byte[message.Length + sizeof(int) * 3];
 
-            message_info.CopyTo(buffer, 0);
-            message_size.CopyTo(buffer, sizeof(int));
-            message.CopyTo(buffer, sizeof(int) * 2);
+            message_size.CopyTo(buffer, 0);
+            message_info.CopyTo(buffer, sizeof(int));
+            message_process_type.CopyTo(buffer, sizeof(int) * 2);
+            message.CopyTo(buffer, sizeof(int) * 3);
 
             NetworkStream stream = client.GetStream();
 
@@ -31,12 +33,13 @@ namespace TCPNetwork.Packet.Chatting
 
         public void Receive(byte[] buffer)
         {
-            MessageType type = (MessageType)BitConverter.ToInt32(buffer, 0);
-            int size = BitConverter.ToInt32(buffer, sizeof(int));
+            int             size = BitConverter.ToInt32(buffer, 0);
+            MessageType     type = (MessageType)BitConverter.ToInt32(buffer, sizeof(int) * 1);
+            _                    = BitConverter.ToInt32(buffer, sizeof(int) * 2);
 
             byte[] message = new byte[size];
 
-            Buffer.BlockCopy(buffer, sizeof(int) * 2, message, 0, size);
+            Buffer.BlockCopy(buffer, sizeof(int) * 3, message, 0, size);
 
             switch (type)
             {

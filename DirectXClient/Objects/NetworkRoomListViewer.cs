@@ -115,9 +115,10 @@ namespace DirectXClient
             foreach (Tuple<NetworkRoomTitle, Button, Button> Iter in networkRoomList)
             {
                 Destroy(Iter.Item1);
-                Destroy(Iter.Item2); Iter.Item2.EventDisconnect();
-                Destroy(Iter.Item3); Iter.Item3.EventDisconnect();
+                Destroy(Iter.Item2);
+                Destroy(Iter.Item3);
             }
+
             networkRoomList.Clear();
 
             for (int i = index * listHeight; i < index * listHeight + listHeight; i++)
@@ -175,7 +176,7 @@ namespace DirectXClient
                 return false;
         }
 
-        public void OnUpdateRoomList(object sender, List<string> roomList)
+        public void OnUpdateRoomList(object sender, EventArgs e)
         {
             IsShouldRefresh = true;
         }
