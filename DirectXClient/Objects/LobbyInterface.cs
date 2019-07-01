@@ -1,8 +1,6 @@
-﻿using TCPNetwork;
-
-namespace DirectXClient
+﻿namespace DirectXClient
 {
-    public class LobbyInterface : ITextDraw
+    public class LobbyInterface
     {
         public void ClearText()
         {

@@ -24,12 +24,12 @@ namespace DirectXClient
 
         public override void Initialize()
         {
-            TCPNetwork.Client.NetworkClientManager.Instance.OnChangeRoomEvent += OnChangeRoom;
+            // TCPNetwork.Client.NetworkClientManager.Instance.OnChangeRoomEvent += OnChangeRoom;
         }
 
         public override void Release()
         {
-            TCPNetwork.Client.NetworkClientManager.Instance.OnChangeRoomEvent -= OnChangeRoom;
+            // TCPNetwork.Client.NetworkClientManager.Instance.OnChangeRoomEvent -= OnChangeRoom;
         }
 
         private void OnChangeRoom(object sender, string text)
@@ -40,14 +40,14 @@ namespace DirectXClient
             }
             else
             {
-                if (TCPNetwork.Client.NetworkClientManager.Instance.IsConnection)
-                {
-                    LatestSceneName = "Chat";
-                }
-                else
-                {
-                    LatestSceneName = "Login";
-                }
+                //if (TCPNetwork.Client.NetworkClientManager.Instance.IsConnection)
+                //{
+                //    LatestSceneName = "Chat";
+                //}
+                //else
+                //{
+                //    LatestSceneName = "Login";
+                //}
             }
 
             IsShouldChangeScene = true;

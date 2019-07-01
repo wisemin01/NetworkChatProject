@@ -1,7 +1,6 @@
 ﻿using GameFramework;
 using GameFramework.Manager;
 using SharpDX;
-using TCPNetwork.Client;
 
 namespace DirectXClient
 {
@@ -40,12 +39,12 @@ namespace DirectXClient
                     return;
                 }
 
-                NetworkClientManager.Instance.CreateRoomRequest(s);
-                NetworkClientManager.Instance.TextDraw = new LobbyInterface();
+                // NetworkClientManager.Instance.CreateRoomRequest(s);
+                // NetworkClientManager.Instance.TextDraw = new LobbyInterface();
 
                 TextInputField input = sender as TextInputField;
                 input.Clear();
-                NetworkClientManager.Instance.RoomListUpdateRequest();
+                // NetworkClientManager.Instance.RoomListUpdateRequest();
             };
 
             NetworkRoomListViewer roomList = GameObjectManager.Instance.AddObject(new NetworkRoomListViewer()
@@ -58,10 +57,10 @@ namespace DirectXClient
 
         public override void FrameUpdate()
         {
-            if (NetworkClientManager.Instance.IsConnection == false)
-            {
-                SceneManager.Instance.ChangeScene("Login");
-            }
+            // if (NetworkClientManager.Instance.IsConnection == false)
+            // {
+            // SceneManager.Instance.ChangeScene("Login");
+            // }
         }
 
         public override void FrameRender()

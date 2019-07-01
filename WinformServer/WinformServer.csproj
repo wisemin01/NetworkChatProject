@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5B52A41E-5465-477A-AD6E-073637CC5B29}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MyChatServer</RootNamespace>
-    <AssemblyName>MyChatServer</AssemblyName>
+    <RootNamespace>ServerHost</RootNamespace>
+    <AssemblyName>ChattingServerHost</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -61,6 +61,9 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Google.Protobuf, Version=3.8.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.8.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -74,6 +77,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChattingLogic\ChattingLogic.cs" />
+    <Compile Include="ChattingLogic\ChattingLogic.OnMessage.cs" />
+    <Compile Include="ChattingPacket.cs" />
+    <Compile Include="ChattingPacketTranslater.cs" />
+    <Compile Include="LoginHandler.cs" />
     <Compile Include="Winform\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +103,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -109,9 +118,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TCPNetwork\TCPNetwork.csproj">
-      <Project>{a930d16c-c9b2-46dd-a4b7-251c9099107c}</Project>
-      <Name>TCPNetwork</Name>
+    <ProjectReference Include="..\..\M-Network\M-Network\M-Network.csproj">
+      <Project>{37a14c0c-1f2b-4415-9a22-eb49791e8d07}</Project>
+      <Name>M-Network</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

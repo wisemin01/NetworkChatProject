@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace TCPNetwork
+namespace ClientHost
 {
     static class Program
     {

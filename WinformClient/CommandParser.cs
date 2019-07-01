@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyChatClient.WinForm
+namespace ClientHost.WinForm
 {
     public class CommandParser
     {
@@ -18,24 +18,24 @@ namespace MyChatClient.WinForm
             if (strArr.Length <= 1)
                 return false;
 
-            switch (strArr[1])
-            {
-                case "CreateRoom":
-                    TCPNetwork.Client.NetworkClientManager.Instance.CreateRoomRequest(strArr[2]);
-                    return true;
-                case "DestroyRoom":
-                    TCPNetwork.Client.NetworkClientManager.Instance.DestroyRoomRequest(strArr[2]);
-                    return true;
-                case "Join":
-                    TCPNetwork.Client.NetworkClientManager.Instance.JoinRoomRequest(strArr[2]);
-                    return true;
-                case "Whisper":
-                    TCPNetwork.Client.NetworkClientManager.Instance.WhisperRequest(strArr[2], strArr[3]);
-                    return true;
-                case "r":
-                    TCPNetwork.Client.NetworkClientManager.Instance.WhisperRequest(strArr[2], strArr[3]);
-                    return true;
-            }
+            //switch (strArr[1])
+            //{
+            //    case "CreateRoom":
+            //        ServerForm.Client.NetworkClientManager.Instance.CreateRoomRequest(strArr[2]);
+            //        return true;
+            //    case "DestroyRoom":
+            //        ServerForm.Client.NetworkClientManager.Instance.DestroyRoomRequest(strArr[2]);
+            //        return true;
+            //    case "Join":
+            //        ServerForm.Client.NetworkClientManager.Instance.JoinRoomRequest(strArr[2]);
+            //        return true;
+            //    case "Whisper":
+            //        ServerForm.Client.NetworkClientManager.Instance.WhisperRequest(strArr[2], strArr[3]);
+            //        return true;
+            //    case "r":
+            //        ServerForm.Client.NetworkClientManager.Instance.WhisperRequest(strArr[2], strArr[3]);
+            //        return true;
+            //}
 
             return false;
         }

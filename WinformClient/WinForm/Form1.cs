@@ -1,27 +1,44 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
-using TCPNetwork.Client;
 
-namespace TCPNetwork
+using MNetwork.Engine;
+using MNetwork.Debuging;
+using MNetwork.Time;
+using MNetwork.Packet;
+
+using ChattingPacket;
+
+namespace ClientHost
 {
-    public partial class ClientGUIForm : Form, ITextDraw
+    public partial class ClientGUIForm : Form
     {
         public ClientGUIForm()
         {
             InitializeComponent();
-            this.textBox3.KeyDown += TextBox3_keyDown;
+            SendContextBox.KeyDown += SendFieldKeyDown;
+            FormClosed += OnFormClosing;
+
+            Debug.LogPath = $"./Log/Client[{Time.TimeLogYMD}].txt";
+            Debug.OnLog += Debug_OnLog;
         }
 
-        private void TextBox1_TextChanged(object sender, EventArgs e)
+        private void OnFormClosing(object sender, EventArgs e)
         {
-
+            MNetworkEntry.Instance.Shutdown();
+            Debug.Flush();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void Debug_OnLog(object sender, string e)
         {
-            string serverPort = textBox2.Text;
-            string ipAdress = textBox4.Text;
-            string userName = textBox5.Text;
+            DrawText(e);
+        }
+
+        private void ConnectButtonClick(object sender, EventArgs e)
+        {
+            string serverPort   = portInputBox.Text;
+            string ipAdress     = ipInputBox.Text;
+            string userName     = nameInputBox.Text;
 
             if (string.IsNullOrWhiteSpace(userName))
             {
@@ -43,21 +60,15 @@ namespace TCPNetwork
 
             try
             {
-                NetworkClientManager.Instance.Initialize(
-                    userName,
-                    ipAdress,
-                    int.Parse(serverPort),
-                    delegate (string text)
-                    {
-                        MessageBox.Show(text, "Exit");
-                        Application.Exit();
-                    });
-                NetworkClientManager.Instance.TextDraw = this;
+                ChattingCallback callback = new ChattingCallback();
+                ChattingPacketTranslater translater = new ChattingPacketTranslater();
 
-                if (NetworkClientManager.Instance.ConnectToServer())
-                {
-                    Connect.Enabled = false;
-                }
+                MNetworkEntry.Instance.Initialize(callback, translater);
+                MNetworkEntry.Instance.Run("127.0.0.1", 9199);
+
+                new Thread(delegate () { MNetworkEntry.Instance.Update(); }) { IsBackground = true }.Start();
+
+                Connect.Enabled = false;
             }
             catch (FormatException)
             {
@@ -73,49 +84,34 @@ namespace TCPNetwork
             }
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void SendButtonClick(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox3.Text))
+            if (string.IsNullOrWhiteSpace(SendContextBox.Text))
                 return;
 
-            if (NetworkClientManager.Instance.IsConnection == false)
+            ChattingRequestPacket packet = new ChattingRequestPacket
             {
-                MessageBox.Show("서버에 먼저 접속 후 전송을 시도하세요", "Send Error");
-                return;
-            }
+                Sender = "CLIENT",
+                Text = SendContextBox.Text
+            };
 
-            if (MyChatClient.WinForm.CommandParser.Parse(textBox3.Text))
-            {
-                ;
-            }
-            else
-            {
-                NetworkClientManager.Instance.SendMessageToServer(textBox3.Text);
-            }
+            bool result = MNetworkEntry.Instance.Send(new ProtobufPacket<ChattingRequestPacket>(0, PacketEnum.ProcessType.Data,
+                (int)MessageType.ChattingRequest, packet));
 
-            textBox3.Text = string.Empty;
+            if (result == true)
+                SendContextBox.Text = string.Empty;
         }
 
-        private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox3_keyDown(object sender, KeyEventArgs e)
+        private void SendFieldKeyDown(object sender, KeyEventArgs e)
         {
             // 엔터키 입력시 버튼과 같은 효과
             if (e.KeyCode == Keys.Enter)
             {
-                button2.PerformClick();
+                SendButton.PerformClick();
             }
         }
 
-        private void TextBox9_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        void ITextDraw.DrawText(string text)
+        void DrawText(string text)
         {
             if (textBox1.InvokeRequired)
             {
@@ -126,29 +122,6 @@ namespace TCPNetwork
             }
             else
                 textBox1.AppendText(text + Environment.NewLine);
-        }
-
-        void ITextDraw.ShowMessageBox(string text, string caption)
-        {
-            MessageBox.Show(text, caption);
-        }
-
-        void ITextDraw.DrawColorText(string text, int r, int g, int b, int a)
-        {
-            if (textBox1.InvokeRequired)
-            {
-                textBox1.BeginInvoke(new MethodInvoker(delegate
-                {
-                    textBox1.AppendText(text + Environment.NewLine);
-                }));
-            }
-            else
-                textBox1.AppendText(text + Environment.NewLine);
-        }
-
-        void ITextDraw.ClearText()
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -20,8 +20,8 @@ D:\Programing project\[ 회사 과제 ]\NetworkChatProject\DirectXClient\bin\x64
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\DirectXClient\obj\x64\Debug\DirectXClient.csprojAssemblyReference.cache
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\DirectXClient\obj\x64\Debug\DirectXClient.csproj.CoreCompileInputs.cache
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\DirectXClient\obj\x64\Debug\DirectXClient.csproj.CopyComplete
-D:\Programing project\[ 회사 과제 ]\NetworkChatProject\DirectXClient\obj\x64\Debug\DirectXClient.exe
-D:\Programing project\[ 회사 과제 ]\NetworkChatProject\DirectXClient\obj\x64\Debug\DirectXClient.pdb
-D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Debug\DirectXClient.exe.config
-D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Debug\DirectXClient.exe
-D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Debug\DirectXClient.pdb
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Debug\ClientHost.exe.config
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Debug\ClientHost.exe
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Debug\ClientHost.pdb
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\DirectXClient\obj\x64\Debug\ClientHost.exe
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\DirectXClient\obj\x64\Debug\ClientHost.pdb

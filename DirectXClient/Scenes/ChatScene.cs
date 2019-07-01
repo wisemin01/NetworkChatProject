@@ -1,7 +1,6 @@
 ﻿using GameFramework;
 using GameFramework.Manager;
 using SharpDX;
-using TCPNetwork.Client;
 
 namespace DirectXClient
 {
@@ -20,7 +19,7 @@ namespace DirectXClient
                 25, new Vector3(30, D3D9Manager.Instance.WindowHeight - 160, 0),
                 "ChatListFont"));
 
-            NetworkClientManager.Instance.TextDraw = TextList;
+            //NetworkClientManager.Instance.TextDraw = TextList;
 
             TextInputField TextInput = GameObjectManager.Instance.AddObject(new TextInputField("ChatInputFont")
             {
@@ -33,7 +32,7 @@ namespace DirectXClient
 
             TextInput.OnEnter += delegate (object sender, string s)
             {
-                NetworkClientManager.Instance.SendMessageToServer(s);
+                //NetworkClientManager.Instance.SendMessageToServer(s);
                 TextInputField input = sender as TextInputField;
                 input.Clear();
             };
@@ -48,7 +47,7 @@ namespace DirectXClient
 
             toLobbyButton.OnButtonClick += delegate
             {
-                NetworkClientManager.Instance.JoinRoomRequest("Lobby");
+                //NetworkClientManager.Instance.JoinRoomRequest("Lobby");
             };
 
             GameObjectManager.Instance.AddObject(new SceneObserver());
@@ -60,10 +59,10 @@ namespace DirectXClient
 
         public override void FrameUpdate()
         {
-            if (NetworkClientManager.Instance.IsConnection == false)
-            {
-                SceneManager.Instance.ChangeScene("Login");
-            }
+            //if (NetworkClientManager.Instance.IsConnection == false)
+            //{
+            //    SceneManager.Instance.ChangeScene("Login");
+            //}
         }
 
         public override void Release()

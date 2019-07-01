@@ -1,8 +1,6 @@
-﻿
-using GameFramework;
+﻿using GameFramework;
 using GameFramework.Manager;
 using SharpDX;
-using TCPNetwork.Client;
 
 namespace DirectXClient
 {
@@ -42,12 +40,12 @@ namespace DirectXClient
                     return;
                 }
 
-                NetworkClientManager.Instance.Initialize(userName, "127.0.0.1", 9199,
-                    delegate (string exitComment)
-                    {
-                        D3D9Manager.Instance.Exit();
-                    });
-                NetworkClientManager.Instance.ConnectToServer();
+                //NetworkClientManager.Instance.Initialize(userName, "127.0.0.1", 9199,
+                //    delegate (string exitComment)
+                //    {
+                //        D3D9Manager.Instance.Exit();
+                //    });
+                //NetworkClientManager.Instance.ConnectToServer();
 
                 TextInputField input = sender as TextInputField;
                 input.Clear();
@@ -56,10 +54,10 @@ namespace DirectXClient
 
         public override void FrameUpdate()
         {
-            if (NetworkClientManager.Instance.IsConnection)
-            {
-                SceneManager.Instance.ChangeScene("Lobby");
-            }
+            //if (NetworkClientManager.Instance.IsConnection)
+            //{
+            //    SceneManager.Instance.ChangeScene("Lobby");
+            //}
         }
 
         public override void FrameRender()

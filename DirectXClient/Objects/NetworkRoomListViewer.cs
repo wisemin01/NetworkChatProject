@@ -4,7 +4,6 @@ using GameFramework.Structure;
 using SharpDX;
 using System;
 using System.Collections.Generic;
-using TCPNetwork.Client;
 
 namespace DirectXClient
 {
@@ -22,7 +21,7 @@ namespace DirectXClient
 
         public override void Initialize()
         {
-            NetworkClientManager.Instance.OnUpdateRoomListEvent += OnUpdateRoomList;
+            // NetworkClientManager.Instance.OnUpdateRoomListEvent += OnUpdateRoomList;
 
             networkRoomList = new List<Tuple<NetworkRoomTitle, Button, Button>>();
 
@@ -48,7 +47,7 @@ namespace DirectXClient
             refreshButton.OnButtonClick += delegate
             {
                 LastIndex = 0;
-                NetworkClientManager.Instance.RoomListUpdateRequest();
+                // NetworkClientManager.Instance.RoomListUpdateRequest();
             };
 
             Button prevButton = GameObjectManager.Instance
@@ -64,7 +63,7 @@ namespace DirectXClient
             {
                 if (LastIndex > 0)
                     LastIndex--;
-                NetworkClientManager.Instance.RoomListUpdateRequest();
+                // NetworkClientManager.Instance.RoomListUpdateRequest();
             };
 
             Button nextButton = GameObjectManager.Instance
@@ -80,17 +79,17 @@ namespace DirectXClient
             {
                 if (HasList(LastIndex + 1))
                     LastIndex++;
-                NetworkClientManager.Instance.RoomListUpdateRequest();
+                // NetworkClientManager.Instance.RoomListUpdateRequest();
             };
 
-            NetworkClientManager.Instance.RoomListUpdateRequest();
+            // NetworkClientManager.Instance.RoomListUpdateRequest();
         }
 
         public override void FrameUpdate()
         {
             if (IsShouldRefresh)
             {
-                RefreshList(LastIndex, NetworkClientManager.Instance.RoomList);
+                // RefreshList(LastIndex, NetworkClientManager.Instance.RoomList);
                 IsShouldRefresh = false;
             }
         }
@@ -105,7 +104,7 @@ namespace DirectXClient
 
         public override void Release()
         {
-            NetworkClientManager.Instance.OnUpdateRoomListEvent -= OnUpdateRoomList;
+            // NetworkClientManager.Instance.OnUpdateRoomListEvent -= OnUpdateRoomList;
         }
 
         public void RefreshList(int index, List<string> list)
@@ -154,13 +153,13 @@ namespace DirectXClient
 
                 roomJoinButton.OnButtonClick += delegate (object sender, EventArgs e)
                 {
-                    NetworkClientManager.Instance.JoinRoomRequest(roomTitle.RoomTitle);
+                    // NetworkClientManager.Instance.JoinRoomRequest(roomTitle.RoomTitle);
                 };
 
                 roomDeleteButton.OnButtonClick += delegate
                 {
-                    NetworkClientManager.Instance.DestroyRoomRequest(roomTitle.RoomTitle);
-                    NetworkClientManager.Instance.RoomListUpdateRequest();
+                    // NetworkClientManager.Instance.DestroyRoomRequest(roomTitle.RoomTitle);
+                    // NetworkClientManager.Instance.RoomListUpdateRequest();
                 };
 
                 networkRoomList.Add(new Tuple<NetworkRoomTitle, Button, Button>(
@@ -170,10 +169,12 @@ namespace DirectXClient
 
         public bool HasList(int index)
         {
-            if (NetworkClientManager.Instance.RoomListCount > index * listHeight)
-                return true;
-            else
-                return false;
+            //if (NetworkClientManager.Instance.RoomListCount > index * listHeight)
+            //    return true;
+            //else
+            //    return false;
+
+            return false;
         }
 
         public void OnUpdateRoomList(object sender, EventArgs e)

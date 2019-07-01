@@ -3,11 +3,10 @@ using GameFramework.Manager;
 using SharpDX;
 using System;
 using System.Collections.Generic;
-using TCPNetwork;
 
 namespace DirectXClient
 {
-    public class TextList : GameObject, ITextDraw
+    public class TextList : GameObject
     {
         private readonly object listLock = new object();
         private readonly string fontName = string.Empty;
@@ -49,7 +48,7 @@ namespace DirectXClient
             }
         }
 
-        void ITextDraw.ShowMessageBox(string text, string caption)
+        void ShowMessageBox(string text, string caption)
         {
             MessageBox.Show(text, caption);
         }
@@ -98,11 +97,5 @@ namespace DirectXClient
         {
 
         }
-
-        public void ShowMessageBox(string text, string caption)
-        {
-            System.Windows.Forms.MessageBox.Show(text, caption);
-        }
-
     }
 }

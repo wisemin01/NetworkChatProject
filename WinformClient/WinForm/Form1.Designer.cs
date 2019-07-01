@@ -1,4 +1,4 @@
-﻿namespace TCPNetwork
+﻿namespace ClientHost
 {
     partial class ClientGUIForm
     {
@@ -30,11 +30,11 @@
         {
             this.Connect = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.portInputBox = new System.Windows.Forms.TextBox();
+            this.SendContextBox = new System.Windows.Forms.TextBox();
+            this.SendButton = new System.Windows.Forms.Button();
+            this.ipInputBox = new System.Windows.Forms.TextBox();
+            this.nameInputBox = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
@@ -49,7 +49,7 @@
             this.Connect.TabIndex = 1;
             this.Connect.Text = "Connect";
             this.Connect.UseVisualStyleBackColor = true;
-            this.Connect.Click += new System.EventHandler(this.Button1_Click);
+            this.Connect.Click += new System.EventHandler(this.ConnectButtonClick);
             // 
             // textBox1
             // 
@@ -58,50 +58,48 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(258, 252);
+            this.textBox1.Size = new System.Drawing.Size(888, 252);
             this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
-            // textBox2
+            // portInputBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(132, 12);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(137, 21);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "9199";
-            this.textBox2.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
+            this.portInputBox.Location = new System.Drawing.Point(132, 12);
+            this.portInputBox.Name = "portInputBox";
+            this.portInputBox.Size = new System.Drawing.Size(137, 21);
+            this.portInputBox.TabIndex = 2;
+            this.portInputBox.Text = "9199";
             // 
-            // textBox3
+            // SendContextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(14, 392);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(174, 21);
-            this.textBox3.TabIndex = 3;
+            this.SendContextBox.Location = new System.Drawing.Point(14, 392);
+            this.SendContextBox.Name = "SendContextBox";
+            this.SendContextBox.Size = new System.Drawing.Size(805, 21);
+            this.SendContextBox.TabIndex = 3;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(201, 391);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(68, 21);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Send";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.SendButton.Location = new System.Drawing.Point(836, 391);
+            this.SendButton.Name = "button2";
+            this.SendButton.Size = new System.Drawing.Size(68, 21);
+            this.SendButton.TabIndex = 4;
+            this.SendButton.Text = "Send";
+            this.SendButton.UseVisualStyleBackColor = true;
+            this.SendButton.Click += new System.EventHandler(this.SendButtonClick);
             // 
-            // textBox4
+            // ipInputBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(132, 39);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(137, 21);
-            this.textBox4.TabIndex = 5;
-            this.textBox4.Text = "127.0.0.1";
+            this.ipInputBox.Location = new System.Drawing.Point(132, 39);
+            this.ipInputBox.Name = "ipInputBox";
+            this.ipInputBox.Size = new System.Drawing.Size(137, 21);
+            this.ipInputBox.TabIndex = 5;
+            this.ipInputBox.Text = "127.0.0.1";
             // 
-            // textBox5
+            // nameInputBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(132, 66);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(137, 21);
-            this.textBox5.TabIndex = 6;
+            this.nameInputBox.Location = new System.Drawing.Point(132, 66);
+            this.nameInputBox.Name = "nameInputBox";
+            this.nameInputBox.Size = new System.Drawing.Size(137, 21);
+            this.nameInputBox.TabIndex = 6;
             // 
             // textBox6
             // 
@@ -151,22 +149,21 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(166, 18);
             this.textBox9.TabIndex = 10;
-            this.textBox9.TextChanged += new System.EventHandler(this.TextBox9_TextChanged);
             // 
             // ClientGUIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(295, 425);
+            this.ClientSize = new System.Drawing.Size(916, 425);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.nameInputBox);
+            this.Controls.Add(this.ipInputBox);
+            this.Controls.Add(this.SendButton);
+            this.Controls.Add(this.SendContextBox);
+            this.Controls.Add(this.portInputBox);
             this.Controls.Add(this.Connect);
             this.Controls.Add(this.textBox1);
             this.Name = "ClientGUIForm";
@@ -180,11 +177,11 @@
 
         private System.Windows.Forms.Button Connect;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox portInputBox;
+        private System.Windows.Forms.TextBox SendContextBox;
+        private System.Windows.Forms.Button SendButton;
+        private System.Windows.Forms.TextBox ipInputBox;
+        private System.Windows.Forms.TextBox nameInputBox;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;

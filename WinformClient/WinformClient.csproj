@@ -6,13 +6,15 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CCF9CFB6-7E76-40D7-8A1D-BB45355BAF42}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MyChatClient</RootNamespace>
-    <AssemblyName>MyChatClient</AssemblyName>
+    <RootNamespace>ClientHost</RootNamespace>
+    <AssemblyName>ClientHost</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -61,6 +63,9 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Google.Protobuf, Version=3.8.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.8.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -74,6 +79,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChattingCallback.cs" />
+    <Compile Include="ChattingPacket.cs" />
+    <Compile Include="ChattingPacketTranslater.cs" />
     <Compile Include="CommandParser.cs" />
     <Compile Include="WinForm\Form1.cs">
       <SubType>Form</SubType>
@@ -111,14 +119,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\M-Network\M-Network\M-Network.csproj">
+      <Project>{37a14c0c-1f2b-4415-9a22-eb49791e8d07}</Project>
+      <Name>M-Network</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GameFramework\GameFramework.csproj">
       <Project>{23f1d9a0-4665-4f7d-bf0f-5b07da755494}</Project>
       <Name>GameFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TCPNetwork\TCPNetwork.csproj">
-      <Project>{a930d16c-c9b2-46dd-a4b7-251c9099107c}</Project>
-      <Name>TCPNetwork</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Google.Protobuf.Tools.3.8.0\build\Google.Protobuf.Tools.targets" Condition="Exists('..\packages\Google.Protobuf.Tools.3.8.0\build\Google.Protobuf.Tools.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>이 프로젝트는 이 컴퓨터에 없는 NuGet 패키지를 참조합니다. 해당 패키지를 다운로드하려면 NuGet 패키지 복원을 사용하십시오. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=322105를 참조하십시오. 누락된 파일은 {0}입니다.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Google.Protobuf.Tools.3.8.0\build\Google.Protobuf.Tools.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Google.Protobuf.Tools.3.8.0\build\Google.Protobuf.Tools.targets'))" />
+  </Target>
 </Project>

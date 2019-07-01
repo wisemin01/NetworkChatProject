@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DED08780-B667-4D83-A5A7-1703263E365C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>DirectXClient</RootNamespace>
-    <AssemblyName>DirectXClient</AssemblyName>
+    <RootNamespace>ClientHost</RootNamespace>
+    <AssemblyName>ClientHost</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -106,10 +106,6 @@
     <ProjectReference Include="..\GameFramework\GameFramework.csproj">
       <Project>{23f1d9a0-4665-4f7d-bf0f-5b07da755494}</Project>
       <Name>GameFramework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TCPNetwork\TCPNetwork.csproj">
-      <Project>{a930d16c-c9b2-46dd-a4b7-251c9099107c}</Project>
-      <Name>TCPNetwork</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
