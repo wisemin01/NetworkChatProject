@@ -43,9 +43,8 @@ namespace ServerHost
                 int port = int.Parse(textBox2.Text);
 
                 logic = new ChattingLogic();
-                ChattingPacketTranslater translater = new ChattingPacketTranslater();
 
-                MEngine.Instance.Intialize(logic, translater);
+                MEngine.Instance.Intialize(logic, new ChattingPacketTranslater());
                 MEngine.Instance.Start("127.0.0.1", 9199);
 
                 button1.Enabled = false;

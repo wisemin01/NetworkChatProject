@@ -6,6 +6,7 @@ using MNetwork.Engine;
 using MNetwork.Debuging;
 using MNetwork.Time;
 using MNetwork.Packet;
+using MNetwork.RPC;
 
 using ChattingPacket;
 
@@ -60,10 +61,9 @@ namespace ClientHost
 
             try
             {
-                ChattingCallback callback = new ChattingCallback();
-                ChattingPacketTranslater translater = new ChattingPacketTranslater();
-
-                MNetworkEntry.Instance.Initialize(callback, translater);
+                MNetworkEntry.Instance.Initialize(
+                    new ChattingCallback(),
+                    new ChattingPacketTranslater());
                 MNetworkEntry.Instance.Run("127.0.0.1", 9199);
 
                 new Thread(delegate () { MNetworkEntry.Instance.Update(); }) { IsBackground = true }.Start();
