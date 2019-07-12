@@ -54,7 +54,7 @@ namespace GameFramework.Manager
 
         public void UpdateObjects()
         {
-            if (messageBoxStack.Count != 0)
+            if (IsMessageBoxPopup)
             {
                 if (messageBoxStack.Peek().IsLive == false)
                     messageBoxStack.Pop();
@@ -64,11 +64,11 @@ namespace GameFramework.Manager
                 return;
             }
 
-            for (LinkedListNode<GameObject> Iter = gameObjectList.First; Iter != null;)
+            for (var Iter = gameObjectList.First; Iter != null;)
             {
                 if (Iter.Value.IsLive == false)
                 {
-                    LinkedListNode<GameObject> next = Iter.Next;
+                    var next = Iter.Next;
                     gameObjectList.Remove(Iter);
                     Iter.Value.Release();
                     Iter = next;

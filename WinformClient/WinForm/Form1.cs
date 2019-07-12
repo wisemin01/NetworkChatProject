@@ -66,7 +66,14 @@ namespace ClientHost
                     new ChattingPacketTranslater());
                 MNetworkEntry.Instance.Run("127.0.0.1", 9199);
 
-                new Thread(delegate () { MNetworkEntry.Instance.Update(); }) { IsBackground = true }.Start();
+                new Thread(delegate () {
+
+                    while (true)
+                    {
+                        MNetworkEntry.Instance.Update();
+                    }
+
+                }) { IsBackground = true }.Start();
 
                 Connect.Enabled = false;
             }
@@ -88,6 +95,12 @@ namespace ClientHost
         {
             if (string.IsNullOrWhiteSpace(SendContextBox.Text))
                 return;
+
+            if (CommandParser.Parse(SendContextBox.Text) == true)
+            {
+                SendContextBox.Text = string.Empty;
+                return;
+            }
 
             ChattingRequestPacket packet = new ChattingRequestPacket
             {
