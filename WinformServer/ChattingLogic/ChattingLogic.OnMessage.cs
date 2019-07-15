@@ -31,47 +31,45 @@ namespace ServerHost
             send.Success = success;
             send.Context = "로그인에 성공했습니다.";
 
-            while (true)
+            MNetworkPlayer player = NetworkLobby.FindPlayer(packet.Serial);
+
+            if (send.Success == false)
             {
-                MNetworkPlayer player;
-
-                // 이름으로 플레이어를 찾아서
-                // 만약 존재한다면 이미 접속중인 아이디이므로 접속 불가 설정
-                player = NetworkLobby.FindPlayer(userName);
-
-                if (player != null)
+                send.Context = "아이디 또는 비밀번호를 확인해주세요.";
+            }
+            else if (player != null)
+            {
+                if (player.PlayerState >= MNetworkPlayer.MPlayerState.LoginSuccess)
                 {
+                    // 이미 접속중인 클라이언트 처리
+
                     send.Success = false;
-                    send.Context = "이미 접속중인 아이디입니다.";
-                    break;
+                    send.Context = "이미 접속된 아이디입니다.";
                 }
-
-                // 받은 패킷의 시리얼로 플레이어를 찾아서
-                player = NetworkLobby.FindPlayer(packet.Serial);
-
-                // 로그인이 아직 안된 경우 플레이어 정보 설정 후
-                // 로그인 상태로 변경
-                if (player.PlayerState != MNetworkPlayer.MPlayerState.LoginSuccess)
-                {
-                    player.PlayerState = MNetworkPlayer.MPlayerState.LoginSuccess;
-                    player.UserName = userName;
-                    player.ID = request.ID;
-                    player.Password = request.Password;
-
-                    // 이름으로 플레이어를 빠르게 찾기 위해서 
-                    // 이름 리스트에 저장한다.
-                    NetworkLobby.AddPlayerToNameList(player);
-                }
-                // 이미 로그인 된 클라이언트라면
-                // 로그인이 실패라는걸 알려준다.
                 else
                 {
-                    send.Success = false;
-                    send.Context = "이미 접속중인 아이디입니다.";
-                    break;
-                }
+                    MNetworkPlayer find = NetworkLobby.FindPlayer(userName);
 
-                break;
+                    if (find != null)
+                    {
+                        // 이미 해당 닉네임을 가진 유저가 접속중임을 처리
+                        send.Success = false;
+                        send.Context = "해당 아이디는 이미 다른 컴퓨터에서 사용 중입니다.";
+                    }
+                    else
+                    {
+                        // 없다면 네임 리스트에 추가해준다.
+
+                        player.ID = request.ID;
+                        player.Password = request.Password;
+                        player.PlayerState = MNetworkPlayer.MPlayerState.LoginSuccess;
+                        player.UserName = userName;
+
+                        NetworkLobby.AddPlayerToNameList(player);
+
+                        send.Success = true;
+                    }
+                }
             }
 
             SendPacket(new ProtobufPacket<LoginAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
