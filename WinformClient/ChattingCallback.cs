@@ -90,7 +90,6 @@ namespace ClientHost
         {
             SignUpAnswerPacket answer = packet.ProtobufMessage;
 
-            Debug.Log(answer.Success ? "회원가입 성공" : "회원가입 실패");
             Debug.Log(answer.Context);
         }
         public void OnChattingAnswer(ProtobufPacket<ChattingAnswerPacket> packet)

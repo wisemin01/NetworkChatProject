@@ -39,14 +39,7 @@ namespace ClientHost
         {
             string serverPort   = portInputBox.Text;
             string ipAdress     = ipInputBox.Text;
-            string userName     = nameInputBox.Text;
-
-            if (string.IsNullOrWhiteSpace(userName))
-            {
-                MessageBox.Show("이름을 입력해주세요", "Caution");
-                return;
-            }
-
+            
             if (string.IsNullOrWhiteSpace(ipAdress))
             {
                 MessageBox.Show("IP 주소를 입력해주세요", "Caution");

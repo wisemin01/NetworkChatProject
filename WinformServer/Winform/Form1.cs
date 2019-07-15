@@ -8,6 +8,7 @@ using MNetwork.Engine;
 using MNetwork.Logic;
 using MNetwork.Debuging;
 using MNetwork.Time;
+using ServerHost.Winform;
 
 namespace ServerHost
 {
@@ -118,6 +119,13 @@ namespace ServerHost
             {
                 ChattingList.AppendText(text + Environment.NewLine);
             }
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Form form = new LoginForm();
+
+            form.ShowDialog();
         }
     }
 }
