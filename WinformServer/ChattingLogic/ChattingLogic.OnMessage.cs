@@ -35,17 +35,6 @@ namespace ServerHost
             {
                 MNetworkPlayer player;
 
-                // 이름으로 플레이어를 찾아서
-                // 만약 존재한다면 이미 접속중인 아이디이므로 접속 불가 설정
-                player = NetworkLobby.FindPlayer(userName);
-
-                if (player != null)
-                {
-                    send.Success = false;
-                    send.Context = "이미 접속중인 아이디입니다.";
-                    break;
-                }
-
                 // 받은 패킷의 시리얼로 플레이어를 찾아서
                 player = NetworkLobby.FindPlayer(packet.Serial);
 
@@ -65,6 +54,17 @@ namespace ServerHost
                 // 이미 로그인 된 클라이언트라면
                 // 로그인이 실패라는걸 알려준다.
                 else
+                {
+                    send.Success = false;
+                    send.Context = "이미 접속중입니다.";
+                    break;
+                }
+
+                // 이름으로 플레이어를 찾아서
+                // 만약 존재한다면 이미 접속중인 아이디이므로 접속 불가 설정
+                player = NetworkLobby.FindPlayer(userName);
+
+                if (player != null)
                 {
                     send.Success = false;
                     send.Context = "이미 접속중인 아이디입니다.";

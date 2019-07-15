@@ -37,13 +37,14 @@
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // ChattingList
             // 
             this.ChattingList.Location = new System.Drawing.Point(12, 67);
             this.ChattingList.Multiline = true;
-            this.ChattingList.Name = "textBox1";
+            this.ChattingList.Name = "ChattingList";
             this.ChattingList.ReadOnly = true;
             this.ChattingList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ChattingList.Size = new System.Drawing.Size(617, 363);
@@ -132,11 +133,22 @@
             this.textBox6.TabIndex = 8;
             this.textBox6.Text = "Chatting Logs";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(287, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "LOG IN";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            // 
             // ServerGUIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(788, 454);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.listBox2);
@@ -164,6 +176,7 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Button button2;
     }
 }
 
