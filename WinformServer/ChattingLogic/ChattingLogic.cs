@@ -14,7 +14,7 @@ using ChattingPacket;
 
 namespace ServerHost
 {
-    internal partial class ChattingLogic : LogicEntry
+    internal partial class ChattingLogic : MLogicEntry
     {
         public MNetworkLobby NetworkLobby { get; } = new MNetworkLobby();
 
@@ -43,19 +43,29 @@ namespace ServerHost
             switch (processType)
             {
                 case PacketEnum.ProcessType.Connect:
-                    NetworkLobby.AddPlayer(new MNetworkPlayer(packet.Serial));
-                    Debug.Log($"ON CONNECT {packet.Serial}");
-                    break;
+                    {
+                        MNetworkPlayer player = new MNetworkPlayer(packet.Serial);
+                        NetworkLobby.AddPlayer(player);
+
+                        player.PlayerState = MNetworkPlayer.MPlayerState.Connected;
+
+                        Debug.Log($"ON CONNECT {packet.Serial}");
+                        break;
+                    }
 
                 case PacketEnum.ProcessType.Disconnect:
-                    NetworkLobby.DeletePlayer(packet.Serial);
-                    Debug.Log($"ON DISCONNECT {packet.Serial}");
-                    break;
+                    {
+                        NetworkLobby.DeletePlayer(packet.Serial);
+                        Debug.Log($"ON DISCONNECT {packet.Serial}");
+                        break;
+                    }
 
                 case PacketEnum.ProcessType.Data:
-                    OnMessage(packet);
-                    Debug.Log("ON DATA PACKET");
-                    break;
+                    {
+                        OnMessage(packet);
+                        Debug.Log($"ON DATA_PACKET INFO: SERIAL:{packet.Serial} PROC_TYPE:{packet.ProcessType}");
+                        break;
+                    }
             }
         }
 

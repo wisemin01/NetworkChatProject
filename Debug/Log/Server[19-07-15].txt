@@ -1,0 +1,31 @@
+[LOG]<Thread:1>[02:40:35] : ====================================================
+[LOG]<Thread:1>[02:40:35] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[02:40:35] : ====================================================
+[LOG]<Thread:3>[02:40:40] : ON CONNECT 1268
+[LOG]<Thread:3>[02:40:50] : ON DATA PACKET
+[LOG]<Thread:3>[02:41:26] : ON DATA PACKET
+[LOG]<Thread:3>[02:41:35] : ON DATA PACKET
+[LOG]<Thread:3>[02:41:46] : ON DATA PACKET
+[LOG]<Thread:3>[02:41:55] : ON DISCONNECT 1268
+[LOG]<Thread:1>[03:04:48] : ====================================================
+[LOG]<Thread:1>[03:04:48] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[03:04:48] : ====================================================
+[LOG]<Thread:3>[03:04:53] : ON CONNECT 1224
+[LOG]<Thread:3>[03:05:01] : ON DATA_PACKET INFO: SERIAL:1224 PROC_TYPE:Data
+[LOG]<Thread:3>[03:05:08] : ON DATA_PACKET INFO: SERIAL:1224 PROC_TYPE:Data
+[LOG]<Thread:3>[03:05:13] : ON CONNECT 1496
+[LOG]<Thread:3>[03:05:19] : ON DATA_PACKET INFO: SERIAL:1496 PROC_TYPE:Data
+[LOG]<Thread:3>[03:05:30] : ON DATA_PACKET INFO: SERIAL:1496 PROC_TYPE:Data
+[LOG]<Thread:3>[03:05:33] : ON DISCONNECT 1496
+[LOG]<Thread:3>[03:05:33] : ON DISCONNECT 1224
+[LOG]<Thread:1>[03:12:38] : ====================================================
+[LOG]<Thread:1>[03:12:38] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[03:12:38] : ====================================================
+[LOG]<Thread:3>[03:12:42] : ON CONNECT 1348
+[LOG]<Thread:3>[03:12:45] : ON CONNECT 1344
+[LOG]<Thread:3>[03:12:51] : ON DATA_PACKET INFO: SERIAL:1348 PROC_TYPE:Data
+[LOG]<Thread:3>[03:13:02] : ON DATA_PACKET INFO: SERIAL:1344 PROC_TYPE:Data
+[LOG]<Thread:3>[03:13:12] : ON DATA_PACKET INFO: SERIAL:1348 PROC_TYPE:Data
+[LOG]<Thread:3>[03:13:24] : ON DATA_PACKET INFO: SERIAL:1348 PROC_TYPE:Data
+[LOG]<Thread:3>[03:13:36] : ON DISCONNECT 1344
+[LOG]<Thread:3>[03:13:36] : ON DISCONNECT 1348

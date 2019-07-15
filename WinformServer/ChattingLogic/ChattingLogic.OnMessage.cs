@@ -14,7 +14,7 @@ using MNetwork.Rooms;
 
 namespace ServerHost
 {
-    internal partial class ChattingLogic : LogicEntry
+    internal partial class ChattingLogic : MLogicEntry
     {
         private void OnLoginRequest(ProtobufPacket<LoginRequestPacket> packet)
         {
@@ -23,12 +23,58 @@ namespace ServerHost
 
             // Packet Data Set
 
+            // 로그인 핸들러에게 로그인이 성공했는지를 알아온다.
             bool success = loginHandler.SignIn(request.ID, request.Password, out string userName);
 
+            // 보낼 패킷의 정보 설정
             send.UserName = userName;
             send.Success = success;
+            send.Context = "로그인에 성공했습니다.";
 
-            MEngine.Instance.SendRequest(new ProtobufPacket<LoginAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
+            while (true)
+            {
+                MNetworkPlayer player;
+
+                // 이름으로 플레이어를 찾아서
+                // 만약 존재한다면 이미 접속중인 아이디이므로 접속 불가 설정
+                player = NetworkLobby.FindPlayer(userName);
+
+                if (player != null)
+                {
+                    send.Success = false;
+                    send.Context = "이미 접속중인 아이디입니다.";
+                    break;
+                }
+
+                // 받은 패킷의 시리얼로 플레이어를 찾아서
+                player = NetworkLobby.FindPlayer(packet.Serial);
+
+                // 로그인이 아직 안된 경우 플레이어 정보 설정 후
+                // 로그인 상태로 변경
+                if (player.PlayerState != MNetworkPlayer.MPlayerState.LoginSuccess)
+                {
+                    player.PlayerState = MNetworkPlayer.MPlayerState.LoginSuccess;
+                    player.UserName = userName;
+                    player.ID = request.ID;
+                    player.Password = request.Password;
+
+                    // 이름으로 플레이어를 빠르게 찾기 위해서 
+                    // 이름 리스트에 저장한다.
+                    NetworkLobby.AddPlayerToNameList(player);
+                }
+                // 이미 로그인 된 클라이언트라면
+                // 로그인이 실패라는걸 알려준다.
+                else
+                {
+                    send.Success = false;
+                    send.Context = "이미 접속중인 아이디입니다.";
+                    break;
+                }
+
+                break;
+            }
+
+            SendPacket(new ProtobufPacket<LoginAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.LoginAnswer, send));
         }
 
@@ -39,7 +85,7 @@ namespace ServerHost
 
             // Packet Data Set
 
-            MEngine.Instance.SendRequest(new ProtobufPacket<JoinRoomAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
+            SendPacket(new ProtobufPacket<JoinRoomAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.JoinRoomAnswer, send));
         }
 
@@ -50,7 +96,7 @@ namespace ServerHost
 
             // Packet Data Set
 
-            MEngine.Instance.SendRequest(new ProtobufPacket<ExitRoomAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
+            SendPacket(new ProtobufPacket<ExitRoomAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.ExitRoomAnswer, send));
         }
 
@@ -64,7 +110,7 @@ namespace ServerHost
 
             send.Success = success;
 
-            MEngine.Instance.SendRequest(new ProtobufPacket<CreateRoomAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
+            SendPacket(new ProtobufPacket<CreateRoomAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.CreateRoomAnswer, send));
         }
 
@@ -75,7 +121,7 @@ namespace ServerHost
 
             // Packet Data Set
 
-            MEngine.Instance.SendRequest(new ProtobufPacket<RoomListAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
+            SendPacket(new ProtobufPacket<RoomListAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.RoomListAnswer, send));
         }
 
@@ -94,7 +140,7 @@ namespace ServerHost
             send.Sender = request.Sender;
             send.Text = $"From {request.Sender} : {request.Text}";
 
-            MEngine.Instance.SendRequest(new ProtobufPacket<WhisperAnswerPacket>(listener.Serial, PacketEnum.ProcessType.Data,
+            SendPacket(new ProtobufPacket<WhisperAnswerPacket>(listener.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.WhisperAnswer, send));
         }
 
@@ -110,7 +156,7 @@ namespace ServerHost
             send.Success = success;
             send.Context = context;
 
-            MEngine.Instance.SendRequest(new ProtobufPacket<SignUpAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
+            SendPacket(new ProtobufPacket<SignUpAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.SignUpAnswer, send));
         }
 
@@ -133,7 +179,7 @@ namespace ServerHost
 
             send.Text = $"[{Time.TimeLogHMS}] {request.Sender} : {request.Text}";
 
-            MEngine.Instance.SendRequest(new ProtobufPacket<ChattingAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
+            SendPacket(new ProtobufPacket<ChattingAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.ChattingAnswer, send), room.SerialList);
         }
     }

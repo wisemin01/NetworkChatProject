@@ -59,7 +59,7 @@ namespace ClientHost
             }
             else
             {
-                Debug.Log($"로그인 실패");
+                Debug.Log($"로그인 실패.\n 사유 : {answer.Context}");
             }
         }
 

@@ -26,37 +26,37 @@ namespace ChattingPacket {
           string.Concat(
             "ChRDaGF0dGluZ1BhY2tldC5wcm90bxIOQ2hhdHRpbmdQYWNrZXQiMgoSTG9n",
             "aW5SZXF1ZXN0UGFja2V0EgoKAklEGAEgASgJEhAKCFBhc3N3b3JkGAIgASgJ",
-            "IjYKEUxvZ2luQW5zd2VyUGFja2V0Eg8KB1N1Y2Nlc3MYASABKAgSEAoIVXNl",
-            "ck5hbWUYAiABKAkiOwoVSm9pblJvb21SZXF1ZXN0UGFja2V0EhAKCFJvb21O",
-            "YW1lGAEgASgJEhAKCFVzZXJOYW1lGAIgASgJIjkKFEpvaW5Sb29tQW5zd2Vy",
-            "UGFja2V0Eg8KB1N1Y2Nlc3MYASABKAgSEAoIUm9vbU5hbWUYAiABKAkiOwoV",
-            "RXhpdFJvb21SZXF1ZXN0UGFja2V0EhAKCFJvb21OYW1lGAEgASgJEhAKCFVz",
-            "ZXJOYW1lGAIgASgJIicKFEV4aXRSb29tQW5zd2VyUGFja2V0Eg8KB1N1Y2Nl",
-            "c3MYASABKAgiKwoXQ3JlYXRlUm9vbVJlcXVlc3RQYWNrZXQSEAoIUm9vbU5h",
-            "bWUYASABKAkiKQoWQ3JlYXRlUm9vbUFuc3dlclBhY2tldBIPCgdTdWNjZXNz",
-            "GAEgASgIIhcKFVJvb21MaXN0UmVxdWVzdFBhY2tldCI5ChRSb29tTGlzdEFu",
-            "c3dlclBhY2tldBIRCglSb29tTmFtZXMYASADKAkSDgoGTGVuZ3RoGAIgASgF",
-            "IkYKFFdoaXNwZXJSZXF1ZXN0UGFja2V0Eg4KBlNlbmRlchgBIAEoCRIQCghM",
-            "aXN0ZW5lchgCIAEoCRIMCgRUZXh0GAMgASgJIjMKE1doaXNwZXJBbnN3ZXJQ",
-            "YWNrZXQSDgoGU2VuZGVyGAEgASgJEgwKBFRleHQYAiABKAkiRQoTU2lnblVw",
-            "UmVxdWVzdFBhY2tldBIQCghVc2VyTmFtZRgBIAEoCRIKCgJJRBgCIAEoCRIQ",
-            "CghQYXNzd29yZBgDIAEoCSI2ChJTaWduVXBBbnN3ZXJQYWNrZXQSDwoHU3Vj",
-            "Y2VzcxgBIAEoCBIPCgdDb250ZXh0GAIgASgJIjUKFUNoYXR0aW5nUmVxdWVz",
-            "dFBhY2tldBIOCgZTZW5kZXIYASABKAkSDAoEVGV4dBgCIAEoCSIkChRDaGF0",
-            "dGluZ0Fuc3dlclBhY2tldBIMCgRUZXh0GAEgASgJKs0CCgtNZXNzYWdlVHlw",
-            "ZRIQCgxMb2dpblJlcXVlc3QQABIPCgtMb2dpbkFuc3dlchABEhMKD0pvaW5S",
-            "b29tUmVxdWVzdBACEhIKDkpvaW5Sb29tQW5zd2VyEAMSEwoPRXhpdFJvb21S",
-            "ZXF1ZXN0EAQSEgoORXhpdFJvb21BbnN3ZXIQBRIVChFDcmVhdGVSb29tUmVx",
-            "dWVzdBAGEhQKEENyZWF0ZVJvb21BbnN3ZXIQBxITCg9Sb29tTGlzdFJlcXVl",
-            "c3QQCBISCg5Sb29tTGlzdEFuc3dlchAJEhIKDldoaXNwZXJSZXF1ZXN0EAoS",
-            "EQoNV2hpc3BlckFuc3dlchALEhEKDVNpZ25VcFJlcXVlc3QQDBIQCgxTaWdu",
-            "VXBBbnN3ZXIQDRITCg9DaGF0dGluZ1JlcXVlc3QQDhISCg5DaGF0dGluZ0Fu",
-            "c3dlchAPYgZwcm90bzM="));
+            "IkcKEUxvZ2luQW5zd2VyUGFja2V0Eg8KB1N1Y2Nlc3MYASABKAgSEAoIVXNl",
+            "ck5hbWUYAiABKAkSDwoHQ29udGV4dBgDIAEoCSI7ChVKb2luUm9vbVJlcXVl",
+            "c3RQYWNrZXQSEAoIUm9vbU5hbWUYASABKAkSEAoIVXNlck5hbWUYAiABKAki",
+            "OQoUSm9pblJvb21BbnN3ZXJQYWNrZXQSDwoHU3VjY2VzcxgBIAEoCBIQCghS",
+            "b29tTmFtZRgCIAEoCSI7ChVFeGl0Um9vbVJlcXVlc3RQYWNrZXQSEAoIUm9v",
+            "bU5hbWUYASABKAkSEAoIVXNlck5hbWUYAiABKAkiJwoURXhpdFJvb21BbnN3",
+            "ZXJQYWNrZXQSDwoHU3VjY2VzcxgBIAEoCCIrChdDcmVhdGVSb29tUmVxdWVz",
+            "dFBhY2tldBIQCghSb29tTmFtZRgBIAEoCSIpChZDcmVhdGVSb29tQW5zd2Vy",
+            "UGFja2V0Eg8KB1N1Y2Nlc3MYASABKAgiFwoVUm9vbUxpc3RSZXF1ZXN0UGFj",
+            "a2V0IjkKFFJvb21MaXN0QW5zd2VyUGFja2V0EhEKCVJvb21OYW1lcxgBIAMo",
+            "CRIOCgZMZW5ndGgYAiABKAUiRgoUV2hpc3BlclJlcXVlc3RQYWNrZXQSDgoG",
+            "U2VuZGVyGAEgASgJEhAKCExpc3RlbmVyGAIgASgJEgwKBFRleHQYAyABKAki",
+            "MwoTV2hpc3BlckFuc3dlclBhY2tldBIOCgZTZW5kZXIYASABKAkSDAoEVGV4",
+            "dBgCIAEoCSJFChNTaWduVXBSZXF1ZXN0UGFja2V0EhAKCFVzZXJOYW1lGAEg",
+            "ASgJEgoKAklEGAIgASgJEhAKCFBhc3N3b3JkGAMgASgJIjYKElNpZ25VcEFu",
+            "c3dlclBhY2tldBIPCgdTdWNjZXNzGAEgASgIEg8KB0NvbnRleHQYAiABKAki",
+            "NQoVQ2hhdHRpbmdSZXF1ZXN0UGFja2V0Eg4KBlNlbmRlchgBIAEoCRIMCgRU",
+            "ZXh0GAIgASgJIiQKFENoYXR0aW5nQW5zd2VyUGFja2V0EgwKBFRleHQYASAB",
+            "KAkqzQIKC01lc3NhZ2VUeXBlEhAKDExvZ2luUmVxdWVzdBAAEg8KC0xvZ2lu",
+            "QW5zd2VyEAESEwoPSm9pblJvb21SZXF1ZXN0EAISEgoOSm9pblJvb21BbnN3",
+            "ZXIQAxITCg9FeGl0Um9vbVJlcXVlc3QQBBISCg5FeGl0Um9vbUFuc3dlchAF",
+            "EhUKEUNyZWF0ZVJvb21SZXF1ZXN0EAYSFAoQQ3JlYXRlUm9vbUFuc3dlchAH",
+            "EhMKD1Jvb21MaXN0UmVxdWVzdBAIEhIKDlJvb21MaXN0QW5zd2VyEAkSEgoO",
+            "V2hpc3BlclJlcXVlc3QQChIRCg1XaGlzcGVyQW5zd2VyEAsSEQoNU2lnblVw",
+            "UmVxdWVzdBAMEhAKDFNpZ25VcEFuc3dlchANEhMKD0NoYXR0aW5nUmVxdWVz",
+            "dBAOEhIKDkNoYXR0aW5nQW5zd2VyEA9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ChattingPacket.MessageType), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ChattingPacket.LoginRequestPacket), global::ChattingPacket.LoginRequestPacket.Parser, new[]{ "ID", "Password" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ChattingPacket.LoginAnswerPacket), global::ChattingPacket.LoginAnswerPacket.Parser, new[]{ "Success", "UserName" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ChattingPacket.LoginAnswerPacket), global::ChattingPacket.LoginAnswerPacket.Parser, new[]{ "Success", "UserName", "Context" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ChattingPacket.JoinRoomRequestPacket), global::ChattingPacket.JoinRoomRequestPacket.Parser, new[]{ "RoomName", "UserName" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ChattingPacket.JoinRoomAnswerPacket), global::ChattingPacket.JoinRoomAnswerPacket.Parser, new[]{ "Success", "RoomName" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ChattingPacket.ExitRoomRequestPacket), global::ChattingPacket.ExitRoomRequestPacket.Parser, new[]{ "RoomName", "UserName" }, null, null, null),
@@ -283,6 +283,7 @@ namespace ChattingPacket {
     public LoginAnswerPacket(LoginAnswerPacket other) : this() {
       success_ = other.success_;
       userName_ = other.userName_;
+      context_ = other.context_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -313,6 +314,17 @@ namespace ChattingPacket {
       }
     }
 
+    /// <summary>Field number for the "Context" field.</summary>
+    public const int ContextFieldNumber = 3;
+    private string context_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Context {
+      get { return context_; }
+      set {
+        context_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as LoginAnswerPacket);
@@ -328,6 +340,7 @@ namespace ChattingPacket {
       }
       if (Success != other.Success) return false;
       if (UserName != other.UserName) return false;
+      if (Context != other.Context) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -336,6 +349,7 @@ namespace ChattingPacket {
       int hash = 1;
       if (Success != false) hash ^= Success.GetHashCode();
       if (UserName.Length != 0) hash ^= UserName.GetHashCode();
+      if (Context.Length != 0) hash ^= Context.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -357,6 +371,10 @@ namespace ChattingPacket {
         output.WriteRawTag(18);
         output.WriteString(UserName);
       }
+      if (Context.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Context);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -370,6 +388,9 @@ namespace ChattingPacket {
       }
       if (UserName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(UserName);
+      }
+      if (Context.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Context);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -388,6 +409,9 @@ namespace ChattingPacket {
       if (other.UserName.Length != 0) {
         UserName = other.UserName;
       }
+      if (other.Context.Length != 0) {
+        Context = other.Context;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -405,6 +429,10 @@ namespace ChattingPacket {
           }
           case 18: {
             UserName = input.ReadString();
+            break;
+          }
+          case 26: {
+            Context = input.ReadString();
             break;
           }
         }
