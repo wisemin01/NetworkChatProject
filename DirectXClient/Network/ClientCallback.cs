@@ -1,11 +1,19 @@
-﻿using ChattingPacket;
-using MNetwork.Callback;
+﻿using MNetwork.Callback;
 using MNetwork.Packet;
-using MNetwork.Debuging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ClientHost
+using ChattingPacket;
+using MNetwork.Debuging;
+using MNetwork.Rooms;
+
+
+namespace DirectXClient
 {
-    internal class ChattingCallback : NetworkCallback
+    internal class ClientCallback : NetworkCallback
     {
         public override bool HandleNetworkMessage(BasePacket packet)
         {
@@ -43,7 +51,7 @@ namespace ClientHost
 
             return false;
         }
-        
+
         public void OnLoginAnswer(ProtobufPacket<LoginAnswerPacket> packet)
         {
             LoginAnswerPacket answer = packet.ProtobufMessage;
@@ -53,7 +61,7 @@ namespace ClientHost
                 Debug.Log($"{answer.UserName} 님이 접속하셨습니다.");
 
                 ChatClientManager.userName = answer.UserName;
-                ChatClientManager.userState = MNetwork.Rooms.MNetworkPlayer.MPlayerState.LoginSuccess;
+                ChatClientManager.userState = MNetworkPlayer.MPlayerState.LoginSuccess;
             }
             else
             {
@@ -112,7 +120,7 @@ namespace ClientHost
         public void OnChattingAnswer(ProtobufPacket<ChattingAnswerPacket> packet)
         {
             ChattingAnswerPacket answer = packet.ProtobufMessage;
-            
+
             Debug.Log(answer.Text);
         }
     }

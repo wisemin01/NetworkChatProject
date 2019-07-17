@@ -29,7 +29,7 @@ namespace ServerHost
         {
             if (NetworkLobby.Initialize(5) == false)
             {
-                Debug.ErrorLog(MethodBase.GetCurrentMethod(), "networkLobby.Initialize() Failed");
+                Debug.ErrorLog(MethodBase.GetCurrentMethod(), "NetworkLobby.Initialize() Failed");
                 return false;
             }
 
@@ -63,7 +63,7 @@ namespace ServerHost
                 case PacketEnum.ProcessType.Data:
                     {
                         OnMessage(packet);
-                        Debug.Log($"ON DATA_PACKET INFO: SERIAL:{packet.Serial} PROC_TYPE:{packet.ProcessType}");
+                        Debug.Log($"ON DATA_PACKET INFO: SERIAL:{packet.Serial}");
                         break;
                     }
             }

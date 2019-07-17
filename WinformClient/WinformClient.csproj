@@ -79,6 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChatClientManager.cs" />
     <Compile Include="ChattingCallback.cs" />
     <Compile Include="ChattingPacket.cs" />
     <Compile Include="ChattingPacketTranslater.cs" />

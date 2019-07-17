@@ -49,11 +49,30 @@ namespace ClientHost
                         return true;
                     }
                 case "CreateRoom":
+                    {
+                        CreateRoomRequestPacket packet = new CreateRoomRequestPacket()
+                        {
+                            RoomName = strArr[2]
+                        };
+
+                        MNetworkEntry.Instance.Send(new ProtobufPacket<CreateRoomRequestPacket>(0, PacketEnum.ProcessType.Data,
+                            (int)MessageType.CreateRoomRequest, packet));
                     return true;
+                    }
                 case "DestroyRoom":
                     return true;
                 case "Join":
+                    {
+                        JoinRoomRequestPacket packet = new JoinRoomRequestPacket()
+                        {
+                            UserName = ChatClientManager.userName,
+                            RoomName = strArr[2]
+                        };
+
+                        MNetworkEntry.Instance.Send(new ProtobufPacket<JoinRoomRequestPacket>(0, PacketEnum.ProcessType.Data,
+                            (int)MessageType.JoinRoomRequest, packet));
                     return true;
+                    }
                 case "Whisper":
                     return true;
                 case "r":

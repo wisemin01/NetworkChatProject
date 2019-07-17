@@ -53,6 +53,7 @@ namespace ServerHost
                     if (find != null)
                     {
                         // 이미 해당 닉네임을 가진 유저가 접속중임을 처리
+
                         send.Success = false;
                         send.Context = "해당 아이디는 이미 다른 컴퓨터에서 사용 중입니다.";
                     }
@@ -81,7 +82,11 @@ namespace ServerHost
             JoinRoomRequestPacket request = packet.ProtobufMessage;
             JoinRoomAnswerPacket send = new JoinRoomAnswerPacket();
 
+            bool result = NetworkLobby.JoinRoom(request.RoomName, request.UserName);
+
             // Packet Data Set
+            send.Success = result;
+            send.RoomName = request.RoomName;
 
             SendPacket(new ProtobufPacket<JoinRoomAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.JoinRoomAnswer, send));
@@ -175,7 +180,7 @@ namespace ServerHost
             if (room == null)
                 return;
 
-            send.Text = $"[{Time.TimeLogHMS}] {request.Sender} : {request.Text}";
+            send.Text = $"[{Time.TimeLogHMS}] [{request.Sender}] : {request.Text}";
 
             SendPacket(new ProtobufPacket<ChattingAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.ChattingAnswer, send), room.SerialList);

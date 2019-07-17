@@ -39,13 +39,6 @@ namespace ClientHost
         {
             string serverPort   = portInputBox.Text;
             string ipAdress     = ipInputBox.Text;
-            string userName     = nameInputBox.Text;
-
-            if (string.IsNullOrWhiteSpace(userName))
-            {
-                MessageBox.Show("이름을 입력해주세요", "Caution");
-                return;
-            }
 
             if (string.IsNullOrWhiteSpace(ipAdress))
             {
@@ -104,7 +97,7 @@ namespace ClientHost
 
             ChattingRequestPacket packet = new ChattingRequestPacket
             {
-                Sender = "CLIENT",
+                Sender = ChatClientManager.userName,
                 Text = SendContextBox.Text
             };
 

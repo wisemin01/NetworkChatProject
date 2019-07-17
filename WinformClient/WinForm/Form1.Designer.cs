@@ -34,10 +34,8 @@
             this.SendContextBox = new System.Windows.Forms.TextBox();
             this.SendButton = new System.Windows.Forms.Button();
             this.ipInputBox = new System.Windows.Forms.TextBox();
-            this.nameInputBox = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -76,10 +74,10 @@
             this.SendContextBox.Size = new System.Drawing.Size(805, 21);
             this.SendContextBox.TabIndex = 3;
             // 
-            // button2
+            // SendButton
             // 
             this.SendButton.Location = new System.Drawing.Point(836, 391);
-            this.SendButton.Name = "button2";
+            this.SendButton.Name = "SendButton";
             this.SendButton.Size = new System.Drawing.Size(68, 21);
             this.SendButton.TabIndex = 4;
             this.SendButton.Text = "Send";
@@ -93,13 +91,6 @@
             this.ipInputBox.Size = new System.Drawing.Size(137, 21);
             this.ipInputBox.TabIndex = 5;
             this.ipInputBox.Text = "127.0.0.1";
-            // 
-            // nameInputBox
-            // 
-            this.nameInputBox.Location = new System.Drawing.Point(132, 66);
-            this.nameInputBox.Name = "nameInputBox";
-            this.nameInputBox.Size = new System.Drawing.Size(137, 21);
-            this.nameInputBox.TabIndex = 6;
             // 
             // textBox6
             // 
@@ -127,19 +118,6 @@
             this.textBox7.TabIndex = 8;
             this.textBox7.Text = "IP Adress";
             // 
-            // textBox8
-            // 
-            this.textBox8.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox8.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox8.Location = new System.Drawing.Point(16, 68);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox8.Size = new System.Drawing.Size(101, 15);
-            this.textBox8.TabIndex = 9;
-            this.textBox8.Text = "User name";
-            // 
             // textBox9
             // 
             this.textBox9.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -156,10 +134,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(916, 425);
             this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.nameInputBox);
             this.Controls.Add(this.ipInputBox);
             this.Controls.Add(this.SendButton);
             this.Controls.Add(this.SendContextBox);
@@ -181,10 +157,8 @@
         private System.Windows.Forms.TextBox SendContextBox;
         private System.Windows.Forms.Button SendButton;
         private System.Windows.Forms.TextBox ipInputBox;
-        private System.Windows.Forms.TextBox nameInputBox;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
     }
 }

@@ -1,5 +1,7 @@
 ﻿using GameFramework.Manager;
 using System;
+using MNetwork.Engine;
+using MNetwork.Debuging;
 
 namespace DirectXClient
 {
@@ -21,6 +23,11 @@ namespace DirectXClient
             SceneManager.Instance.AddScene<ChatScene>("Chat");
 
             SceneManager.Instance.ChangeScene("Login");
+
+            var callback = new ClientCallback();
+
+            MNetworkEntry.Instance.Initialize(callback, new ChattingPacketTranslater());
+            MNetworkEntry.Instance.Run("127.0.0.1", 9199);
         }
 
         public void Run()
@@ -30,6 +37,7 @@ namespace DirectXClient
 
         void Update()
         {
+            MNetworkEntry.Instance.Update();
             SceneManager.Instance.FrameUpdate();
         }
 

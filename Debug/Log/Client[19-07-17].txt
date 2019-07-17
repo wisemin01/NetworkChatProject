@@ -1,0 +1,98 @@
+[LOG]<Thread:1>[01:02:25] : ====================================================
+[LOG]<Thread:1>[01:02:25] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[01:02:25] : ====================================================
+[LOG]<Thread:1>[01:02:25] : Connecting to server...
+[LOG]<Thread:3>[01:02:25] : Connect Complate
+[LOG]<Thread:5>[01:02:38] : Ev 님이 접속하셨습니다.
+[LOG]<Thread:1>[01:10:50] : ====================================================
+[LOG]<Thread:1>[01:10:50] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[01:10:50] : ====================================================
+[LOG]<Thread:1>[01:10:50] : Connecting to server...
+[LOG]<Thread:1>[01:13:40] : ====================================================
+[LOG]<Thread:1>[01:13:40] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[01:13:40] : ====================================================
+[LOG]<Thread:1>[01:13:40] : Connecting to server...
+[LOG]<Thread:3>[01:13:40] : Connect Complate
+[LOG]<Thread:5>[01:13:45] : Ev 님이 접속하셨습니다.
+[LOG]<Thread:5>[01:13:50] : 방 생성 성공
+[LOG]<Thread:1>[01:16:52] : ====================================================
+[LOG]<Thread:1>[01:16:52] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[01:16:52] : ====================================================
+[LOG]<Thread:1>[01:16:52] : Connecting to server...
+[LOG]<Thread:3>[01:16:52] : Connect Complate
+[LOG]<Thread:1>[01:16:01] : ====================================================
+[LOG]<Thread:1>[01:16:01] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[01:16:01] : ====================================================
+[LOG]<Thread:1>[01:16:01] : Connecting to server...
+[LOG]<Thread:3>[01:16:01] : Connect Complate
+[LOG]<Thread:5>[01:16:11] : Ev 님이 접속하셨습니다.
+[LOG]<Thread:5>[01:16:15] : 방 생성 성공
+[LOG]<Thread:1>[01:21:20] : ====================================================
+[LOG]<Thread:1>[01:21:20] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[01:21:20] : ====================================================
+[LOG]<Thread:1>[01:21:20] : Connecting to server...
+[LOG]<Thread:3>[01:21:20] : Connect Complate
+[LOG]<Thread:5>[01:21:28] : Ev 님이 접속하셨습니다.
+[LOG]<Thread:5>[01:21:33] : 방 생성 성공
+[LOG]<Thread:5>[01:21:36] : A 방 입장에 실패했습니다.
+[LOG]<Thread:5>[01:21:39] : A 방 입장에 실패했습니다.
+[LOG]<Thread:5>[01:21:53] : A 방 입장에 실패했습니다.
+[LOG]<Thread:5>[01:22:34] : A 방 입장에 실패했습니다.
+[LOG]<Thread:1>[01:22:45] : ====================================================
+[LOG]<Thread:1>[01:22:45] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[01:22:45] : ====================================================
+[LOG]<Thread:1>[01:22:45] : Connecting to server...
+[LOG]<Thread:3>[01:22:45] : Connect Complate
+[LOG]<Thread:5>[01:22:52] : Ev 님이 접속하셨습니다.
+[LOG]<Thread:5>[01:23:01] : 방 생성 성공
+[LOG]<Thread:1>[01:24:05] : ====================================================
+[LOG]<Thread:1>[01:24:05] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[01:24:05] : ====================================================
+[LOG]<Thread:1>[01:24:05] : Connecting to server...
+[LOG]<Thread:3>[01:24:05] : Connect Complate
+[LOG]<Thread:5>[01:24:09] : Ev 님이 접속하셨습니다.
+[LOG]<Thread:5>[01:24:15] : 방 생성 성공
+[LOG]<Thread:5>[01:24:17] : A 방 입장에 성공했습니다.
+[LOG]<Thread:5>[01:24:22] : A 방 입장에 성공했습니다.
+[LOG]<Thread:5>[01:25:19] : A 방 입장에 성공했습니다.
+[LOG]<Thread:1>[01:27:06] : ====================================================
+[LOG]<Thread:1>[01:27:06] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[01:27:06] : ====================================================
+[LOG]<Thread:1>[01:27:06] : Connecting to server...
+[LOG]<Thread:3>[01:27:06] : Connect Complate
+[LOG]<Thread:5>[01:27:11] : Ev 님이 접속하셨습니다.
+[LOG]<Thread:5>[01:27:15] : 방 생성 성공
+[LOG]<Thread:5>[01:27:18] : A 방 입장에 성공했습니다.
+[LOG]<Thread:5>[01:27:19] : [01:27:19] Ev : asd
+[LOG]<Thread:5>[01:27:20] : [01:27:20] Ev : asd
+[LOG]<Thread:5>[01:27:20] : [01:27:20] Ev : asd
+[LOG]<Thread:5>[01:27:21] : [01:27:21] Ev : asd
+[LOG]<Thread:5>[01:27:21] : [01:27:21] Ev : asd
+[LOG]<Thread:5>[01:27:21] : [01:27:21] Ev : asd
+[LOG]<Thread:5>[01:27:22] : [01:27:22] Ev : asd
+[LOG]<Thread:5>[01:27:22] : [01:27:22] Ev : asd
+[LOG]<Thread:5>[01:27:23] : [01:27:23] Ev : asdasd
+[LOG]<Thread:5>[01:27:23] : [01:27:23] Ev : asd
+[LOG]<Thread:5>[01:27:24] : [01:27:24] Ev : asd
+[LOG]<Thread:5>[01:27:25] : [01:27:25] Ev : asddasasdadsasd
+[LOG]<Thread:5>[01:27:25] : [01:27:25] Ev : das
+[LOG]<Thread:5>[01:27:25] : [01:27:25] Ev : sdads
+[LOG]<Thread:5>[01:27:26] : [01:27:26] Ev : adsasdasdsad
+[LOG]<Thread:5>[01:27:26] : [01:27:26] Ev : sadasdasdsad
+[LOG]<Thread:5>[01:27:27] : [01:27:27] Ev : dasasdasd
+[LOG]<Thread:5>[01:27:28] : [01:27:28] Ev : asdsdaasdasd
+[LOG]<Thread:5>[01:27:28] : [01:27:28] Ev : asdasdasd
+[LOG]<Thread:5>[01:27:28] : [01:27:28] Ev : sda
+[LOG]<Thread:5>[01:27:29] : [01:27:29] Ev : asd
+[LOG]<Thread:5>[01:27:29] : [01:27:29] Ev : asd
+[LOG]<Thread:5>[01:27:29] : [01:27:29] Ev : asd
+[LOG]<Thread:5>[01:27:29] : [01:27:29] Ev : asd
+[LOG]<Thread:5>[01:27:32] : [01:27:32] Ev : /LeaveRoom/A
+[LOG]<Thread:5>[01:27:40] : 방 생성 실패
+[LOG]<Thread:5>[01:27:44] : 방 생성 성공
+[LOG]<Thread:5>[01:27:49] : B 방 입장에 성공했습니다.
+[LOG]<Thread:5>[01:27:54] : [01:27:54] Ev : hgjighjkh
+[LOG]<Thread:1>[01:36:18] : ====================================================
+[LOG]<Thread:1>[01:36:18] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[01:36:18] : ====================================================
+[LOG]<Thread:1>[01:36:18] : Connecting to server...
