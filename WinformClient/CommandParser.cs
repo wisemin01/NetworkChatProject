@@ -7,12 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using ChattingNetwork.Client;
+
 namespace ClientHost
 {
     public class CommandParser
     {
         public static bool Parse(string command)
         {
+            if (string.IsNullOrWhiteSpace(command))
+                return false;
+
             if (command[0] != '/')
                 return false;
 
@@ -25,58 +30,34 @@ namespace ClientHost
             {
                 case "SignUp":
                     {
-                        SignUpRequestPacket packet = new SignUpRequestPacket()
-                        {
-                            ID = strArr[2],
-                            Password = strArr[3],
-                            UserName = strArr[4]
-                        };
-
-                        MNetworkEntry.Instance.Send(new ProtobufPacket<SignUpRequestPacket>(0, PacketEnum.ProcessType.Data,
-                            (int)MessageType.SignUpRequest, packet));
+                        ClientManager.Instance.SignUp(strArr[2], strArr[3], strArr[4]);
                         return true;
                     }
                 case "SignIn":
                     {
-                        LoginRequestPacket packet = new LoginRequestPacket()
-                        {
-                            ID = strArr[2],
-                            Password = strArr[3]
-                        };
-
-                        MNetworkEntry.Instance.Send(new ProtobufPacket<LoginRequestPacket>(0, PacketEnum.ProcessType.Data,
-                            (int)MessageType.LoginRequest, packet));
+                        ClientManager.Instance.SignIn(strArr[2], strArr[3]);
                         return true;
                     }
                 case "CreateRoom":
                     {
-                        CreateRoomRequestPacket packet = new CreateRoomRequestPacket()
-                        {
-                            RoomName = strArr[2]
-                        };
-
-                        MNetworkEntry.Instance.Send(new ProtobufPacket<CreateRoomRequestPacket>(0, PacketEnum.ProcessType.Data,
-                            (int)MessageType.CreateRoomRequest, packet));
-                    return true;
+                        ClientManager.Instance.CreateRoom(strArr[2]);
+                        return true;
                     }
-                case "DestroyRoom":
-                    return true;
                 case "Join":
                     {
-                        JoinRoomRequestPacket packet = new JoinRoomRequestPacket()
-                        {
-                            UserName = ChatClientManager.userName,
-                            RoomName = strArr[2]
-                        };
-
-                        MNetworkEntry.Instance.Send(new ProtobufPacket<JoinRoomRequestPacket>(0, PacketEnum.ProcessType.Data,
-                            (int)MessageType.JoinRoomRequest, packet));
-                    return true;
+                        ClientManager.Instance.JoinRoom(strArr[2]);
+                        return true;
                     }
                 case "Whisper":
-                    return true;
+                    {
+                        ClientManager.Instance.Whisper(strArr[2], strArr[3]);
+                        return true;
+                    }
                 case "r":
-                    return true;
+                    {
+                        ClientManager.Instance.Whisper(strArr[2], strArr[3]);
+                        return true;
+                    }
             }
 
             return false;

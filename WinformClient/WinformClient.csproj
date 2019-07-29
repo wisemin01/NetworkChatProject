@@ -7,7 +7,7 @@
     <ProjectGuid>{CCF9CFB6-7E76-40D7-8A1D-BB45355BAF42}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ClientHost</RootNamespace>
-    <AssemblyName>ClientHost</AssemblyName>
+    <AssemblyName>ChattingClientHost</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -79,10 +79,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChatClientManager.cs" />
-    <Compile Include="ChattingCallback.cs" />
-    <Compile Include="ChattingPacket.cs" />
-    <Compile Include="ChattingPacketTranslater.cs" />
     <Compile Include="CommandParser.cs" />
     <Compile Include="WinForm\Form1.cs">
       <SubType>Form</SubType>
@@ -122,6 +118,10 @@
     <ProjectReference Include="..\..\M-Network\M-Network\M-Network.csproj">
       <Project>{37a14c0c-1f2b-4415-9a22-eb49791e8d07}</Project>
       <Name>M-Network</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChattingNetwork\ChattingNetwork.csproj">
+      <Project>{8198975c-3c14-4757-ba8d-416af82fb223}</Project>
+      <Name>ChattingNetwork</Name>
     </ProjectReference>
     <ProjectReference Include="..\GameFramework\GameFramework.csproj">
       <Project>{23f1d9a0-4665-4f7d-bf0f-5b07da755494}</Project>

@@ -1,0 +1,11 @@
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Release\ChattingServerHost.exe.config
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Release\ChattingServerHost.exe
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Release\ChattingServerHost.pdb
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\obj\Release\WinformServer.csprojAssemblyReference.cache
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\obj\Release\ServerHost.ServerGUIForm.resources
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\obj\Release\ServerHost.Properties.Resources.resources
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\obj\Release\WinformServer.csproj.GenerateResource.cache
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\obj\Release\WinformServer.csproj.CoreCompileInputs.cache
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\obj\Release\WinformServer.csproj.CopyComplete
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\obj\Release\ChattingServerHost.exe
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformServer\obj\Release\ChattingServerHost.pdb

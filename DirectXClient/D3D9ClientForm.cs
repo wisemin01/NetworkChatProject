@@ -3,6 +3,9 @@ using System;
 using MNetwork.Engine;
 using MNetwork.Debuging;
 
+using ChattingNetwork;
+using ChattingNetwork.Client;
+
 namespace DirectXClient
 {
     public class ClientWindow
@@ -24,10 +27,7 @@ namespace DirectXClient
 
             SceneManager.Instance.ChangeScene("Login");
 
-            var callback = new ClientCallback();
-
-            MNetworkEntry.Instance.Initialize(callback, new ChattingPacketTranslater());
-            MNetworkEntry.Instance.Run("127.0.0.1", 9199);
+            ClientManager.Instance.Connect("127.0.0.1", 9199);
         }
 
         public void Run()
@@ -37,7 +37,7 @@ namespace DirectXClient
 
         void Update()
         {
-            MNetworkEntry.Instance.Update();
+            ClientManager.Instance.Update();
             SceneManager.Instance.FrameUpdate();
         }
 

@@ -19,8 +19,6 @@ namespace DirectXClient
                 25, new Vector3(30, D3D9Manager.Instance.WindowHeight - 160, 0),
                 "ChatListFont"));
 
-            //NetworkClientManager.Instance.TextDraw = TextList;
-
             TextInputField TextInput = GameObjectManager.Instance.AddObject(new TextInputField("ChatInputFont")
             {
                 Position = new Vector3(404, D3D9Manager.Instance.WindowHeight - 120, 0),
@@ -55,6 +53,7 @@ namespace DirectXClient
 
         public override void FrameRender()
         {
+
         }
 
         public override void FrameUpdate()

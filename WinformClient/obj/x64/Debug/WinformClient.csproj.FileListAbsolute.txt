@@ -1,11 +1,11 @@
-D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Debug\ClientHost.exe.config
-D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Debug\ClientHost.exe
-D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Debug\ClientHost.pdb
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformClient\obj\x64\Debug\WinformClient.csprojAssemblyReference.cache
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformClient\obj\x64\Debug\ClientHost.ClientGUIForm.resources
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformClient\obj\x64\Debug\ClientHost.Properties.Resources.resources
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformClient\obj\x64\Debug\WinformClient.csproj.GenerateResource.cache
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformClient\obj\x64\Debug\WinformClient.csproj.CoreCompileInputs.cache
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformClient\obj\x64\Debug\WinformClient.csproj.CopyComplete
-D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformClient\obj\x64\Debug\ClientHost.exe
-D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformClient\obj\x64\Debug\ClientHost.pdb
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Debug\ChattingClientHost.exe.config
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Debug\ChattingClientHost.exe
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Debug\ChattingClientHost.pdb
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformClient\obj\x64\Debug\ChattingClientHost.exe
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\WinformClient\obj\x64\Debug\ChattingClientHost.pdb

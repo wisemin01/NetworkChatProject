@@ -2,6 +2,8 @@
 using GameFramework.Manager;
 using SharpDX;
 
+using ChattingNetwork.Client;
+
 namespace DirectXClient
 {
     class LoginScene : Scene
@@ -13,9 +15,18 @@ namespace DirectXClient
 
             D3D9Manager.Instance.CreateFont("InputField", "메이플스토리 Light", 35, false);
 
-            TextInputField textInput = GameObjectManager.Instance.AddObject(new TextInputField("InputField")
+            TextInputField idInput = GameObjectManager.Instance.AddObject(new TextInputField("InputField")
             {
-                Position = new Vector3(ClientWindow.Width / 2, 300, 0),
+                Position = new Vector3(ClientWindow.Width / 2, 200, 0),
+                FieldTexture = D3D9Manager.Instance.FindTexture("NameInput"),
+                MaxLength = 15,
+                StringColor = new Color(127, 127, 127),
+                StringOffset = new Vector3(30, 6, 0)
+            });
+
+            TextInputField passwordInput = GameObjectManager.Instance.AddObject(new TextInputField("InputField")
+            {
+                Position = new Vector3(ClientWindow.Width / 2, 275, 0),
                 FieldTexture = D3D9Manager.Instance.FindTexture("NameInput"),
                 MaxLength = 15,
                 StringColor = new Color(127, 127, 127),
@@ -30,26 +41,19 @@ namespace DirectXClient
                 IsMouseOverResize = true
             });
 
-            loginButton.OnButtonClick += textInput.EnterText;
-
-            textInput.OnEnter += delegate (object sender, string userName)
+            loginButton.OnButtonClick += delegate
             {
-                if (string.IsNullOrWhiteSpace(userName))
+                bool result = ClientManager.Instance.SignIn(idInput.Text, passwordInput.Text);
+
+                if (result == true)
                 {
-                    MessageBox.Show("이름에는 공백 문자가\n포함될 수 없습니다.", "알림");
-                    return;
+                    ClientManager.Instance.OnSignIn += OnSignIn;
+
+                    idInput.Clear();
+                    passwordInput.Clear();
                 }
-
-                //NetworkClientManager.Instance.Initialize(userName, "127.0.0.1", 9199,
-                //    delegate (string exitComment)
-                //    {
-                //        D3D9Manager.Instance.Exit();
-                //    });
-                //NetworkClientManager.Instance.ConnectToServer();
-
-                TextInputField input = sender as TextInputField;
-                input.Clear();
             };
+
         }
 
         public override void FrameUpdate()
@@ -68,6 +72,22 @@ namespace DirectXClient
         {
             D3D9Manager.Instance.FontDispose();
             D3D9Manager.Instance.TextureDispose();
+        }
+
+        public void OnSignIn(object sender, bool value)
+        {
+            if (value == true)
+            {
+                // 로그인 성공
+                SceneManager.Instance.ChangeScene("Lobby");
+            }
+            else
+            {
+                // 로그인 실패
+                MessageBox.Show("아이디와 비밀번호를 다시 확인해주세요.", "[!] Login Failed");
+            }
+
+            ClientManager.Instance.OnSignIn -= OnSignIn;
         }
     }
 }

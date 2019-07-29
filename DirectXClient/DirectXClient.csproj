@@ -85,10 +85,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Network\ChatClientManager.cs" />
-    <Compile Include="Network\ChattingPacket.cs" />
-    <Compile Include="Network\ChattingPacketTranslater.cs" />
-    <Compile Include="Network\ClientCallback.cs" />
     <Compile Include="D3D9ClientForm.cs" />
     <Compile Include="Objects\Button.cs" />
     <Compile Include="Objects\LobbyInterface.cs" />
@@ -113,6 +109,10 @@
     <ProjectReference Include="..\..\M-Network\M-Network\M-Network.csproj">
       <Project>{37a14c0c-1f2b-4415-9a22-eb49791e8d07}</Project>
       <Name>M-Network</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChattingNetwork\ChattingNetwork.csproj">
+      <Project>{8198975c-3c14-4757-ba8d-416af82fb223}</Project>
+      <Name>ChattingNetwork</Name>
     </ProjectReference>
     <ProjectReference Include="..\GameFramework\GameFramework.csproj">
       <Project>{23f1d9a0-4665-4f7d-bf0f-5b07da755494}</Project>

@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.28917.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFramework", "GameFramework\GameFramework.csproj", "{23F1D9A0-4665-4F7D-BF0F-5B07DA755494}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "class library", "class library", "{17BB49B5-2361-4C65-8487-7AABBB0B56A7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base Engines", "Base Engines", "{17BB49B5-2361-4C65-8487-7AABBB0B56A7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Executable", "Executable", "{2D075AA6-8857-4CBB-83CE-D0394A7A35A3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chatting Program Host", "Chatting Program Host", "{2D075AA6-8857-4CBB-83CE-D0394A7A35A3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectXClient", "DirectXClient\DirectXClient.csproj", "{DED08780-B667-4D83-A5A7-1703263E365C}"
 EndProject
@@ -16,6 +16,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinformServer", "WinformServer\WinformServer.csproj", "{5B52A41E-5465-477A-AD6E-073637CC5B29}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M-Network", "..\M-Network\M-Network\M-Network.csproj", "{37A14C0C-1F2B-4415-9A22-EB49791E8D07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Network Engine", "Network Engine", "{519754FB-F4FC-4684-AD4E-31133B7ADAD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChattingNetwork", "ChattingNetwork\ChattingNetwork.csproj", "{8198975C-3C14-4757-BA8D-416AF82FB223}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +47,10 @@ Global
 		{37A14C0C-1F2B-4415-9A22-EB49791E8D07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37A14C0C-1F2B-4415-9A22-EB49791E8D07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37A14C0C-1F2B-4415-9A22-EB49791E8D07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8198975C-3C14-4757-BA8D-416AF82FB223}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8198975C-3C14-4757-BA8D-416AF82FB223}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8198975C-3C14-4757-BA8D-416AF82FB223}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8198975C-3C14-4757-BA8D-416AF82FB223}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +61,7 @@ Global
 		{CCF9CFB6-7E76-40D7-8A1D-BB45355BAF42} = {2D075AA6-8857-4CBB-83CE-D0394A7A35A3}
 		{5B52A41E-5465-477A-AD6E-073637CC5B29} = {2D075AA6-8857-4CBB-83CE-D0394A7A35A3}
 		{37A14C0C-1F2B-4415-9A22-EB49791E8D07} = {17BB49B5-2361-4C65-8487-7AABBB0B56A7}
+		{8198975C-3C14-4757-BA8D-416AF82FB223} = {519754FB-F4FC-4684-AD4E-31133B7ADAD0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5281ECBB-6797-4052-9BD2-8004647C7909}

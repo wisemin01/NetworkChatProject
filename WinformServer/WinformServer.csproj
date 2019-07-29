@@ -61,9 +61,6 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Google.Protobuf, Version=3.8.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Protobuf.3.8.0\lib\net45\Google.Protobuf.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -77,11 +74,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChattingLogic\ChattingLogic.cs" />
-    <Compile Include="ChattingLogic\ChattingLogic.OnMessage.cs" />
-    <Compile Include="ChattingPacket.cs" />
-    <Compile Include="ChattingPacketTranslater.cs" />
-    <Compile Include="LoginHandler.cs" />
     <Compile Include="Winform\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,8 +111,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\M-Network\M-Network\M-Network.csproj">
-      <Project>{37a14c0c-1f2b-4415-9a22-eb49791e8d07}</Project>
+      <Project>{37A14C0C-1F2B-4415-9A22-EB49791E8D07}</Project>
       <Name>M-Network</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChattingNetwork\ChattingNetwork.csproj">
+      <Project>{8198975c-3c14-4757-ba8d-416af82fb223}</Project>
+      <Name>ChattingNetwork</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

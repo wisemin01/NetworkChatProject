@@ -37,6 +37,7 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
+            this.RefreshButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Connect
@@ -128,11 +129,22 @@
             this.textBox9.Size = new System.Drawing.Size(166, 18);
             this.textBox9.TabIndex = 10;
             // 
+            // Refresh
+            // 
+            this.RefreshButton.Location = new System.Drawing.Point(276, 93);
+            this.RefreshButton.Name = "Refresh";
+            this.RefreshButton.Size = new System.Drawing.Size(75, 23);
+            this.RefreshButton.TabIndex = 11;
+            this.RefreshButton.Text = "Refresh";
+            this.RefreshButton.UseVisualStyleBackColor = true;
+            this.RefreshButton.Click += new System.EventHandler(this.Refresh_Click);
+            // 
             // ClientGUIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(916, 425);
+            this.Controls.Add(this.RefreshButton);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
@@ -160,6 +172,7 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Button RefreshButton;
     }
 }
 

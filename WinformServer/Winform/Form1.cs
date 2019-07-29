@@ -3,30 +3,23 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Windows.Forms;
 
-using MNetwork;
-using MNetwork.Engine;
-using MNetwork.Logic;
-using MNetwork.Debuging;
-using MNetwork.Time;
+using ChattingNetwork.Server;
+using MNetwork.Utility;
 
 namespace ServerHost
 {
     public partial class ServerGUIForm : Form
     {
-        ChattingLogic logic;
-
         public ServerGUIForm()
         {
             InitializeComponent();
             FormClosed += OnFormClosing;
-
-            Debug.LogPath = $"./Log/Server[{Time.TimeLogYMD}].txt";
-            Debug.OnLog += Debug_OnLog;
+            ServerManager.Instance.AddDebuger(Debug_OnLog);
         }
 
         private void OnFormClosing(object sender, EventArgs e)
         {
-            Debug.Flush();
+            ServerManager.Instance.Stop();
         }
 
         private void Debug_OnLog(object sender, string e)
@@ -36,27 +29,14 @@ namespace ServerHost
 
         private void ServerStartButtonClick(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox3.Text))
-                return;
-            try
+            INIFile.Get("ip", out string ip, "./Data/serverinfo.ini", "SERVER");
+            INIFile.Get("port", out string port, "./Data/serverinfo.ini", "SERVER");
+
+            bool result = ServerManager.Instance.Start(ip, ushort.Parse(port));
+
+            if (result == true)
             {
-                int port = int.Parse(textBox2.Text);
-
-                logic = new ChattingLogic();
-
-                MEngine.Instance.Intialize(logic, new ChattingPacketTranslater());
-                MEngine.Instance.Start("127.0.0.1", 9199);
-
                 button1.Enabled = false;
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("입력 형식이 맞지 않습니다.", "Error");
-            }
-            catch (OverflowException ex)
-            {
-                MessageBox.Show("최대 입력 범위를 벗어났습니다.\n"
-                    + "Error Message : " + ex.Message, "Error");
             }
         }
         
@@ -64,7 +44,7 @@ namespace ServerHost
         {
             listBox2.Items.Clear();
 
-            var list = logic.NetworkLobby.FindRoom(listBox1.SelectedItem as string).PlayerList;
+            var list = ServerManager.Instance.Lobby.FindRoom(listBox1.SelectedItem as string).PlayerContainer;
 
             if (list == null)
                 return;

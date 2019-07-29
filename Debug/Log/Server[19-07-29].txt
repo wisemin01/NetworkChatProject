@@ -1,0 +1,221 @@
+[LOG]<Thread:1>[11:06:58] : ====================================================
+[LOG]<Thread:1>[11:06:58] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[11:06:58] : ====================================================
+[LOG]<Thread:3>[11:07:00] : ON CONNECT 1308
+[LOG]<Thread:3>[11:07:01] : ON DISCONNECT 1308
+[LOG]<Thread:3>[11:07:03] : ON CONNECT 1476
+[LOG]<Thread:3>[11:07:14] : ON DATA_PACKET INFO: SERIAL:1476
+[LOG]<Thread:3>[11:07:17] : ON CONNECT 1488
+[LOG]<Thread:3>[11:07:18] : ON DISCONNECT 1488
+[LOG]<Thread:3>[11:07:18] : ON DISCONNECT 1476
+[LOG]<Thread:1>[11:07:19] : ====================================================
+[LOG]<Thread:1>[11:07:19] :  * Server Shutdown * 
+[LOG]<Thread:1>[11:07:19] : ====================================================
+[LOG]<Thread:1>[12:02:54] : ====================================================
+[LOG]<Thread:1>[12:02:54] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[12:02:54] : ====================================================
+[LOG]<Thread:3>[12:02:59] : ON CONNECT 1356
+[LOG]<Thread:3>[12:03:07] : ON DATA_PACKET INFO: SERIAL:1356
+[LOG]<Thread:3>[12:03:21] : ON DATA_PACKET INFO: SERIAL:1356
+[LOG]<Thread:3>[12:03:24] : ON DATA_PACKET INFO: SERIAL:1356
+[LOG]<Thread:3>[12:03:28] : ON DISCONNECT 1356
+[LOG]<Thread:1>[12:03:30] : ====================================================
+[LOG]<Thread:1>[12:03:30] :  * Server Shutdown * 
+[LOG]<Thread:1>[12:03:30] : ====================================================
+[LOG]<Thread:1>[12:05:16] : ====================================================
+[LOG]<Thread:1>[12:05:16] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[12:05:16] : ====================================================
+[LOG]<Thread:3>[12:05:19] : ON CONNECT 1316
+[LOG]<Thread:3>[12:05:21] : ON DATA_PACKET INFO: SERIAL:1316
+[LOG]<Thread:3>[12:05:24] : ON DISCONNECT 1316
+[LOG]<Thread:1>[12:05:26] : ====================================================
+[LOG]<Thread:1>[12:05:26] :  * Server Shutdown * 
+[LOG]<Thread:1>[12:05:26] : ====================================================
+[LOG]<Thread:1>[12:13:07] : ====================================================
+[LOG]<Thread:1>[12:13:07] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[12:13:07] : ====================================================
+[LOG]<Thread:3>[12:13:11] : ON CONNECT 1232
+[LOG]<Thread:3>[12:13:17] : ON DATA_PACKET INFO: SERIAL:1232
+[LOG]<Thread:3>[12:13:35] : ON DATA_PACKET INFO: SERIAL:1232
+[LOG]<Thread:3>[12:13:43] : ON DATA_PACKET INFO: SERIAL:1232
+[LOG]<Thread:3>[12:13:46] : ON DATA_PACKET INFO: SERIAL:1232
+[LOG]<Thread:3>[12:13:48] : ON DISCONNECT 1232
+[LOG]<Thread:1>[12:13:48] : ====================================================
+[LOG]<Thread:1>[12:13:48] :  * Server Shutdown * 
+[LOG]<Thread:1>[12:13:48] : ====================================================
+[LOG]<Thread:1>[01:14:01] : ====================================================
+[LOG]<Thread:1>[01:14:01] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[01:14:01] : ====================================================
+[LOG]<Thread:3>[01:14:03] : ON CONNECT 1292
+[LOG]<Thread:3>[01:14:08] : ON DATA_PACKET INFO: SERIAL:1292
+[LOG]<Thread:3>[01:14:09] : ON DISCONNECT 1292
+[LOG]<Thread:1>[01:14:15] : ====================================================
+[LOG]<Thread:1>[01:14:15] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:14:15] : ====================================================
+[LOG]<Thread:1>[01:21:06] : ====================================================
+[LOG]<Thread:1>[01:21:06] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[01:21:06] : ====================================================
+[LOG]<Thread:3>[01:21:10] : ON CONNECT 1364
+[LOG]<Thread:3>[01:21:15] : ON DATA_PACKET INFO: SERIAL:1364
+[LOG]<Thread:3>[01:21:31] : ON DISCONNECT 1364
+[LOG]<Thread:1>[01:21:56] : ====================================================
+[LOG]<Thread:1>[01:21:56] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:21:56] : ====================================================
+[LOG]<Thread:1>[01:26:48] : ====================================================
+[LOG]<Thread:1>[01:26:48] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[01:26:48] : ====================================================
+[LOG]<Thread:3>[01:27:00] : ON CONNECT 1556
+[LOG]<Thread:3>[01:27:06] : ON DATA_PACKET INFO: SERIAL:1556
+[LOG]<Thread:3>[01:27:13] : ON DATA_PACKET INFO: SERIAL:1556
+[LOG]<Thread:3>[01:27:27] : ON DISCONNECT 1556
+[LOG]<Thread:1>[01:27:32] : ====================================================
+[LOG]<Thread:1>[01:27:32] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:27:32] : ====================================================
+[LOG]<Thread:1>[01:38:31] : ====================================================
+[LOG]<Thread:1>[01:38:31] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[01:38:31] : ====================================================
+[LOG]<Thread:1>[01:38:37] : ====================================================
+[LOG]<Thread:1>[01:38:37] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:38:37] : ====================================================
+[LOG]<Thread:1>[01:38:47] : ====================================================
+[LOG]<Thread:1>[01:38:47] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[01:38:47] : ====================================================
+[LOG]<Thread:1>[01:38:54] : ====================================================
+[LOG]<Thread:1>[01:38:54] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:38:54] : ====================================================
+[LOG]<Thread:1>[01:42:52] : ====================================================
+[LOG]<Thread:1>[01:42:52] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[01:42:52] : ====================================================
+[LOG]<Thread:3>[01:43:05] : ON CONNECT 1760
+[LOG]<Thread:3>[01:43:15] : ON DISCONNECT 1760
+[LOG]<Thread:1>[01:43:16] : ====================================================
+[LOG]<Thread:1>[01:43:16] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:43:16] : ====================================================
+[LOG]<Thread:1>[01:57:21] : ====================================================
+[LOG]<Thread:1>[01:57:21] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[01:57:21] : ====================================================
+[LOG]<Thread:3>[01:57:29] : ON CONNECT 1208
+[LOG]<Thread:3>[01:57:33] : ON DATA_PACKET INFO: SERIAL:1208
+[LOG]<Thread:3>[01:57:33] : ON DATA_PACKET INFO: SERIAL:1208
+[LOG]<Thread:3>[01:57:34] : ON DISCONNECT 1208
+[LOG]<Thread:1>[01:57:37] : ====================================================
+[LOG]<Thread:1>[01:57:37] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:57:37] : ====================================================
+[LOG]<Thread:1>[02:18:44] : ====================================================
+[LOG]<Thread:1>[02:18:44] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[02:18:44] : ====================================================
+[LOG]<Thread:1>[02:19:07] : ====================================================
+[LOG]<Thread:1>[02:19:07] :  * Server Shutdown * 
+[LOG]<Thread:1>[02:19:07] : ====================================================
+[LOG]<Thread:1>[02:27:04] : ====================================================
+[LOG]<Thread:1>[02:27:04] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[02:27:04] : ====================================================
+[LOG]<Thread:1>[02:27:31] : ====================================================
+[LOG]<Thread:1>[02:27:31] :  * Server Shutdown * 
+[LOG]<Thread:1>[02:27:31] : ====================================================
+[LOG]<Thread:1>[02:31:08] : ====================================================
+[LOG]<Thread:1>[02:31:08] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[02:31:08] : ====================================================
+[LOG]<Thread:3>[02:31:11] : ON CONNECT 1288
+[LOG]<Thread:3>[02:31:18] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:23] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:28] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:29] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:29] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:29] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:30] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:30] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:30] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:30] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:30] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:30] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:30] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:31] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:31] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:31] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:31] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:31] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:32] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:32] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:32] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[02:31:32] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:1>[02:31:58] : ====================================================
+[LOG]<Thread:1>[02:31:58] :  * Server Shutdown * 
+[LOG]<Thread:1>[02:31:58] : ====================================================
+[LOG]<Thread:1>[02:48:40] : ====================================================
+[LOG]<Thread:1>[02:48:40] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[02:48:40] : ====================================================
+[LOG]<Thread:3>[02:49:06] : ON CONNECT 1444
+[LOG]<Thread:3>[02:49:30] : ON DISCONNECT 1444
+[LOG]<Thread:1>[02:49:38] : ====================================================
+[LOG]<Thread:1>[02:49:38] :  * Server Shutdown * 
+[LOG]<Thread:1>[02:49:38] : ====================================================
+[LOG]<Thread:1>[02:57:14] : ====================================================
+[LOG]<Thread:1>[02:57:14] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[02:57:14] : ====================================================
+[LOG]<Thread:3>[02:57:20] : ON CONNECT 1324
+[LOG]<Thread:3>[02:57:32] : ON DISCONNECT 1324
+[LOG]<Thread:1>[02:57:37] : ====================================================
+[LOG]<Thread:1>[02:57:37] :  * Server Shutdown * 
+[LOG]<Thread:1>[02:57:37] : ====================================================
+[LOG]<Thread:1>[03:00:13] : ====================================================
+[LOG]<Thread:1>[03:00:13] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[03:00:13] : ====================================================
+[LOG]<Thread:3>[03:00:17] : ON CONNECT 1140
+[LOG]<Thread:3>[03:00:22] : ON DISCONNECT 1140
+[LOG]<Thread:3>[03:03:36] : ON CONNECT 1608
+[LOG]<Thread:3>[03:03:54] : ON DATA_PACKET INFO: SERIAL:1608
+[LOG]<Thread:1>[03:04:02] : ====================================================
+[LOG]<Thread:1>[03:04:02] :  * Server Shutdown * 
+[LOG]<Thread:1>[03:04:02] : ====================================================
+[LOG]<Thread:1>[03:08:05] : ====================================================
+[LOG]<Thread:1>[03:08:05] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[03:08:05] : ====================================================
+[LOG]<Thread:3>[03:08:18] : ON CONNECT 1436
+[LOG]<Thread:3>[03:08:30] : ON DATA_PACKET INFO: SERIAL:1436
+[LOG]<Thread:3>[03:08:34] : ON DATA_PACKET INFO: SERIAL:1436
+[LOG]<Thread:3>[03:08:37] : ON DATA_PACKET INFO: SERIAL:1436
+[LOG]<Thread:3>[03:08:44] : ON DATA_PACKET INFO: SERIAL:1436
+[LOG]<Thread:3>[03:08:45] : ON DATA_PACKET INFO: SERIAL:1436
+[LOG]<Thread:3>[03:08:45] : ON DATA_PACKET INFO: SERIAL:1436
+[LOG]<Thread:3>[03:08:45] : ON DATA_PACKET INFO: SERIAL:1436
+[LOG]<Thread:3>[03:08:45] : ON DATA_PACKET INFO: SERIAL:1436
+[LOG]<Thread:3>[03:08:45] : ON DATA_PACKET INFO: SERIAL:1436
+[LOG]<Thread:3>[03:08:45] : ON DATA_PACKET INFO: SERIAL:1436
+[LOG]<Thread:3>[03:08:45] : ON DATA_PACKET INFO: SERIAL:1436
+[LOG]<Thread:3>[03:08:46] : ON DATA_PACKET INFO: SERIAL:1436
+[LOG]<Thread:3>[03:08:46] : ON DATA_PACKET INFO: SERIAL:1436
+[LOG]<Thread:3>[03:08:50] : ON DISCONNECT 1436
+[LOG]<Thread:1>[03:08:59] : ====================================================
+[LOG]<Thread:1>[03:08:59] :  * Server Shutdown * 
+[LOG]<Thread:1>[03:08:59] : ====================================================
+[LOG]<Thread:1>[03:30:05] : ====================================================
+[LOG]<Thread:1>[03:30:05] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[03:30:05] : ====================================================
+[LOG]<Thread:3>[03:30:08] : ON CONNECT 1288
+[LOG]<Thread:3>[03:30:14] : ON DATA_PACKET INFO: SERIAL:1288
+[LOG]<Thread:3>[03:30:51] : ON DISCONNECT 1288
+[LOG]<Thread:3>[03:31:27] : ON CONNECT 1684
+[LOG]<Thread:3>[03:31:32] : ON DATA_PACKET INFO: SERIAL:1684
+[LOG]<Thread:3>[03:31:37] : ON DISCONNECT 1684
+[LOG]<Thread:3>[03:31:56] : ON CONNECT 1224
+[LOG]<Thread:3>[03:32:00] : ON DATA_PACKET INFO: SERIAL:1224
+[LOG]<Thread:3>[03:32:09] : ON DATA_PACKET INFO: SERIAL:1224
+[LOG]<Thread:3>[03:32:11] : ON DISCONNECT 1224
+[LOG]<Thread:1>[03:32:15] : ====================================================
+[LOG]<Thread:1>[03:32:15] :  * Server Shutdown * 
+[LOG]<Thread:1>[03:32:15] : ====================================================
+[LOG]<Thread:1>[03:32:22] : ====================================================
+[LOG]<Thread:1>[03:32:22] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[03:32:22] : ====================================================
+[LOG]<Thread:4>[03:32:25] : ON CONNECT 1364
+[LOG]<Thread:4>[03:32:30] : ON DATA_PACKET INFO: SERIAL:1364
+[LOG]<Thread:4>[03:32:33] : ON DISCONNECT 1364
+[LOG]<Thread:4>[03:34:17] : ON CONNECT 1560
+[LOG]<Thread:4>[03:34:19] : ON DATA_PACKET INFO: SERIAL:1560
+[LOG]<Thread:4>[03:34:28] : ON DISCONNECT 1560
+[LOG]<Thread:4>[03:35:03] : ON CONNECT 1604
+[LOG]<Thread:4>[03:35:06] : ON DISCONNECT 1604
+[LOG]<Thread:1>[03:39:42] : ====================================================
+[LOG]<Thread:1>[03:39:42] :  * Server Shutdown * 
+[LOG]<Thread:1>[03:39:42] : ====================================================

@@ -23,9 +23,22 @@ namespace DirectXClient
 
         public event EventHandler<string> OnEnter;
 
+        public string Text {
+            get
+            {
+                return inputString.ToString();
+            }
+            set
+            {
+                inputString.Clear();
+                inputString.Append(value);
+            }
+        }
+
         public TextInputField(string fontKey)
         {
             FontKey = fontKey;
+            IsSelected = false;
         }
 
         private void OnMouseClick(object sender, ClickChecker checker)
