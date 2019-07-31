@@ -32,7 +32,7 @@ namespace ChattingNetwork.Server
 
         public ServerManager()
         {
-            Debug.LogPath = $"./Log/Server[{Time.TimeLogYMD}].txt";
+            Debug.LogPath = $"./Log/Server[{Time.TimeLogYMD}].log";
         }
 
         ~ServerManager()

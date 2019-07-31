@@ -20,6 +20,9 @@ namespace DirectXClient
         public Color StringColor { get; set; } = Color.White;
         public RectCollider Range { get; set; } = null;
         public GameTexture FieldTexture { get; set; } = null;
+        public char? PasswordChar { get; set; } = null;
+
+        private string outputString = string.Empty;
 
         public event EventHandler<string> OnEnter;
 
@@ -81,6 +84,20 @@ namespace DirectXClient
 
         public override void FrameUpdate()
         {
+            if (PasswordChar != null)
+            {
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < inputString.Length; i++)
+                {
+                    builder.Append(PasswordChar);
+                }
+                outputString = builder.ToString();
+            }
+            else
+            {
+                outputString = inputString.ToString();
+            }
+
         }
 
         public override void FrameRender()
@@ -101,7 +118,7 @@ namespace DirectXClient
             }
 
             D3D9Manager.Instance.DrawFont(FontKey, fontDrawPosition,
-                inputString.ToString(), textColor);
+                outputString, textColor);
         }
 
         public override void Release()

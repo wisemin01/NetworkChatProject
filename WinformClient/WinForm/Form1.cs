@@ -40,6 +40,8 @@ namespace ClientHost
 
             ClientManager.Instance.Connect(ip, ushort.Parse(port));
             ClientManager.Instance.UpdateAsync();
+
+            Debug.Log("This client runs on a Windows Form");
         }
 
         private void SendButtonClick(object sender, EventArgs e)
@@ -76,10 +78,6 @@ namespace ClientHost
             }
             else
                 textBox1.AppendText(text + Environment.NewLine);
-        }
-
-        private void Refresh_Click(object sender, EventArgs e)
-        {
         }
     }
 }

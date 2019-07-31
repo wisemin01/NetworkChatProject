@@ -40,7 +40,7 @@ namespace ChattingNetwork.Client
 
         public ClientManager()
         {
-            Debug.LogPath = $"./Log/Client[{Time.TimeLogYMD}].txt";
+            Debug.LogPath = $"./Log/Client[{Time.TimeLogYMD}].log";
         }
 
         ~ClientManager()

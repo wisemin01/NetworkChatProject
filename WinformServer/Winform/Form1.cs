@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 using ChattingNetwork.Server;
 using MNetwork.Utility;
+using MNetwork.Debuging;
 
 namespace ServerHost
 {
@@ -98,6 +99,11 @@ namespace ServerHost
             {
                 ChattingList.AppendText(text + Environment.NewLine);
             }
+        }
+
+        private void ThreadCount_Click(object sender, EventArgs e)
+        {
+            Debug.Log($"THREAD COUNT : {System.Diagnostics.Process.GetCurrentProcess().Threads.Count}");
         }
     }
 }
