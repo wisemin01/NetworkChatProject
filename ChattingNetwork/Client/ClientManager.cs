@@ -113,7 +113,10 @@ namespace ChattingNetwork.Client
         {
             Task.Factory.StartNew(
                 delegate {
-                    Update();
+                    while (true)
+                    {
+                        Update();
+                    }
                 });
 
             return true;

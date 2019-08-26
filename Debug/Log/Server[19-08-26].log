@@ -228,3 +228,46 @@
 [LOG]<Thread:1>[10:13:39] : ====================================================
 [LOG]<Thread:1>[10:13:39] :  * Server Shutdown * 
 [LOG]<Thread:1>[10:13:39] : ====================================================
+[LOG]<Thread:1>[10:31:55] : ====================================================
+[LOG]<Thread:1>[10:31:55] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:31:55] : ====================================================
+[LOG]<Thread:3>[10:31:57] : S:[1288] Connected
+[LOG]<Thread:3>[10:32:02] : S:[1288] The login was successful. Name: TEST
+[LOG]<Thread:3>[10:32:12] : S:[1288] Room creation request. Room: [ASD] Result: [True]
+[LOG]<Thread:3>[10:32:23] : S:[1288] Request to join the room. Name: [] Room: [ASD] Result: [False]
+[LOG]<Thread:3>[10:32:29] : S:[1500] Connected
+[LOG]<Thread:1>[10:32:39] : ====================================================
+[LOG]<Thread:1>[10:32:39] :  * Server Shutdown * 
+[LOG]<Thread:1>[10:32:39] : ====================================================
+[LOG]<Thread:1>[10:36:26] : ====================================================
+[LOG]<Thread:1>[10:36:26] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:36:26] : ====================================================
+[LOG]<Thread:3>[10:36:30] : S:[1288] Connected
+[LOG]<Thread:3>[10:36:38] : S:[1288] The login was successful. Name: TEST
+[LOG]<Thread:3>[10:36:44] : S:[1288] Room creation request. Room: [A] Result: [True]
+[LOG]<Thread:3>[10:36:48] : S:[1288] Request to join the room. Name: [TEST] Room: [A] Result: [True]
+[LOG]<Thread:3>[10:36:54] : S:[1288] Chat: <[A][10:36:54] [TEST] : asd>
+[LOG]<Thread:3>[10:36:54] : S:[1288] Chat: <[A][10:36:54] [TEST] : asd>
+[LOG]<Thread:3>[10:36:54] : S:[1288] Chat: <[A][10:36:54] [TEST] : asd>
+[LOG]<Thread:3>[10:36:55] : S:[1288] Chat: <[A][10:36:55] [TEST] : asd>
+[LOG]<Thread:3>[10:36:58] : S:[1288] Chat: <[A][10:36:58] [TEST] : /Exit>
+[LOG]<Thread:3>[10:37:02] : S:[1288] Disconnected
+[LOG]<Thread:1>[10:38:12] : ====================================================
+[LOG]<Thread:1>[10:38:12] :  * Server Shutdown * 
+[LOG]<Thread:1>[10:38:12] : ====================================================
+[LOG]<Thread:1>[10:38:16] : ====================================================
+[LOG]<Thread:1>[10:38:16] :  * Server Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:38:16] : ====================================================
+[LOG]<Thread:3>[10:38:18] : S:[1288] Connected
+[LOG]<Thread:3>[10:38:23] : S:[1288] The login was successful. Name: TEST
+[LOG]<Thread:3>[10:38:28] : S:[1288] Room creation request. Room: [A] Result: [True]
+[LOG]<Thread:3>[10:38:33] : S:[1288] Request to join the room. Name: [TEST] Room: [A] Result: [True]
+[LOG]<Thread:3>[10:38:34] : S:[1288] Chat: <[A][10:38:34] [TEST] : /asd>
+[LOG]<Thread:3>[10:38:35] : S:[1288] Chat: <[A][10:38:35] [TEST] : asd>
+[LOG]<Thread:3>[10:38:39] : S:[1288] Chat: <[A][10:38:39] [TEST] : IN>
+[LOG]<Thread:3>[10:38:40] : S:[1288] Chat: <[A][10:38:40] [TEST] : ASHOI>
+[LOG]<Thread:3>[10:38:42] : S:[1288] Chat: <[A][10:38:42] [TEST] : sadf>
+[LOG]<Thread:3>[10:38:44] : S:[1288] Disconnected
+[LOG]<Thread:1>[10:38:47] : ====================================================
+[LOG]<Thread:1>[10:38:47] :  * Server Shutdown * 
+[LOG]<Thread:1>[10:38:47] : ====================================================

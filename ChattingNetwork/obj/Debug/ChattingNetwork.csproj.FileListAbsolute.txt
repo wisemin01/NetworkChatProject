@@ -5,7 +5,6 @@ D:\Programing project\[ 회사 과제 ]\NetworkChatProject\ChattingNetwork\bin\D
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\ChattingNetwork\bin\Debug\M-Network.dll
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\ChattingNetwork\bin\Debug\MySql.Data.dll
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\ChattingNetwork\bin\Debug\Renci.SshNet.dll
-D:\Programing project\[ 회사 과제 ]\NetworkChatProject\ChattingNetwork\bin\Debug\BouncyCastle.Crypto.dll
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\ChattingNetwork\bin\Debug\M-Network.pdb
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\ChattingNetwork\bin\Debug\M-Network.dll.config
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\ChattingNetwork\bin\Debug\Google.Protobuf.pdb

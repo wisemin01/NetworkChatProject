@@ -298,3 +298,45 @@
 [LOG]<Thread:1>[10:13:22] : Lobby 방 입장에 성공했습니다.
 [LOG]<Thread:1>[10:13:23] : c2 님이 방에 참가했습니다.
 [LOG]<Thread:1>[10:13:23] : Lobby 방 입장에 성공했습니다.
+[LOG]<Thread:1>[10:31:57] : ====================================================
+[LOG]<Thread:1>[10:31:57] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:31:57] : ====================================================
+[LOG]<Thread:1>[10:31:57] : Connecting to server...
+[LOG]<Thread:3>[10:31:57] : Connect Complate
+[LOG]<Thread:1>[10:31:57] : This client runs on a Windows Form
+[LOG]<Thread:1>[10:32:29] : ====================================================
+[LOG]<Thread:1>[10:32:29] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:32:29] : ====================================================
+[LOG]<Thread:1>[10:32:29] : Connecting to server...
+[LOG]<Thread:4>[10:32:29] : Connect Complate
+[LOG]<Thread:1>[10:32:29] : This client runs on a Windows Form
+[LOG]<Thread:6>[10:32:29] : TEST 님이 접속하셨습니다.
+[LOG]<Thread:6>[10:32:29] : 방 생성 성공
+[LOG]<Thread:6>[10:32:29] : ASD 방 입장에 실패했습니다.
+[LOG]<Thread:1>[10:38:18] : ====================================================
+[LOG]<Thread:1>[10:38:18] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:38:18] : ====================================================
+[LOG]<Thread:1>[10:38:18] : Connecting to server...
+[LOG]<Thread:3>[10:38:18] : Connect Complate
+[LOG]<Thread:1>[10:38:18] : This client runs on a Windows Form
+[LOG]<Thread:5>[10:38:24] : TEST 님이 접속하셨습니다.
+[LOG]<Thread:5>[10:38:28] : 방 생성 성공
+[LOG]<Thread:5>[10:38:33] : TEST 님이 방에 참가했습니다.
+[LOG]<Thread:5>[10:38:33] : A 방 입장에 성공했습니다.
+[LOG]<Thread:5>[10:38:34] : [10:38:34] [TEST] : /asd
+[LOG]<Thread:5>[10:38:35] : [10:38:35] [TEST] : asd
+[LOG]<Thread:5>[10:38:39] : [10:38:39] [TEST] : IN
+[LOG]<Thread:5>[10:38:40] : [10:38:40] [TEST] : ASHOI
+[LOG]<Thread:5>[10:38:42] : [10:38:42] [TEST] : sadf
+[LOG]<Thread:1>[10:47:45] : ====================================================
+[LOG]<Thread:1>[10:47:45] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:47:45] : ====================================================
+[LOG]<Thread:1>[10:47:45] : Connecting to server...
+[LOG]<Thread:1>[10:47:45] : This client runs on a Direct X client.
+[LOG]<Thread:3>[10:47:46] : Connect Failed
+[LOG]<Thread:1>[10:49:08] : ====================================================
+[LOG]<Thread:1>[10:49:08] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:49:08] : ====================================================
+[LOG]<Thread:1>[10:49:08] : Connecting to server...
+[LOG]<Thread:1>[10:49:08] : This client runs on a Direct X client.
+[LOG]<Thread:3>[10:49:09] : Connect Failed

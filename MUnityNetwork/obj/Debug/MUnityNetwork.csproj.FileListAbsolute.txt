@@ -1,2 +1,9 @@
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\MUnityNetwork\obj\Debug\MUnityNetwork.csprojAssemblyReference.cache
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\MUnityNetwork\obj\Debug\MUnityNetwork.csproj.CoreCompileInputs.cache
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\MUnityNetwork\bin\Debug\MUnityNetwork.dll
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\MUnityNetwork\bin\Debug\MUnityNetwork.pdb
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\MUnityNetwork\bin\Debug\UnityEngine.dll
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\MUnityNetwork\bin\Debug\UnityEngine.xml
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\MUnityNetwork\obj\Debug\MUnityNetwork.csproj.CopyComplete
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\MUnityNetwork\obj\Debug\MUnityNetwork.dll
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\MUnityNetwork\obj\Debug\MUnityNetwork.pdb
