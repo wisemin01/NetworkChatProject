@@ -8,9 +8,10 @@ using MNetwork.Logic;
 using MNetwork.Engine;
 using MNetwork.Packet;
 using MNetwork.Time;
+using MNetwork.Debuging;
+using MNetwork.Rooms;
 
 using ChattingPacket;
-using MNetwork.Rooms;
 
 namespace ChattingNetwork.Server
 {
@@ -55,7 +56,7 @@ namespace ChattingNetwork.Server
                         // 이미 해당 닉네임을 가진 유저가 접속중임을 처리
 
                         send.Success = false;
-                        send.Context = "해당 아이디는 이미 다른 컴퓨터에서 사용 중입니다.";
+                        send.Context = "해당 아이디는 이미 다른\n컴퓨터에서 사용 중입니다.";
                     }
                     else
                     {
@@ -73,6 +74,15 @@ namespace ChattingNetwork.Server
                 }
             }
 
+            if (send.Success == true)
+            {
+                Debug.Log($"S:[{packet.Serial}] The login was successful. Name: {player.UserName}");
+            }
+            else
+            {
+                Debug.Log($"S:[{packet.Serial}] Login failed. Name: {player.UserName}");
+            }
+
             SendPacket(new ProtobufPacket<LoginAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.LoginAnswer, send));
         }
@@ -82,11 +92,23 @@ namespace ChattingNetwork.Server
             JoinRoomRequestPacket request = packet.ProtobufMessage;
             JoinRoomAnswerPacket send = new JoinRoomAnswerPacket();
 
-            bool result = NetworkLobby.JoinRoom(request.RoomName, request.UserName);
+            bool result = NetworkLobby.JoinRoom(request.RoomName, request.UserName, out MNetworkRoom room);
 
             // Packet Data Set
             send.Success = result;
             send.RoomName = request.RoomName;
+
+            Debug.Log($"S:[{packet.Serial}] Request to join the room. Name: [{request.UserName}] Room: [{request.RoomName}] Result: [{send.Success}]");
+
+            if (result == true)
+            {
+                ChattingAnswerPacket joinMessage = new ChattingAnswerPacket();
+
+                joinMessage.Text = $"{request.UserName} 님이 방에 참가했습니다.";
+
+                SendPacket(new ProtobufPacket<ChattingAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
+                    (int)MessageType.ChattingAnswer, joinMessage), room.SerialList);
+            }
 
             SendPacket(new ProtobufPacket<JoinRoomAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.JoinRoomAnswer, send));
@@ -99,6 +121,30 @@ namespace ChattingNetwork.Server
 
             // Packet Data Set
 
+            MNetworkRoom targetRoom = NetworkLobby.FindRoom(request.RoomName);
+            MNetworkPlayer targetPlayer = NetworkLobby.FindPlayer(request.UserName);
+
+            bool result = NetworkLobby.ExitFromRoom(targetRoom, targetPlayer);
+
+            send.Success = result;
+
+            Debug.Log($"S:[{packet.Serial}] Room exit request. Name: [{request.UserName}] Room: [{request.RoomName}] Result: [{send.Success}]");
+
+            if (targetRoom.PlayerCount == 0)
+            {
+                NetworkLobby.DeleteRoom(request.RoomName);
+                Debug.Log($"Room deleted. Room: [{request.RoomName}]");
+            }
+            else
+            {
+                ChattingAnswerPacket exitMessage = new ChattingAnswerPacket();
+
+                exitMessage.Text = $"{targetPlayer.UserName} 님이 방에서 나갔습니다.";
+
+                SendPacket(new ProtobufPacket<ChattingAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
+                    (int)MessageType.ChattingAnswer, exitMessage), targetRoom.SerialList);
+            }
+
             SendPacket(new ProtobufPacket<ExitRoomAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.ExitRoomAnswer, send));
         }
@@ -110,8 +156,10 @@ namespace ChattingNetwork.Server
 
             // Packet Data Set
             bool success = NetworkLobby.AddRoom(request.RoomName, new MNetwork.Rooms.MNetworkRoom(request.RoomName));
-
+            
             send.Success = success;
+
+            Debug.Log($"S:[{packet.Serial}] Room creation request. Room: [{request.RoomName}] Result: [{send.Success}]");
 
             SendPacket(new ProtobufPacket<CreateRoomAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.CreateRoomAnswer, send));
@@ -123,6 +171,13 @@ namespace ChattingNetwork.Server
             RoomListAnswerPacket send = new RoomListAnswerPacket();
 
             // Packet Data Set
+
+            foreach(var iter in NetworkLobby.GetAllRoomNames())
+            {
+                send.RoomNames.Add(iter);
+            }
+
+            Debug.Log($"S:[{packet.Serial}] Room list return request.");
 
             SendPacket(new ProtobufPacket<RoomListAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.RoomListAnswer, send));
@@ -143,6 +198,8 @@ namespace ChattingNetwork.Server
             send.Sender = request.Sender;
             send.Text = $"From {request.Sender} : {request.Text}";
 
+            Debug.Log($"S:[{packet.Serial}] Whisper Send Request. SENDER: [{request.Sender}] LISTENER: [{listener.UserName}]");
+
             SendPacket(new ProtobufPacket<WhisperAnswerPacket>(listener.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.WhisperAnswer, send));
         }
@@ -158,6 +215,8 @@ namespace ChattingNetwork.Server
 
             send.Success = success;
             send.Context = context;
+
+            Debug.Log($"S:[{packet.Serial}] User registration (Sign Up). Result: [{success}]]");
 
             SendPacket(new ProtobufPacket<SignUpAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.SignUpAnswer, send));
@@ -181,6 +240,8 @@ namespace ChattingNetwork.Server
                 return;
 
             send.Text = $"[{Time.TimeLogHMS}] [{request.Sender}] : {request.Text}";
+
+            Debug.Log($"S:[{packet.Serial}] Chat: <[{sender.RoomKey}]{send.Text}>");
 
             SendPacket(new ProtobufPacket<ChattingAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.ChattingAnswer, send), room.SerialList);

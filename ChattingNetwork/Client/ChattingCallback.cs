@@ -10,20 +10,35 @@ namespace ChattingNetwork.Client
 {
     internal class ChattingCallback : NetworkCallback
     {
-        public event EventHandler<bool> OnSignIn;
+        public event EventHandler<Tuple<string,bool>> OnSignIn;
         public event EventHandler<bool> OnSignUp;
         public event EventHandler<string> OnChatting;
-        public event EventHandler<bool> OnJoinRoom;
+        public event EventHandler<Tuple<string, bool>> OnJoinRoom;
         public event EventHandler<bool> OnExitRoom;
         public event EventHandler<bool> OnCreateRoom;
         public event EventHandler<List<string>> OnRoomListRefresh;
         public event EventHandler<string> OnWhisper;
 
+        public event EventHandler<bool> OnConnect;
+        public event EventHandler OnDisconnect;
+
+        public override void HandleConnect(bool success)
+        {
+            base.HandleConnect(success);
+
+            OnConnect?.Invoke(this, success);
+        }
+
+        public override void HandleDisconnect()
+        {
+            base.HandleDisconnect();
+
+            OnDisconnect?.Invoke(this, EventArgs.Empty);
+        }
+
         public override bool HandleNetworkMessage(BasePacket packet)
         {
-            PacketHeader header = PacketHeader.ParseFrom(packet.Buffer);
-
-            MessageType type = (MessageType)header.packetType;
+            MessageType type = (MessageType)packet.Type;
 
             switch (type)
             {
@@ -71,19 +86,19 @@ namespace ChattingNetwork.Client
             {
                 Debug.Log($"로그인 실패. [사유 : {answer.Context}]");
             }
-
-            OnSignIn?.Invoke(this, answer.Success);
+        
+            OnSignIn?.Invoke(this, new Tuple<string, bool>(answer.Context, answer.Success));
         }
 
         public void OnJoinRoomAnswer(ProtobufPacket<JoinRoomAnswerPacket> packet)
         {
             JoinRoomAnswerPacket answer = packet.ProtobufMessage;
-
+            
             string s = answer.Success ? "성공했습니다." : "실패했습니다.";
 
             Debug.Log($"{answer.RoomName} 방 입장에 {s}");
 
-            OnJoinRoom?.Invoke(this, answer.Success);
+            OnJoinRoom?.Invoke(this, new Tuple<string, bool>(answer.RoomName, answer.Success));
         }
 
         public void OnExitRoomAnswer(ProtobufPacket<ExitRoomAnswerPacket> packet)

@@ -24,7 +24,7 @@ namespace DirectXClient
             /// </summary>
             idInput = new TextInputField("InputField");
 
-            idInput.Position = new Vector3(ClientWindow.Width / 2, 200, 0);
+            idInput.Position = new Vector3(705, 177, 0);
             idInput.FieldTexture = D3D9Manager.Instance.FindTexture("NameInput");
             idInput.MaxLength = 15;
             idInput.StringColor = new Color(127, 127, 127);
@@ -36,7 +36,7 @@ namespace DirectXClient
             /// </summary>
             passwordInput = new TextInputField("InputField");
 
-            passwordInput.Position = new Vector3(ClientWindow.Width / 2, 275, 0);
+            passwordInput.Position = new Vector3(705, 241, 0);
             passwordInput.FieldTexture = D3D9Manager.Instance.FindTexture("NameInput");
             passwordInput.MaxLength = 15;
             passwordInput.StringColor = new Color(127, 127, 127);
@@ -48,7 +48,7 @@ namespace DirectXClient
             /// </summary>
             userNameInput = new TextInputField("InputField");
 
-            userNameInput.Position = new Vector3(ClientWindow.Width / 2, 350, 0);
+            userNameInput.Position = new Vector3(705, 305, 0);
             userNameInput.FieldTexture = D3D9Manager.Instance.FindTexture("NameInput");
             userNameInput.MaxLength = 15;
             userNameInput.StringColor = new Color(127, 127, 127);
@@ -61,7 +61,7 @@ namespace DirectXClient
             signUpButton = new Button();
 
             signUpButton.ButtonTexture = D3D9Manager.Instance.FindTexture("SignupButton");
-            signUpButton.Position = new Vector3(ClientWindow.Width / 2, 450, 0);
+            signUpButton.Position = new Vector3(637, 381, 0);
             signUpButton.Scale = new Vector3(1.0f, 1.0f, 1.0f);
             signUpButton.IsMouseOverResize = true;
             signUpButton.OnButtonClick += SignUpButton_OnClick;
@@ -72,16 +72,26 @@ namespace DirectXClient
             /// </summary>
             toSignInButton = new Button();
 
-            toSignInButton.ButtonTexture = D3D9Manager.Instance.FindTexture("SigninButton");
-            toSignInButton.Position = new Vector3(100, 100, 0);
+            toSignInButton.ButtonTexture = D3D9Manager.Instance.FindTexture("BackButton");
+            toSignInButton.Position = new Vector3(48, 48, 0);
             toSignInButton.Scale = new Vector3(1.0f, 1.0f, 1.0f);
             toSignInButton.IsMouseOverResize = true;
             toSignInButton.OnButtonClick += ToSignInButton_OnClick;
+
+            /// <summary>
+            /// signUpButton UI Resource Initialize
+            /// </summary>
+            background = new TextureObject();
+
+            background.Position = new Vector3(ClientWindow.Width / 2, ClientWindow.Height / 2, 0);
+            background.Scale = new Vector3(1, 1, 1);
+            background.Texture = D3D9Manager.Instance.FindTexture("Background");
 
 
             /// <summary>
             /// Add To GameObject Manager
             /// </summary>
+            GameObjectManager.Instance.AddObject(background);
             GameObjectManager.Instance.AddObject(idInput);
             GameObjectManager.Instance.AddObject(passwordInput);
             GameObjectManager.Instance.AddObject(userNameInput);
@@ -99,12 +109,14 @@ namespace DirectXClient
             userNameInput = null;
             signUpButton = null;
             toSignInButton = null;
+            background = null;
         }
 
-        private TextInputField  idInput = null;
-        private TextInputField  passwordInput = null;
-        private TextInputField  userNameInput = null;
-        private Button          signUpButton = null;
-        private Button          toSignInButton = null;
+        private TextInputField idInput = null;
+        private TextInputField passwordInput = null;
+        private TextInputField userNameInput = null;
+        private Button signUpButton = null;
+        private Button toSignInButton = null;
+        private TextureObject background = null;
     }
 }

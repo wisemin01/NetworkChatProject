@@ -10,8 +10,8 @@ namespace GameFramework.Manager
     using D3D9 = SharpDX.Direct3D9;
     public partial class D3D9Manager
     {
-        private Dictionary<string, D3D9.Font> fonts = new Dictionary<string, D3D9.Font>();
-        private Dictionary<string, GameTexture> textures = new Dictionary<string, GameTexture>();
+        private readonly Dictionary<string, D3D9.Font> fonts = new Dictionary<string, D3D9.Font>();
+        private readonly Dictionary<string, GameTexture> textures = new Dictionary<string, GameTexture>();
 
         public void CreateFont(string key, string faceName, int size, bool isItalic)
         {
@@ -65,38 +65,29 @@ namespace GameFramework.Manager
 
         public void DrawFont(string fontKey, Vector3 position, string text, Color color)
         {
+            if (string.IsNullOrEmpty(text))
+                return;
+
             D3D9.Font d3dFont = fonts[fontKey];
 
             if (d3dFont != null)
             {
-                try
-                {
-                    d3d9Sprite.Transform = Matrix.Identity;
-                    d3dFont.DrawText(d3d9Sprite, text, (int)position.X, (int)position.Y, color);
-                }
-                catch (SharpDXException)
-                {
-
-                }
+                d3d9Sprite.Transform = Matrix.Identity;
+                d3dFont.DrawText(d3d9Sprite, text, (int)position.X, (int)position.Y, color);
             }
         }
 
         public void DrawFont_NotSetTransform(string fontKey, Vector3 position, string text, Color color)
         {
-            try
+            if (string.IsNullOrEmpty(text))
+                return;
+
+            D3D9.Font d3dFont = fonts[fontKey];
+
+            if (d3dFont != null)
             {
-                D3D9.Font d3dFont = fonts[fontKey];
-
-                if (d3dFont != null)
-                {
-                    d3dFont.DrawText(d3d9Sprite, text, (int)position.X, (int)position.Y, color);
-                }
+                d3dFont.DrawText(d3d9Sprite, text, (int)position.X, (int)position.Y, color);
             }
-            catch (Exception)
-            {
-
-            }
-
         }
 
         public void DrawTexture(GameTexture texture,

@@ -27,6 +27,8 @@ namespace DirectXClient
             D3D9Manager.Instance.CreateTexture("SigninButton", "./Resource/SigninButton.png");
             D3D9Manager.Instance.CreateTexture("SignupButton", "./Resource/SignupButton.png");
             D3D9Manager.Instance.CreateTexture("NameInput", "./Resource/NameInput.png");
+            D3D9Manager.Instance.CreateTexture("BackButton", "./Resource/BackButton.png");
+            D3D9Manager.Instance.CreateTexture("Background", "./Resource/Background2.png");
 
             D3D9Manager.Instance.CreateFont("InputField", "메이플스토리 Light", 35, false);
 

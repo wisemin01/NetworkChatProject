@@ -11,6 +11,8 @@ namespace DirectXClient
         private readonly object listLock = new object();
         private readonly string fontName = string.Empty;
 
+        public int renderTop { get; set; } = 200;
+
         public Vector3 Position { get; set; } = new Vector3(0, 0, 0);
 
         List<Tuple<string, Color>> list = new List<Tuple<string, Color>>();
@@ -21,6 +23,10 @@ namespace DirectXClient
         {
             this.TextDepth = textDepth;
             this.Position = position;
+            this.fontName = fontName;
+        }
+        public TextList(string fontName)
+        {
             this.fontName = fontName;
         }
 
@@ -68,7 +74,7 @@ namespace DirectXClient
 
                 foreach (Tuple<string, Color> Iter in list)
                 {
-                    if (yIndex < 0)
+                    if (yIndex < renderTop)
                     {
                         yIndex += TextDepth;
                         continue;

@@ -91,18 +91,28 @@
     <Compile Include="Objects\MessageBox.cs" />
     <Compile Include="Objects\NetworkRoomListViewer.cs" />
     <Compile Include="Objects\NetworkRoomTitle.cs" />
-    <Compile Include="Objects\SceneObserver.cs" />
+    <Compile Include="Objects\TextBox.cs" />
     <Compile Include="Objects\TextInputField.cs" />
     <Compile Include="Objects\TextList.cs" />
     <Compile Include="Objects\TextureObject.cs" />
     <Compile Include="Scenes\Chat\ChatScene.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scenes\Chat\ChatScene.Designer.cs">
+      <DependentUpon>ChatScene.cs</DependentUpon>
+    </Compile>
     <Compile Include="Scenes\Lobby\LobbyScene.cs" />
-    <Compile Include="Scenes\Sign In\SignInScene.Designer.cs" />
+    <Compile Include="Scenes\Lobby\LobbyScene.Designer.cs">
+      <DependentUpon>LobbyScene.cs</DependentUpon>
+    </Compile>
     <Compile Include="Scenes\Sign In\SignInScene.cs" />
-    <Compile Include="Scenes\Sign Up\SignUpScene.Designer.cs" />
+    <Compile Include="Scenes\Sign In\SignInScene.Designer.cs">
+      <DependentUpon>SignInScene.cs</DependentUpon>
+    </Compile>
     <Compile Include="Scenes\Sign Up\SignUpScene.cs" />
+    <Compile Include="Scenes\Sign Up\SignUpScene.Designer.cs">
+      <DependentUpon>SignUpScene.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

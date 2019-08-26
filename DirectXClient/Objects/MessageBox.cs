@@ -20,6 +20,8 @@ namespace DirectXClient
         public string FontKey { get; set; } = string.Empty;
         public Color StringColor { get; set; } = Color.White;
 
+        public event EventHandler OnClosing;
+
         public MessageBox(string text)
         {
             Text = text;
@@ -49,9 +51,15 @@ namespace DirectXClient
                 IsAllowDuplicateClick = true
             };
             quitButton.Initialize();
+            quitButton.OnButtonClick += QuitButton_OnButtonClick;
 
             D3D9Manager.Instance.OnMouseClickToMessageBoxEvent += quitButton.OnClick;
             quitButton.OnButtonClick += OnQuitButtonClick;
+        }
+
+        private void QuitButton_OnButtonClick(object sender, EventArgs e)
+        {
+            OnClosing?.Invoke(this, e);
         }
 
         public override void FrameUpdate()
@@ -93,14 +101,14 @@ namespace DirectXClient
             }
         }
 
-        public static void Show(string text, string caption)
+        public static MessageBox Show(string text, string caption)
         {
-            GameObjectManager.Instance.AddMessageBox(new MessageBox(text, caption)
+            return GameObjectManager.Instance.AddMessageBox(new MessageBox(text, caption)
             {
                 FontKey = "Default",
                 Position = new Vector3(ClientWindow.Width / 2, ClientWindow.Height / 2, 0),
                 StringColor = new Color(125, 125, 125)
-            });
+            }) as MessageBox;
         }
     }
 }

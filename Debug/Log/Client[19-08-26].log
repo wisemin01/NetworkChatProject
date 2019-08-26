@@ -1,0 +1,300 @@
+[LOG]<Thread:1>[08:52:59] : ====================================================
+[LOG]<Thread:1>[08:52:59] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[08:52:59] : ====================================================
+[LOG]<Thread:1>[08:52:59] : Connecting to server...
+[LOG]<Thread:1>[08:52:59] : This client runs on a Direct X client.
+[LOG]<Thread:3>[08:53:00] : Connect Failed
+[LOG]<Thread:1>[08:59:51] : ====================================================
+[LOG]<Thread:1>[08:59:51] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[08:59:51] : ====================================================
+[LOG]<Thread:1>[08:59:51] : Connecting to server...
+[LOG]<Thread:1>[08:59:51] : This client runs on a Direct X client.
+[LOG]<Thread:3>[08:59:52] : Connect Failed
+[LOG]<Thread:1>[08:59:56] : ====================================================
+[LOG]<Thread:1>[08:59:56] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[08:59:56] : ====================================================
+[LOG]<Thread:1>[08:59:56] : Connecting to server...
+[LOG]<Thread:1>[08:59:56] : This client runs on a Direct X client.
+[LOG]<Thread:3>[08:59:57] : Connect Failed
+[LOG]<Thread:1>[09:00:24] : ====================================================
+[LOG]<Thread:1>[09:00:24] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[09:00:24] : ====================================================
+[LOG]<Thread:1>[09:00:24] : Connecting to server...
+[LOG]<Thread:1>[09:00:24] : This client runs on a Direct X client.
+[LOG]<Thread:3>[09:00:25] : Connect Failed
+[LOG]<Thread:1>[09:00:54] : ====================================================
+[LOG]<Thread:1>[09:00:54] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[09:00:54] : ====================================================
+[LOG]<Thread:1>[09:00:54] : Connecting to server...
+[LOG]<Thread:1>[09:00:54] : This client runs on a Direct X client.
+[LOG]<Thread:3>[09:00:54] : Connect Complate
+[LOG]<Thread:1>[09:00:59] : TEST 님이 접속하셨습니다.
+[LOG]<Thread:1>[09:01:06] : * 공개 방 [1] 방 입장에 성공했습니다.
+[LOG]<Thread:1>[09:01:07] : Lobby 방 입장에 실패했습니다.
+[LOG]<Thread:1>[09:01:08] : * 공개 방 [5] 방 입장에 성공했습니다.
+[LOG]<Thread:1>[09:01:09] : Lobby 방 입장에 실패했습니다.
+[LOG]<Thread:1>[09:01:13] : 방 생성 성공
+[LOG]<Thread:1>[09:01:13] : Room1 방 입장에 성공했습니다.
+[LOG]<Thread:1>[09:01:16] : Lobby 방 입장에 실패했습니다.
+[LOG]<Thread:1>[09:01:37] : ====================================================
+[LOG]<Thread:1>[09:01:37] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[09:01:37] : ====================================================
+[LOG]<Thread:1>[09:01:37] : Connecting to server...
+[LOG]<Thread:1>[09:01:37] : This client runs on a Direct X client.
+[LOG]<Thread:3>[09:01:37] : Connect Complate
+[LOG]<Thread:1>[09:01:45] : TEST 님이 접속하셨습니다.
+[LOG]<Thread:1>[09:01:49] : * 공개 방 [1] 방 입장에 성공했습니다.
+[LOG]<Thread:1>[09:01:53] : Lobby 방 입장에 실패했습니다.
+[LOG]<Thread:1>[09:21:53] : ====================================================
+[LOG]<Thread:1>[09:21:53] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[09:21:53] : ====================================================
+[LOG]<Thread:1>[09:21:53] : Connecting to server...
+[LOG]<Thread:1>[09:21:53] : This client runs on a Direct X client.
+[LOG]<Thread:3>[09:21:54] : Connect Failed
+[LOG]<Thread:1>[09:31:31] : ====================================================
+[LOG]<Thread:1>[09:31:31] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[09:31:31] : ====================================================
+[LOG]<Thread:1>[09:31:31] : Connecting to server...
+[LOG]<Thread:1>[09:31:31] : This client runs on a Direct X client.
+[LOG]<Thread:3>[09:31:31] : Connect Complate
+[LOG]<Thread:1>[09:31:39] : TEST 님이 접속하셨습니다.
+[LOG]<Thread:1>[09:31:45] : 방 생성 성공
+[LOG]<Thread:1>[09:31:45] : asd 방 입장에 성공했습니다.
+[LOG]<Thread:1>[09:46:47] : ====================================================
+[LOG]<Thread:1>[09:46:47] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[09:46:47] : ====================================================
+[LOG]<Thread:1>[09:46:47] : Connecting to server...
+[LOG]<Thread:1>[09:46:47] : This client runs on a Direct X client.
+[LOG]<Thread:3>[09:46:47] : Connect Complate
+[LOG]<Thread:1>[09:46:54] : TEST2 님이 접속하셨습니다.
+[LOG]<Thread:1>[09:47:02] : IN 방 입장에 성공했습니다.
+[LOG]<Thread:1>[09:47:13] : [09:47:13] [TEST2] : HI
+[LOG]<Thread:1>[09:47:20] : [09:47:20] [TEST] : HI
+[LOG]<Thread:1>[09:47:23] : [09:47:23] [TEST] : HI
+[LOG]<Thread:1>[09:47:27] : [09:47:27] [TEST] : HIHI
+[LOG]<Thread:1>[09:47:32] : [09:47:32] [TEST] : HIHI
+[LOG]<Thread:1>[09:47:36] : [09:47:36] [TEST2] : ASDSD
+[LOG]<Thread:1>[09:47:42] : [09:47:42] [TEST2] : ASDFSD
+[LOG]<Thread:1>[09:47:44] : [09:47:44] [TEST2] : ASD
+[LOG]<Thread:1>[09:47:46] : [09:47:46] [TEST2] : asd
+[LOG]<Thread:1>[09:47:47] : [09:47:47] [TEST2] :  
+[LOG]<Thread:1>[09:47:48] : [09:47:48] [TEST2] :  
+[LOG]<Thread:1>[09:47:48] : [09:47:48] [TEST2] :  
+[LOG]<Thread:1>[09:47:53] : [09:47:53] [TEST2] :  
+[LOG]<Thread:1>[09:47:55] : [09:47:55] [TEST] : What
+[LOG]<Thread:1>[09:47:58] : [09:47:58] [TEST] :  
+[LOG]<Thread:1>[09:48:00] : Lobby 방 입장에 실패했습니다.
+[LOG]<Thread:1>[09:45:04] : ====================================================
+[LOG]<Thread:1>[09:45:04] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[09:45:04] : ====================================================
+[LOG]<Thread:1>[09:45:04] : Connecting to server...
+[LOG]<Thread:1>[09:45:04] : This client runs on a Direct X client.
+[LOG]<Thread:3>[09:45:04] : Connect Complate
+[LOG]<Thread:1>[09:45:14] : TEST 님이 접속하셨습니다.
+[LOG]<Thread:1>[09:45:24] : 방 생성 성공
+[LOG]<Thread:1>[09:45:24] : NEW ROOM 방 입장에 성공했습니다.
+[LOG]<Thread:1>[09:45:36] : [09:45:36] [TEST] : HI
+[LOG]<Thread:1>[09:45:47] : [09:45:47] [TEST] : HI HELLO
+[LOG]<Thread:1>[09:45:52] : Lobby 방 입장에 실패했습니다.
+[LOG]<Thread:1>[09:46:32] : 방 생성 성공
+[LOG]<Thread:1>[09:46:32] : IN 방 입장에 성공했습니다.
+[LOG]<Thread:1>[09:47:13] : [09:47:13] [TEST2] : HI
+[LOG]<Thread:1>[09:47:20] : [09:47:20] [TEST] : HI
+[LOG]<Thread:1>[09:47:23] : [09:47:23] [TEST] : HI
+[LOG]<Thread:1>[09:47:27] : [09:47:27] [TEST] : HIHI
+[LOG]<Thread:1>[09:47:32] : [09:47:32] [TEST] : HIHI
+[LOG]<Thread:1>[09:47:36] : [09:47:36] [TEST2] : ASDSD
+[LOG]<Thread:1>[09:47:42] : [09:47:42] [TEST2] : ASDFSD
+[LOG]<Thread:1>[09:47:44] : [09:47:44] [TEST2] : ASD
+[LOG]<Thread:1>[09:47:46] : [09:47:46] [TEST2] : asd
+[LOG]<Thread:1>[09:47:47] : [09:47:47] [TEST2] :  
+[LOG]<Thread:1>[09:47:48] : [09:47:48] [TEST2] :  
+[LOG]<Thread:1>[09:47:48] : [09:47:48] [TEST2] :  
+[LOG]<Thread:1>[09:47:53] : [09:47:53] [TEST2] :  
+[LOG]<Thread:1>[09:47:55] : [09:47:55] [TEST] : What
+[LOG]<Thread:1>[09:47:58] : [09:47:58] [TEST] :  
+[LOG]<Thread:1>[09:47:58] : Lobby 방 입장에 실패했습니다.
+[LOG]<Thread:1>[09:55:17] : ====================================================
+[LOG]<Thread:1>[09:55:17] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[09:55:17] : ====================================================
+[LOG]<Thread:1>[09:55:17] : Connecting to server...
+[LOG]<Thread:1>[09:55:17] : This client runs on a Direct X client.
+[LOG]<Thread:3>[09:55:17] : Connect Complate
+[LOG]<Thread:1>[09:55:21] : TEST2 님이 접속하셨습니다.
+[LOG]<Thread:1>[09:55:22] : TEST2 님이 방에 참가했습니다.
+[LOG]<Thread:1>[09:55:22] : * 공개 방 [1] 방 입장에 성공했습니다.
+[LOG]<Thread:1>[09:55:29] : TEST 님이 방에서 나갔습니다.
+[LOG]<Thread:1>[09:55:35] : Lobby 방 입장에 실패했습니다.
+[LOG]<Thread:1>[09:55:06] : ====================================================
+[LOG]<Thread:1>[09:55:06] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[09:55:06] : ====================================================
+[LOG]<Thread:1>[09:55:06] : Connecting to server...
+[LOG]<Thread:1>[09:55:06] : This client runs on a Direct X client.
+[LOG]<Thread:3>[09:55:06] : Connect Complate
+[LOG]<Thread:1>[09:55:11] : TEST 님이 접속하셨습니다.
+[LOG]<Thread:1>[09:55:12] : TEST 님이 방에 참가했습니다.
+[LOG]<Thread:1>[09:55:12] : * 공개 방 [1] 방 입장에 성공했습니다.
+[LOG]<Thread:1>[09:55:22] : TEST2 님이 방에 참가했습니다.
+[LOG]<Thread:1>[09:55:29] : Lobby 방 입장에 실패했습니다.
+[LOG]<Thread:1>[09:56:56] : ====================================================
+[LOG]<Thread:1>[09:56:56] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[09:56:56] : ====================================================
+[LOG]<Thread:1>[09:56:56] : Connecting to server...
+[LOG]<Thread:1>[09:56:56] : This client runs on a Direct X client.
+[LOG]<Thread:3>[09:56:56] : Connect Complate
+[LOG]<Thread:1>[09:56:58] : 로그인 실패. [사유 : 해당 아이디는 이미 다른 컴퓨터에서 사용 중입니다.]
+[LOG]<Thread:1>[09:57:14] : ====================================================
+[LOG]<Thread:1>[09:57:14] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[09:57:14] : ====================================================
+[LOG]<Thread:1>[09:57:14] : Connecting to server...
+[LOG]<Thread:1>[09:57:14] : This client runs on a Direct X client.
+[LOG]<Thread:3>[09:57:14] : Connect Complate
+[LOG]<Thread:1>[09:57:18] : c2 님이 접속하셨습니다.
+[LOG]<Thread:1>[09:57:19] : * 공개 방 [1] 방 입장에 성공했습니다.
+[LOG]<Thread:1>[09:57:19] : c2 님이 방에 참가했습니다.
+[LOG]<Thread:1>[09:57:24] : [09:57:24] [c2] : asd
+[LOG]<Thread:1>[09:57:27] : [09:57:27] [c] : asdasd
+[LOG]<Thread:1>[09:57:29] : [09:57:29] [c2] : acscasc
+[LOG]<Thread:1>[09:57:31] : [09:57:31] [c] : cascascas
+[LOG]<Thread:1>[09:57:32] : c 님이 방에서 나갔습니다.
+[LOG]<Thread:1>[09:57:32] : c 님이 방에 참가했습니다.
+[LOG]<Thread:1>[09:57:34] : [09:57:34] [c] : cascascasc
+[LOG]<Thread:1>[09:56:45] : ====================================================
+[LOG]<Thread:1>[09:56:45] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[09:56:45] : ====================================================
+[LOG]<Thread:1>[09:56:45] : Connecting to server...
+[LOG]<Thread:1>[09:56:45] : This client runs on a Direct X client.
+[LOG]<Thread:3>[09:56:45] : Connect Complate
+[LOG]<Thread:1>[09:56:49] : 로그인 실패. [사유 : 아이디 또는 비밀번호를 확인해주세요.]
+[LOG]<Thread:1>[09:56:52] : c 님이 접속하셨습니다.
+[LOG]<Thread:1>[09:57:08] : * 공개 방 [1] 방 입장에 성공했습니다.
+[LOG]<Thread:1>[09:57:08] : c 님이 방에 참가했습니다.
+[LOG]<Thread:1>[09:57:19] : c2 님이 방에 참가했습니다.
+[LOG]<Thread:1>[09:57:24] : [09:57:24] [c2] : asd
+[LOG]<Thread:1>[09:57:27] : [09:57:27] [c] : asdasd
+[LOG]<Thread:1>[09:57:29] : [09:57:29] [c2] : acscasc
+[LOG]<Thread:1>[09:57:31] : [09:57:31] [c] : cascascas
+[LOG]<Thread:1>[09:57:32] : Lobby 방 입장에 실패했습니다.
+[LOG]<Thread:1>[09:57:32] : * 공개 방 [1] 방 입장에 성공했습니다.
+[LOG]<Thread:1>[09:57:32] : c 님이 방에 참가했습니다.
+[LOG]<Thread:1>[09:57:34] : [09:57:34] [c] : cascascasc
+[LOG]<Thread:1>[10:04:20] : ====================================================
+[LOG]<Thread:1>[10:04:20] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:04:20] : ====================================================
+[LOG]<Thread:1>[10:04:20] : Connecting to server...
+[LOG]<Thread:1>[10:04:20] : This client runs on a Direct X client.
+[LOG]<Thread:3>[10:04:20] : Connect Complate
+[LOG]<Thread:1>[10:04:18] : ====================================================
+[LOG]<Thread:1>[10:04:18] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:04:18] : ====================================================
+[LOG]<Thread:1>[10:04:18] : Connecting to server...
+[LOG]<Thread:1>[10:04:18] : This client runs on a Direct X client.
+[LOG]<Thread:3>[10:04:18] : Connect Complate
+[LOG]<Thread:1>[10:04:17] : ====================================================
+[LOG]<Thread:1>[10:04:17] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:04:17] : ====================================================
+[LOG]<Thread:1>[10:04:17] : Connecting to server...
+[LOG]<Thread:1>[10:04:17] : This client runs on a Direct X client.
+[LOG]<Thread:3>[10:04:17] : Connect Complate
+[LOG]<Thread:1>[10:04:14] : ====================================================
+[LOG]<Thread:1>[10:04:14] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:04:14] : ====================================================
+[LOG]<Thread:1>[10:04:14] : Connecting to server...
+[LOG]<Thread:1>[10:04:14] : This client runs on a Direct X client.
+[LOG]<Thread:3>[10:04:14] : Connect Complate
+[LOG]<Thread:1>[10:04:12] : ====================================================
+[LOG]<Thread:1>[10:04:12] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:04:12] : ====================================================
+[LOG]<Thread:1>[10:04:12] : Connecting to server...
+[LOG]<Thread:3>[10:04:12] : Connect Complate
+[LOG]<Thread:1>[10:04:12] : This client runs on a Direct X client.
+[LOG]<Thread:1>[10:04:11] : ====================================================
+[LOG]<Thread:1>[10:04:11] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:04:11] : ====================================================
+[LOG]<Thread:1>[10:04:11] : Connecting to server...
+[LOG]<Thread:1>[10:04:11] : This client runs on a Direct X client.
+[LOG]<Thread:3>[10:04:11] : Connect Complate
+[LOG]<Thread:1>[10:04:15] : ====================================================
+[LOG]<Thread:1>[10:04:15] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:04:15] : ====================================================
+[LOG]<Thread:1>[10:04:15] : Connecting to server...
+[LOG]<Thread:1>[10:04:15] : This client runs on a Direct X client.
+[LOG]<Thread:3>[10:04:15] : Connect Complate
+[LOG]<Thread:1>[10:06:17] : ====================================================
+[LOG]<Thread:1>[10:06:17] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:06:17] : ====================================================
+[LOG]<Thread:1>[10:06:17] : Connecting to server...
+[LOG]<Thread:1>[10:06:17] : This client runs on a Direct X client.
+[LOG]<Thread:3>[10:06:17] : Connect Complate
+[LOG]<Thread:1>[10:06:24] : TEST 님이 접속하셨습니다.
+[LOG]<Thread:1>[10:06:33] : TEST 님이 방에 참가했습니다.
+[LOG]<Thread:1>[10:06:33] : Lobby 방 입장에 성공했습니다.
+[LOG]<Thread:1>[10:06:49] : ====================================================
+[LOG]<Thread:1>[10:06:49] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:06:49] : ====================================================
+[LOG]<Thread:1>[10:06:49] : Connecting to server...
+[LOG]<Thread:1>[10:06:49] : This client runs on a Direct X client.
+[LOG]<Thread:3>[10:06:49] : Connect Complate
+[LOG]<Thread:1>[10:06:51] : c 님이 접속하셨습니다.
+[LOG]<Thread:1>[10:06:57] : 방 생성 성공
+[LOG]<Thread:1>[10:06:57] : c 님이 방에 참가했습니다.
+[LOG]<Thread:1>[10:07:02] : c 님이 방에 참가했습니다.
+[LOG]<Thread:1>[10:07:02] : New Room 방 입장에 성공했습니다.
+[LOG]<Thread:1>[10:07:06] : [10:07:06] [c] : HI
+[LOG]<Thread:1>[10:07:07] : [10:07:07] [c] : Hello
+[LOG]<Thread:1>[10:07:08] : c 님이 방에 참가했습니다.
+[LOG]<Thread:1>[10:07:08] : Lobby 방 입장에 성공했습니다.
+[LOG]<Thread:1>[10:09:45] : ====================================================
+[LOG]<Thread:1>[10:09:45] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:09:45] : ====================================================
+[LOG]<Thread:1>[10:09:45] : Connecting to server...
+[LOG]<Thread:1>[10:09:45] : This client runs on a Direct X client.
+[LOG]<Thread:3>[10:09:45] : Connect Complate
+[LOG]<Thread:1>[10:09:59] : 로그인 실패. [사유 : 해당 아이디는 이미 다른
+ 컴퓨터에서 사용 중입니다.]
+[LOG]<Thread:1>[10:09:46] : ====================================================
+[LOG]<Thread:1>[10:09:46] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:09:46] : ====================================================
+[LOG]<Thread:1>[10:09:46] : Connecting to server...
+[LOG]<Thread:3>[10:09:46] : Connect Complate
+[LOG]<Thread:1>[10:09:46] : This client runs on a Direct X client.
+[LOG]<Thread:1>[10:09:57] : TEST 님이 접속하셨습니다.
+[LOG]<Thread:1>[10:10:35] : ====================================================
+[LOG]<Thread:1>[10:10:35] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:10:35] : ====================================================
+[LOG]<Thread:1>[10:10:35] : Connecting to server...
+[LOG]<Thread:1>[10:10:35] : This client runs on a Direct X client.
+[LOG]<Thread:3>[10:10:35] : Connect Complate
+[LOG]<Thread:1>[10:10:37] : c 님이 접속하셨습니다.
+[LOG]<Thread:1>[10:10:39] : 방 생성 성공
+[LOG]<Thread:1>[10:10:39] : c 님이 방에 참가했습니다.
+[LOG]<Thread:1>[10:10:39] : ASASD 방 입장에 성공했습니다.
+[LOG]<Thread:1>[10:10:43] : ====================================================
+[LOG]<Thread:1>[10:10:43] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:10:43] : ====================================================
+[LOG]<Thread:1>[10:10:43] : Connecting to server...
+[LOG]<Thread:1>[10:10:43] : This client runs on a Direct X client.
+[LOG]<Thread:3>[10:10:43] : Connect Complate
+[LOG]<Thread:1>[10:10:47] : TEST 님이 접속하셨습니다.
+[LOG]<Thread:1>[10:13:00] : ====================================================
+[LOG]<Thread:1>[10:13:00] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:13:00] : ====================================================
+[LOG]<Thread:1>[10:13:00] : Connecting to server...
+[LOG]<Thread:1>[10:13:00] : This client runs on a Direct X client.
+[LOG]<Thread:3>[10:13:00] : Connect Complate
+[LOG]<Thread:1>[10:13:03] : c 님이 접속하셨습니다.
+[LOG]<Thread:1>[10:13:08] : 방 생성 성공
+[LOG]<Thread:1>[10:13:08] : c 님이 방에 참가했습니다.
+[LOG]<Thread:1>[10:13:08] : c's room 방 입장에 성공했습니다.
+[LOG]<Thread:1>[10:13:12] : ====================================================
+[LOG]<Thread:1>[10:13:12] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[10:13:12] : ====================================================
+[LOG]<Thread:1>[10:13:12] : Connecting to server...
+[LOG]<Thread:1>[10:13:12] : This client runs on a Direct X client.
+[LOG]<Thread:3>[10:13:12] : Connect Complate
+[LOG]<Thread:1>[10:13:15] : 로그인 실패. [사유 : 아이디 또는 비밀번호를 확인해주세요.]
+[LOG]<Thread:1>[10:13:18] : c2 님이 접속하셨습니다.
+[LOG]<Thread:1>[10:13:22] : c2 님이 방에 참가했습니다.
+[LOG]<Thread:1>[10:13:22] : Lobby 방 입장에 성공했습니다.
+[LOG]<Thread:1>[10:13:23] : c2 님이 방에 참가했습니다.
+[LOG]<Thread:1>[10:13:23] : Lobby 방 입장에 성공했습니다.

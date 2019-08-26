@@ -8,7 +8,7 @@ namespace ChattingNetwork.Client
 {
     public partial class ClientManager
     {
-        public event EventHandler<bool> OnSignIn
+        public event EventHandler<Tuple<string, bool>> OnSignIn
         {
             add => callback.OnSignIn += value;
             remove => callback.OnSignIn -= value;
@@ -23,7 +23,7 @@ namespace ChattingNetwork.Client
             add => callback.OnChatting += value;
             remove => callback.OnChatting -= value;
         }
-        public event EventHandler<bool> OnJoinRoom
+        public event EventHandler<Tuple<string, bool>> OnJoinRoom
         {
             add => callback.OnJoinRoom += value;
             remove => callback.OnJoinRoom -= value;
@@ -47,6 +47,18 @@ namespace ChattingNetwork.Client
         {
             add => callback.OnWhisper += value;
             remove => callback.OnWhisper -= value;
+        }
+
+        public event EventHandler<bool> OnConnect
+        {
+            add => callback.OnConnect += value;
+            remove => callback.OnConnect -= value;
+        }
+
+        public event EventHandler OnDisconnect
+        {
+            add => callback.OnDisconnect += value;
+            remove => callback.OnDisconnect -= value;
         }
     }
 }

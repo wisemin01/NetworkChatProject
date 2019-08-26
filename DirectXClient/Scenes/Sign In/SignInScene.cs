@@ -11,8 +11,9 @@ namespace DirectXClient
     {
         public override void Initialize()
         {
+            D3D9Manager.Instance.CreateTexture("Background", "./Resource/Background.png");
             D3D9Manager.Instance.CreateTexture("LoginButton", "./Resource/LoginButton.png");
-            D3D9Manager.Instance.CreateTexture("SignupButton", "./Resource/SignupButton.png");
+            D3D9Manager.Instance.CreateTexture("ToSignupButton", "./Resource/ToSignupButton.png");
             D3D9Manager.Instance.CreateTexture("NameInput", "./Resource/NameInput.png");
 
             D3D9Manager.Instance.CreateFont("InputField", "메이플스토리 Light", 35, false);
@@ -24,10 +25,6 @@ namespace DirectXClient
 
         public override void FrameUpdate()
         {
-            //if (NetworkClientManager.Instance.IsConnection)
-            //{
-            //    SceneManager.Instance.ChangeScene("Lobby");
-            //}
         }
 
         public override void FrameRender()
@@ -60,9 +57,9 @@ namespace DirectXClient
             SceneManager.Instance.ChangeScene("SignUp");
         }
 
-        public void OnSignIn(object sender, bool value)
+        public void OnSignIn(object sender, Tuple<string, bool> value)
         {
-            if (value == true)
+            if (value.Item2 == true)
             {
                 // 로그인 성공
                 SceneManager.Instance.ChangeScene("Lobby");
@@ -70,7 +67,7 @@ namespace DirectXClient
             else
             {
                 // 로그인 실패
-                MessageBox.Show("아이디와 비밀번호를 다시 확인해주세요.", "[!] Login Failed");
+                MessageBox.Show(value.Item1, "[!] Login Failed");
             }
         }
     }

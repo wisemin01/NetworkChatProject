@@ -1,10 +1,12 @@
-﻿using GameFramework;
+﻿using ChattingNetwork.Client;
+using GameFramework;
 using GameFramework.Manager;
 using SharpDX;
+using System;
 
 namespace DirectXClient
 {
-    public class ChatScene : Scene
+    internal partial class ChatScene : Scene
     {
         public ChatScene() : base() { }
 
@@ -14,41 +16,36 @@ namespace DirectXClient
             D3D9Manager.Instance.CreateTexture("ToLobbyButton", "./Resource/ToLobby.png");
             D3D9Manager.Instance.CreateFont("ChatListFont", "메이플스토리 Light", 25, false);
             D3D9Manager.Instance.CreateFont("ChatInputFont", "메이플스토리 Light", 35, false);
+            D3D9Manager.Instance.CreateFont("RoomTitleFont", "메이플스토리 Bold", 75, false);
 
-            TextList TextList = GameObjectManager.Instance.AddObject(new TextList(
-                25, new Vector3(30, D3D9Manager.Instance.WindowHeight - 160, 0),
-                "ChatListFont"));
+            InitializeComponent();
 
-            TextInputField TextInput = GameObjectManager.Instance.AddObject(new TextInputField("ChatInputFont")
+            ClientManager.Instance.OnJoinRoom += OnJoinRoom;
+            ClientManager.Instance.OnExitRoom += OnExitRoom;
+            ClientManager.Instance.OnChatting += OnChatting;
+        }
+
+        private void OnChatting(object sender, string e)
+        {
+            chattingView.DrawText(e);
+        }
+
+        private void OnExitRoom(object sender, bool e)
+        {
+            if (e == true)
             {
-                Position = new Vector3(404, D3D9Manager.Instance.WindowHeight - 120, 0),
-                FieldTexture = D3D9Manager.Instance.FindTexture("ChatInput"),
-                MaxLength = 35,
-                StringColor = new Color(127, 127, 127),
-                StringOffset = new Vector3(16, 3, 0)
-            });
+                SceneManager.Instance.ChangeScene("Lobby");
+            }
+        }
 
-            TextInput.OnEnter += delegate (object sender, string s)
+        private void OnJoinRoom(object sender, Tuple<string, bool> e)
+        {
+            if (e.Item2 == true)
             {
-                //NetworkClientManager.Instance.SendMessageToServer(s);
-                TextInputField input = sender as TextInputField;
-                input.Clear();
-            };
+                ClientManager.Instance.CurrentChatRoom = e.Item1;
 
-            Button toLobbyButton = GameObjectManager.Instance.AddObject(new Button()
-            {
-                ButtonTexture = D3D9Manager.Instance.FindTexture("ToLobbyButton"),
-                Position = new Vector3(1000, D3D9Manager.Instance.WindowHeight - 120, 0),
-                Scale = new Vector3(1.0f, 1.0f, 1.0f),
-                IsMouseOverResize = true
-            });
-
-            toLobbyButton.OnButtonClick += delegate
-            {
-                //NetworkClientManager.Instance.JoinRoomRequest("Lobby");
-            };
-
-            GameObjectManager.Instance.AddObject(new SceneObserver());
+                SceneManager.Instance.ChangeScene("Chat");
+            }
         }
 
         public override void FrameRender()
@@ -58,16 +55,32 @@ namespace DirectXClient
 
         public override void FrameUpdate()
         {
-            //if (NetworkClientManager.Instance.IsConnection == false)
-            //{
-            //    SceneManager.Instance.ChangeScene("Login");
-            //}
+
         }
 
         public override void Release()
         {
+            Dispose();
+
             D3D9Manager.Instance.FontDispose();
             D3D9Manager.Instance.TextureDispose();
+
+            ClientManager.Instance.OnJoinRoom -= OnJoinRoom;
+            ClientManager.Instance.OnExitRoom -= OnExitRoom;
+            ClientManager.Instance.OnChatting -= OnChatting;
+        }
+
+        private void ToLobbyButton_OnClick(object sender, EventArgs e)
+        {
+            ClientManager.Instance.JoinRoom("Lobby");
+            ClientManager.Instance.ExitRoom(ClientManager.Instance.CurrentChatRoom);
+        }
+
+        private void ChattingInput_OnEnter(object sender, string s)
+        {
+            ClientManager.Instance.SendChat(s);
+            TextInputField input = sender as TextInputField;
+            input.Clear();
         }
     }
 }

@@ -27,11 +27,11 @@ namespace ChattingNetwork.Server
 
         public override bool Initialize()
         {
-            if (NetworkLobby.Initialize(5) == false)
-            {
-                Debug.ErrorLog(MethodBase.GetCurrentMethod(), "NetworkLobby.Initialize() Failed");
+            if (NetworkLobby == null)
                 return false;
-            }
+
+            NetworkLobby.CreateLobbyRoom();
+            NetworkLobby.Initialize("ROOM", 5);
 
             return true;
         }
@@ -49,21 +49,20 @@ namespace ChattingNetwork.Server
 
                         player.PlayerState = MNetworkPlayer.MPlayerState.Connected;
 
-                        Debug.Log($"ON CONNECT {packet.Serial}");
+                        Debug.Log($"S:[{packet.Serial}] Connected");
                         break;
                     }
 
                 case PacketEnum.ProcessType.Disconnect:
                     {
                         NetworkLobby.DeletePlayer(packet.Serial);
-                        Debug.Log($"ON DISCONNECT {packet.Serial}");
+                        Debug.Log($"S:[{packet.Serial}] Disconnected");
                         break;
                     }
 
                 case PacketEnum.ProcessType.Data:
                     {
                         OnMessage(packet);
-                        Debug.Log($"ON DATA_PACKET INFO: SERIAL:{packet.Serial}");
                         break;
                     }
             }

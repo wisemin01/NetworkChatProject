@@ -17,7 +17,7 @@ namespace DirectXClient
         public bool IsMouseOverResize { get; set; } = true;
         public bool IsAllowDuplicateClick { get; set; } = false;
 
-        private readonly Vector3 MouseOverSize = new Vector3(1.1f, 1.1f, 1.1f);
+        private readonly Vector3 MouseOverSize = new Vector3(1.05f, 1.05f, 1.05f);
         private readonly Vector3 MouseNoneOverSize = new Vector3(1.0f, 1.0f, 1.0f);
 
         public Button()

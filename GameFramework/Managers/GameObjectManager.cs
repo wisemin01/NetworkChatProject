@@ -35,12 +35,13 @@ namespace GameFramework.Manager
                 return gameObject;
             }
         }
-        public void AddMessageBox(GameObject messageBox)
+        public GameObject AddMessageBox(GameObject messageBox)
         {
             lock (locker)
             {
                 messageBoxStack.Push(messageBox);
                 messageBox.Initialize();
+                return messageBox;
             }
         }
 
@@ -109,12 +110,20 @@ namespace GameFramework.Manager
                 {
                     gameObject.Release();
                 }
-                foreach (GameObject messageBox in messageBoxStack)
+                
+                gameObjectList.Clear();
+            }
+        }
+
+        public void ReleaseMessageBoxs()
+        {
+            lock (locker)
+            {
+                foreach (GameObject gameObject in messageBoxStack)
                 {
-                    messageBox.Release();
+                    gameObject.Release();
                 }
 
-                gameObjectList.Clear();
                 messageBoxStack.Clear();
             }
         }

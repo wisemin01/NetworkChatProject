@@ -41,51 +41,6 @@ namespace ServerHost
             }
         }
         
-        private void RoomListSelectChanged(object sender, EventArgs e)
-        {
-            listBox2.Items.Clear();
-
-            var list = ServerManager.Instance.Lobby.FindRoom(listBox1.SelectedItem as string).PlayerContainer;
-
-            if (list == null)
-                return;
-
-            foreach (var Iter in list)
-            {
-                listBox2.Items.Add(Iter.Value.UserName);
-            }
-        }
-
-        public void AddRoomToListBox(string roomName)
-        {
-            if (listBox1.InvokeRequired)
-            {
-                listBox1.BeginInvoke(new MethodInvoker(delegate
-                {
-                    listBox1.Items.Add(roomName);
-                }));
-            }
-            else
-            {
-                listBox1.Items.Add(roomName);
-            }
-        }
-
-        public void RemoveRoomToListBox(string roomName)
-        {
-            if (listBox1.InvokeRequired)
-            {
-                listBox1.BeginInvoke(new MethodInvoker(delegate
-                {
-                    listBox1.Items.Remove(roomName);
-                }));
-            }
-            else
-            {
-                listBox1.Items.Remove(roomName);
-            }
-        }
-
         void DrawText(string text)
         {
             if (ChattingList.InvokeRequired)

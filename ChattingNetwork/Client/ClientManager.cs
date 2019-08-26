@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 
+using MNetwork.Exceptions;
 using MNetwork.Debuging;
 using MNetwork.Time;
 using MNetwork.Engine;
@@ -36,7 +37,13 @@ namespace ChattingNetwork.Client
         private readonly ChattingPacketTranslater 
             translater = new ChattingPacketTranslater();
 
-        private bool isConnected = false;
+        private string currentChattingRoomName = "Lobby";
+
+        public string CurrentChatRoom
+        {
+            get => currentChattingRoomName;
+            set => currentChattingRoomName = value;
+        }
 
         public ClientManager()
         {
@@ -58,10 +65,16 @@ namespace ChattingNetwork.Client
 
             try
             {
-                MNetworkEntry.Instance.Initialize(callback, translater);
-                MNetworkEntry.Instance.Run("127.0.0.1", 9199);
+                if (MNetworkEntry.Instance.Initialize(callback, translater) == false)
+                {
+                    throw new ConnectFailException("네트워크 엔진 초기화 실패");
+                }
 
-                isConnected = true;
+
+                if (MNetworkEntry.Instance.Run("127.0.0.1", 9199) == false)
+                {
+                    throw new ConnectFailException("네트워크 엔진 실행 실패");
+                }
 
                 return true;
             }
@@ -85,7 +98,6 @@ namespace ChattingNetwork.Client
         {
             if (MNetworkEntry.Instance.Shutdown() == true)
             {
-                isConnected = false;
                 return true;
             }
 
@@ -101,10 +113,7 @@ namespace ChattingNetwork.Client
         {
             Task.Factory.StartNew(
                 delegate {
-                    while (isConnected == true)
-                    {
-                        Update();
-                    }
+                    Update();
                 });
 
             return true;
@@ -120,7 +129,7 @@ namespace ChattingNetwork.Client
 
         public bool SendChat(string context)
         {
-            if (isConnected == false)
+            if (callback.IsConnected == false)
                 return false;
 
             ChattingRequestPacket packet = new ChattingRequestPacket
@@ -135,7 +144,7 @@ namespace ChattingNetwork.Client
 
         public bool CreateRoom(string roomName)
         {
-            if (isConnected == false)
+            if (callback.IsConnected == false)
                 return false;
 
             CreateRoomRequestPacket packet = new CreateRoomRequestPacket()
@@ -149,7 +158,7 @@ namespace ChattingNetwork.Client
 
         public bool JoinRoom(string roomName)
         {
-            if (isConnected == false)
+            if (callback.IsConnected == false)
                 return false;
 
             JoinRoomRequestPacket packet = new JoinRoomRequestPacket()
@@ -164,7 +173,7 @@ namespace ChattingNetwork.Client
 
         public bool ExitRoom(string roomName)
         {
-            if (isConnected == false)
+            if (callback.IsConnected == false)
                 return false;
 
             ExitRoomRequestPacket packet = new ExitRoomRequestPacket()
@@ -179,7 +188,7 @@ namespace ChattingNetwork.Client
 
         public bool SignIn(string id, string password)
         {
-            if (isConnected == false)
+            if (callback.IsConnected == false)
                 return false;
 
             LoginRequestPacket packet = new LoginRequestPacket()
@@ -194,7 +203,7 @@ namespace ChattingNetwork.Client
 
         public bool SignUp(string id, string password, string userName)
         {
-            if (isConnected == false)
+            if (callback.IsConnected == false)
                 return false;
 
             SignUpRequestPacket packet = new SignUpRequestPacket()
@@ -210,7 +219,7 @@ namespace ChattingNetwork.Client
 
         public bool Whisper(string targetUser, string context)
         {
-            if (isConnected == false)
+            if (callback.IsConnected == false)
                 return false;
 
             WhisperRequestPacket packet = new WhisperRequestPacket()
@@ -222,6 +231,17 @@ namespace ChattingNetwork.Client
 
             return MNetworkEntry.Instance.Send(new ProtobufPacket<WhisperRequestPacket>(0, PacketEnum.ProcessType.Data, 
                 (int)MessageType.WhisperRequest, packet));
+        }
+
+        public bool GetRoomList()
+        {
+            if (callback.IsConnected == false)
+                return false;
+
+            RoomListRequestPacket packet = new RoomListRequestPacket();
+
+            return MNetworkEntry.Instance.Send(new ProtobufPacket<RoomListRequestPacket>(0, PacketEnum.ProcessType.Data,
+                (int)MessageType.RoomListRequest, packet));
         }
     }
 }

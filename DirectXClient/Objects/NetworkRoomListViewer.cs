@@ -1,4 +1,5 @@
-﻿using GameFramework;
+﻿using ChattingNetwork.Client;
+using GameFramework;
 using GameFramework.Manager;
 using GameFramework.Structure;
 using SharpDX;
@@ -9,24 +10,23 @@ namespace DirectXClient
 {
     class NetworkRoomListViewer : GameObject
     {
-        List<Tuple<NetworkRoomTitle, Button, Button>> networkRoomList;
+        List<Tuple<NetworkRoomTitle, Button>> networkRoomList;
 
         GameTexture PageBar { get; set; } = null;
 
         private const int listHeight = 5;
 
         private int LastIndex = 0;
-        public Vector3 Position { get; set; } = default;
-        public bool IsShouldRefresh { get; set; } = false;
 
+        private int listCountCache = 0;
+
+        public Vector3 Position { get; set; } = default;
+        
         public override void Initialize()
         {
-            // NetworkClientManager.Instance.OnUpdateRoomListEvent += OnUpdateRoomList;
-
-            networkRoomList = new List<Tuple<NetworkRoomTitle, Button, Button>>();
+            networkRoomList = new List<Tuple<NetworkRoomTitle, Button>>();
 
             D3D9Manager.Instance.CreateTexture("JoinButton", "./Resource/Join.png");
-            D3D9Manager.Instance.CreateTexture("DeleteButton", "./Resource/Delete.png");
             D3D9Manager.Instance.CreateTexture("RefreshButton", "./Resource/RefreshButton.png");
             D3D9Manager.Instance.CreateTexture("NextButton", "./Resource/NextButton.png");
             D3D9Manager.Instance.CreateTexture("PrevButton", "./Resource/PrevButton.png");
@@ -47,7 +47,7 @@ namespace DirectXClient
             refreshButton.OnButtonClick += delegate
             {
                 LastIndex = 0;
-                // NetworkClientManager.Instance.RoomListUpdateRequest();
+                ClientManager.Instance.GetRoomList();
             };
 
             Button prevButton = GameObjectManager.Instance
@@ -63,7 +63,10 @@ namespace DirectXClient
             {
                 if (LastIndex > 0)
                     LastIndex--;
-                // NetworkClientManager.Instance.RoomListUpdateRequest();
+                else
+                    MessageBox.Show("이전 페이지가 존재하지 않습니다,", "경고");
+
+                ClientManager.Instance.GetRoomList();
             };
 
             Button nextButton = GameObjectManager.Instance
@@ -79,19 +82,25 @@ namespace DirectXClient
             {
                 if (HasList(LastIndex + 1))
                     LastIndex++;
-                // NetworkClientManager.Instance.RoomListUpdateRequest();
+                else
+                    MessageBox.Show("다음 페이지가 존재하지 않습니다,", "경고");
+
+                ClientManager.Instance.GetRoomList();
             };
 
-            // NetworkClientManager.Instance.RoomListUpdateRequest();
+            ClientManager.Instance.GetRoomList();
+            ClientManager.Instance.OnRoomListRefresh += OnRoomListRefresh;
+        }
+
+        private void OnRoomListRefresh(object sender, List<string> e)
+        {
+            listCountCache = e.Count;
+
+            RefreshList(LastIndex, e);
         }
 
         public override void FrameUpdate()
         {
-            if (IsShouldRefresh)
-            {
-                // RefreshList(LastIndex, NetworkClientManager.Instance.RoomList);
-                IsShouldRefresh = false;
-            }
         }
 
         public override void FrameRender()
@@ -104,18 +113,17 @@ namespace DirectXClient
 
         public override void Release()
         {
-            // NetworkClientManager.Instance.OnUpdateRoomListEvent -= OnUpdateRoomList;
+            ClientManager.Instance.OnRoomListRefresh -= OnRoomListRefresh;
         }
 
         public void RefreshList(int index, List<string> list)
         {
             LastIndex = index;
 
-            foreach (Tuple<NetworkRoomTitle, Button, Button> Iter in networkRoomList)
+            foreach (var Iter in networkRoomList)
             {
                 Destroy(Iter.Item1);
                 Destroy(Iter.Item2);
-                Destroy(Iter.Item3);
             }
 
             networkRoomList.Clear();
@@ -142,44 +150,22 @@ namespace DirectXClient
                         Scale = new Vector3(1, 1, 1)
                     });
 
-                Button roomDeleteButton = GameObjectManager.Instance
-                   .AddObject(new Button()
-                   {
-                       ButtonTexture = D3D9Manager.Instance.FindTexture("DeleteButton"),
-                       IsMouseOverResize = true,
-                       Position = new Vector3(697, 120 + (i - index * listHeight) * 70, 0) + Position,
-                       Scale = new Vector3(1, 1, 1)
-                   });
-
                 roomJoinButton.OnButtonClick += delegate (object sender, EventArgs e)
                 {
-                    // NetworkClientManager.Instance.JoinRoomRequest(roomTitle.RoomTitle);
+                    ClientManager.Instance.JoinRoom(roomTitle.RoomTitle);
                 };
 
-                roomDeleteButton.OnButtonClick += delegate
-                {
-                    // NetworkClientManager.Instance.DestroyRoomRequest(roomTitle.RoomTitle);
-                    // NetworkClientManager.Instance.RoomListUpdateRequest();
-                };
-
-                networkRoomList.Add(new Tuple<NetworkRoomTitle, Button, Button>(
-                    roomTitle, roomJoinButton, roomDeleteButton));
+                networkRoomList.Add(new Tuple<NetworkRoomTitle, Button>(
+                    roomTitle, roomJoinButton));
             }
         }
 
         public bool HasList(int index)
         {
-            //if (NetworkClientManager.Instance.RoomListCount > index * listHeight)
-            //    return true;
-            //else
-            //    return false;
-
-            return false;
-        }
-
-        public void OnUpdateRoomList(object sender, EventArgs e)
-        {
-            IsShouldRefresh = true;
+            if (listCountCache > index * listHeight)
+                return true;
+            else
+                return false;
         }
     }
 }
