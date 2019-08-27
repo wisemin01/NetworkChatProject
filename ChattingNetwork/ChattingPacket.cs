@@ -44,14 +44,19 @@ namespace ChattingPacket {
             "c3dlclBhY2tldBIPCgdTdWNjZXNzGAEgASgIEg8KB0NvbnRleHQYAiABKAki",
             "NQoVQ2hhdHRpbmdSZXF1ZXN0UGFja2V0Eg4KBlNlbmRlchgBIAEoCRIMCgRU",
             "ZXh0GAIgASgJIiQKFENoYXR0aW5nQW5zd2VyUGFja2V0EgwKBFRleHQYASAB",
-            "KAkqzQIKC01lc3NhZ2VUeXBlEhAKDExvZ2luUmVxdWVzdBAAEg8KC0xvZ2lu",
-            "QW5zd2VyEAESEwoPSm9pblJvb21SZXF1ZXN0EAISEgoOSm9pblJvb21BbnN3",
-            "ZXIQAxITCg9FeGl0Um9vbVJlcXVlc3QQBBISCg5FeGl0Um9vbUFuc3dlchAF",
-            "EhUKEUNyZWF0ZVJvb21SZXF1ZXN0EAYSFAoQQ3JlYXRlUm9vbUFuc3dlchAH",
-            "EhMKD1Jvb21MaXN0UmVxdWVzdBAIEhIKDlJvb21MaXN0QW5zd2VyEAkSEgoO",
-            "V2hpc3BlclJlcXVlc3QQChIRCg1XaGlzcGVyQW5zd2VyEAsSEQoNU2lnblVw",
-            "UmVxdWVzdBAMEhAKDFNpZ25VcEFuc3dlchANEhMKD0NoYXR0aW5nUmVxdWVz",
-            "dBAOEhIKDkNoYXR0aW5nQW5zd2VyEA9iBnByb3RvMw=="));
+            "KAkiRAoeQ3JlYXRlQW5kSm9pblJvb21SZXF1ZXN0UGFja2V0EhAKCFJvb21O",
+            "YW1lGAEgASgJEhAKCFVzZXJOYW1lGAIgASgJIkIKHUNyZWF0ZUFuZEpvaW5S",
+            "b29tQW5zd2VyUGFja2V0Eg8KB1N1Y2Nlc3MYASABKAgSEAoIUm9vbU5hbWUY",
+            "AiABKAkqiAMKC01lc3NhZ2VUeXBlEhAKDExvZ2luUmVxdWVzdBAAEg8KC0xv",
+            "Z2luQW5zd2VyEAESEwoPSm9pblJvb21SZXF1ZXN0EAISEgoOSm9pblJvb21B",
+            "bnN3ZXIQAxITCg9FeGl0Um9vbVJlcXVlc3QQBBISCg5FeGl0Um9vbUFuc3dl",
+            "chAFEhUKEUNyZWF0ZVJvb21SZXF1ZXN0EAYSFAoQQ3JlYXRlUm9vbUFuc3dl",
+            "chAHEhMKD1Jvb21MaXN0UmVxdWVzdBAIEhIKDlJvb21MaXN0QW5zd2VyEAkS",
+            "EgoOV2hpc3BlclJlcXVlc3QQChIRCg1XaGlzcGVyQW5zd2VyEAsSEQoNU2ln",
+            "blVwUmVxdWVzdBAMEhAKDFNpZ25VcEFuc3dlchANEhMKD0NoYXR0aW5nUmVx",
+            "dWVzdBAOEhIKDkNoYXR0aW5nQW5zd2VyEA8SHAoYQ3JlYXRlQW5kSm9pblJv",
+            "b21SZXF1ZXN0EBASGwoXQ3JlYXRlQW5kSm9pblJvb21BbnN3ZXIQEWIGcHJv",
+            "dG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ChattingPacket.MessageType), }, new pbr::GeneratedClrTypeInfo[] {
@@ -70,7 +75,9 @@ namespace ChattingPacket {
             new pbr::GeneratedClrTypeInfo(typeof(global::ChattingPacket.SignUpRequestPacket), global::ChattingPacket.SignUpRequestPacket.Parser, new[]{ "UserName", "ID", "Password" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ChattingPacket.SignUpAnswerPacket), global::ChattingPacket.SignUpAnswerPacket.Parser, new[]{ "Success", "Context" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ChattingPacket.ChattingRequestPacket), global::ChattingPacket.ChattingRequestPacket.Parser, new[]{ "Sender", "Text" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ChattingPacket.ChattingAnswerPacket), global::ChattingPacket.ChattingAnswerPacket.Parser, new[]{ "Text" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ChattingPacket.ChattingAnswerPacket), global::ChattingPacket.ChattingAnswerPacket.Parser, new[]{ "Text" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ChattingPacket.CreateAndJoinRoomRequestPacket), global::ChattingPacket.CreateAndJoinRoomRequestPacket.Parser, new[]{ "RoomName", "UserName" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ChattingPacket.CreateAndJoinRoomAnswerPacket), global::ChattingPacket.CreateAndJoinRoomAnswerPacket.Parser, new[]{ "Success", "RoomName" }, null, null, null)
           }));
     }
     #endregion
@@ -94,6 +101,8 @@ namespace ChattingPacket {
     [pbr::OriginalName("SignUpAnswer")] SignUpAnswer = 13,
     [pbr::OriginalName("ChattingRequest")] ChattingRequest = 14,
     [pbr::OriginalName("ChattingAnswer")] ChattingAnswer = 15,
+    [pbr::OriginalName("CreateAndJoinRoomRequest")] CreateAndJoinRoomRequest = 16,
+    [pbr::OriginalName("CreateAndJoinRoomAnswer")] CreateAndJoinRoomAnswer = 17,
   }
 
   #endregion
@@ -2511,6 +2520,320 @@ namespace ChattingPacket {
             break;
           case 10: {
             Text = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class CreateAndJoinRoomRequestPacket : pb::IMessage<CreateAndJoinRoomRequestPacket> {
+    private static readonly pb::MessageParser<CreateAndJoinRoomRequestPacket> _parser = new pb::MessageParser<CreateAndJoinRoomRequestPacket>(() => new CreateAndJoinRoomRequestPacket());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CreateAndJoinRoomRequestPacket> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ChattingPacket.ChattingPacketReflection.Descriptor.MessageTypes[16]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CreateAndJoinRoomRequestPacket() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CreateAndJoinRoomRequestPacket(CreateAndJoinRoomRequestPacket other) : this() {
+      roomName_ = other.roomName_;
+      userName_ = other.userName_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CreateAndJoinRoomRequestPacket Clone() {
+      return new CreateAndJoinRoomRequestPacket(this);
+    }
+
+    /// <summary>Field number for the "RoomName" field.</summary>
+    public const int RoomNameFieldNumber = 1;
+    private string roomName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RoomName {
+      get { return roomName_; }
+      set {
+        roomName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "UserName" field.</summary>
+    public const int UserNameFieldNumber = 2;
+    private string userName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string UserName {
+      get { return userName_; }
+      set {
+        userName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CreateAndJoinRoomRequestPacket);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CreateAndJoinRoomRequestPacket other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (RoomName != other.RoomName) return false;
+      if (UserName != other.UserName) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (RoomName.Length != 0) hash ^= RoomName.GetHashCode();
+      if (UserName.Length != 0) hash ^= UserName.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (RoomName.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(RoomName);
+      }
+      if (UserName.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(UserName);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (RoomName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RoomName);
+      }
+      if (UserName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(UserName);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CreateAndJoinRoomRequestPacket other) {
+      if (other == null) {
+        return;
+      }
+      if (other.RoomName.Length != 0) {
+        RoomName = other.RoomName;
+      }
+      if (other.UserName.Length != 0) {
+        UserName = other.UserName;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            RoomName = input.ReadString();
+            break;
+          }
+          case 18: {
+            UserName = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class CreateAndJoinRoomAnswerPacket : pb::IMessage<CreateAndJoinRoomAnswerPacket> {
+    private static readonly pb::MessageParser<CreateAndJoinRoomAnswerPacket> _parser = new pb::MessageParser<CreateAndJoinRoomAnswerPacket>(() => new CreateAndJoinRoomAnswerPacket());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CreateAndJoinRoomAnswerPacket> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ChattingPacket.ChattingPacketReflection.Descriptor.MessageTypes[17]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CreateAndJoinRoomAnswerPacket() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CreateAndJoinRoomAnswerPacket(CreateAndJoinRoomAnswerPacket other) : this() {
+      success_ = other.success_;
+      roomName_ = other.roomName_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CreateAndJoinRoomAnswerPacket Clone() {
+      return new CreateAndJoinRoomAnswerPacket(this);
+    }
+
+    /// <summary>Field number for the "Success" field.</summary>
+    public const int SuccessFieldNumber = 1;
+    private bool success_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Success {
+      get { return success_; }
+      set {
+        success_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "RoomName" field.</summary>
+    public const int RoomNameFieldNumber = 2;
+    private string roomName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RoomName {
+      get { return roomName_; }
+      set {
+        roomName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CreateAndJoinRoomAnswerPacket);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CreateAndJoinRoomAnswerPacket other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Success != other.Success) return false;
+      if (RoomName != other.RoomName) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Success != false) hash ^= Success.GetHashCode();
+      if (RoomName.Length != 0) hash ^= RoomName.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Success != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Success);
+      }
+      if (RoomName.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(RoomName);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Success != false) {
+        size += 1 + 1;
+      }
+      if (RoomName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RoomName);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CreateAndJoinRoomAnswerPacket other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Success != false) {
+        Success = other.Success;
+      }
+      if (other.RoomName.Length != 0) {
+        RoomName = other.RoomName;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Success = input.ReadBool();
+            break;
+          }
+          case 18: {
+            RoomName = input.ReadString();
             break;
           }
         }

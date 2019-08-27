@@ -16,11 +16,21 @@ namespace DirectXClient
             D3D9Manager.Instance.CreateTexture("ToSignupButton", "./Resource/ToSignupButton.png");
             D3D9Manager.Instance.CreateTexture("NameInput", "./Resource/NameInput.png");
 
-            D3D9Manager.Instance.CreateFont("InputField", "메이플스토리 Light", 35, false);
+            D3D9Manager.Instance.CreateFont("InputField", "Segoe UI", 35, false);
 
             ClientManager.Instance.OnSignIn += OnSignIn;
+            ClientManager.Instance.OnJoinRoom += OnJoinRoom;
 
             InitializeComponent();
+        }
+
+        private void OnJoinRoom(object sender, Tuple<string, bool> e)
+        {
+            if (e.Item2 == true)
+            {
+                ClientManager.Instance.CurrentChatRoom = e.Item1;
+                SceneManager.Instance.ChangeScene("Chat");
+            }
         }
 
         public override void FrameUpdate()
@@ -39,6 +49,7 @@ namespace DirectXClient
             D3D9Manager.Instance.TextureDispose();
 
             ClientManager.Instance.OnSignIn -= OnSignIn;
+            ClientManager.Instance.OnJoinRoom -= OnJoinRoom;
         }
 
         public void LoginButton_OnClick(object sender, EventArgs e)
@@ -62,7 +73,7 @@ namespace DirectXClient
             if (value.Item2 == true)
             {
                 // 로그인 성공
-                SceneManager.Instance.ChangeScene("Lobby");
+                ClientManager.Instance.JoinRoom("Lobby");
             }
             else
             {

@@ -11,7 +11,6 @@ namespace DirectXClient
 {
     public class TextBox : GameObject
     {
-        public Vector3 Position { get; set; } = new Vector3(0, 0, 0);
         public string FontKey { get; set; } = string.Empty;
         public Color StringColor { get; set; } = Color.White;
 

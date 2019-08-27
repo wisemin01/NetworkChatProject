@@ -13,10 +13,9 @@ namespace DirectXClient
         public override void Initialize()
         {
             D3D9Manager.Instance.CreateTexture("ChatInput", "./Resource/ChatInput.png");
-            D3D9Manager.Instance.CreateTexture("ToLobbyButton", "./Resource/ToLobby.png");
-            D3D9Manager.Instance.CreateFont("ChatListFont", "메이플스토리 Light", 25, false);
-            D3D9Manager.Instance.CreateFont("ChatInputFont", "메이플스토리 Light", 35, false);
-            D3D9Manager.Instance.CreateFont("RoomTitleFont", "메이플스토리 Bold", 75, false);
+            D3D9Manager.Instance.CreateFont("ChatListFont", "Segoe UI", 25, false);
+            D3D9Manager.Instance.CreateFont("ChatInputFont", "Segoe UI", 45, false);
+            D3D9Manager.Instance.CreateFont("RoomTitleFont", "Segoe UI", 55, false);
 
             InitializeComponent();
 

@@ -132,8 +132,8 @@ namespace ChattingNetwork.Server
 
             if (targetRoom.PlayerCount == 0)
             {
-                NetworkLobby.DeleteRoom(request.RoomName);
-                Debug.Log($"Room deleted. Room: [{request.RoomName}]");
+                if (NetworkLobby.DeleteRoom(request.RoomName) == true)
+                    Debug.Log($"Room deleted. Room: [{request.RoomName}]");
             }
             else
             {
@@ -245,6 +245,36 @@ namespace ChattingNetwork.Server
 
             SendPacket(new ProtobufPacket<ChattingAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
                 (int)MessageType.ChattingAnswer, send), room.SerialList);
+        }
+
+        private void OnCreateAndJoinRoomRequest(ProtobufPacket<CreateAndJoinRoomRequestPacket> packet)
+        {
+            CreateAndJoinRoomRequestPacket request = packet.ProtobufMessage;
+            CreateAndJoinRoomAnswerPacket send = new CreateAndJoinRoomAnswerPacket();
+
+            // Packet Data Set
+
+            bool success1 = NetworkLobby.AddRoom(request.RoomName, new MNetworkRoom(request.RoomName));
+            bool success2 = NetworkLobby.JoinRoom(request.RoomName, request.UserName, out MNetworkRoom room);
+
+            Debug.Log($"S:[{packet.Serial}] Room creation request. Room: [{request.RoomName}] Result: [{send.Success}]");
+            Debug.Log($"S:[{packet.Serial}] Request to join the room. Name: [{request.UserName}] Room: [{request.RoomName}] Result: [{send.Success}]");
+
+            if (success1 && success2 == true)
+            {
+                ChattingAnswerPacket joinMessage = new ChattingAnswerPacket();
+
+                joinMessage.Text = $"{request.UserName} 님이 방에 참가했습니다.";
+
+                SendPacket(new ProtobufPacket<ChattingAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
+                    (int)MessageType.ChattingAnswer, joinMessage), room.SerialList);
+            }
+
+            send.Success = success1 && success2;
+            send.RoomName = request.RoomName;
+
+            SendPacket(new ProtobufPacket<CreateAndJoinRoomAnswerPacket>(packet.Serial, PacketEnum.ProcessType.Data,
+                (int)MessageType.CreateAndJoinRoomAnswer, send));
         }
     }
 }

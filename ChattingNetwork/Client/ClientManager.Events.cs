@@ -13,7 +13,7 @@ namespace ChattingNetwork.Client
             add => callback.OnSignIn += value;
             remove => callback.OnSignIn -= value;
         }
-        public event EventHandler<bool> OnSignUp
+        public event EventHandler<Tuple<string, bool>> OnSignUp
         {
             add => callback.OnSignUp += value;
             remove => callback.OnSignUp -= value;

@@ -8,8 +8,6 @@ namespace DirectXClient
     class TextureObject : GameObject
     {
         public GameTexture Texture { get; set; } = null;
-        public Vector3 Position { get; set; } = default;
-        public Vector3 Scale { get; set; } = default;
         public float Rotation { get; set; } = 0;
         public override void FrameRender()
         {

@@ -11,7 +11,7 @@ namespace ChattingNetwork.Client
     internal class ChattingCallback : NetworkCallback
     {
         public event EventHandler<Tuple<string,bool>> OnSignIn;
-        public event EventHandler<bool> OnSignUp;
+        public event EventHandler<Tuple<string, bool>> OnSignUp;
         public event EventHandler<string> OnChatting;
         public event EventHandler<Tuple<string, bool>> OnJoinRoom;
         public event EventHandler<bool> OnExitRoom;
@@ -66,11 +66,14 @@ namespace ChattingNetwork.Client
                 case MessageType.ChattingAnswer:
                     OnChattingAnswer(packet as ProtobufPacket<ChattingAnswerPacket>);
                     return true;
+                case MessageType.CreateAndJoinRoomAnswer:
+                    OnCreateAndJoinRoomAnswer(packet as ProtobufPacket<CreateAndJoinRoomAnswerPacket>);
+                    return true;
             }
 
             return false;
         }
-        
+
         public void OnLoginAnswer(ProtobufPacket<LoginAnswerPacket> packet)
         {
             LoginAnswerPacket answer = packet.ProtobufMessage;
@@ -156,7 +159,7 @@ namespace ChattingNetwork.Client
             Debug.Log(answer.Success ? "회원가입 성공" : "회원가입 실패");
             Debug.Log(answer.Context);
 
-            OnSignUp?.Invoke(this, answer.Success);
+            OnSignUp?.Invoke(this, new Tuple<string, bool>(answer.Context, answer.Success));
         }
 
         public void OnChattingAnswer(ProtobufPacket<ChattingAnswerPacket> packet)
@@ -166,6 +169,14 @@ namespace ChattingNetwork.Client
             Debug.Log(answer.Text);
 
             OnChatting?.Invoke(this, answer.Text);
+        }
+
+        public void OnCreateAndJoinRoomAnswer(ProtobufPacket<CreateAndJoinRoomAnswerPacket> packet)
+        {
+            CreateAndJoinRoomAnswerPacket answer = packet.ProtobufMessage;
+
+            OnCreateRoom?.Invoke(this, answer.Success);
+            OnJoinRoom?.Invoke(this, new Tuple<string, bool>(answer.RoomName, answer.Success));
         }
     }
 }

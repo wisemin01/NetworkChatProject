@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharpDX;
+using System;
 
 namespace GameFramework.Structure
 {
@@ -25,5 +26,7 @@ namespace GameFramework.Structure
 
         public int HalfWidth { get => Info.Width / 2; }
         public int HalfHeight { get => Info.Height / 2; }
+
+        public Vector3 Center { get => new Vector3(HalfWidth, HalfHeight, 0); }
     }
 }

@@ -13,7 +13,7 @@ namespace DirectXClient
             D3D9Manager.Instance.CreateTexture("RoomNameInput", "./Resource/RoomNameInput.png");
             D3D9Manager.Instance.CreateTexture("RoomCreateButton", "./Resource/CreateRoomButton.png");
 
-            D3D9Manager.Instance.CreateFont("ChatInputFont", "메이플스토리 Light", 35, false);
+            D3D9Manager.Instance.CreateFont("ChatInputFont", "Segoe UI", 35, false);
 
             InitializeComponent();
 

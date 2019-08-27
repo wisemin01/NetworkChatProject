@@ -71,7 +71,7 @@ namespace ChattingNetwork.Client
                 }
 
 
-                if (MNetworkEntry.Instance.Run("127.0.0.1", 9199) == false)
+                if (MNetworkEntry.Instance.Run(IP, 9199) == false)
                 {
                     throw new ConnectFailException("네트워크 엔진 실행 실패");
                 }
@@ -116,6 +116,7 @@ namespace ChattingNetwork.Client
                     while (true)
                     {
                         Update();
+                        Thread.Sleep(100);
                     }
                 });
 
@@ -245,6 +246,21 @@ namespace ChattingNetwork.Client
 
             return MNetworkEntry.Instance.Send(new ProtobufPacket<RoomListRequestPacket>(0, PacketEnum.ProcessType.Data,
                 (int)MessageType.RoomListRequest, packet));
+        }
+
+        public bool CreateAndJoinRoom(string roomName)
+        {
+            if (callback.IsConnected == false)
+                return false;
+
+            CreateAndJoinRoomRequestPacket packet = new CreateAndJoinRoomRequestPacket()
+            {
+                UserName = UserInfoManager.userName,
+                RoomName = roomName
+            };
+
+            return MNetworkEntry.Instance.Send(new ProtobufPacket<CreateAndJoinRoomRequestPacket>(0, PacketEnum.ProcessType.Data,
+                (int)MessageType.CreateAndJoinRoomRequest, packet));
         }
     }
 }

@@ -24,3 +24,4 @@ D:\Programing project\[ 회사 과제 ]\NetworkChatProject\GameFramework\obj\Rel
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\GameFramework\obj\Release\GameFramework.pdb
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Release\GameFramework.dll
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\Release\GameFramework.pdb
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\GameFramework\obj\Release\GameFramework.csprojAssemblyReference.cache

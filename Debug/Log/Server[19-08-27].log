@@ -1,0 +1,939 @@
+[LOG]<Thread:1>[10:48:19] : ====================================================
+[LOG]<Thread:1>[10:48:19] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[10:48:19] : ====================================================
+[LOG]<Thread:3>[10:48:30] : S:[1388] Connected
+[LOG]<Thread:1>[10:48:34] : ====================================================
+[LOG]<Thread:1>[10:48:34] :  * Server Shutdown * 
+[LOG]<Thread:1>[10:48:34] : ====================================================
+[LOG]<Thread:1>[10:48:43] : ====================================================
+[LOG]<Thread:1>[10:48:43] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[10:48:43] : ====================================================
+[LOG]<Thread:6>[10:48:46] : S:[1504] Connected
+[LOG]<Thread:6>[10:48:53] : S:[1504] The login was successful. Name: TEST
+[LOG]<Thread:6>[10:48:53] : S:[1504] Room list return request.
+[LOG]<Thread:6>[10:48:55] : S:[1504] Room list return request.
+[LOG]<Thread:6>[10:48:55] : S:[1504] Room list return request.
+[LOG]<Thread:6>[10:48:56] : S:[1504] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:6>[10:48:57] : S:[1504] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:6>[10:48:57] : S:[1504] Room exit request. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:6>[10:48:57] : Room deleted. Room: [Lobby]
+[LOG]<Thread:6>[10:48:57] : S:[1504] Room list return request.
+[LOG]<Thread:6>[10:49:02] : S:[1504] Room creation request. Room: [asd] Result: [True]
+[LOG]<Thread:6>[10:49:02] : S:[1504] Request to join the room. Name: [TEST] Room: [asd] Result: [True]
+[LOG]<Thread:6>[10:49:20] : S:[1504] Room list return request.
+[LOG]<Thread:6>[10:49:21] : S:[1504] Room list return request.
+[LOG]<Thread:6>[10:49:22] : S:[1504] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:6>[10:49:26] : S:[1504] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:6>[10:49:26] : S:[1504] Room exit request. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:6>[10:49:26] : Room deleted. Room: [Lobby]
+[LOG]<Thread:6>[10:49:26] : S:[1504] Room list return request.
+[LOG]<Thread:6>[10:49:32] : S:[1504] Room list return request.
+[LOG]<Thread:6>[10:49:33] : S:[1504] Room list return request.
+[LOG]<Thread:6>[10:49:35] : S:[1504] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:6>[10:49:36] : S:[1504] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:6>[10:49:36] : S:[1504] Room exit request. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:6>[10:49:36] : Room deleted. Room: [Lobby]
+[LOG]<Thread:6>[10:49:36] : S:[1504] Room list return request.
+[LOG]<Thread:1>[10:49:39] : ====================================================
+[LOG]<Thread:1>[10:49:39] :  * Server Shutdown * 
+[LOG]<Thread:1>[10:49:39] : ====================================================
+[LOG]<Thread:1>[11:18:09] : ====================================================
+[LOG]<Thread:1>[11:18:09] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[11:18:09] : ====================================================
+[LOG]<Thread:3>[11:18:13] : S:[1368] Connected
+[LOG]<Thread:3>[11:18:22] : S:[1368] The login was successful. Name: TEST
+[LOG]<Thread:3>[11:18:22] : S:[1368] Room list return request.
+[LOG]<Thread:3>[11:18:39] : S:[1368] Room list return request.
+[LOG]<Thread:3>[11:18:39] : S:[1368] Room list return request.
+[LOG]<Thread:1>[11:18:46] : ====================================================
+[LOG]<Thread:1>[11:18:46] :  * Server Shutdown * 
+[LOG]<Thread:1>[11:18:46] : ====================================================
+[LOG]<Thread:1>[11:45:37] : ====================================================
+[LOG]<Thread:1>[11:45:37] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[11:45:37] : ====================================================
+[LOG]<Thread:6>[11:45:39] : S:[1592] Connected
+[LOG]<Thread:6>[11:45:42] : S:[1592] The login was successful. Name: TEST
+[LOG]<Thread:6>[11:45:42] : S:[1592] Room list return request.
+[LOG]<Thread:6>[11:45:46] : S:[1592] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:6>[11:45:57] : S:[1592] Disconnected
+[LOG]<Thread:6>[11:46:26] : S:[1600] Connected
+[LOG]<Thread:6>[11:46:32] : S:[1600] The login was successful. Name: TEST
+[LOG]<Thread:6>[11:46:32] : S:[1600] Room list return request.
+[LOG]<Thread:6>[11:46:34] : S:[1600] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:6>[11:46:39] : S:[1600] Disconnected
+[LOG]<Thread:6>[11:57:07] : S:[1648] Connected
+[LOG]<Thread:1>[11:57:38] : ====================================================
+[LOG]<Thread:1>[11:57:38] :  * Server Shutdown * 
+[LOG]<Thread:1>[11:57:38] : ====================================================
+[LOG]<Thread:1>[11:57:40] : ====================================================
+[LOG]<Thread:1>[11:57:40] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[11:57:40] : ====================================================
+[LOG]<Thread:10>[11:57:43] : S:[1688] Connected
+[LOG]<Thread:10>[11:57:43] : S:[1688] The login was successful. Name: TEST
+[LOG]<Thread:10>[11:57:43] : S:[1756] Connected
+[LOG]<Thread:10>[11:57:46] : S:[1756] Login failed. Name: 
+[LOG]<Thread:1>[11:57:50] : ====================================================
+[LOG]<Thread:1>[11:57:50] :  * Server Shutdown * 
+[LOG]<Thread:1>[11:57:50] : ====================================================
+[LOG]<Thread:1>[11:57:53] : ====================================================
+[LOG]<Thread:1>[11:57:53] :  * Server Shutdown * 
+[LOG]<Thread:1>[11:57:53] : ====================================================
+[LOG]<Thread:1>[11:58:02] : ====================================================
+[LOG]<Thread:1>[11:58:02] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[11:58:02] : ====================================================
+[LOG]<Thread:3>[11:58:04] : S:[1280] Connected
+[LOG]<Thread:3>[11:58:08] : S:[1280] The login was successful. Name: TEST
+[LOG]<Thread:3>[11:58:08] : S:[1280] Room list return request.
+[LOG]<Thread:3>[11:58:10] : S:[1280] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[11:58:10] : S:[1280] Room list return request.
+[LOG]<Thread:3>[11:58:17] : S:[1280] Room list return request.
+[LOG]<Thread:3>[11:58:17] : S:[1280] Room list return request.
+[LOG]<Thread:3>[11:58:18] : S:[1280] Room list return request.
+[LOG]<Thread:3>[11:58:18] : S:[1280] Room list return request.
+[LOG]<Thread:3>[11:58:19] : S:[1280] Room list return request.
+[LOG]<Thread:3>[11:58:20] : S:[1280] Room list return request.
+[LOG]<Thread:3>[11:58:20] : S:[1280] Room list return request.
+[LOG]<Thread:3>[11:58:21] : S:[1280] Room list return request.
+[LOG]<Thread:3>[11:58:22] : S:[1280] Room list return request.
+[LOG]<Thread:3>[11:58:27] : S:[1280] Chat: <[Lobby][11:58:27] [TEST] : asdasdasdsdasds>
+[LOG]<Thread:3>[11:58:45] : S:[1280] Disconnected
+[LOG]<Thread:3>[11:58:57] : S:[1196] Connected
+[LOG]<Thread:3>[11:59:01] : S:[1196] The login was successful. Name: TEST
+[LOG]<Thread:3>[11:59:01] : S:[1196] Room list return request.
+[LOG]<Thread:3>[11:59:02] : S:[1196] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[11:59:02] : S:[1196] Room list return request.
+[LOG]<Thread:3>[11:59:17] : S:[1196] Disconnected
+[LOG]<Thread:3>[12:00:40] : S:[1392] Connected
+[LOG]<Thread:3>[12:00:44] : S:[1392] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:00:44] : S:[1392] Room list return request.
+[LOG]<Thread:3>[12:00:45] : S:[1392] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[12:00:45] : S:[1392] Room list return request.
+[LOG]<Thread:3>[12:00:50] : S:[1392] Room list return request.
+[LOG]<Thread:3>[12:00:55] : S:[1392] Disconnected
+[LOG]<Thread:3>[12:03:01] : S:[1456] Connected
+[LOG]<Thread:3>[12:03:05] : S:[1456] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:03:05] : S:[1456] Room list return request.
+[LOG]<Thread:3>[12:03:06] : S:[1456] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[12:03:06] : S:[1456] Room list return request.
+[LOG]<Thread:3>[12:03:14] : S:[1456] Request to join the room. Name: [TEST] Room: [ROOM [1]] Result: [True]
+[LOG]<Thread:3>[12:03:14] : S:[1456] Room list return request.
+[LOG]<Thread:3>[12:03:15] : S:[1456] Request to join the room. Name: [TEST] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[12:03:15] : S:[1456] Room list return request.
+[LOG]<Thread:3>[12:03:16] : S:[1456] Request to join the room. Name: [TEST] Room: [ROOM [3]] Result: [True]
+[LOG]<Thread:3>[12:03:16] : S:[1456] Room list return request.
+[LOG]<Thread:3>[12:03:16] : S:[1456] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[12:03:16] : S:[1456] Room list return request.
+[LOG]<Thread:3>[12:03:17] : S:[1456] Request to join the room. Name: [TEST] Room: [ROOM [1]] Result: [True]
+[LOG]<Thread:3>[12:03:17] : S:[1456] Room list return request.
+[LOG]<Thread:3>[12:03:17] : S:[1456] Request to join the room. Name: [TEST] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[12:03:17] : S:[1456] Room list return request.
+[LOG]<Thread:3>[12:03:18] : S:[1456] Request to join the room. Name: [TEST] Room: [ROOM [3]] Result: [True]
+[LOG]<Thread:3>[12:03:18] : S:[1456] Room list return request.
+[LOG]<Thread:3>[12:03:19] : S:[1456] Room list return request.
+[LOG]<Thread:3>[12:03:30] : S:[1456] Disconnected
+[LOG]<Thread:1>[12:04:16] : ====================================================
+[LOG]<Thread:1>[12:04:16] :  * Server Shutdown * 
+[LOG]<Thread:1>[12:04:16] : ====================================================
+[LOG]<Thread:1>[12:19:16] : ====================================================
+[LOG]<Thread:1>[12:19:16] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[12:19:16] : ====================================================
+[LOG]<Thread:3>[12:19:18] : S:[1292] Connected
+[LOG]<Thread:3>[12:19:22] : S:[1292] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:19:22] : S:[1292] Room list return request.
+[LOG]<Thread:3>[12:19:30] : S:[1292] Room creation request. Room: [aa] Result: [True]
+[LOG]<Thread:3>[12:19:30] : S:[1292] Request to join the room. Name: [TEST] Room: [aa] Result: [True]
+[LOG]<Thread:3>[12:19:30] : S:[1292] Room list return request.
+[LOG]<Thread:3>[12:19:58] : S:[1292] Disconnected
+[LOG]<Thread:1>[12:21:02] : ====================================================
+[LOG]<Thread:1>[12:21:02] :  * Server Shutdown * 
+[LOG]<Thread:1>[12:21:02] : ====================================================
+[LOG]<Thread:1>[12:21:42] : ====================================================
+[LOG]<Thread:1>[12:21:42] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[12:21:42] : ====================================================
+[LOG]<Thread:3>[12:21:44] : S:[1280] Connected
+[LOG]<Thread:3>[12:21:49] : S:[1280] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:21:49] : S:[1280] Room list return request.
+[LOG]<Thread:3>[12:21:51] : S:[1280] Room creation request. Room: [a] Result: [True]
+[LOG]<Thread:3>[12:21:51] : S:[1280] Request to join the room. Name: [TEST] Room: [a] Result: [True]
+[LOG]<Thread:3>[12:21:51] : S:[1280] Room list return request.
+[LOG]<Thread:3>[12:22:20] : S:[1280] Room list return request.
+[LOG]<Thread:3>[12:22:22] : S:[1280] Room list return request.
+[LOG]<Thread:3>[12:22:22] : S:[1280] Room list return request.
+[LOG]<Thread:3>[12:22:27] : S:[1280] Disconnected
+[LOG]<Thread:3>[12:24:05] : S:[1336] Connected
+[LOG]<Thread:3>[12:24:08] : S:[1336] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:24:08] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:24:11] : S:[1336] Request to join the room. Name: [TEST] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[12:24:11] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:24:13] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:24:14] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:24:16] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:24:16] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:24:16] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:24:17] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:24:21] : S:[1336] Disconnected
+[LOG]<Thread:3>[12:25:13] : S:[1376] Connected
+[LOG]<Thread:3>[12:25:20] : S:[1376] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:25:21] : S:[1376] Room list return request.
+[LOG]<Thread:3>[12:25:22] : S:[1376] Request to join the room. Name: [TEST] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[12:25:22] : S:[1376] Room list return request.
+[LOG]<Thread:3>[12:25:26] : S:[1376] Room list return request.
+[LOG]<Thread:3>[12:25:27] : S:[1376] Room list return request.
+[LOG]<Thread:3>[12:25:34] : S:[1376] Room list return request.
+[LOG]<Thread:3>[12:25:35] : S:[1376] Room list return request.
+[LOG]<Thread:3>[12:25:36] : S:[1376] Room list return request.
+[LOG]<Thread:3>[12:25:58] : S:[1376] Disconnected
+[LOG]<Thread:1>[12:26:00] : ====================================================
+[LOG]<Thread:1>[12:26:00] :  * Server Shutdown * 
+[LOG]<Thread:1>[12:26:00] : ====================================================
+[LOG]<Thread:1>[12:28:32] : ====================================================
+[LOG]<Thread:1>[12:28:32] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[12:28:32] : ====================================================
+[LOG]<Thread:3>[12:28:34] : S:[1280] Connected
+[LOG]<Thread:3>[12:28:37] : S:[1280] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:28:37] : S:[1280] Room list return request.
+[LOG]<Thread:3>[12:28:39] : S:[1280] Request to join the room. Name: [TEST] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[12:28:39] : S:[1280] Room list return request.
+[LOG]<Thread:3>[12:28:41] : S:[1280] Room list return request.
+[LOG]<Thread:3>[12:28:42] : S:[1280] Room list return request.
+[LOG]<Thread:3>[12:28:42] : S:[1280] Room list return request.
+[LOG]<Thread:3>[12:28:43] : S:[1280] Room list return request.
+[LOG]<Thread:3>[12:28:51] : S:[1280] Disconnected
+[LOG]<Thread:3>[12:28:58] : S:[1340] Connected
+[LOG]<Thread:3>[12:29:02] : S:[1340] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:29:02] : S:[1340] Room list return request.
+[LOG]<Thread:3>[12:29:04] : S:[1340] Request to join the room. Name: [TEST] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[12:29:04] : S:[1340] Room list return request.
+[LOG]<Thread:3>[12:29:13] : S:[1340] Room list return request.
+[LOG]<Thread:3>[12:29:14] : S:[1340] Room list return request.
+[LOG]<Thread:3>[12:29:16] : S:[1340] Disconnected
+[LOG]<Thread:3>[12:29:36] : S:[1204] Connected
+[LOG]<Thread:3>[12:29:40] : S:[1204] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:29:40] : S:[1204] Room list return request.
+[LOG]<Thread:3>[12:29:41] : S:[1204] Request to join the room. Name: [TEST] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[12:29:41] : S:[1204] Room list return request.
+[LOG]<Thread:3>[12:29:43] : S:[1204] Room list return request.
+[LOG]<Thread:3>[12:29:43] : S:[1204] Room list return request.
+[LOG]<Thread:3>[12:29:46] : S:[1204] Disconnected
+[LOG]<Thread:3>[12:31:04] : S:[1328] Connected
+[LOG]<Thread:3>[12:31:07] : S:[1328] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:31:07] : S:[1328] Room list return request.
+[LOG]<Thread:3>[12:31:08] : S:[1328] Request to join the room. Name: [TEST] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[12:31:08] : S:[1328] Room list return request.
+[LOG]<Thread:3>[12:31:13] : S:[1328] Disconnected
+[LOG]<Thread:3>[12:31:52] : S:[1440] Connected
+[LOG]<Thread:3>[12:31:55] : S:[1440] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:31:56] : S:[1440] Room list return request.
+[LOG]<Thread:3>[12:31:57] : S:[1440] Request to join the room. Name: [TEST] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[12:31:57] : S:[1440] Room list return request.
+[LOG]<Thread:3>[12:32:07] : S:[1440] Disconnected
+[LOG]<Thread:3>[12:32:28] : S:[1436] Connected
+[LOG]<Thread:3>[12:32:31] : S:[1436] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:32:31] : S:[1436] Room list return request.
+[LOG]<Thread:3>[12:32:32] : S:[1436] Request to join the room. Name: [TEST] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[12:32:32] : S:[1436] Room list return request.
+[LOG]<Thread:3>[12:32:35] : S:[1436] Disconnected
+[LOG]<Thread:3>[12:40:02] : S:[1484] Connected
+[LOG]<Thread:3>[12:40:05] : S:[1484] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:40:06] : S:[1484] Room list return request.
+[LOG]<Thread:3>[12:40:06] : S:[1484] Request to join the room. Name: [TEST] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[12:40:06] : S:[1484] Room list return request.
+[LOG]<Thread:3>[12:40:12] : S:[1484] Disconnected
+[LOG]<Thread:3>[12:40:59] : S:[1536] Connected
+[LOG]<Thread:3>[12:41:05] : S:[1536] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:41:05] : S:[1536] Room list return request.
+[LOG]<Thread:3>[12:41:06] : S:[1536] Request to join the room. Name: [TEST] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[12:41:06] : S:[1536] Room list return request.
+[LOG]<Thread:3>[12:41:08] : S:[1536] Room list return request.
+[LOG]<Thread:3>[12:41:09] : S:[1536] Request to join the room. Name: [TEST] Room: [ROOM [5]] Result: [True]
+[LOG]<Thread:3>[12:41:09] : S:[1536] Room list return request.
+[LOG]<Thread:3>[12:41:10] : S:[1536] Request to join the room. Name: [TEST] Room: [ROOM [1]] Result: [True]
+[LOG]<Thread:3>[12:41:10] : S:[1536] Room list return request.
+[LOG]<Thread:3>[12:41:10] : S:[1536] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[12:41:10] : S:[1536] Room list return request.
+[LOG]<Thread:3>[12:41:11] : S:[1536] Request to join the room. Name: [TEST] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[12:41:11] : S:[1536] Room list return request.
+[LOG]<Thread:3>[12:41:11] : S:[1536] Request to join the room. Name: [TEST] Room: [ROOM [1]] Result: [True]
+[LOG]<Thread:3>[12:41:11] : S:[1536] Room list return request.
+[LOG]<Thread:3>[12:41:11] : S:[1536] Request to join the room. Name: [TEST] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[12:41:11] : S:[1536] Room list return request.
+[LOG]<Thread:3>[12:41:12] : S:[1536] Room list return request.
+[LOG]<Thread:3>[12:41:12] : S:[1536] Request to join the room. Name: [TEST] Room: [ROOM [5]] Result: [True]
+[LOG]<Thread:3>[12:41:13] : S:[1536] Room list return request.
+[LOG]<Thread:3>[12:41:13] : S:[1536] Disconnected
+[LOG]<Thread:3>[12:42:31] : S:[1580] Connected
+[LOG]<Thread:3>[12:42:35] : S:[1580] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:42:35] : S:[1580] Room list return request.
+[LOG]<Thread:3>[12:42:36] : S:[1580] Request to join the room. Name: [TEST] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[12:42:36] : S:[1580] Room list return request.
+[LOG]<Thread:3>[12:42:42] : S:[1580] Room list return request.
+[LOG]<Thread:3>[12:42:42] : S:[1580] Room list return request.
+[LOG]<Thread:3>[12:42:44] : S:[1580] Room list return request.
+[LOG]<Thread:3>[12:42:46] : S:[1580] Disconnected
+[LOG]<Thread:3>[12:43:24] : S:[1612] Connected
+[LOG]<Thread:1>[12:44:27] : ====================================================
+[LOG]<Thread:1>[12:44:27] :  * Server Shutdown * 
+[LOG]<Thread:1>[12:44:27] : ====================================================
+[LOG]<Thread:1>[12:44:30] : ====================================================
+[LOG]<Thread:1>[12:44:30] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[12:44:30] : ====================================================
+[LOG]<Thread:12>[12:44:31] : S:[1660] Connected
+[LOG]<Thread:12>[12:44:31] : S:[1660] The login was successful. Name: TEST
+[LOG]<Thread:12>[12:44:31] : S:[1660] Login failed. Name: TEST
+[LOG]<Thread:12>[12:44:31] : S:[1544] Connected
+[LOG]<Thread:12>[12:44:35] : S:[1544] Login failed. Name: 
+[LOG]<Thread:12>[12:44:58] : S:[1544] User registration (Sign Up). Result: [True]]
+[LOG]<Thread:12>[12:45:02] : S:[1544] The login was successful. Name: p
+[LOG]<Thread:12>[12:45:02] : S:[1544] Room list return request.
+[LOG]<Thread:12>[12:45:04] : S:[1544] Request to join the room. Name: [p] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:12>[12:45:04] : S:[1544] Room list return request.
+[LOG]<Thread:12>[12:45:11] : S:[1544] Room list return request.
+[LOG]<Thread:12>[12:45:13] : S:[1544] Room list return request.
+[LOG]<Thread:12>[12:45:15] : S:[1544] Room list return request.
+[LOG]<Thread:12>[12:45:16] : S:[1544] Room list return request.
+[LOG]<Thread:12>[12:45:18] : S:[1544] Disconnected
+[LOG]<Thread:12>[12:45:48] : S:[1520] Connected
+[LOG]<Thread:12>[12:45:54] : S:[1520] Login failed. Name: 
+[LOG]<Thread:1>[12:46:00] : ====================================================
+[LOG]<Thread:1>[12:46:00] :  * Server Shutdown * 
+[LOG]<Thread:1>[12:46:00] : ====================================================
+[LOG]<Thread:1>[12:46:01] : ====================================================
+[LOG]<Thread:1>[12:46:01] :  * Server Shutdown * 
+[LOG]<Thread:1>[12:46:01] : ====================================================
+[LOG]<Thread:1>[12:51:36] : ====================================================
+[LOG]<Thread:1>[12:51:36] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[12:51:36] : ====================================================
+[LOG]<Thread:3>[12:51:38] : S:[1284] Connected
+[LOG]<Thread:3>[12:51:43] : S:[1284] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:51:43] : S:[1284] Room list return request.
+[LOG]<Thread:3>[12:51:47] : S:[1284] Request to join the room. Name: [TEST] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[12:51:47] : S:[1284] Room list return request.
+[LOG]<Thread:3>[12:51:49] : S:[1284] Disconnected
+[LOG]<Thread:3>[12:53:43] : S:[1336] Connected
+[LOG]<Thread:3>[12:53:48] : S:[1336] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:53:48] : S:[1336] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[12:53:48] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:53:51] : S:[1336] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[12:53:51] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:53:56] : S:[1336] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[12:53:56] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:53:57] : S:[1336] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[12:53:57] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:53:59] : S:[1336] Request to join the room. Name: [TEST] Room: [ROOM [1]] Result: [True]
+[LOG]<Thread:3>[12:53:59] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:54:00] : S:[1336] Request to join the room. Name: [TEST] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[12:54:00] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:54:01] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:54:02] : S:[1336] Request to join the room. Name: [TEST] Room: [ROOM [3]] Result: [True]
+[LOG]<Thread:3>[12:54:02] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:54:02] : S:[1336] Request to join the room. Name: [TEST] Room: [ROOM [1]] Result: [True]
+[LOG]<Thread:3>[12:54:02] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:54:02] : S:[1336] Request to join the room. Name: [TEST] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[12:54:02] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:54:03] : S:[1336] Request to join the room. Name: [TEST] Room: [ROOM [1]] Result: [True]
+[LOG]<Thread:3>[12:54:03] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:54:04] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:54:04] : S:[1336] Request to join the room. Name: [TEST] Room: [ROOM [4]] Result: [True]
+[LOG]<Thread:3>[12:54:04] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:54:05] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:54:07] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:54:07] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:54:08] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:54:08] : S:[1336] Room list return request.
+[LOG]<Thread:3>[12:54:14] : S:[1336] Chat: <[ROOM [4]][12:54:14] [TEST] : asdasdasdasdasdasdasdasdasdasdasdasd>
+[LOG]<Thread:3>[12:54:20] : S:[1336] Disconnected
+[LOG]<Thread:3>[12:54:44] : S:[1284] Connected
+[LOG]<Thread:3>[12:54:47] : S:[1284] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:54:47] : S:[1284] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[12:54:48] : S:[1284] Room list return request.
+[LOG]<Thread:3>[12:54:51] : S:[1284] Disconnected
+[LOG]<Thread:3>[12:54:58] : S:[1228] Connected
+[LOG]<Thread:3>[12:55:03] : S:[1228] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:55:03] : S:[1228] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[12:55:03] : S:[1228] Room list return request.
+[LOG]<Thread:3>[12:55:09] : S:[1228] Disconnected
+[LOG]<Thread:3>[12:55:24] : S:[1036] Connected
+[LOG]<Thread:3>[12:55:27] : S:[1036] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:55:27] : S:[1036] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[12:55:27] : S:[1036] Room list return request.
+[LOG]<Thread:3>[12:55:31] : S:[1036] Chat: <[Lobby][12:55:31] [TEST] : asdasdsadasdasdasdasdasdasd>
+[LOG]<Thread:3>[12:55:55] : S:[1036] Room list return request.
+[LOG]<Thread:3>[12:55:55] : S:[1036] Request to join the room. Name: [TEST] Room: [ROOM [3]] Result: [True]
+[LOG]<Thread:3>[12:55:55] : S:[1036] Room list return request.
+[LOG]<Thread:3>[12:55:56] : S:[1036] Request to join the room. Name: [TEST] Room: [ROOM [1]] Result: [True]
+[LOG]<Thread:3>[12:55:56] : S:[1036] Room list return request.
+[LOG]<Thread:3>[12:55:57] : S:[1036] Room list return request.
+[LOG]<Thread:3>[12:56:00] : S:[1036] Request to join the room. Name: [TEST] Room: [ROOM [5]] Result: [True]
+[LOG]<Thread:3>[12:56:00] : S:[1036] Room list return request.
+[LOG]<Thread:3>[12:56:02] : S:[1036] Room list return request.
+[LOG]<Thread:3>[12:56:03] : S:[1036] Room list return request.
+[LOG]<Thread:3>[12:56:04] : S:[1036] Room list return request.
+[LOG]<Thread:3>[12:56:05] : S:[1036] Room list return request.
+[LOG]<Thread:3>[12:56:18] : S:[1036] Disconnected
+[LOG]<Thread:3>[12:56:44] : S:[736] Connected
+[LOG]<Thread:3>[12:56:48] : S:[736] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:56:48] : S:[736] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[12:56:48] : S:[736] Room list return request.
+[LOG]<Thread:3>[12:56:54] : S:[736] Disconnected
+[LOG]<Thread:3>[12:56:58] : S:[1392] Connected
+[LOG]<Thread:3>[12:57:01] : S:[1392] The login was successful. Name: TEST
+[LOG]<Thread:3>[12:57:01] : S:[1392] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[12:57:01] : S:[1392] Room list return request.
+[LOG]<Thread:3>[12:57:19] : S:[1392] Disconnected
+[LOG]<Thread:1>[01:03:50] : ====================================================
+[LOG]<Thread:1>[01:03:50] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:03:50] : ====================================================
+[LOG]<Thread:1>[01:12:27] : ====================================================
+[LOG]<Thread:1>[01:12:27] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[01:12:27] : ====================================================
+[LOG]<Thread:3>[01:12:29] : S:[1292] Connected
+[LOG]<Thread:3>[01:12:33] : S:[1292] The login was successful. Name: TEST
+[LOG]<Thread:3>[01:12:33] : S:[1292] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[01:12:33] : S:[1292] Room list return request.
+[LOG]<Thread:3>[01:12:42] : S:[1292] Room list return request.
+[LOG]<Thread:3>[01:12:43] : S:[1292] Request to join the room. Name: [TEST] Room: [ROOM [3]] Result: [True]
+[LOG]<Thread:3>[01:12:43] : S:[1292] Room list return request.
+[LOG]<Thread:3>[01:12:46] : S:[1292] Disconnected
+[LOG]<Thread:3>[01:13:57] : S:[1348] Connected
+[LOG]<Thread:3>[01:14:01] : S:[1348] The login was successful. Name: TEST
+[LOG]<Thread:3>[01:14:01] : S:[1348] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[01:14:01] : S:[1348] Room list return request.
+[LOG]<Thread:3>[01:14:04] : S:[1348] Disconnected
+[LOG]<Thread:3>[01:14:09] : S:[1228] Connected
+[LOG]<Thread:3>[01:14:14] : S:[1228] Login failed. Name: 
+[LOG]<Thread:3>[01:14:17] : S:[1228] The login was successful. Name: TEST
+[LOG]<Thread:3>[01:14:17] : S:[1228] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[01:14:17] : S:[1228] Room list return request.
+[LOG]<Thread:3>[01:14:21] : S:[1228] Disconnected
+[LOG]<Thread:3>[01:14:44] : S:[1348] Connected
+[LOG]<Thread:3>[01:14:47] : S:[1348] The login was successful. Name: TEST
+[LOG]<Thread:3>[01:14:48] : S:[1348] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[01:14:48] : S:[1348] Room list return request.
+[LOG]<Thread:3>[01:14:52] : S:[1348] Disconnected
+[LOG]<Thread:3>[01:17:42] : S:[1292] Connected
+[LOG]<Thread:3>[01:17:46] : S:[1292] The login was successful. Name: TEST
+[LOG]<Thread:3>[01:17:46] : S:[1292] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[01:17:46] : S:[1292] Room list return request.
+[LOG]<Thread:3>[01:17:51] : S:[1292] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[01:17:51] : S:[1292] Room list return request.
+[LOG]<Thread:3>[01:17:56] : S:[1292] Disconnected
+[LOG]<Thread:3>[01:18:26] : S:[1444] Connected
+[LOG]<Thread:3>[01:18:29] : S:[1444] The login was successful. Name: TEST
+[LOG]<Thread:3>[01:18:29] : S:[1444] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[01:18:29] : S:[1444] Room list return request.
+[LOG]<Thread:3>[01:18:45] : S:[1444] Disconnected
+[LOG]<Thread:3>[01:20:05] : S:[1476] Connected
+[LOG]<Thread:3>[01:20:09] : S:[1476] The login was successful. Name: TEST
+[LOG]<Thread:3>[01:20:09] : S:[1476] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[01:20:09] : S:[1476] Room list return request.
+[LOG]<Thread:3>[01:20:19] : S:[1476] Disconnected
+[LOG]<Thread:3>[01:20:41] : S:[1564] Connected
+[LOG]<Thread:3>[01:20:44] : S:[1564] The login was successful. Name: TEST
+[LOG]<Thread:3>[01:20:44] : S:[1564] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[01:20:44] : S:[1564] Room list return request.
+[LOG]<Thread:3>[01:21:04] : S:[1564] Disconnected
+[LOG]<Thread:3>[01:21:12] : S:[1612] Connected
+[LOG]<Thread:3>[01:21:16] : S:[1612] The login was successful. Name: TEST
+[LOG]<Thread:3>[01:21:16] : S:[1612] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[01:21:16] : S:[1612] Room list return request.
+[LOG]<Thread:3>[01:21:30] : S:[1612] Room list return request.
+[LOG]<Thread:3>[01:21:31] : S:[1612] Room list return request.
+[LOG]<Thread:3>[01:21:32] : S:[1612] Room list return request.
+[LOG]<Thread:3>[01:21:38] : S:[1612] Request to join the room. Name: [TEST] Room: [ROOM [1]] Result: [True]
+[LOG]<Thread:3>[01:21:38] : S:[1612] Room list return request.
+[LOG]<Thread:3>[01:21:40] : S:[1612] Room list return request.
+[LOG]<Thread:3>[01:21:40] : S:[1612] Disconnected
+[LOG]<Thread:3>[01:23:14] : S:[1624] Connected
+[LOG]<Thread:3>[01:23:18] : S:[1624] The login was successful. Name: TEST
+[LOG]<Thread:3>[01:23:18] : S:[1624] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[01:23:18] : S:[1624] Room list return request.
+[LOG]<Thread:3>[01:23:27] : S:[1624] Disconnected
+[LOG]<Thread:3>[01:23:57] : S:[1540] Connected
+[LOG]<Thread:3>[01:24:00] : S:[1540] The login was successful. Name: TEST
+[LOG]<Thread:3>[01:24:00] : S:[1540] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[01:24:00] : S:[1540] Room list return request.
+[LOG]<Thread:3>[01:24:24] : S:[1540] Chat: <[Lobby][01:24:24] [TEST] : asdasd>
+[LOG]<Thread:3>[01:24:28] : S:[1540] Request to join the room. Name: [TEST] Room: [ROOM [1]] Result: [True]
+[LOG]<Thread:3>[01:24:28] : S:[1540] Room list return request.
+[LOG]<Thread:3>[01:24:30] : S:[1540] Disconnected
+[LOG]<Thread:1>[01:24:33] : ====================================================
+[LOG]<Thread:1>[01:24:33] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:24:33] : ====================================================
+[LOG]<Thread:1>[01:24:36] : ====================================================
+[LOG]<Thread:1>[01:24:36] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:24:36] : ====================================================
+[LOG]<Thread:1>[01:24:58] : ====================================================
+[LOG]<Thread:1>[01:24:58] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[01:24:58] : ====================================================
+[LOG]<Thread:4>[01:25:02] : S:[1320] Connected
+[LOG]<Thread:4>[01:25:13] : S:[1320] The login was successful. Name: TEST
+[LOG]<Thread:4>[01:25:13] : S:[1320] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:4>[01:25:13] : S:[1320] Room list return request.
+[LOG]<Thread:1>[01:25:16] : ====================================================
+[LOG]<Thread:1>[01:25:16] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:25:16] : ====================================================
+[LOG]<Thread:1>[01:25:19] : ====================================================
+[LOG]<Thread:1>[01:25:19] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[01:25:19] : ====================================================
+[LOG]<Thread:3>[01:25:20] : S:[1456] Connected
+[LOG]<Thread:3>[01:25:36] : S:[1456] The login was successful. Name: TEST
+[LOG]<Thread:3>[01:25:36] : S:[1456] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[01:25:37] : S:[1456] Room list return request.
+[LOG]<Thread:1>[01:25:42] : ====================================================
+[LOG]<Thread:1>[01:25:42] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:25:42] : ====================================================
+[LOG]<Thread:1>[01:25:48] : ====================================================
+[LOG]<Thread:1>[01:25:48] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[01:25:48] : ====================================================
+[LOG]<Thread:9>[01:25:50] : S:[1800] Connected
+[LOG]<Thread:9>[01:25:56] : S:[1800] The login was successful. Name: TEST
+[LOG]<Thread:9>[01:25:57] : S:[1800] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:9>[01:25:57] : S:[1800] Room list return request.
+[LOG]<Thread:9>[01:25:59] : S:[1800] Disconnected
+[LOG]<Thread:1>[01:26:01] : ====================================================
+[LOG]<Thread:1>[01:26:01] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:26:01] : ====================================================
+[LOG]<Thread:1>[01:26:02] : ====================================================
+[LOG]<Thread:1>[01:26:02] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[01:26:02] : ====================================================
+[LOG]<Thread:13>[01:26:05] : S:[1844] Connected
+[LOG]<Thread:13>[01:26:08] : S:[1844] The login was successful. Name: TEST
+[LOG]<Thread:13>[01:26:08] : S:[1844] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:13>[01:26:08] : S:[1844] Room list return request.
+[LOG]<Thread:13>[01:26:29] : S:[1844] Disconnected
+[LOG]<Thread:1>[01:26:31] : ====================================================
+[LOG]<Thread:1>[01:26:31] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:26:31] : ====================================================
+[LOG]<Thread:1>[01:45:27] : ====================================================
+[LOG]<Thread:1>[01:45:27] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[01:45:27] : ====================================================
+[LOG]<Thread:3>[01:45:29] : S:[1296] Connected
+[LOG]<Thread:3>[01:45:32] : S:[1296] The login was successful. Name: TEST
+[LOG]<Thread:3>[01:45:32] : S:[1296] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[01:45:38] : S:[1296] Room list return request.
+[LOG]<Thread:3>[01:45:39] : S:[1296] Disconnected
+[LOG]<Thread:3>[01:46:03] : S:[1344] Connected
+[LOG]<Thread:3>[01:46:06] : S:[1344] The login was successful. Name: TEST
+[LOG]<Thread:3>[01:46:06] : S:[1344] Request to join the room. Name: [TEST] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[01:46:06] : S:[1344] Room list return request.
+[LOG]<Thread:3>[01:46:14] : S:[1344] Room list return request.
+[LOG]<Thread:3>[01:46:15] : S:[1344] Room list return request.
+[LOG]<Thread:3>[01:46:29] : S:[1344] Disconnected
+[LOG]<Thread:3>[01:46:44] : S:[1036] Connected
+[LOG]<Thread:1>[01:49:02] : ====================================================
+[LOG]<Thread:1>[01:49:02] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:49:02] : ====================================================
+[LOG]<Thread:1>[01:49:05] : ====================================================
+[LOG]<Thread:1>[01:49:05] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:49:05] : ====================================================
+[LOG]<Thread:1>[01:49:13] : ====================================================
+[LOG]<Thread:1>[01:49:13] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[01:49:13] : ====================================================
+[LOG]<Thread:3>[01:49:16] : S:[1280] Connected
+[LOG]<Thread:3>[01:49:29] : S:[1280] User registration (Sign Up). Result: [True]]
+[LOG]<Thread:3>[01:49:31] : S:[1280] User registration (Sign Up). Result: [True]]
+[LOG]<Thread:1>[01:49:39] : ====================================================
+[LOG]<Thread:1>[01:49:39] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:49:39] : ====================================================
+[LOG]<Thread:1>[01:49:40] : ====================================================
+[LOG]<Thread:1>[01:49:40] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:49:40] : ====================================================
+[LOG]<Thread:1>[01:52:38] : ====================================================
+[LOG]<Thread:1>[01:52:38] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[01:52:38] : ====================================================
+[LOG]<Thread:3>[01:52:39] : S:[1284] Connected
+[LOG]<Thread:3>[01:52:43] : S:[1284] User registration (Sign Up). Result: [False]]
+[LOG]<Thread:1>[01:52:52] : ====================================================
+[LOG]<Thread:1>[01:52:52] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:52:52] : ====================================================
+[LOG]<Thread:1>[01:55:34] : ====================================================
+[LOG]<Thread:1>[01:55:34] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[01:55:34] : ====================================================
+[LOG]<Thread:3>[01:55:36] : S:[1280] Connected
+[LOG]<Thread:3>[01:55:48] : S:[1280] User registration (Sign Up). Result: [False]]
+[LOG]<Thread:3>[01:55:52] : S:[1280] User registration (Sign Up). Result: [True]]
+[LOG]<Thread:3>[01:55:56] : S:[1280] User registration (Sign Up). Result: [True]]
+[LOG]<Thread:3>[01:55:58] : S:[1280] User registration (Sign Up). Result: [True]]
+[LOG]<Thread:3>[01:56:01] : S:[1280] User registration (Sign Up). Result: [True]]
+[LOG]<Thread:3>[01:56:03] : S:[1280] User registration (Sign Up). Result: [True]]
+[LOG]<Thread:3>[01:56:05] : S:[1280] User registration (Sign Up). Result: [True]]
+[LOG]<Thread:3>[01:56:08] : S:[1280] User registration (Sign Up). Result: [False]]
+[LOG]<Thread:3>[01:56:12] : S:[1280] User registration (Sign Up). Result: [True]]
+[LOG]<Thread:3>[01:56:14] : S:[1280] User registration (Sign Up). Result: [True]]
+[LOG]<Thread:3>[01:56:16] : S:[1280] User registration (Sign Up). Result: [True]]
+[LOG]<Thread:3>[01:56:19] : S:[1280] User registration (Sign Up). Result: [True]]
+[LOG]<Thread:3>[01:56:21] : S:[1280] User registration (Sign Up). Result: [True]]
+[LOG]<Thread:3>[01:56:25] : S:[1280] User registration (Sign Up). Result: [True]]
+[LOG]<Thread:3>[01:56:34] : S:[1280] The login was successful. Name: a
+[LOG]<Thread:3>[01:56:34] : S:[1280] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[01:56:34] : S:[1280] Room list return request.
+[LOG]<Thread:3>[01:56:37] : S:[1280] Room list return request.
+[LOG]<Thread:3>[01:56:38] : S:[1280] Room list return request.
+[LOG]<Thread:3>[01:56:38] : S:[1280] Room list return request.
+[LOG]<Thread:3>[01:56:46] : S:[1280] Disconnected
+[LOG]<Thread:1>[01:56:48] : ====================================================
+[LOG]<Thread:1>[01:56:48] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:56:48] : ====================================================
+[LOG]<Thread:1>[01:56:49] : ====================================================
+[LOG]<Thread:1>[01:56:49] :  * Server Shutdown * 
+[LOG]<Thread:1>[01:56:49] : ====================================================
+[LOG]<Thread:1>[02:10:13] : ====================================================
+[LOG]<Thread:1>[02:10:13] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[02:10:13] : ====================================================
+[LOG]<Thread:3>[02:10:15] : S:[1296] Connected
+[LOG]<Thread:3>[02:10:20] : S:[1296] Login failed. Name: 
+[LOG]<Thread:3>[02:10:22] : S:[1296] The login was successful. Name: a
+[LOG]<Thread:3>[02:10:22] : S:[1296] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[02:10:22] : S:[1296] Room list return request.
+[LOG]<Thread:3>[02:10:31] : S:[1296] Room list return request.
+[LOG]<Thread:3>[02:10:32] : S:[1296] Room list return request.
+[LOG]<Thread:3>[02:10:33] : S:[1296] Room list return request.
+[LOG]<Thread:3>[02:10:34] : S:[1296] Request to join the room. Name: [a] Room: [ROOM [3]] Result: [True]
+[LOG]<Thread:3>[02:10:34] : S:[1296] Room list return request.
+[LOG]<Thread:3>[02:10:36] : S:[1296] Request to join the room. Name: [a] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[02:10:36] : S:[1296] Room list return request.
+[LOG]<Thread:3>[02:10:37] : S:[1296] Request to join the room. Name: [a] Room: [ROOM [1]] Result: [True]
+[LOG]<Thread:3>[02:10:37] : S:[1296] Room list return request.
+[LOG]<Thread:3>[02:10:38] : S:[1296] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[02:10:39] : S:[1296] Room list return request.
+[LOG]<Thread:3>[02:10:40] : S:[1296] Room list return request.
+[LOG]<Thread:3>[02:10:41] : S:[1296] Request to join the room. Name: [a] Room: [ROOM [5]] Result: [True]
+[LOG]<Thread:3>[02:10:41] : S:[1296] Room list return request.
+[LOG]<Thread:3>[02:10:44] : S:[1296] Disconnected
+[LOG]<Thread:3>[02:15:29] : S:[1352] Connected
+[LOG]<Thread:3>[02:15:32] : S:[1352] The login was successful. Name: a
+[LOG]<Thread:3>[02:15:33] : S:[1352] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[02:15:33] : S:[1352] Room list return request.
+[LOG]<Thread:3>[02:15:36] : S:[1352] Disconnected
+[LOG]<Thread:3>[02:15:49] : S:[720] Connected
+[LOG]<Thread:3>[02:15:54] : S:[720] The login was successful. Name: a
+[LOG]<Thread:3>[02:15:54] : S:[720] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[02:15:54] : S:[720] Room list return request.
+[LOG]<Thread:3>[02:15:55] : S:[720] Room list return request.
+[LOG]<Thread:3>[02:15:56] : S:[720] Room list return request.
+[LOG]<Thread:3>[02:15:56] : S:[720] Room list return request.
+[LOG]<Thread:3>[02:15:56] : S:[720] Room list return request.
+[LOG]<Thread:3>[02:15:58] : S:[720] Disconnected
+[LOG]<Thread:3>[02:28:54] : S:[1344] Connected
+[LOG]<Thread:3>[02:29:02] : S:[1344] The login was successful. Name: w
+[LOG]<Thread:3>[02:29:02] : S:[1344] Request to join the room. Name: [w] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[02:29:02] : S:[1344] Room list return request.
+[LOG]<Thread:3>[02:29:11] : S:[1344] Disconnected
+[LOG]<Thread:3>[02:29:40] : S:[720] Connected
+[LOG]<Thread:3>[02:29:43] : S:[720] The login was successful. Name: a
+[LOG]<Thread:3>[02:29:43] : S:[720] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[02:29:43] : S:[720] Room list return request.
+[LOG]<Thread:3>[02:29:59] : S:[720] Disconnected
+[LOG]<Thread:3>[02:30:15] : S:[1348] Connected
+[LOG]<Thread:3>[02:30:18] : S:[1348] The login was successful. Name: a
+[LOG]<Thread:3>[02:30:18] : S:[1348] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[02:30:18] : S:[1348] Room list return request.
+[LOG]<Thread:3>[02:30:26] : S:[1348] Disconnected
+[LOG]<Thread:3>[02:31:47] : S:[1248] Connected
+[LOG]<Thread:1>[02:32:05] : ====================================================
+[LOG]<Thread:1>[02:32:05] :  * Server Shutdown * 
+[LOG]<Thread:1>[02:32:05] : ====================================================
+[LOG]<Thread:1>[02:32:06] : ====================================================
+[LOG]<Thread:1>[02:32:06] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[02:32:06] : ====================================================
+[LOG]<Thread:3>[02:32:08] : S:[1404] Connected
+[LOG]<Thread:3>[02:32:08] : S:[1404] The login was successful. Name: a
+[LOG]<Thread:3>[02:32:08] : S:[1404] Login failed. Name: a
+[LOG]<Thread:1>[02:32:18] : ====================================================
+[LOG]<Thread:1>[02:32:18] :  * Server Shutdown * 
+[LOG]<Thread:1>[02:32:18] : ====================================================
+[LOG]<Thread:1>[02:32:28] : ====================================================
+[LOG]<Thread:1>[02:32:28] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[02:32:28] : ====================================================
+[LOG]<Thread:3>[02:32:30] : S:[1284] Connected
+[LOG]<Thread:3>[02:32:32] : S:[1284] The login was successful. Name: a
+[LOG]<Thread:3>[02:32:32] : S:[1284] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[02:32:32] : S:[1284] Room list return request.
+[LOG]<Thread:3>[02:32:37] : S:[1284] Request to join the room. Name: [a] Room: [ROOM [2]] Result: [True]
+[LOG]<Thread:3>[02:32:37] : S:[1284] Room list return request.
+[LOG]<Thread:3>[02:32:42] : S:[1284] Disconnected
+[LOG]<Thread:3>[02:34:29] : S:[1344] Connected
+[LOG]<Thread:1>[02:34:35] : ====================================================
+[LOG]<Thread:1>[02:34:35] :  * Server Shutdown * 
+[LOG]<Thread:1>[02:34:35] : ====================================================
+[LOG]<Thread:1>[02:34:36] : ====================================================
+[LOG]<Thread:1>[02:34:36] :  * Server Shutdown * 
+[LOG]<Thread:1>[02:34:36] : ====================================================
+[LOG]<Thread:1>[02:35:59] : ====================================================
+[LOG]<Thread:1>[02:35:59] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[02:35:59] : ====================================================
+[LOG]<Thread:3>[02:36:01] : S:[1296] Connected
+[LOG]<Thread:3>[02:36:10] : S:[1296] The login was successful. Name: a
+[LOG]<Thread:3>[02:36:10] : S:[1296] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[02:36:10] : S:[1296] Room list return request.
+[LOG]<Thread:3>[02:36:16] : S:[1296] Disconnected
+[LOG]<Thread:3>[02:36:54] : S:[1344] Connected
+[LOG]<Thread:3>[02:36:56] : S:[1344] The login was successful. Name: w
+[LOG]<Thread:3>[02:36:56] : S:[1344] Request to join the room. Name: [w] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[02:36:56] : S:[1344] Room list return request.
+[LOG]<Thread:3>[02:37:06] : S:[1344] Disconnected
+[LOG]<Thread:3>[02:39:05] : S:[1088] Connected
+[LOG]<Thread:3>[02:39:07] : S:[1088] The login was successful. Name: a
+[LOG]<Thread:3>[02:39:07] : S:[1088] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[02:39:07] : S:[1088] Room list return request.
+[LOG]<Thread:3>[02:39:23] : S:[1088] Disconnected
+[LOG]<Thread:3>[02:39:40] : S:[1416] Connected
+[LOG]<Thread:3>[02:39:42] : S:[1416] The login was successful. Name: w
+[LOG]<Thread:3>[02:39:42] : S:[1416] Request to join the room. Name: [w] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[02:39:42] : S:[1416] Room list return request.
+[LOG]<Thread:3>[02:39:59] : S:[1416] Disconnected
+[LOG]<Thread:3>[02:41:46] : S:[1484] Connected
+[LOG]<Thread:3>[02:41:50] : S:[1484] The login was successful. Name: a
+[LOG]<Thread:3>[02:41:50] : S:[1484] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[02:41:50] : S:[1484] Room list return request.
+[LOG]<Thread:3>[02:42:06] : S:[1484] Request to join the room. Name: [a] Room: [ROOM [1]] Result: [True]
+[LOG]<Thread:3>[02:42:06] : S:[1484] Room list return request.
+[LOG]<Thread:3>[02:42:09] : S:[1484] Disconnected
+[LOG]<Thread:3>[02:44:13] : S:[1232] Connected
+[LOG]<Thread:1>[02:44:20] : ====================================================
+[LOG]<Thread:1>[02:44:20] :  * Server Shutdown * 
+[LOG]<Thread:1>[02:44:20] : ====================================================
+[LOG]<Thread:1>[02:44:31] : ====================================================
+[LOG]<Thread:1>[02:44:31] :  * Server Shutdown * 
+[LOG]<Thread:1>[02:44:31] : ====================================================
+[LOG]<Thread:1>[02:44:38] : ====================================================
+[LOG]<Thread:1>[02:44:38] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[02:44:38] : ====================================================
+[LOG]<Thread:3>[02:44:40] : S:[1280] Connected
+[LOG]<Thread:1>[02:44:50] : ====================================================
+[LOG]<Thread:1>[02:44:50] :  * Server Shutdown * 
+[LOG]<Thread:1>[02:44:50] : ====================================================
+[LOG]<Thread:1>[02:44:54] : ====================================================
+[LOG]<Thread:1>[02:44:54] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[02:44:54] : ====================================================
+[LOG]<Thread:5>[02:44:56] : S:[1392] Connected
+[LOG]<Thread:1>[02:45:05] : ====================================================
+[LOG]<Thread:1>[02:45:05] :  * Server Shutdown * 
+[LOG]<Thread:1>[02:45:05] : ====================================================
+[LOG]<Thread:1>[02:45:10] : ====================================================
+[LOG]<Thread:1>[02:45:10] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[02:45:10] : ====================================================
+[LOG]<Thread:3>[02:45:12] : S:[1296] Connected
+[LOG]<Thread:1>[02:47:44] : ====================================================
+[LOG]<Thread:1>[02:47:44] :  * Server Shutdown * 
+[LOG]<Thread:1>[02:47:44] : ====================================================
+[LOG]<Thread:1>[02:47:50] : ====================================================
+[LOG]<Thread:1>[02:47:50] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[02:47:50] : ====================================================
+[LOG]<Thread:3>[02:47:52] : S:[1284] Connected
+[LOG]<Thread:3>[02:47:55] : S:[1284] The login was successful. Name: a
+[LOG]<Thread:3>[02:47:55] : S:[1284] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[02:47:55] : S:[1284] Room list return request.
+[LOG]<Thread:3>[02:48:05] : S:[1284] Disconnected
+[LOG]<Thread:3>[02:49:39] : S:[1344] Connected
+[LOG]<Thread:1>[02:50:54] : ====================================================
+[LOG]<Thread:1>[02:50:54] :  * Server Shutdown * 
+[LOG]<Thread:1>[02:50:54] : ====================================================
+[LOG]<Thread:1>[02:51:42] : ====================================================
+[LOG]<Thread:1>[02:51:42] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[02:51:42] : ====================================================
+[LOG]<Thread:3>[02:51:45] : S:[1280] Connected
+[LOG]<Thread:3>[02:51:50] : S:[1280] The login was successful. Name: a
+[LOG]<Thread:3>[02:51:50] : S:[1280] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[02:51:50] : S:[1280] Room list return request.
+[LOG]<Thread:3>[02:51:54] : S:[1280] Room list return request.
+[LOG]<Thread:3>[02:52:12] : S:[1280] Disconnected
+[LOG]<Thread:3>[02:53:15] : S:[1336] Connected
+[LOG]<Thread:3>[02:53:20] : S:[1336] The login was successful. Name: w
+[LOG]<Thread:3>[02:53:20] : S:[1336] Request to join the room. Name: [w] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[02:53:20] : S:[1336] Room list return request.
+[LOG]<Thread:3>[02:53:48] : S:[1336] Disconnected
+[LOG]<Thread:3>[02:54:22] : S:[1372] Connected
+[LOG]<Thread:1>[02:56:42] : ====================================================
+[LOG]<Thread:1>[02:56:42] :  * Server Shutdown * 
+[LOG]<Thread:1>[02:56:42] : ====================================================
+[LOG]<Thread:1>[02:56:42] : ====================================================
+[LOG]<Thread:1>[02:56:42] :  * Server Shutdown * 
+[LOG]<Thread:1>[02:56:42] : ====================================================
+[LOG]<Thread:1>[02:56:46] : ====================================================
+[LOG]<Thread:1>[02:56:46] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[02:56:46] : ====================================================
+[LOG]<Thread:3>[02:56:48] : S:[1288] Connected
+[LOG]<Thread:3>[02:56:53] : S:[1288] The login was successful. Name: a
+[LOG]<Thread:3>[02:56:53] : S:[1288] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[02:56:53] : S:[1288] Room list return request.
+[LOG]<Thread:3>[02:57:04] : S:[1288] Disconnected
+[LOG]<Thread:3>[03:02:04] : S:[1344] Connected
+[LOG]<Thread:3>[03:02:09] : S:[1344] Login failed. Name: 
+[LOG]<Thread:1>[03:02:22] : ====================================================
+[LOG]<Thread:1>[03:02:22] :  * Server Shutdown * 
+[LOG]<Thread:1>[03:02:22] : ====================================================
+[LOG]<Thread:1>[03:02:24] : ====================================================
+[LOG]<Thread:1>[03:02:24] :  * Server Shutdown * 
+[LOG]<Thread:1>[03:02:24] : ====================================================
+[LOG]<Thread:1>[03:02:27] : ====================================================
+[LOG]<Thread:1>[03:02:27] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[03:02:27] : ====================================================
+[LOG]<Thread:3>[03:02:29] : S:[1296] Connected
+[LOG]<Thread:3>[03:02:32] : S:[1296] The login was successful. Name: w
+[LOG]<Thread:3>[03:02:32] : S:[1296] Request to join the room. Name: [w] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[03:02:32] : S:[1296] Room list return request.
+[LOG]<Thread:3>[03:02:43] : S:[1296] Room creation request. Room: [DASDADAADDAADDA] Result: [True]
+[LOG]<Thread:3>[03:02:44] : S:[1296] Room list return request.
+[LOG]<Thread:3>[03:02:45] : S:[1296] Room list return request.
+[LOG]<Thread:3>[03:02:45] : S:[1296] Request to join the room. Name: [w] Room: [DASDADAADDAADDA] Result: [True]
+[LOG]<Thread:3>[03:02:45] : S:[1296] Room list return request.
+[LOG]<Thread:3>[03:02:47] : S:[1296] Room list return request.
+[LOG]<Thread:3>[03:02:49] : S:[1296] Room list return request.
+[LOG]<Thread:3>[03:02:49] : S:[1296] Room list return request.
+[LOG]<Thread:3>[03:02:49] : S:[1296] Room list return request.
+[LOG]<Thread:3>[03:02:50] : S:[1296] Room list return request.
+[LOG]<Thread:3>[03:02:52] : S:[1296] Disconnected
+[LOG]<Thread:1>[03:02:57] : ====================================================
+[LOG]<Thread:1>[03:02:57] :  * Server Shutdown * 
+[LOG]<Thread:1>[03:02:57] : ====================================================
+[LOG]<Thread:1>[03:03:33] : ====================================================
+[LOG]<Thread:1>[03:03:33] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[03:03:33] : ====================================================
+[LOG]<Thread:3>[03:03:38] : S:[1284] Connected
+[LOG]<Thread:3>[03:03:44] : S:[1284] The login was successful. Name: q
+[LOG]<Thread:3>[03:03:44] : S:[1284] Request to join the room. Name: [q] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[03:03:44] : S:[1284] Room list return request.
+[LOG]<Thread:3>[03:03:57] : S:[1284] Disconnected
+[LOG]<Thread:3>[03:05:16] : S:[1340] Connected
+[LOG]<Thread:3>[03:05:19] : S:[1340] The login was successful. Name: a
+[LOG]<Thread:3>[03:05:19] : S:[1340] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[03:05:19] : S:[1340] Room list return request.
+[LOG]<Thread:3>[03:05:29] : S:[1340] Chat: <[Lobby][03:05:29] [a] : asdasd>
+[LOG]<Thread:3>[03:05:41] : S:[1340] Disconnected
+[LOG]<Thread:3>[03:06:18] : S:[1408] Connected
+[LOG]<Thread:1>[03:09:44] : ====================================================
+[LOG]<Thread:1>[03:09:44] :  * Server Shutdown * 
+[LOG]<Thread:1>[03:09:44] : ====================================================
+[LOG]<Thread:1>[03:12:59] : ====================================================
+[LOG]<Thread:1>[03:12:59] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[03:12:59] : ====================================================
+[LOG]<Thread:3>[03:13:01] : S:[1280] Connected
+[LOG]<Thread:3>[03:13:07] : S:[1280] The login was successful. Name: a
+[LOG]<Thread:3>[03:13:07] : S:[1280] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[03:13:08] : S:[1280] Room list return request.
+[LOG]<Thread:3>[03:13:21] : S:[1280] Disconnected
+[LOG]<Thread:3>[03:14:19] : S:[1336] Connected
+[LOG]<Thread:3>[03:14:22] : S:[1336] The login was successful. Name: q
+[LOG]<Thread:3>[03:14:22] : S:[1336] Request to join the room. Name: [q] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[03:14:22] : S:[1336] Room list return request.
+[LOG]<Thread:3>[03:14:34] : S:[1336] Room creation request. Room: [Why not?] Result: [True]
+[LOG]<Thread:3>[03:14:35] : S:[1336] Room list return request.
+[LOG]<Thread:3>[03:14:36] : S:[1336] Room list return request.
+[LOG]<Thread:3>[03:14:37] : S:[1336] Room list return request.
+[LOG]<Thread:3>[03:14:37] : S:[1336] Room list return request.
+[LOG]<Thread:3>[03:14:48] : S:[1336] Disconnected
+[LOG]<Thread:3>[03:15:40] : S:[1384] Connected
+[LOG]<Thread:1>[03:16:30] : ====================================================
+[LOG]<Thread:1>[03:16:30] :  * Server Shutdown * 
+[LOG]<Thread:1>[03:16:30] : ====================================================
+[LOG]<Thread:1>[03:16:34] : ====================================================
+[LOG]<Thread:1>[03:16:34] :  * Server Shutdown * 
+[LOG]<Thread:1>[03:16:34] : ====================================================
+[LOG]<Thread:1>[03:16:40] : ====================================================
+[LOG]<Thread:1>[03:16:40] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[03:16:40] : ====================================================
+[LOG]<Thread:3>[03:16:43] : S:[1296] Connected
+[LOG]<Thread:3>[03:16:46] : S:[1296] The login was successful. Name: q
+[LOG]<Thread:3>[03:16:46] : S:[1296] Request to join the room. Name: [q] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[03:16:46] : S:[1296] Room list return request.
+[LOG]<Thread:3>[03:16:57] : S:[1296] Room creation request. Room: [interasd] Result: [True]
+[LOG]<Thread:3>[03:16:58] : S:[1296] Disconnected
+[LOG]<Thread:3>[03:18:56] : S:[1336] Connected
+[LOG]<Thread:3>[03:19:01] : S:[1336] The login was successful. Name: a
+[LOG]<Thread:3>[03:19:01] : S:[1336] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[03:19:01] : S:[1336] Room list return request.
+[LOG]<Thread:3>[03:19:10] : S:[1336] Disconnected
+[LOG]<Thread:3>[03:21:16] : S:[1032] Connected
+[LOG]<Thread:3>[03:21:18] : S:[1032] The login was successful. Name: a
+[LOG]<Thread:3>[03:21:18] : S:[1032] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[03:21:18] : S:[1032] Room list return request.
+[LOG]<Thread:3>[03:21:26] : S:[1032] Disconnected
+[LOG]<Thread:3>[03:21:34] : S:[1388] Connected
+[LOG]<Thread:3>[03:21:36] : S:[1388] The login was successful. Name: a
+[LOG]<Thread:3>[03:21:36] : S:[1388] Request to join the room. Name: [a] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[03:21:36] : S:[1388] Room list return request.
+[LOG]<Thread:3>[03:21:46] : S:[1388] Room creation request. Room: [NewRoom] Result: [True]
+[LOG]<Thread:3>[03:21:48] : S:[1388] Room list return request.
+[LOG]<Thread:3>[03:21:49] : S:[1388] Room list return request.
+[LOG]<Thread:3>[03:21:57] : S:[1388] Room creation request. Room: [NewRoom] Result: [False]
+[LOG]<Thread:3>[03:21:58] : S:[1388] Room list return request.
+[LOG]<Thread:3>[03:21:58] : S:[1388] Room list return request.
+[LOG]<Thread:3>[03:21:59] : S:[1388] Room list return request.
+[LOG]<Thread:3>[03:21:59] : S:[1388] Room list return request.
+[LOG]<Thread:3>[03:22:00] : S:[1388] Request to join the room. Name: [a] Room: [NewRoom] Result: [True]
+[LOG]<Thread:3>[03:22:00] : S:[1388] Room list return request.
+[LOG]<Thread:3>[03:22:02] : S:[1388] Room list return request.
+[LOG]<Thread:3>[03:22:03] : S:[1388] Room list return request.
+[LOG]<Thread:3>[03:22:03] : S:[1388] Room list return request.
+[LOG]<Thread:3>[03:22:04] : S:[1388] Room list return request.
+[LOG]<Thread:3>[03:22:05] : S:[1388] Room list return request.
+[LOG]<Thread:3>[03:22:09] : S:[1388] Room list return request.
+[LOG]<Thread:3>[03:22:10] : S:[1388] Room list return request.
+[LOG]<Thread:3>[03:22:10] : S:[1388] Room list return request.
+[LOG]<Thread:3>[03:22:11] : S:[1388] Room list return request.
+[LOG]<Thread:3>[03:22:14] : S:[1388] Chat: <[NewRoom][03:22:14] [a] : HIHI>
+[LOG]<Thread:3>[03:22:17] : S:[1388] Chat: <[NewRoom][03:22:17] [a] : BYE>
+[LOG]<Thread:3>[03:22:20] : S:[1388] Disconnected
+[LOG]<Thread:3>[03:22:32] : S:[1220] Connected
+[LOG]<Thread:3>[03:22:34] : S:[1220] The login was successful. Name: q
+[LOG]<Thread:3>[03:22:34] : S:[1220] Request to join the room. Name: [q] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[03:22:34] : S:[1220] Room list return request.
+[LOG]<Thread:3>[03:22:43] : S:[1220] Disconnected
+[LOG]<Thread:1>[03:33:04] : ====================================================
+[LOG]<Thread:1>[03:33:04] :  * Server Shutdown * 
+[LOG]<Thread:1>[03:33:04] : ====================================================
+[LOG]<Thread:1>[03:33:31] : ====================================================
+[LOG]<Thread:1>[03:33:31] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[03:33:31] : ====================================================
+[LOG]<Thread:3>[03:33:33] : S:[1280] Connected
+[LOG]<Thread:3>[03:33:35] : S:[1280] The login was successful. Name: q
+[LOG]<Thread:3>[03:33:35] : S:[1280] Request to join the room. Name: [q] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[03:33:35] : S:[1280] Room list return request.
+[LOG]<Thread:3>[03:33:40] : S:[1280] Room list return request.
+[LOG]<Thread:3>[03:33:41] : S:[1280] Room list return request.
+[LOG]<Thread:3>[03:33:42] : S:[1280] Room list return request.
+[LOG]<Thread:3>[03:33:42] : S:[1280] Room list return request.
+[LOG]<Thread:3>[03:33:45] : S:[1280] Room list return request.
+[LOG]<Thread:3>[03:33:46] : S:[1280] Room list return request.
+[LOG]<Thread:3>[03:33:48] : S:[1280] Disconnected
+[LOG]<Thread:1>[03:33:50] : ====================================================
+[LOG]<Thread:1>[03:33:50] :  * Server Shutdown * 
+[LOG]<Thread:1>[03:33:50] : ====================================================
+[LOG]<Thread:1>[03:35:15] : ====================================================
+[LOG]<Thread:1>[03:35:15] :  * Server Start [IP : 0.0.0.0] [PORT : 9199] * 
+[LOG]<Thread:1>[03:35:15] : ====================================================
+[LOG]<Thread:3>[03:35:16] : S:[1280] Connected
+[LOG]<Thread:3>[03:35:19] : S:[1280] The login was successful. Name: q
+[LOG]<Thread:3>[03:35:19] : S:[1280] Request to join the room. Name: [q] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[03:35:19] : S:[1280] Room list return request.
+[LOG]<Thread:3>[03:35:22] : S:[1280] Room creation request. Room: [New Room] Result: [False]
+[LOG]<Thread:3>[03:35:22] : S:[1280] Request to join the room. Name: [q] Room: [New Room] Result: [False]
+[LOG]<Thread:3>[03:35:22] : S:[1280] Room list return request.
+[LOG]<Thread:3>[03:35:26] : S:[1280] Room list return request.
+[LOG]<Thread:3>[03:35:27] : S:[1280] Room list return request.
+[LOG]<Thread:3>[03:35:27] : S:[1280] Room list return request.
+[LOG]<Thread:3>[03:35:30] : S:[1280] Room list return request.
+[LOG]<Thread:3>[03:35:33] : S:[1336] Connected
+[LOG]<Thread:3>[03:35:35] : S:[1336] The login was successful. Name: w
+[LOG]<Thread:3>[03:35:35] : S:[1336] Request to join the room. Name: [w] Room: [Lobby] Result: [True]
+[LOG]<Thread:3>[03:35:35] : S:[1336] Room list return request.
+[LOG]<Thread:3>[03:35:39] : S:[1336] Room creation request. Room: [New Room2] Result: [False]
+[LOG]<Thread:3>[03:35:39] : S:[1336] Request to join the room. Name: [w] Room: [New Room2] Result: [False]
+[LOG]<Thread:3>[03:35:39] : S:[1336] Room list return request.
+[LOG]<Thread:3>[03:35:42] : S:[1336] Room list return request.
+[LOG]<Thread:3>[03:35:42] : S:[1336] Room list return request.
+[LOG]<Thread:3>[03:35:43] : S:[1336] Request to join the room. Name: [w] Room: [New Room] Result: [True]
+[LOG]<Thread:3>[03:35:43] : S:[1336] Room list return request.
+[LOG]<Thread:3>[03:35:46] : S:[1280] Chat: <[New Room][03:35:46] [q] : asdasd>
+[LOG]<Thread:3>[03:35:48] : S:[1336] Chat: <[New Room][03:35:48] [w] : cascascasc\>
+[LOG]<Thread:3>[03:35:49] : S:[1280] Chat: <[New Room][03:35:49] [q] : qweqweqwe>
+[LOG]<Thread:3>[03:35:52] : S:[1336] Chat: <[New Room][03:35:52] [w] : cascascascc>
+[LOG]<Thread:3>[03:35:55] : S:[1280] Disconnected
+[LOG]<Thread:3>[03:35:57] : S:[1336] Disconnected
+[LOG]<Thread:1>[03:35:59] : ====================================================
+[LOG]<Thread:1>[03:35:59] :  * Server Shutdown * 
+[LOG]<Thread:1>[03:35:59] : ====================================================
+[LOG]<Thread:1>[03:36:00] : ====================================================
+[LOG]<Thread:1>[03:36:00] :  * Server Shutdown * 
+[LOG]<Thread:1>[03:36:00] : ====================================================

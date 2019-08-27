@@ -24,13 +24,12 @@ namespace DirectXClient
 
         public override void Initialize()
         {
-            D3D9Manager.Instance.CreateTexture("SigninButton", "./Resource/SigninButton.png");
             D3D9Manager.Instance.CreateTexture("SignupButton", "./Resource/SignupButton.png");
             D3D9Manager.Instance.CreateTexture("NameInput", "./Resource/NameInput.png");
             D3D9Manager.Instance.CreateTexture("BackButton", "./Resource/BackButton.png");
             D3D9Manager.Instance.CreateTexture("Background", "./Resource/Background2.png");
 
-            D3D9Manager.Instance.CreateFont("InputField", "메이플스토리 Light", 35, false);
+            D3D9Manager.Instance.CreateFont("InputField", "Segoe UI", 35, false);
 
             ClientManager.Instance.OnSignUp += OnSignUp;
 
@@ -54,15 +53,15 @@ namespace DirectXClient
             }
         }
 
-        private void OnSignUp(object sender, bool e)
+        private void OnSignUp(object sender, Tuple<string, bool> e)
         {
-            if (e)
+            if (e.Item2 == true)
             {
-                MessageBox.Show("회원가입에 성공했습니다.", "성공");
+                MessageBox.Show($"{e.Item1}", "성공");
             }
             else
             {
-                MessageBox.Show("회원가입에 실패했습니다.", "실패");
+                MessageBox.Show($"{e.Item1}", "실패");
             }
         }
 

@@ -16,7 +16,7 @@ namespace ChattingNetwork.Server
 {
     internal partial class ChattingLogic : MLogicEntry
     {
-        public MNetworkLobby NetworkLobby { get; } = new MNetworkLobby();
+        public MNetworkLobby NetworkLobby { get; private set; } = null;
 
         public LoginHandler loginHandler = new LoginHandler();
 
@@ -27,8 +27,7 @@ namespace ChattingNetwork.Server
 
         public override bool Initialize()
         {
-            if (NetworkLobby == null)
-                return false;
+            NetworkLobby = new MNetworkLobby();
 
             NetworkLobby.CreateLobbyRoom();
             NetworkLobby.Initialize("ROOM", 5);
@@ -98,6 +97,10 @@ namespace ChattingNetwork.Server
                 case MessageType.ChattingRequest:
                     OnChattingRequest(packet as ProtobufPacket<ChattingRequestPacket>);
                     break;
+                case MessageType.CreateAndJoinRoomRequest:
+                    OnCreateAndJoinRoomRequest(packet as ProtobufPacket<CreateAndJoinRoomRequestPacket>);
+                    break;
+
                 default:
                     break;
             }

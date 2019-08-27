@@ -12,7 +12,6 @@ namespace DirectXClient
     {
         readonly StringBuilder inputString = new StringBuilder();
 
-        public Vector3 Position { get; set; } = new Vector3(0, 0, 0);
         public Vector3 StringOffset { get; set; } = new Vector3(0, 0, 0);
         public string FontKey { get; set; } = string.Empty;
         public bool IsSelected { get; private set; } = true;
@@ -46,7 +45,10 @@ namespace DirectXClient
 
         private void OnMouseClick(object sender, ClickChecker checker)
         {
-            if (Range.IsMouseOver(Position, FieldTexture))
+            if (IsActive == false)
+                return;
+
+            if (Range.IsMouseOver(Vector3.TransformCoordinate(Vector3.Zero, GetWorldMatrix()), FieldTexture))
             {
                 IsSelected = true;
             }
@@ -104,20 +106,20 @@ namespace DirectXClient
         {
             int alpha = IsSelected ? 255 : 180;
 
-            Vector3 fontDrawPosition = Position;
+            Vector3 fontDrawPosition = Vector3.Zero;
             Color textColor = StringColor;
 
             textColor.A = (byte)alpha;
 
             if (FieldTexture != null)
             {
-                D3D9Manager.Instance.DrawTextureWithColor(FieldTexture, Position,
-                    new Vector3(1, 1, 1), new Color(255, 255, 255, alpha));
+                D3D9Manager.Instance.DrawTexture(FieldTexture, GetWorldMatrix(), new Color(255, 255, 255, alpha));
 
-                fontDrawPosition -= new Vector3(FieldTexture.HalfWidth, FieldTexture.HalfHeight, 0) - StringOffset;
+                fontDrawPosition -= new Vector3(FieldTexture.HalfWidth, FieldTexture.HalfHeight, 0);
+                fontDrawPosition += StringOffset;
             }
 
-            D3D9Manager.Instance.DrawFont(FontKey, fontDrawPosition,
+            D3D9Manager.Instance.DrawFont(FontKey, Vector3.TransformCoordinate(fontDrawPosition, GetWorldTransformMatrix()),
                 outputString, textColor);
         }
 
@@ -160,6 +162,16 @@ namespace DirectXClient
             {
                 inputString.Append(ch);
             }
+        }
+
+        private Matrix GetWorldTransformMatrix()
+        {
+            Vector3 transform = Position;
+
+            if (Parent != null)
+                transform += Parent.Position;
+
+            return Matrix.Translation(transform);
         }
     }
 }

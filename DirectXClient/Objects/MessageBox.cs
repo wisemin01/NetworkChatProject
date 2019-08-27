@@ -13,10 +13,9 @@ namespace DirectXClient
 
         private Button quitButton;
 
-        private string Text = string.Empty;
-        private string Caption = string.Empty;
+        private readonly string Text = string.Empty;
+        private readonly string Caption = string.Empty;
 
-        public Vector3 Position { get; set; } = default;
         public string FontKey { get; set; } = string.Empty;
         public Color StringColor { get; set; } = Color.White;
 
@@ -35,7 +34,7 @@ namespace DirectXClient
 
         public override void Initialize()
         {
-            D3D9Manager.Instance.CreateFont("Default", "메이플스토리 Light", 25, false);
+            D3D9Manager.Instance.CreateFont("Default", "Segoe UI", 25, false);
 
             messageBoxTex = D3D9Manager.Instance.CreateTexture(
                 "MessageBox", "./Resource/MessageBox.png");

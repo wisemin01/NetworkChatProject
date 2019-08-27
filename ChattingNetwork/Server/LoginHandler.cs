@@ -27,6 +27,14 @@ namespace ChattingNetwork.Server
         /// <returns></returns>
         public bool SignUp(string id, string password, string userName, out string context)
         {
+            if (string.IsNullOrWhiteSpace(id)
+                || string.IsNullOrWhiteSpace(password)
+                || string.IsNullOrWhiteSpace(userName))
+            {
+                context = "회원 정보가 모두 입력되지 않았습니다.";
+                return false;
+            }
+
             INIFile.Get(id, out string value, "./Data/userData.ini", "USER_DATA");
 
             if (value == "FAILED")

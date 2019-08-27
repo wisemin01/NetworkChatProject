@@ -11,6 +11,8 @@ namespace ServerHost
 {
     public partial class ServerGUIForm : Form
     {
+        bool buttonType = false;
+
         public ServerGUIForm()
         {
             InitializeComponent();
@@ -30,14 +32,25 @@ namespace ServerHost
 
         private void ServerStartButtonClick(object sender, EventArgs e)
         {
-            INIFile.Get("ip", out string ip, "./Data/serverinfo.ini", "SERVER");
-            INIFile.Get("port", out string port, "./Data/serverinfo.ini", "SERVER");
-
-            bool result = ServerManager.Instance.Start(ip, ushort.Parse(port));
-
-            if (result == true)
+            if (buttonType == false)
             {
-                button1.Enabled = false;
+                INIFile.Get("ip", out string ip, "./Data/serverinfo.ini", "SERVER");
+                INIFile.Get("port", out string port, "./Data/serverinfo.ini", "SERVER");
+
+                bool result = ServerManager.Instance.Start(ip, ushort.Parse(port));
+
+                if (result == true)
+                {
+                    buttonType = true;
+                    button1.Text = "Stop";
+                }
+            }
+            else
+            {
+                ServerManager.Instance.Stop();
+
+                buttonType = false;
+                button1.Text = "Start";
             }
         }
         
@@ -54,11 +67,6 @@ namespace ServerHost
             {
                 ChattingList.AppendText(text + Environment.NewLine);
             }
-        }
-
-        private void ThreadCount_Click(object sender, EventArgs e)
-        {
-            Debug.Log($"THREAD COUNT : {System.Diagnostics.Process.GetCurrentProcess().Threads.Count}");
         }
     }
 }

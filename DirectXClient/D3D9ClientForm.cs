@@ -21,7 +21,7 @@ namespace DirectXClient
     {
         public void Initialize()
         {
-            D3D9Manager.Instance.CreateDirect3D9("My DirectX Client",
+            D3D9Manager.Instance.CreateDirect3D9("MNetwork Chatting Program",
                 ClientWindow.Width, ClientWindow.Height);
 
             SceneManager.Instance.AddScene<SignInScene>("SignIn");
@@ -67,14 +67,14 @@ namespace DirectXClient
         {
             if (value == false)
             {
-                MessageBox.Show("서버 접속에 실패했습니다.\n클라이언트를 재시작 해주세요.", "CONNECTION FAILED")
+                MessageBox.Show("서버 접속에 실패했습니다.\n클라이언트를 재시작 해주세요.", "연결 실패")
                     .OnClosing += delegate { Application.Exit(); };
             }
         }
 
         private void OnServerDisconnect(object sender, EventArgs e)
         {
-            MessageBox.Show("서버와의 연결이 끊어졌습니다.\n클라이언트를 재시작 해주세요.", "DISCONNECTED")
+            MessageBox.Show("서버와의 연결이 끊어졌습니다.\n클라이언트를 재시작 해주세요.", "연결 실패")
                  .OnClosing += delegate { Application.Exit(); };
         }
     }

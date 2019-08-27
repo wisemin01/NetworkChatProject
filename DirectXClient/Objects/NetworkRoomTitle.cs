@@ -8,9 +8,6 @@ namespace DirectXClient
     class NetworkRoomTitle : GameObject
     {
         public string RoomTitle { get; set; } = string.Empty;
-        private GameTexture TitleTexture { get; set; } = null;
-
-        public Vector3 Position { get; set; } = default;
 
         public NetworkRoomTitle(string title)
         {
@@ -19,9 +16,7 @@ namespace DirectXClient
 
         public override void Initialize()
         {
-            TitleTexture = D3D9Manager.Instance.CreateTexture(
-                "RoomTitle", "./Resource/RoomTitle.png");
-            D3D9Manager.Instance.CreateFont("RoomTitle", "메이플스토리 Bold", 35, false);
+            D3D9Manager.Instance.CreateFont("RoomTitle", "Segoe UI", 35, false);
         }
 
         public override void FrameUpdate()
@@ -31,9 +26,9 @@ namespace DirectXClient
 
         public override void FrameRender()
         {
-            D3D9Manager.Instance.DrawTexture(TitleTexture, Position, new Vector3(1, 1, 1));
+            D3D9Manager.Instance.SetTransform(D3D9Manager.TransformState.Sprite, Parent.GetWorldMatrix());
             D3D9Manager.Instance.DrawFont_NotSetTransform(
-                "RoomTitle", new Vector3(-80, -17, 0), RoomTitle, new Color(127, 127, 127, 255));
+                "RoomTitle", Position, RoomTitle, new Color(127, 127, 127, 255));
         }
 
         public override void Release()

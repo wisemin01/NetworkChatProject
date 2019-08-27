@@ -13,8 +13,6 @@ namespace DirectXClient
 
         public int renderTop { get; set; } = 200;
 
-        public Vector3 Position { get; set; } = new Vector3(0, 0, 0);
-
         List<Tuple<string, Color>> list = new List<Tuple<string, Color>>();
 
         public int TextDepth { get; set; } = 50;

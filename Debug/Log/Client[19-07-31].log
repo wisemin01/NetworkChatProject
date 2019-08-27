@@ -1,6 +1,0 @@
-[LOG]<Thread:1>[02:45:13] : ====================================================
-[LOG]<Thread:1>[02:45:13] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
-[LOG]<Thread:1>[02:45:13] : ====================================================
-[LOG]<Thread:1>[02:45:13] : Connecting to server...
-[LOG]<Thread:1>[02:45:13] : This client runs on a Windows Form
-[LOG]<Thread:3>[02:45:14] : Connect Failed

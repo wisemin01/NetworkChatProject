@@ -16,3 +16,4 @@ D:\Programing project\[ 회사 과제 ]\NetworkChatProject\ChattingNetwork\obj\D
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\ChattingNetwork\obj\Debug\ChattingNetwork.csproj.CopyComplete
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\ChattingNetwork\obj\Debug\ChattingNetwork.dll
 D:\Programing project\[ 회사 과제 ]\NetworkChatProject\ChattingNetwork\obj\Debug\ChattingNetwork.pdb
+D:\Programing project\[ 회사 과제 ]\NetworkChatProject\ChattingNetwork\bin\Debug\BouncyCastle.Crypto.dll

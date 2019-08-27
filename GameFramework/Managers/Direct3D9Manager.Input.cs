@@ -37,9 +37,13 @@ namespace GameFramework.Manager
             ClickChecker clickChecker = new ClickChecker();
 
             if (!GameObjectManager.Instance.IsMessageBoxPopup)
+            {
                 OnMouseClickEvent?.Invoke(sender, clickChecker);
+            }
             else
+            {
                 OnMouseClickToMessageBoxEvent?.Invoke(sender, clickChecker);
+            }
         }
 
         public void KeyUpdate()

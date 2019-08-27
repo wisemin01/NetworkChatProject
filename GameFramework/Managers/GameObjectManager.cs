@@ -76,7 +76,9 @@ namespace GameFramework.Manager
                 }
                 else
                 {
-                    Iter.Value.FrameUpdate();
+                    if (Iter.Value.IsActive == true)
+                        Iter.Value.FrameUpdate();
+
                     Iter = Iter.Next;
                 }
             }
@@ -88,12 +90,14 @@ namespace GameFramework.Manager
             {
                 foreach (GameObject gameObject in gameObjectList)
                 {
-                    gameObject.FrameRender();
+                    if (gameObject.IsActive)
+                        gameObject.FrameRender();
                 }
 
                 foreach (GameObject messageBox in messageBoxStack)
                 {
-                    messageBox.FrameRender();
+                    if (messageBox.IsActive)
+                        messageBox.FrameRender();
                 }
             }
             catch (Exception)

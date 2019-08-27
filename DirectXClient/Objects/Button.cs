@@ -11,14 +11,14 @@ namespace DirectXClient
         public event EventHandler OnButtonClick;
 
         public GameTexture ButtonTexture { get; set; } = null;
-        public Vector3 Position { get; set; } = default;
-        public Vector3 Scale { get; set; } = default;
         public RectCollider rectCollider { get; set; } = null;
         public bool IsMouseOverResize { get; set; } = true;
         public bool IsAllowDuplicateClick { get; set; } = false;
 
         private readonly Vector3 MouseOverSize = new Vector3(1.05f, 1.05f, 1.05f);
         private readonly Vector3 MouseNoneOverSize = new Vector3(1.0f, 1.0f, 1.0f);
+
+        public bool UseParentMatrix { get; set; } = false;
 
         public Button()
         {
@@ -42,7 +42,7 @@ namespace DirectXClient
         {
             try
             {
-                bool isMouseInside = rectCollider.IsMouseOver(Position, ButtonTexture);
+                bool isMouseInside = rectCollider.IsMouseOver(Vector3.TransformCoordinate(-ButtonTexture.Center, GetWorldMatrix()));
 
                 if (IsMouseOverResize)
                 {
@@ -60,7 +60,7 @@ namespace DirectXClient
 
         public override void FrameRender()
         {
-            D3D9Manager.Instance.DrawTexture(ButtonTexture, Position, Scale, 0);
+            D3D9Manager.Instance.DrawTexture(ButtonTexture, GetWorldMatrix());
         }
 
         public override void Release()
@@ -76,17 +76,31 @@ namespace DirectXClient
 
         public void OnClick(object sender, ClickChecker checker)
         {
+            if (IsActive == false)
+                return;
+
             if (checker.IsEndCheck == true)
             {
                 if (IsAllowDuplicateClick == false)
                     return;
             }
 
-            if (rectCollider.IsMouseOver(Position, ButtonTexture))
+            bool isMouseInside = 
+                rectCollider.IsMouseOver(Vector3.TransformCoordinate(-ButtonTexture.Center, GetWorldMatrix()));
+
+            if (isMouseInside)
             {
                 checker.IsEndCheck = true;
                 OnButtonClick?.Invoke(this, EventArgs.Empty);
             }
+        }
+
+        public override Matrix GetWorldMatrix()
+        {
+            if (UseParentMatrix == true)
+                return base.GetWorldMatrix();
+            else
+                return Matrix.Scaling(Scale) * Matrix.Translation(Position);
         }
     }
 }

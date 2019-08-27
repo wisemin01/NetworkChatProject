@@ -10,8 +10,28 @@ namespace GameFramework.Manager
     using D3D9 = SharpDX.Direct3D9;
     public partial class D3D9Manager
     {
+        [Flags]
+        public enum TransformState
+        {
+            World,
+            Sprite
+        }
+
         private readonly Dictionary<string, D3D9.Font> fonts = new Dictionary<string, D3D9.Font>();
         private readonly Dictionary<string, GameTexture> textures = new Dictionary<string, GameTexture>();
+
+        public void SetTransform(TransformState types, Matrix mat)
+        {
+            switch (types)
+            {
+                case TransformState.World:
+                    D3D9Device.SetTransform(D3D9.TransformState.World, mat);
+                    break;
+                case TransformState.Sprite:
+                    d3d9Sprite.Transform = mat;
+                    break;
+            }
+        }
 
         public void CreateFont(string key, string faceName, int size, bool isItalic)
         {
@@ -108,6 +128,38 @@ namespace GameFramework.Manager
             }
         }
 
+        public void DrawTexture(GameTexture texture,
+            Matrix mat)
+        {
+            if (texture != null && texture.Texture != null)
+            {
+                Vector3 center = new Vector3(texture.HalfWidth, texture.HalfHeight, 0);
+
+                d3d9Sprite.Transform = mat;
+                d3d9Sprite.Draw(
+                    textureRef: texture.Texture,
+                    centerRef: center,
+                    color: new Color(255, 255, 255, 255)
+                    );
+            }
+        }
+
+        public void DrawTexture(GameTexture texture,
+            Matrix mat, Color color)
+        {
+            if (texture != null && texture.Texture != null)
+            {
+                Vector3 center = new Vector3(texture.HalfWidth, texture.HalfHeight, 0);
+
+                d3d9Sprite.Transform = mat;
+                d3d9Sprite.Draw(
+                    textureRef: texture.Texture,
+                    centerRef: center,
+                    color: color
+                    );
+            }
+        }
+
         public void DrawTextureWithCenter(GameTexture texture,
             Vector3 position, Vector3 scale, Vector3 center, float rot = 0.0f)
         {
@@ -123,25 +175,6 @@ namespace GameFramework.Manager
                     );
             }
         }
-
-        public void DrawTextureWithColor(GameTexture texture,
-        Vector3 position, Vector3 scale, Color color, float rot = 0.0f)
-        {
-            if (texture != null && texture.Texture != null)
-            {
-                Matrix mat = Matrix.Scaling(scale) * Matrix.RotationZ(rot) * Matrix.Translation(position);
-
-                Vector3 center = new Vector3(texture.HalfWidth, texture.HalfHeight, 0);
-
-                d3d9Sprite.Transform = mat;
-                d3d9Sprite.Draw(
-                    textureRef: texture.Texture,
-                    centerRef: center,
-                    color: color
-                    );
-            }
-        }
-
 
         public void FontDispose()
         {
