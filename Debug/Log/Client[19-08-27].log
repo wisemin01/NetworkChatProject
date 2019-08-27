@@ -1130,3 +1130,9 @@
 [LOG]<Thread:1>[03:36:49] : Connecting to server...
 [LOG]<Thread:1>[03:36:49] : This client runs on a Direct X client.
 [LOG]<Thread:3>[03:36:50] : Connect Failed
+[LOG]<Thread:1>[03:44:47] : ====================================================
+[LOG]<Thread:1>[03:44:47] :  * Client Start [IP : 127.0.0.1] [PORT : 9199] * 
+[LOG]<Thread:1>[03:44:47] : ====================================================
+[LOG]<Thread:1>[03:44:47] : Connecting to server...
+[LOG]<Thread:1>[03:44:47] : This client runs on a Direct X client.
+[LOG]<Thread:3>[03:44:48] : Connect Failed

@@ -4,4 +4,8 @@
 
 M-Network : https://github.com/wisemin01/M-NetworkEngine
 
-dll 만 이용해서 exe는 실행 가능합니다.
+M-Network 프로젝트가 없어도 dll을 이용해서 exe 실행 가능합니다.
+
+실행파일 : 
+Debug/Client.exe
+Debug/Server.exe
